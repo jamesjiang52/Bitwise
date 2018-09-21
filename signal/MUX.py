@@ -1,25 +1,28 @@
 """
 This module defines classes that simulate multiplexers. A multiplexer receives
 multiple inputs and selects one of them to be the output. This selection is
-done by one or more "select" inputs.
+done by one or more "select" inputs. The multiplexers in this module have an
+additional enable input; if this input is 0, all the output values are 0,
+regardless of the other inputs.
 
 The following classes are defined:
-    MultiplexerTwoInput
-    MultiplexerFourInput
-    MultiplexerEightInput
-    MultiplexerSixteenInput
+    MUX2To1
+    MUX4To1
+    MUX8To1
+    MUX16To1
 """
 import sys
 sys.path.append("../")
 import gate
 
 
-class MultiplexerTwoInput:
+class MUX2To1:
     """
-    This multiplexer has three inputs (one of which is a select input) and a
-    single output:
+    This multiplexer has four inputs (one of which is an enable input and one
+    of which is a select input) and a single output:
                      ________
-         select ----|        |---- output
+         enable ----|        |---- output
+         select ----|        |
         input_1 ----|        |
         input_2 ----|________|
 
@@ -27,40 +30,45 @@ class MultiplexerTwoInput:
     (1) select.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 3
+        assert len(_inputs) == 4
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 3
+        assert len(_inputs) == 4
         self._inputs = _inputs
 
     def get_output(self):
         (
-            _select,
-            _input_1,
-            _input_2
+            enable,
+            select,
+            input_1,
+            input_2
         ) = self._inputs
 
-        NOT_1 = gate.NOT.NOT(_select)
+        NOT_1 = gate.NOT.NOT(select)
         NOT_1_output = NOT_1.get_output()
 
-        AND_1 = gate.AND.AND(NOT_1_output, _input_1)
+        AND_1 = gate.AND.AND(NOT_1_output, input_1)
         AND_1_output = AND_1.get_output()
-        AND_2 = gate.AND.AND(_select, _input_2)
+        AND_2 = gate.AND.AND(select, input_2)
         AND_2_output = AND_2.get_output()
 
         OR_1 = gate.OR.OR(AND_1_output, AND_2_output)
         OR_1_output = OR_1.get_output()
 
-        return OR_1_output
+        AND_3 = gate.AND.AND(enable, OR_1_output)
+        AND_3_output = AND_3.get_output()
+
+        return AND_3_output
 
 
-class MultiplexerFourInput:
+class MUX4To1:
     """
-    This multiplexer has six inputs (two of which are select inputs) and a
-    single output:
+    This multiplexer has seven inputs (one of which is an enable input and two
+    of which are select inputs) and a single output:
                       ________
-        select_1 ----|        |---- output
+          enable ----|        |---- output
+        select_1 ----|        |
         select_2 ----|        |
          input_1 ----|        |
          input_2 ----|        |
@@ -72,15 +80,16 @@ class MultiplexerFourInput:
     for a (1, 1) select.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 6
+        assert len(_inputs) == 7
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 6
+        assert len(_inputs) == 7
         self._inputs = _inputs
 
     def get_output(self):
         (
+            enable,
             select_1,
             select_2,
             input_1,
@@ -89,26 +98,23 @@ class MultiplexerFourInput:
             input_4
         ) = self._inputs
 
-        multiplexer_1 = MultiplexerTwoInput(select_2, input_1, input_2)
-        multiplexer_1_output = multiplexer_1.get_output()
-        multiplexer_2 = MultiplexerTwoInput(select_2, input_3, input_4)
-        multiplexer_2_output = multiplexer_2.get_output()
-        multiplexer_3 = MultiplexerTwoInput(
-            select_1,
-            multiplexer_1_output,
-            multiplexer_2_output
-        )
-        multiplexer_3_output = multiplexer_3.get_output()
+        mux_1 = MUX2To1(enable, select_2, input_1, input_2)
+        mux_1_output = mux_1.get_output()
+        mux_2 = MUX2To1(enable, select_2, input_3, input_4)
+        mux_2_output = mux_2.get_output()
+        mux_3 = MUX2To1(enable, select_1, mux_1_output, mux_2_output)
+        mux_3_output = mux_3.get_output()
 
-        return multiplexer_3_output
+        return mux_3_output
 
 
-class MultiplexerEightInput:
+class MUX8To1:
     """
-    This multiplexer has eleven inputs (three of which are select inputs) and a
-    single output:
+    This multiplexer has twelve inputs (one of which is an enable input and
+    three of which are select inputs) and a single output:
                       ________
-        select_1 ----|        |---- output
+          enable ----|        |---- output
+        select_1 ----|        |
         select_2 ----|        |
         select_3 ----|        |
          input_1 ----|        |
@@ -125,15 +131,16 @@ class MultiplexerEightInput:
     for a (1, 1, 1) select.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 11
+        assert len(_inputs) == 12
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 11
+        assert len(_inputs) == 12
         self._inputs = _inputs
 
     def get_output(self):
         (
+            enable,
             select_1,
             select_2,
             select_3,
@@ -147,7 +154,8 @@ class MultiplexerEightInput:
             input_8
         ) = self._inputs
 
-        multiplexer_1 = MultiplexerFourInput(
+        mux_1 = MUX4To1(
+            enable,
             select_2,
             select_3,
             input_1,
@@ -155,8 +163,9 @@ class MultiplexerEightInput:
             input_3,
             input_4
         )
-        multiplexer_1_output = multiplexer_1.get_output()
-        multiplexer_2 = MultiplexerFourInput(
+        mux_1_output = mux_1.get_output()
+        mux_2 = MUX4To1(
+            enable,
             select_2,
             select_3,
             input_5,
@@ -164,23 +173,20 @@ class MultiplexerEightInput:
             input_7,
             input_8
         )
-        multiplexer_2_output = multiplexer_2.get_output()
-        multiplexer_3 = MultiplexerTwoInput(
-            select_1,
-            multiplexer_1_output,
-            multiplexer_2_output
-        )
-        multiplexer_3_output = multiplexer_3.get_output()
+        mux_2_output = mux_2.get_output()
+        mux_3 = MUX2To1(enable, select_1, mux_1_output, mux_2_output)
+        mux_3_output = mux_3.get_output()
 
-        return multiplexer_3_output
+        return mux_3_output
 
 
-class MultiplexerSixteenInput:
+class MUX16To1:
     """
-    This multiplexer has six inputs (two of which are select inputs) and a
-    single output:
+    This multiplexer has twenty-one inputs (one of which is an enable input and
+    four of which are select inputs) and a single output:
                       ________
-        select_1 ----|        |---- output
+          enable ----|        |---- output
+        select_1 ----|        |
         select_2 ----|        |
         select_3 ----|        |
         select_4 ----|        |
@@ -206,15 +212,16 @@ class MultiplexerSixteenInput:
     input_16 for a (0, 0, 0, 0) select.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 6
+        assert len(_inputs) == 21
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 6
+        assert len(_inputs) == 21
         self._inputs = _inputs
 
     def get_output(self):
         (
+            enable,
             select_1,
             select_2,
             select_3,
@@ -237,7 +244,8 @@ class MultiplexerSixteenInput:
             input_16
         ) = self._inputs
 
-        multiplexer_1 = MultiplexerFourInput(
+        mux_1 = MUX4To1(
+            enable,
             select_3,
             select_4,
             input_1,
@@ -245,8 +253,9 @@ class MultiplexerSixteenInput:
             input_3,
             input_4
         )
-        multiplexer_1_output = multiplexer_1.get_output()
-        multiplexer_2 = MultiplexerFourInput(
+        mux_1_output = mux_1.get_output()
+        mux_2 = MUX4To1(
+            enable,
             select_3,
             select_4,
             input_5,
@@ -254,8 +263,9 @@ class MultiplexerSixteenInput:
             input_7,
             input_8
         )
-        multiplexer_2_output = multiplexer_2.get_output()
-        multiplexer_3 = MultiplexerFourInput(
+        mux_2_output = mux_2.get_output()
+        mux_3 = MUX4To1(
+            enable,
             select_3,
             select_4,
             input_9,
@@ -263,8 +273,9 @@ class MultiplexerSixteenInput:
             input_11,
             input_12
         )
-        multiplexer_3_output = multiplexer_3.get_output()
-        multiplexer_4 = MultiplexerFourInput(
+        mux_3_output = mux_3.get_output()
+        mux_4 = MUX4To1(
+            enable,
             select_3,
             select_4,
             input_13,
@@ -272,15 +283,16 @@ class MultiplexerSixteenInput:
             input_15,
             input_16
         )
-        multiplexer_4_output = multiplexer_4.get_output()
-        multiplexer_5 = MultiplexerFourInput(
+        mux_4_output = mux_4.get_output()
+        mux_5 = MUX4To1(
+            enable,
             select_1,
             select_2,
-            multiplexer_1_output,
-            multiplexer_2_output,
-            multiplexer_3_output,
-            multiplexer_4_output
+            mux_1_output,
+            mux_2_output,
+            mux_3_output,
+            mux_4_output
         )
-        multiplexer_5_output = multiplexer_5.get_output()
+        mux_5_output = mux_5.get_output()
 
-        return multiplexer_5_output
+        return mux_5_output
