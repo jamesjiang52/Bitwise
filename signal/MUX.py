@@ -77,7 +77,8 @@ class MUX4To1:
 
     The selects have select_1 and select_2 as the MSB and LSB, respectively.
     The output takes on the value of input_1 for a (0, 0) select and input_4
-    for a (1, 1) select.
+    for a (1, 1) select. If the enable is 0, the output is 0, regardless of
+    input.
     """
     def __init__(self, *_inputs):
         assert len(_inputs) == 7
@@ -128,7 +129,8 @@ class MUX8To1:
 
     The selects have select_1 and select_3 as the MSB and LSB, respectively.
     The output takes on the value of input_1 for a (0, 0, 0) select and input_8
-    for a (1, 1, 1) select.
+    for a (1, 1, 1) select. If the enable is 0, the output is 0, regardless of
+    input.
     """
     def __init__(self, *_inputs):
         assert len(_inputs) == 12
@@ -209,7 +211,8 @@ class MUX16To1:
 
     The selects have select_1 and select_4 as the MSB and LSB, respectively.
     The output takes on the value of input_1 for a (0, 0, 0, 0) select and
-    input_16 for a (0, 0, 0, 0) select.
+    input_16 for a (0, 0, 0, 0) select. If the enable is 0, the output is 0,
+    regardless of input.
     """
     def __init__(self, *_inputs):
         assert len(_inputs) == 21
