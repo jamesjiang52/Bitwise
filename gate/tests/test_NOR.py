@@ -24,7 +24,7 @@ class TestNOR:
         nor = NOR(0, 0, 0)
         assert nor.get_output() == 1
 
-    def test_norNOR_001(self):
+    def test_NOR_001(self):
         nor = NOR(0, 0, 1)
         assert nor.get_output() == 0
 
@@ -40,7 +40,7 @@ class TestNOR:
         nor = NOR(1, 0, 0)
         assert nor.get_output() == 0
 
-    def test_norNOR_101(self):
+    def test_NOR_101(self):
         nor = NOR(1, 0, 1)
         assert nor.get_output() == 0
 

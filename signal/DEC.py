@@ -17,8 +17,8 @@ import gate
 
 class DEC1Of4:
     """
-    This decoder has three inputs (one of which is an active-high enable) and
-    four outputs:
+    This decoder has three inputs (one of which is an enable input) and four
+    outputs:
                      ________
          enable ----|        |---- output_1
         input_1 ----|        |---- output_2
@@ -31,11 +31,27 @@ class DEC1Of4:
     all 0, regardless of input.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 3
+        if len(_inputs) != 3:
+            raise TypeError(
+                "Expected 3 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 3
+        if len(_inputs) != 3:
+            raise TypeError(
+                "Expected 3 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
@@ -69,8 +85,8 @@ class DEC1Of4:
 
 class DEC1Of8:
     """
-    This decoder has four inputs (one of which is an active-high enable) and
-    eight outputs:
+    This decoder has four inputs (one of which is an enable input) and eight
+    outputs:
                      ________
          enable ----|        |---- output_1
         input_1 ----|        |---- output_2
@@ -87,11 +103,27 @@ class DEC1Of8:
     all 0, regardless of input.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 4
+        if len(_inputs) != 4:
+            raise TypeError(
+                "Expected 4 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 4
+        if len(_inputs) != 4:
+            raise TypeError(
+                "Expected 4 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
@@ -132,8 +164,8 @@ class DEC1Of8:
 
 class DEC1Of16:
     """
-    This decoder has five inputs (one of which is an active-high enable) and
-    sixteen outputs:
+    This decoder has five inputs (one of which is an enable input) and sixteen
+    outputs:
                      ________
          enable ----|        |---- output_1
         input_1 ----|        |---- output_2
@@ -158,11 +190,27 @@ class DEC1Of16:
     outputs are all 0, regardless of input.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 5
+        if len(_inputs) != 5:
+            raise TypeError(
+                "Expected 5 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 5
+        if len(_inputs) != 5:
+            raise TypeError(
+                "Expected 5 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):

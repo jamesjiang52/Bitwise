@@ -32,7 +32,7 @@ class TestNAND:
         nand = NAND(0, 1, 0)
         assert nand.get_output() == 1
 
-    def test_nandNAND_011(self):
+    def test_NAND_011(self):
         nand = NAND(0, 1, 1)
         assert nand.get_output() == 1
 

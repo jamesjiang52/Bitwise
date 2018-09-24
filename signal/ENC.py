@@ -37,11 +37,27 @@ class ENC4To2:
     0, regardless of input.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 5
+        if len(_inputs) != 5:
+            raise TypeError(
+                "Expected 5 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 5
+        if len(_inputs) != 5:
+            raise TypeError(
+                "Expected 5 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
@@ -101,11 +117,27 @@ class ENC8To3:
     all 0, regardless of input.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 9
+        if len(_inputs) != 9:
+            raise TypeError(
+                "Expected 9 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 9
+        if len(_inputs) != 9:
+            raise TypeError(
+                "Expected 9 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
@@ -129,15 +161,15 @@ class ENC8To3:
         mux_1 = MUX.MUX2To1(
             enable,
             enc_1_output[0],
-            enc_2_output[1],
-            enc_1_output[1]
+            enc_1_output[1],
+            enc_2_output[1]
         )
         mux_1_output = mux_1.get_output()
         mux_2 = MUX.MUX2To1(
             enable,
             enc_1_output[0],
-            enc_2_output[2],
-            enc_1_output[2]
+            enc_1_output[2],
+            enc_2_output[2]
         )
         mux_2_output = mux_2.get_output()
 
@@ -181,11 +213,27 @@ class ENC16To4:
     outputs are all 0, regardless of input.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 17
+        if len(_inputs) != 17:
+            raise TypeError(
+                "Expected 17 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 17
+        if len(_inputs) != 17:
+            raise TypeError(
+                "Expected 17 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
@@ -237,22 +285,22 @@ class ENC16To4:
         mux_1 = MUX.MUX2To1(
             enable,
             enc_1_output[0],
-            enc_2_output[1],
-            enc_1_output[1]
+            enc_1_output[1],
+            enc_2_output[1]
         )
         mux_1_output = mux_1.get_output()
         mux_2 = MUX.MUX2To1(
             enable,
             enc_1_output[0],
-            enc_2_output[2],
-            enc_1_output[2]
+            enc_1_output[2],
+            enc_2_output[2]
         )
         mux_2_output = mux_2.get_output()
         mux_3 = MUX.MUX2To1(
             enable,
             enc_1_output[0],
-            enc_2_output[3],
-            enc_1_output[3]
+            enc_1_output[3],
+            enc_2_output[3]
         )
         mux_3_output = mux_3.get_output()
 

@@ -16,13 +16,13 @@ class TestMUX4To1:
         mux = MUX4To1(1, 0, 0, 0, 0, 0, 0)
         assert mux.get_output() == 0
 
-    def test_MUX_4to1_1000111(self):
-        mux = MUX4To1(1, 0, 0, 0, 1, 1, 1)
-        assert mux.get_output() == 0
-
-    def test_MUX_4to1_1001000(self):
-        mux = MUX4To1(1, 0, 0, 1, 0, 0, 0)
+    def test_MUX_4to1_1000001(self):
+        mux = MUX4To1(1, 0, 0, 0, 0, 0, 1)
         assert mux.get_output() == 1
+
+    def test_MUX_4to1_1001110(self):
+        mux = MUX4To1(1, 0, 0, 1, 1, 1, 0)
+        assert mux.get_output() == 0
 
     def test_MUX_4to1_1001111(self):
         mux = MUX4To1(1, 0, 0, 1, 1, 1, 1)
@@ -32,29 +32,29 @@ class TestMUX4To1:
         mux = MUX4To1(1, 0, 1, 0, 0, 0, 0)
         assert mux.get_output() == 0
 
-    def test_MUX_4to1_1011011(self):
-        mux = MUX4To1(1, 0, 1, 1, 0, 1, 1)
-        assert mux.get_output() == 0
-
-    def test_MUX_4to1_1010100(self):
-        mux = MUX4To1(1, 0, 1, 0, 1, 0, 0)
+    def test_MUX_4to1_1010010(self):
+        mux = MUX4To1(1, 0, 1, 0, 0, 1, 0)
         assert mux.get_output() == 1
+
+    def test_MUX_4to1_1011101(self):
+        mux = MUX4To1(1, 0, 1, 1, 1, 0, 1)
+        assert mux.get_output() == 0
 
     def test_MUX_4to1_1011111(self):
         mux = MUX4To1(1, 0, 1, 1, 1, 1, 1)
         assert mux.get_output() == 1
 
-    def test_MUX_4to1_110000(self):
+    def test_MUX_4to1_1100000(self):
         mux = MUX4To1(1, 1, 0, 0, 0, 0, 0)
         assert mux.get_output() == 0
 
-    def test_MUX_4to1_1101101(self):
-        mux = MUX4To1(1, 1, 0, 1, 1, 0, 1)
-        assert mux.get_output() == 0
-
-    def test_MUX_4to1_1100010(self):
-        mux = MUX4To1(1, 1, 0, 0, 0, 1, 0)
+    def test_MUX_4to1_1100100(self):
+        mux = MUX4To1(1, 1, 0, 0, 1, 0, 0)
         assert mux.get_output() == 1
+
+    def test_MUX_4to1_1101011(self):
+        mux = MUX4To1(1, 1, 0, 1, 0, 1, 1)
+        assert mux.get_output() == 0
 
     def test_MUX_4to1_1101111(self):
         mux = MUX4To1(1, 1, 0, 1, 1, 1, 1)
@@ -64,13 +64,13 @@ class TestMUX4To1:
         mux = MUX4To1(1, 1, 1, 0, 0, 0, 0)
         assert mux.get_output() == 0
 
-    def test_MUX_4to1_1111110(self):
-        mux = MUX4To1(1, 1, 1, 1, 1, 1, 0)
-        assert mux.get_output() == 0
-
-    def test_MUX_4to1_1110001(self):
-        mux = MUX4To1(1, 1, 1, 0, 0, 0, 1)
+    def test_MUX_4to1_1111000(self):
+        mux = MUX4To1(1, 1, 1, 1, 0, 0, 0)
         assert mux.get_output() == 1
+
+    def test_MUX_4to1_1110111(self):
+        mux = MUX4To1(1, 1, 1, 0, 1, 1, 1)
+        assert mux.get_output() == 0
 
     def test_MUX_4to1_1111111(self):
         mux = MUX4To1(1, 1, 1, 1, 1, 1, 1)

@@ -1,7 +1,7 @@
 """
 This module defines classes that simulate multiplexers. A multiplexer receives
 multiple inputs and selects one of them to be the output. This selection is
-done by one or more "select" inputs. The multiplexers in this module have an
+done by one or more select inputs. The multiplexers in this module have an
 additional enable input; if this input is 0, all the output values are 0,
 regardless of the other inputs.
 
@@ -26,15 +26,31 @@ class MUX2To1:
         input_1 ----|        |
         input_2 ----|________|
 
-    The output takes on the value of input_1 for a (0) select and input_2 for a
-    (1) select.
+    The output takes on the value of input_2 for a (0) select and input_1 for a
+    (1) select. If the enable is 0, the outputs are all 0, regardless of input.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 4
+        if len(_inputs) != 4:
+            raise TypeError(
+                "Expected 4 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 4
+        if len(_inputs) != 4:
+            raise TypeError(
+                "Expected 4 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
@@ -48,9 +64,9 @@ class MUX2To1:
         NOT_1 = gate.NOT.NOT(select)
         NOT_1_output = NOT_1.get_output()
 
-        AND_1 = gate.AND.AND(NOT_1_output, input_1)
+        AND_1 = gate.AND.AND(select, input_1)
         AND_1_output = AND_1.get_output()
-        AND_2 = gate.AND.AND(select, input_2)
+        AND_2 = gate.AND.AND(NOT_1_output, input_2)
         AND_2_output = AND_2.get_output()
 
         OR_1 = gate.OR.OR(AND_1_output, AND_2_output)
@@ -76,16 +92,32 @@ class MUX4To1:
          input_4 ----|________|
 
     The selects have select_1 and select_2 as the MSB and LSB, respectively.
-    The output takes on the value of input_1 for a (0, 0) select and input_4
+    The output takes on the value of input_4 for a (0, 0) select and input_1
     for a (1, 1) select. If the enable is 0, the output is 0, regardless of
     input.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 7
+        if len(_inputs) != 7:
+            raise TypeError(
+                "Expected 7 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 7
+        if len(_inputs) != 7:
+            raise TypeError(
+                "Expected 7 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
@@ -128,16 +160,32 @@ class MUX8To1:
          input_8 ----|________|
 
     The selects have select_1 and select_3 as the MSB and LSB, respectively.
-    The output takes on the value of input_1 for a (0, 0, 0) select and input_8
+    The output takes on the value of input_8 for a (0, 0, 0) select and input_1
     for a (1, 1, 1) select. If the enable is 0, the output is 0, regardless of
     input.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 12
+        if len(_inputs) != 12:
+            raise TypeError(
+                "Expected 12 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 12
+        if len(_inputs) != 12:
+            raise TypeError(
+                "Expected 12 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
@@ -210,16 +258,32 @@ class MUX16To1:
         input_16 ----|________|
 
     The selects have select_1 and select_4 as the MSB and LSB, respectively.
-    The output takes on the value of input_1 for a (0, 0, 0, 0) select and
-    input_16 for a (0, 0, 0, 0) select. If the enable is 0, the output is 0,
+    The output takes on the value of input_16 for a (0, 0, 0, 0) select and
+    input_1 for a (1, 1, 1, 1) select. If the enable is 0, the output is 0,
     regardless of input.
     """
     def __init__(self, *_inputs):
-        assert len(_inputs) == 21
+        if len(_inputs) != 21:
+            raise TypeError(
+                "Expected 21 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        assert len(_inputs) == 21
+        if len(_inputs) != 21:
+            raise TypeError(
+                "Expected 21 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):

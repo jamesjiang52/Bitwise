@@ -6,3 +6,5 @@ sys.path.append("../")
 import DEC
 import ENC
 import MUX
+import DEMUX
+import CONV

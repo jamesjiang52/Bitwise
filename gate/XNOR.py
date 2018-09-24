@@ -17,13 +17,27 @@ class XNOR:
 
     """
     def __init__(self, *_inputs):
-        # allow only two inputs
-        assert len(_inputs) == 2
+        if len(_inputs) != 2:
+            raise TypeError(
+                "Expected 2 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
-        # allow only two inputs
-        assert len(_inputs) == 2
+        if len(_inputs) != 2:
+            raise TypeError(
+                "Expected 2 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
