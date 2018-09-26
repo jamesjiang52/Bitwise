@@ -426,7 +426,7 @@ class CONVHEXToCASSDDual:
 
 
 
-class CONVHEXToCCSSQuad:
+class CONVHEXToCCSSDQuad:
     """
     This converter simply stacks four seven-segment displays with common
     cathodes. It has seventeen inputs and twenty-eight outputs:
@@ -613,11 +613,11 @@ class CONVHEXToCASSDQuad:
 
         ssd_1 = CONVHEXToCASSD(enable, input_1, input_2, input_3, input_4)
         ssd_1_output = ssd_1.get_output()
-        ssd_2 = CONVHEXToCCSSD(enable, input_5, input_6, input_7, input_8)
+        ssd_2 = CONVHEXToCASSD(enable, input_5, input_6, input_7, input_8)
         ssd_2_output = ssd_2.get_output()
         ssd_3 = CONVHEXToCASSD(enable, input_9, input_10, input_11, input_12)
         ssd_3_output = ssd_3.get_output()
-        ssd_4 = CONVHEXToCCSSD(enable, input_13, input_14, input_15, input_16)
+        ssd_4 = CONVHEXToCASSD(enable, input_13, input_14, input_15, input_16)
         ssd_4_output = ssd_4.get_output()
 
         return ssd_1_output + ssd_2_output + ssd_3_output + ssd_4_output
