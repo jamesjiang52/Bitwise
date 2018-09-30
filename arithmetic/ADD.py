@@ -28,9 +28,27 @@ class HalfADD:
     for this purpose.
     """
     def __init__(self, *_inputs):
+        if len(_inputs) != 2:
+            raise TypeError(
+                "Expected 2 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
+        if len(_inputs) != 2:
+            raise TypeError(
+                "Expected 2 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
@@ -64,9 +82,27 @@ class FullADD:
     building blocks for larger adders than half-adders.
     """
     def __init__(self, *_inputs):
+        if len(_inputs) != 3:
+            raise TypeError(
+                "Expected 3 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
+        if len(_inputs) != 3:
+            raise TypeError(
+                "Expected 3 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):
@@ -81,7 +117,7 @@ class FullADD:
         XOR_2 = gate.XOR.XOR(carry_in, XOR_1_output)
         XOR_2_output = XOR_2.get_output()
 
-        AND_1 = gate.AND.AND(input_1, input_1)
+        AND_1 = gate.AND.AND(input_1, input_2)
         AND_1_output = AND_1.get_output()
         AND_2 = gate.AND.AND(XOR_1_output, carry_in)
         AND_2_output = AND_2.get_output()
@@ -112,9 +148,27 @@ class ADD4And4:
     and LSB, respectively.
     """
     def __init__(self, *_inputs):
+        if len(_inputs) != 8:
+            raise TypeError(
+                "Expected 8 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def set_inputs(self, *_inputs):
+        if len(_inputs) != 8:
+            raise TypeError(
+                "Expected 8 inputs, received {0}.".format(len(_inputs)))
+
+        for _input in _inputs:
+            if (_input != 0) and (_input != 1):
+                raise ValueError(
+                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+
         self._inputs = _inputs
 
     def get_output(self):

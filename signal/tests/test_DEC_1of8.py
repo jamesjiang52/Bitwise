@@ -1,5 +1,6 @@
 import sys
-sys.path.append("..")
+sys.path.insert(0, "../../")
+import signal
 from DEC import DEC1Of8
 
 
