@@ -26,3 +26,6 @@ can be used as a framework for creating simple digital logic circuits in softwar
 * Gates (AND, OR, NOT, NAND, NOR, XOR, XNOR)
 * Multiplexers and demultiplexers
 * Encoders and decoders
+* Seven-segment converters
+* Half- and full- adders
+* Misc logic circuits (majority, parity generators, etc.)

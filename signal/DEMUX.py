@@ -12,7 +12,7 @@ The following classes are defined:
     DEMUX1To16
 """
 import sys
-sys.path.append("../")
+sys.path.insert(0, "../")
 import gate
 import DEC
 

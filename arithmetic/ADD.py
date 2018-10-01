@@ -8,7 +8,7 @@ The following classes are defined:
     ADD4And4
 """
 import sys
-sys.path.append("../")
+sys.path.insert(0, "../")
 import gate
 
 

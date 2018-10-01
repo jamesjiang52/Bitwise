@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, "../../")
-import gate_adv
+import logic
 from MAJ import MAJOf4
 
 

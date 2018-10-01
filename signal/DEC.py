@@ -11,7 +11,7 @@ The following classes are defined:
     DEC1Of16
 """
 import sys
-sys.path.append("../")
+sys.path.insert(0, "../")
 import gate
 
 

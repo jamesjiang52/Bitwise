@@ -12,7 +12,7 @@ The following classes are defined:
     MUX16To1
 """
 import sys
-sys.path.append("../")
+sys.path.insert(0, "../")
 import gate
 
 

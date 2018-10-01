@@ -15,7 +15,7 @@ The following classes are defined:
     ENC16To4
 """
 import sys
-sys.path.append("../")
+sys.path.insert(0, "../")
 import gate
 import MUX
 
