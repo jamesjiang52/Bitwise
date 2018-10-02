@@ -1,5 +1,26 @@
 """
+This module defines classes that simulate parity generators and parity
+checkers. These two circuits have essentially the same structure, but perform
+different functions. A parity generator transmits a single output, called a
+parity bit, based on its inputs. A parity checker transmits a single output
+that denotes an error if it has value 1.
 
+All the parity generators in this module are even. If the input carries an even
+number of 1's, the parity bit is 0. If the input carries an odd number of 1's,
+the parity bit is 1. This ensures that the total number of 1's in the input and
+the parity bit is even, which is the premise for a parity checker.
+
+The parity checkers in this module are even. If the input carries an even
+number of 1's, there is no error and the output is 0. If the input carries an
+odd number of 1's, there has been an error in transmission and the output is 1.
+
+The following classes are defined:
+    PAROf4Gen
+    PAROf4Check
+    PAROf8Gen
+    PAROf8Check
+    PAROf16Gen
+    PAROf16Check
 """
 import sys
 sys.path.insert(0, "../")
@@ -8,7 +29,15 @@ import gate
 
 class PAROf4Gen:
     """
+    This parity generator has four inputs and a single output:
+                     ________
+        input_1 ----|        |---- parity_bit
+        input_2 ----|        |
+        input_3 ----|        |
+        input_4 ----|________|
 
+    If the number of 1's in the input is even, parity_bit is 0. If the number
+    of 1's in the input is odd, parity_bit is 1.
     """
     def __init__(self, *_inputs):
         if len(_inputs) != 4:
@@ -54,7 +83,18 @@ class PAROf4Gen:
 
 class PAROf4Check:
     """
+    This parity checker has five inputs (one of which is the parity bit) and a
+    single output, denoting if an error has occurred:
+                        ________
+           input_1 ----|        |---- error
+           input_2 ----|        |
+           input_3 ----|        |
+           input_4 ----|        |
+        parity_bit ----|________|
 
+    If the number of 1's in the input, including parity_bit, is even, no error
+    has occurred and the output is 0. If the number of 1's in the input,
+    including parity_bit, is odd, an error has occurred and the output is 1.
     """
     def __init__(self, *_inputs):
         if len(_inputs) != 5:
@@ -99,7 +139,19 @@ class PAROf4Check:
 
 class PAROf8Gen:
     """
+    This parity generator has eight inputs and a single output:
+                     ________
+        input_1 ----|        |---- parity_bit
+        input_2 ----|        |
+        input_3 ----|        |
+        input_4 ----|        |
+        input_5 ----|        |
+        input_6 ----|        |
+        input_7 ----|        |
+        input_8 ----|________|
 
+    If the number of 1's in the input is even, parity_bit is 0. If the number
+    of 1's in the input is odd, parity_bit is 1.
     """
     def __init__(self, *_inputs):
         if len(_inputs) != 8:
@@ -142,7 +194,22 @@ class PAROf8Gen:
 
 class PAROf8Check:
     """
+    This parity checker has nine inputs (one of which is the parity bit) and a
+    single output, denoting if an error has occurred:
+                        ________
+           input_1 ----|        |---- error
+           input_2 ----|        |
+           input_3 ----|        |
+           input_4 ----|        |
+           input_5 ----|        |
+           input_6 ----|        |
+           input_7 ----|        |
+           input_8 ----|        |
+        parity_bit ----|________|
 
+    If the number of 1's in the input, including parity_bit, is even, no error
+    has occurred and the output is 0. If the number of 1's in the input,
+    including parity_bit, is odd, an error has occurred and the output is 1.
     """
     def __init__(self, *_inputs):
         if len(_inputs) != 9:
@@ -183,7 +250,27 @@ class PAROf8Check:
 
 class PAROf16Gen:
     """
+    This parity generator has sixteen inputs and a single output:
+                      ________
+         input_1 ----|        |---- parity_bit
+         input_2 ----|        |
+         input_3 ----|        |
+         input_4 ----|        |
+         input_5 ----|        |
+         input_6 ----|        |
+         input_7 ----|        |
+         input_8 ----|        |
+         input_9 ----|        |
+        input_10 ----|        |
+        input_11 ----|        |
+        input_12 ----|        |
+        input_13 ----|        |
+        input_14 ----|        |
+        input_15 ----|        |
+        input_16 ----|________|
 
+    If the number of 1's in the input is even, parity_bit is 0. If the number
+    of 1's in the input is odd, parity_bit is 1.
     """
     def __init__(self, *_inputs):
         if len(_inputs) != 16:
@@ -226,7 +313,30 @@ class PAROf16Gen:
 
 class PAROf16Check:
     """
+    This parity checker has seventeen inputs (one of which is the parity bit)
+    and a single output, denoting if an error has occurred:
+                        ________
+           input_1 ----|        |---- error
+           input_2 ----|        |
+           input_3 ----|        |
+           input_4 ----|        |
+           input_5 ----|        |
+           input_6 ----|        |
+           input_7 ----|        |
+           input_8 ----|        |
+           input_9 ----|        |
+          input_10 ----|        |
+          input_11 ----|        |
+          input_12 ----|        |
+          input_13 ----|        |
+          input_14 ----|        |
+          input_15 ----|        |
+          input_16 ----|        |
+        parity_bit ----|________|
 
+    If the number of 1's in the input, including parity_bit, is even, no error
+    has occurred and the output is 0. If the number of 1's in the input,
+    including parity_bit, is odd, an error has occurred and the output is 1.
     """
     def __init__(self, *_inputs):
         if len(_inputs) != 17:
