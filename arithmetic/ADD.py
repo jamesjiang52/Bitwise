@@ -1,6 +1,8 @@
 """
 This modules defines classes that simulate adders, as well as classes that are
-used as building blocks for adders.
+used as building blocks for adders. These adders are designed to work only with
+unsigned integers. For adder/subtractor circuits, refer to the ADD_SUB.py
+module.
 
 The following classes are defined:
     HalfADD
@@ -153,8 +155,8 @@ class LCU4:
          input_8 ----|________|
 
     Inputs input_1 and input_4 correspond to the MSB and LSB, respectively,
-    of the first number, and inputs input_5 and input_8 correspond to the MSB
-    and LSB, respectively, of the second number. The carry-in input is usually
+    of the first addend, and inputs input_5 and input_8 correspond to the MSB
+    and LSB, respectively, of the second addend. The carry-in input is usually
     0 for an adder, but can be 1 if multiple adders are chained together.
 
     The carry_out output denotes whether or not the two 4-bit binary numbers
@@ -272,8 +274,8 @@ class LCU16:
         input_32 ----|________|
 
     Inputs input_1 and input_16 correspond to the MSB and LSB, respectively,
-    of the first number, and inputs input_17 and input_32 correspond to the MSB
-    and LSB, respectively, of the second number. The carry-in input is usually
+    of the first addend, and inputs input_17 and input_32 correspond to the MSB
+    and LSB, respectively, of the second addend. The carry-in input is usually
     0 for an adder, but can be 1 if multiple adders are chained together.
 
     The carry_out output denotes whether or not the two 16-bit binary numbers
@@ -374,9 +376,9 @@ class ADD4:
          input_8 ----|________|
 
     The adder computes the sum of two 4-bit binary numbers. Inputs input_1 and
-    input_4 correspond to the MSB and LSB, respectively, of the first number,
+    input_4 correspond to the MSB and LSB, respectively, of the first addend,
     and inputs input_5 and input_8 correspond to the MSB and LSB, respectively,
-    of the second number. The carry-in input is usually 0 for an adder, but can
+    of the second addend. The carry-in input is usually 0 for an adder, but can
     be 1 if multiple adders are chained together. The outputs have carry_out
     and output_4 as the MSB and LSB, respectively.
     """
@@ -458,9 +460,9 @@ class ADD8:
         input_16 ----|________|
 
     The adder computes the sum of two 8-bit binary numbers. Inputs input_1 and
-    input_8 correspond to the MSB and LSB, respectively, of the first number,
+    input_8 correspond to the MSB and LSB, respectively, of the first addend,
     and inputs input_9 and input_16 correspond to the MSB and LSB,
-    respectively, of the second number. The carry-in input is usually 0 for an
+    respectively, of the second addend. The carry-in input is usually 0 for an
     adder, but can be 1 if multiple adders are chained together. The outputs
     have carry_out and output_8 as the MSB and LSB, respectively.
     """
@@ -529,9 +531,9 @@ class ADD16:
         input_32 ----|________|
 
     The adder computes the sum of two 16-bit binary numbers. Inputs input_1 and
-    input_16 correspond to the MSB and LSB, respectively, of the first number,
+    input_16 correspond to the MSB and LSB, respectively, of the first addend,
     and inputs input_17 and input_32 correspond to the MSB and LSB,
-    respectively, of the second number. The carry-in input is usually 0 for an
+    respectively, of the second addend. The carry-in input is usually 0 for an
     adder, but can be 1 if multiple adders are chained together. The outputs
     have carry_out and output_16 as the MSB and LSB, respectively.
     """
