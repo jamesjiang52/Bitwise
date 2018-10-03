@@ -8,8 +8,7 @@ class NOR:
     1 if and only if all of its inputs are 0. Otherwise, the output is 0. It is
     constructed simply by inverting the output of an OR gate.
 
-    This NOR gate receives an arbitary number of inputs and transmits a single
-    output:
+    This NOR gate has an arbitary number of inputs and a single output:
                      ________
         input_1 ----|        |---- output
         input_2 ----|        |

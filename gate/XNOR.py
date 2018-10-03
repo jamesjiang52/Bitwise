@@ -10,7 +10,7 @@ class XNOR:
     inputs are different. In other words, the output is 0 if one of the inputs
     is 1, but not both. We will only allow two-input XOR gates.
 
-    This XNOR gate receives two inputs and transmits a single input:
+    This XNOR gate has two inputs and a single output:
                      ________
         input_1 ----|        |---- output
         input_2 ----|________|

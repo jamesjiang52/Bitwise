@@ -10,7 +10,7 @@ class XOR:
     both 0 or both 1). In other words, the output is 1 if one of the inputs is
     1, but not both. We will only allow two-input XOR gates.
 
-    This XOR gate receives two inputs and transmits a single input:
+    This XOR gate has two inputs and a single output:
                      ________
         input_1 ----|        |---- output
         input_2 ----|________|
