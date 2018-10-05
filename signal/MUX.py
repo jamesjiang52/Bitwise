@@ -6,17 +6,17 @@ additional enable input; if this input is 0, all the output values are 0,
 regardless of the other inputs.
 
 The following classes are defined:
-    MUX2To1
-    MUX4To1
-    MUX8To1
-    MUX16To1
+    Multiplexer2To1
+    Multiplexer4To1
+    Multiplexer8To1
+    Multiplexer16To1
 """
 import sys
 sys.path.insert(0, "../")
 import gate
 
 
-class MUX2To1:
+class Multiplexer2To1:
     """
     This multiplexer has four inputs (one of which is an enable input and one
     of which is a select input) and a single output:
@@ -78,7 +78,7 @@ class MUX2To1:
         return AND_3_output
 
 
-class MUX4To1:
+class Multiplexer4To1:
     """
     This multiplexer has seven inputs (one of which is an enable input and two
     of which are select inputs) and a single output:
@@ -131,17 +131,17 @@ class MUX4To1:
             input_4
         ) = self._inputs
 
-        mux_1 = MUX2To1(enable, select_2, input_1, input_2)
+        mux_1 = Multiplexer2To1(enable, select_2, input_1, input_2)
         mux_1_output = mux_1.get_output()
-        mux_2 = MUX2To1(enable, select_2, input_3, input_4)
+        mux_2 = Multiplexer2To1(enable, select_2, input_3, input_4)
         mux_2_output = mux_2.get_output()
-        mux_3 = MUX2To1(enable, select_1, mux_1_output, mux_2_output)
+        mux_3 = Multiplexer2To1(enable, select_1, mux_1_output, mux_2_output)
         mux_3_output = mux_3.get_output()
 
         return mux_3_output
 
 
-class MUX8To1:
+class Multiplexer8To1:
     """
     This multiplexer has twelve inputs (one of which is an enable input and
     three of which are select inputs) and a single output:
@@ -204,7 +204,7 @@ class MUX8To1:
             input_8
         ) = self._inputs
 
-        mux_1 = MUX4To1(
+        mux_1 = Multiplexer4To1(
             enable,
             select_2,
             select_3,
@@ -214,7 +214,7 @@ class MUX8To1:
             input_4
         )
         mux_1_output = mux_1.get_output()
-        mux_2 = MUX4To1(
+        mux_2 = Multiplexer4To1(
             enable,
             select_2,
             select_3,
@@ -224,13 +224,13 @@ class MUX8To1:
             input_8
         )
         mux_2_output = mux_2.get_output()
-        mux_3 = MUX2To1(enable, select_1, mux_1_output, mux_2_output)
+        mux_3 = Multiplexer2To1(enable, select_1, mux_1_output, mux_2_output)
         mux_3_output = mux_3.get_output()
 
         return mux_3_output
 
 
-class MUX16To1:
+class Multiplexer16To1:
     """
     This multiplexer has twenty-one inputs (one of which is an enable input and
     four of which are select inputs) and a single output:
@@ -311,7 +311,7 @@ class MUX16To1:
             input_16
         ) = self._inputs
 
-        mux_1 = MUX4To1(
+        mux_1 = Multiplexer4To1(
             enable,
             select_3,
             select_4,
@@ -321,7 +321,7 @@ class MUX16To1:
             input_4
         )
         mux_1_output = mux_1.get_output()
-        mux_2 = MUX4To1(
+        mux_2 = Multiplexer4To1(
             enable,
             select_3,
             select_4,
@@ -331,7 +331,7 @@ class MUX16To1:
             input_8
         )
         mux_2_output = mux_2.get_output()
-        mux_3 = MUX4To1(
+        mux_3 = Multiplexer4To1(
             enable,
             select_3,
             select_4,
@@ -341,7 +341,7 @@ class MUX16To1:
             input_12
         )
         mux_3_output = mux_3.get_output()
-        mux_4 = MUX4To1(
+        mux_4 = Multiplexer4To1(
             enable,
             select_3,
             select_4,
@@ -351,7 +351,7 @@ class MUX16To1:
             input_16
         )
         mux_4_output = mux_4.get_output()
-        mux_5 = MUX4To1(
+        mux_5 = Multiplexer4To1(
             enable,
             select_1,
             select_2,

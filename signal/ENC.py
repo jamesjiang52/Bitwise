@@ -10,9 +10,9 @@ if two inputs are 1 and represent the values 2 and 13, the output will be the
 encoded value of 13).
 
 The following classes are defined:
-    ENC4To2
-    ENC8To3
-    ENC16To4
+    Encoder4To2
+    Encoder8To3
+    Encoder16To4
 """
 import sys
 sys.path.insert(0, "../")
@@ -20,7 +20,7 @@ import gate
 import MUX
 
 
-class ENC4To2:
+class Encoder4To2:
     """
     This priority encoder has five inputs (one of which is an enable input) and
     three outputs (one of which is a valid output):
@@ -96,7 +96,7 @@ class ENC4To2:
         )
 
 
-class ENC8To3:
+class Encoder8To3:
     """
     This priority encoder has nine inputs (one of which is an enable input) and
     four outputs (one of which is a valid output):
@@ -153,19 +153,19 @@ class ENC8To3:
             input_8
         ) = self._inputs
 
-        enc_1 = ENC4To2(enable, input_1, input_2, input_3, input_4)
+        enc_1 = Encoder4To2(enable, input_1, input_2, input_3, input_4)
         enc_1_output = enc_1.get_output()
-        enc_2 = ENC4To2(enable, input_5, input_6, input_7, input_8)
+        enc_2 = Encoder4To2(enable, input_5, input_6, input_7, input_8)
         enc_2_output = enc_2.get_output()
 
-        mux_1 = MUX.MUX2To1(
+        mux_1 = MUX.Multiplexer2To1(
             enable,
             enc_1_output[0],
             enc_1_output[1],
             enc_2_output[1]
         )
         mux_1_output = mux_1.get_output()
-        mux_2 = MUX.MUX2To1(
+        mux_2 = MUX.Multiplexer2To1(
             enable,
             enc_1_output[0],
             enc_1_output[2],
@@ -184,7 +184,7 @@ class ENC8To3:
         )
 
 
-class ENC16To4:
+class Encoder16To4:
     """
     This priority encoder has seventeen inputs (one of which is an enable
     input) and five outputs (one of which is a valid output):
@@ -257,7 +257,7 @@ class ENC16To4:
             input_16
         ) = self._inputs
 
-        enc_1 = ENC8To3(
+        enc_1 = Encoder8To3(
             enable,
             input_1,
             input_2,
@@ -269,7 +269,7 @@ class ENC16To4:
             input_8
         )
         enc_1_output = enc_1.get_output()
-        enc_2 = ENC8To3(
+        enc_2 = Encoder8To3(
             enable,
             input_9,
             input_10,
@@ -282,21 +282,21 @@ class ENC16To4:
         )
         enc_2_output = enc_2.get_output()
 
-        mux_1 = MUX.MUX2To1(
+        mux_1 = MUX.Multiplexer2To1(
             enable,
             enc_1_output[0],
             enc_1_output[1],
             enc_2_output[1]
         )
         mux_1_output = mux_1.get_output()
-        mux_2 = MUX.MUX2To1(
+        mux_2 = MUX.Multiplexer2To1(
             enable,
             enc_1_output[0],
             enc_1_output[2],
             enc_2_output[2]
         )
         mux_2_output = mux_2.get_output()
-        mux_3 = MUX.MUX2To1(
+        mux_3 = MUX.Multiplexer2To1(
             enable,
             enc_1_output[0],
             enc_1_output[3],

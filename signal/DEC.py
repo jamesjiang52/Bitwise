@@ -6,16 +6,16 @@ additional enable input; if this input is 0, all the output values are 0,
 regardless of the other inputs.
 
 The following classes are defined:
-    DEC1Of4
-    DEC1Of8
-    DEC1Of16
+    Decoder1Of4
+    Decoder1Of8
+    Decoder1Of16
 """
 import sys
 sys.path.insert(0, "../")
 import gate
 
 
-class DEC1Of4:
+class Decoder1Of4:
     """
     This decoder has three inputs (one of which is an enable input) and four
     outputs:
@@ -83,7 +83,7 @@ class DEC1Of4:
         )
 
 
-class DEC1Of8:
+class Decoder1Of8:
     """
     This decoder has four inputs (one of which is an enable input) and eight
     outputs:
@@ -142,9 +142,9 @@ class DEC1Of8:
         AND_2 = gate.AND.AND(enable, NOT_1_output)
         AND_2_output = AND_2.get_output()
 
-        dec_1 = DEC1Of4(AND_1_output, input_2, input_3)
+        dec_1 = Decoder1Of4(AND_1_output, input_2, input_3)
         dec_1_output = dec_1.get_output()
-        dec_2 = DEC1Of4(AND_2_output, input_2, input_3)
+        dec_2 = Decoder1Of4(AND_2_output, input_2, input_3)
         dec_2_output = dec_2.get_output()
 
         output_1, output_2, output_3, output_4 = dec_1_output
@@ -162,7 +162,7 @@ class DEC1Of8:
         )
 
 
-class DEC1Of16:
+class Decoder1Of16:
     """
     This decoder has five inputs (one of which is an enable input) and sixteen
     outputs:
@@ -222,7 +222,7 @@ class DEC1Of16:
             input_4
         ) = self._inputs
 
-        dec_1 = DEC1Of4(enable, input_1, input_2)
+        dec_1 = Decoder1Of4(enable, input_1, input_2)
         dec_1_output = dec_1.get_output()
         (
             dec_1_output_1,
@@ -231,13 +231,13 @@ class DEC1Of16:
             dec_1_output_4
         ) = dec_1_output
 
-        dec_2 = DEC1Of4(dec_1_output_1, input_3, input_4)
+        dec_2 = Decoder1Of4(dec_1_output_1, input_3, input_4)
         dec_2_output = dec_2.get_output()
-        dec_3 = DEC1Of4(dec_1_output_2, input_3, input_4)
+        dec_3 = Decoder1Of4(dec_1_output_2, input_3, input_4)
         dec_3_output = dec_3.get_output()
-        dec_4 = DEC1Of4(dec_1_output_3, input_3, input_4)
+        dec_4 = Decoder1Of4(dec_1_output_3, input_3, input_4)
         dec_4_output = dec_4.get_output()
-        dec_5 = DEC1Of4(dec_1_output_4, input_3, input_4)
+        dec_5 = Decoder1Of4(dec_1_output_4, input_3, input_4)
         dec_5_output = dec_5.get_output()
 
         output_1, output_2, output_3, output_4 = dec_2_output

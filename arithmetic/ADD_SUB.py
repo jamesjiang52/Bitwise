@@ -5,9 +5,9 @@ and signed integers, and can perform both addition and subtraction operations.
 This choice is made via an add_subtract select input.
 
 The following classes are defined:
-    ADDSUB4
-    ADDSUB8
-    ADDSUB16
+    Adder4Subtractor3
+    Adder8Subtractor7
+    Adder16Subtractor15
 """
 import sys
 sys.path.insert(0, "../")
@@ -16,7 +16,7 @@ import signal
 import ADD
 
 
-class ADDSUB4:
+class Adder4Subtractor3:
     """
     This adder/subtractor has nine inputs (one of which is an add_subtract
     select) and six outputs (one of which is an overflow indicator):
@@ -79,10 +79,10 @@ class ADDSUB4:
         input_1 = self._inputs[1:5]
         input_2 = self._inputs[5:9]
 
-        inv_1 = signal.INV_CTRL.ControlledINV4(add_sub, *input_2)
+        inv_1 = signal.INV_CTRL.ControlledInverter4(add_sub, *input_2)
         inv_1_output = inv_1.get_output()
 
-        add_1 = ADD.ADD4(add_sub, *input_1, *inv_1_output)
+        add_1 = ADD.Adder4(add_sub, *input_1, *inv_1_output)
         add_1_output = add_1.get_output()
 
         NOT_1 = gate.NOT.NOT(add_1_output[1])
@@ -103,7 +103,7 @@ class ADDSUB4:
         return(OR_1_output, *add_1_output)
 
 
-class ADDSUB8:
+class Adder8Subtractor7:
     """
     This adder/subtractor has seventeen inputs (one of which is an add_subtract
     select) and ten outputs (one of which is an overflow indicator):
@@ -174,10 +174,10 @@ class ADDSUB8:
         input_1 = self._inputs[1:9]
         input_2 = self._inputs[9:17]
 
-        inv_1 = signal.INV_CTRL.ControlledINV8(add_sub, *input_2)
+        inv_1 = signal.INV_CTRL.ControlledInverter8(add_sub, *input_2)
         inv_1_output = inv_1.get_output()
 
-        add_1 = ADD.ADD8(add_sub, *input_1, *inv_1_output)
+        add_1 = ADD.Adder8(add_sub, *input_1, *inv_1_output)
         add_1_output = add_1.get_output()
 
         NOT_1 = gate.NOT.NOT(add_1_output[1])
@@ -198,7 +198,7 @@ class ADDSUB8:
         return(OR_1_output, *add_1_output)
 
 
-class ADDSUB16:
+class Adder16Subtractor15:
     """
     This adder/subtractor has thirty-three inputs (one of which is an
     add_subtract select) and eighteen outputs (one of which is an overflow
@@ -272,10 +272,10 @@ class ADDSUB16:
         input_1 = self._inputs[1:17]
         input_2 = self._inputs[17:33]
 
-        inv_1 = signal.INV_CTRL.ControlledINV16(add_sub, *input_2)
+        inv_1 = signal.INV_CTRL.ControlledInverter16(add_sub, *input_2)
         inv_1_output = inv_1.get_output()
 
-        add_1 = ADD.ADD16(add_sub, *input_1, *inv_1_output)
+        add_1 = ADD.Adder16(add_sub, *input_1, *inv_1_output)
         add_1_output = add_1.get_output()
 
         NOT_1 = gate.NOT.NOT(add_1_output[1])

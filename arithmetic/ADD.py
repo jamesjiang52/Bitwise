@@ -5,20 +5,20 @@ unsigned integers. For adder/subtractor circuits, refer to the ADD_SUB.py
 module.
 
 The following classes are defined:
-    HalfADD
-    FullADD
-    LCU4
-    LCU16
-    ADD4
-    ADD8
-    ADD16
+    HalfAdder
+    FullAdder
+    LookaheadCarryUnit4
+    LookaheadCarryUnit16
+    Adder4
+    Adder8
+    Adder16
 """
 import sys
 sys.path.insert(0, "../")
 import gate
 
 
-class HalfADD:
+class HalfAdder:
     """
     This class simulates a half-adder, which has two inputs and two outputs:
                      ________
@@ -72,7 +72,7 @@ class HalfADD:
         return(AND_1_output, XOR_1_output)
 
 
-class FullADD:
+class FullAdder:
     """
     This class simulates a full-adder, which has three inputs and two outputs:
                       ________
@@ -134,7 +134,7 @@ class FullADD:
         return(OR_1_output, XOR_2_output)
 
 
-class LCU4:
+class LookaheadCarryUnit4:
     """
     This class simulates a lookahead carry unit for a 4-bit adder. Though an
     LCU is not used in the 4-bit adder itself, it is useful for fast operations
@@ -244,7 +244,7 @@ class LCU4:
         return(CG, PG, GG)
 
 
-class LCU16:
+class LookaheadCarryUnit16:
     """
     This class simulates a lookahead carry unit for a 16-bit adder. It is
     useful for fast operations, since it takes the binary numbers being added
@@ -314,13 +314,25 @@ class LCU16:
         input_1 = self._inputs[1:17]
         input_2 = self._inputs[17:33]
 
-        lcu_1 = LCU4(carry_in, *input_1[12:16], *input_2[12:16])
+        lcu_1 = LookaheadCarryUnit4(carry_in, *input_1[12:16], *input_2[12:16])
         lcu_1_output = lcu_1.get_output()
-        lcu_2 = LCU4(lcu_1_output[0], *input_1[8:12], *input_2[8:12])
+        lcu_2 = LookaheadCarryUnit4(
+            lcu_1_output[0],
+            *input_1[8:12],
+            *input_2[8:12]
+        )
         lcu_2_output = lcu_2.get_output()
-        lcu_3 = LCU4(lcu_2_output[0], *input_1[4:8], *input_2[4:8])
+        lcu_3 = LookaheadCarryUnit4(
+            lcu_2_output[0],
+            *input_1[4:8],
+            *input_2[4:8]
+        )
         lcu_3_output = lcu_3.get_output()
-        lcu_4 = LCU4(lcu_3_output[0], *input_1[0:4], *input_2[0:4])
+        lcu_4 = LookaheadCarryUnit4(
+            lcu_3_output[0],
+            *input_1[0:4],
+            *input_2[0:4]
+        )
         lcu_4_output = lcu_4.get_output()
 
         AND_1 = gate.AND.AND(
@@ -361,7 +373,7 @@ class LCU16:
         )
 
 
-class ADD4:
+class Adder4:
     """
     This adder has nine inputs and five outputs:
                       ________
@@ -419,13 +431,13 @@ class ADD4:
             input_8
         ) = self._inputs
 
-        fa_1 = FullADD(carry_in, input_4, input_8)
+        fa_1 = FullAdder(carry_in, input_4, input_8)
         fa_1_output = fa_1.get_output()
-        fa_2 = FullADD(fa_1_output[0], input_3, input_7)
+        fa_2 = FullAdder(fa_1_output[0], input_3, input_7)
         fa_2_output = fa_2.get_output()
-        fa_3 = FullADD(fa_2_output[0], input_2, input_6)
+        fa_3 = FullAdder(fa_2_output[0], input_2, input_6)
         fa_3_output = fa_3.get_output()
-        fa_4 = FullADD(fa_3_output[0], input_1, input_5)
+        fa_4 = FullAdder(fa_3_output[0], input_1, input_5)
         fa_4_output = fa_4.get_output()
 
         return(
@@ -437,7 +449,7 @@ class ADD4:
         )
 
 
-class ADD8:
+class Adder8:
     """
     This adder has seventeen inputs and nine outputs:
                       ________
@@ -495,18 +507,18 @@ class ADD8:
         input_1 = self._inputs[1:9]
         input_2 = self._inputs[9:17]
 
-        lcu_1 = LCU4(carry_in, *input_1[4:8], *input_2[4:8])
+        lcu_1 = LookaheadCarryUnit4(carry_in, *input_1[4:8], *input_2[4:8])
         lcu_1_output = lcu_1.get_output()
 
-        add_1 = ADD4(lcu_1_output[0], *input_1[0:4], *input_2[0:4])
+        add_1 = Adder4(lcu_1_output[0], *input_1[0:4], *input_2[0:4])
         add_1_output = add_1.get_output()
-        add_2 = ADD4(carry_in, *input_1[4:8], *input_2[4:8])
+        add_2 = Adder4(carry_in, *input_1[4:8], *input_2[4:8])
         add_2_output = add_2.get_output()
 
         return(*add_1_output, *add_2_output[1:5])
 
 
-class ADD16:
+class Adder16:
     """
     This adder has thirty-three inputs and seventeen outputs:
                       ________
@@ -566,16 +578,16 @@ class ADD16:
         input_1 = self._inputs[1:17]
         input_2 = self._inputs[17:33]
 
-        lcu_1 = LCU16(carry_in, *input_1, *input_2)
+        lcu_1 = LookaheadCarryUnit16(carry_in, *input_1, *input_2)
         lcu_1_output = lcu_1.get_output()
 
-        add_1 = ADD4(lcu_1_output[2], *input_1[0:4], *input_2[0:4])
+        add_1 = Adder4(lcu_1_output[2], *input_1[0:4], *input_2[0:4])
         add_1_output = add_1.get_output()
-        add_2 = ADD4(lcu_1_output[1], *input_1[4:8], *input_2[4:8])
+        add_2 = Adder4(lcu_1_output[1], *input_1[4:8], *input_2[4:8])
         add_2_output = add_2.get_output()
-        add_3 = ADD4(lcu_1_output[0], *input_1[8:12], *input_2[8:12])
+        add_3 = Adder4(lcu_1_output[0], *input_1[8:12], *input_2[8:12])
         add_3_output = add_3.get_output()
-        add_4 = ADD4(carry_in, *input_1[12:16], *input_2[12:16])
+        add_4 = Adder4(carry_in, *input_1[12:16], *input_2[12:16])
         add_4_output = add_4.get_output()
 
         return(

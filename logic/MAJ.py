@@ -5,14 +5,14 @@ is 0 and the value 1 if the majority of inputs is 1. If there is the same
 number of 0's and 1's in the input, the majority gate outputs the value 0.
 
 The following classes are defined:
-    MAJOf4
+    MajorityOf4
 """
 import sys
 sys.path.insert(0, "../")
 import gate
 
 
-class MAJOf4:
+class MajorityOf4:
     """
     This majority gate has four inputs and a single output:
                      ________

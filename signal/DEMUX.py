@@ -7,9 +7,10 @@ additional enable input; if this input is 0, all the output values are 0,
 regardless of the other inputs.
 
 The following classes are defined:
-    DEMUX1To4
-    DEMUX1To8
-    DEMUX1To16
+    Demultiplexer1To2
+    Demultiplexer1To4
+    Demultiplexer1To8
+    Demultiplexer1To16
 """
 import sys
 sys.path.insert(0, "../")
@@ -17,7 +18,7 @@ import gate
 import DEC
 
 
-class DEMUX1To2:
+class Demultiplexer1To2:
     """
     This demultiplexer has three inputs (one of which is an enable input and
     one of which is a select input) and two outputs:
@@ -74,7 +75,7 @@ class DEMUX1To2:
         )
 
 
-class DEMUX1To4:
+class Demultiplexer1To4:
     """
     This demultiplexer has four inputs (one of which is an enable input and
     two of which are select inputs) and four outputs:
@@ -121,7 +122,7 @@ class DEMUX1To4:
             _input
         ) = self._inputs
 
-        dec_1 = DEC.DEC1Of4(_input, select_1, select_2)
+        dec_1 = DEC.Decoder1Of4(_input, select_1, select_2)
         dec_1_output = dec_1.get_output()
 
         AND_1 = gate.AND.AND(enable, dec_1_output[0])
@@ -141,7 +142,7 @@ class DEMUX1To4:
         )
 
 
-class DEMUX1To8:
+class Demultiplexer1To8:
     """
     This demultiplexer has five inputs (one of which is an enable input and
     three of which are select inputs) and eight outputs:
@@ -193,7 +194,7 @@ class DEMUX1To8:
             _input
         ) = self._inputs
 
-        dec_1 = DEC.DEC1Of8(_input, select_1, select_2, select_3)
+        dec_1 = DEC.Decoder1Of8(_input, select_1, select_2, select_3)
         dec_1_output = dec_1.get_output()
 
         AND_1 = gate.AND.AND(enable, dec_1_output[0])
@@ -225,7 +226,7 @@ class DEMUX1To8:
         )
 
 
-class DEMUX1To16:
+class Demultiplexer1To16:
     """
     This demultiplexer has six inputs (one of which is an enable input and
     four of which are select inputs) and sixteen outputs:
@@ -286,7 +287,7 @@ class DEMUX1To16:
             _input
         ) = self._inputs
 
-        dec_1 = DEC.DEC1Of16(
+        dec_1 = DEC.Decoder1Of16(
             _input,
             select_1,
             select_2,

@@ -15,19 +15,19 @@ number of 1's, there is no error and the output is 0. If the input carries an
 odd number of 1's, there has been an error in transmission and the output is 1.
 
 The following classes are defined:
-    PAROf4Gen
-    PAROf4Check
-    PAROf8Gen
-    PAROf8Check
-    PAROf16Gen
-    PAROf16Check
+    ParityGenerator4
+    ParityChecker4
+    ParityGenerator8
+    ParityChecker8
+    ParityGenerator16
+    ParityChecker16
 """
 import sys
 sys.path.insert(0, "../")
 import gate
 
 
-class PAROf4Gen:
+class ParityGenerator4:
     """
     This parity generator has four inputs and a single output:
                      ________
@@ -81,7 +81,7 @@ class PAROf4Gen:
         return XOR_3_output
 
 
-class PAROf4Check:
+class ParityChecker4:
     """
     This parity checker has five inputs (one of which is the parity bit) and a
     single output, denoting if an error has occurred:
@@ -129,7 +129,7 @@ class PAROf4Check:
             parity_bit
         ) = self._inputs
 
-        par_gen_1 = PAROf4Gen(input_1, input_2, input_3, input_4)
+        par_gen_1 = ParityGenerator4(input_1, input_2, input_3, input_4)
         par_gen_1_output = par_gen_1.get_output()
         XOR_1 = gate.XOR.XOR(par_gen_1_output, parity_bit)
         XOR_1_output = XOR_1.get_output()
@@ -137,7 +137,7 @@ class PAROf4Check:
         return XOR_1_output
 
 
-class PAROf8Gen:
+class ParityGenerator8:
     """
     This parity generator has eight inputs and a single output:
                      ________
@@ -181,9 +181,9 @@ class PAROf8Gen:
         input_1 = self._inputs[0:4]
         input_2 = self._inputs[4:8]
 
-        par_gen_1 = PAROf4Gen(*input_1)
+        par_gen_1 = ParityGenerator4(*input_1)
         par_gen_1_output = par_gen_1.get_output()
-        par_gen_2 = PAROf4Gen(*input_2)
+        par_gen_2 = ParityGenerator4(*input_2)
         par_gen_2_output = par_gen_2.get_output()
 
         XOR_1 = gate.XOR.XOR(par_gen_1_output, par_gen_2_output)
@@ -192,7 +192,7 @@ class PAROf8Gen:
         return XOR_1_output
 
 
-class PAROf8Check:
+class ParityChecker8:
     """
     This parity checker has nine inputs (one of which is the parity bit) and a
     single output, denoting if an error has occurred:
@@ -240,7 +240,7 @@ class PAROf8Check:
         input_2 = self._inputs[4:8]
         parity_bit = self._inputs[8]
 
-        par_gen_1 = PAROf8Gen(*input_1, *input_2)
+        par_gen_1 = ParityGenerator8(*input_1, *input_2)
         par_gen_1_output = par_gen_1.get_output()
         XOR_1 = gate.XOR.XOR(par_gen_1_output, parity_bit)
         XOR_1_output = XOR_1.get_output()
@@ -248,7 +248,7 @@ class PAROf8Check:
         return XOR_1_output
 
 
-class PAROf16Gen:
+class ParityGenerator16:
     """
     This parity generator has sixteen inputs and a single output:
                       ________
@@ -300,9 +300,9 @@ class PAROf16Gen:
         input_1 = self._inputs[0:8]
         input_2 = self._inputs[8:16]
 
-        par_gen_1 = PAROf8Gen(*input_1)
+        par_gen_1 = ParityGenerator8(*input_1)
         par_gen_1_output = par_gen_1.get_output()
-        par_gen_2 = PAROf8Gen(*input_2)
+        par_gen_2 = ParityGenerator8(*input_2)
         par_gen_2_output = par_gen_2.get_output()
 
         XOR_1 = gate.XOR.XOR(par_gen_1_output, par_gen_2_output)
@@ -311,7 +311,7 @@ class PAROf16Gen:
         return XOR_1_output
 
 
-class PAROf16Check:
+class ParityChecker16:
     """
     This parity checker has seventeen inputs (one of which is the parity bit)
     and a single output, denoting if an error has occurred:
@@ -367,7 +367,7 @@ class PAROf16Check:
         input_2 = self._inputs[8:16]
         parity_bit = self._inputs[16]
 
-        par_gen_1 = PAROf16Gen(*input_1, *input_2)
+        par_gen_1 = ParityGenerator16(*input_1, *input_2)
         par_gen_1_output = par_gen_1.get_output()
         XOR_1 = gate.XOR.XOR(par_gen_1_output, parity_bit)
         XOR_1_output = XOR_1.get_output()

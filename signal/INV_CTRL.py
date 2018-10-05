@@ -4,16 +4,16 @@ inverter inverts all of its inputs when an enable input is set to 1. Otherwise,
 the inputs pass through the inverter unchanged.
 
 The following classes are defined:
-    ControlledINV4
-    ControlledINV8
-    ControlledINV16
+    ControlledInverter4
+    ControlledInverter8
+    ControlledInverter16
 """
 import sys
 sys.path.insert(0, "../")
 import gate
 
 
-class ControlledINV4:
+class ControlledInverter4:
     """
     This controlled inverter has five inputs (one of which is an enable input)
     and four outputs:
@@ -72,7 +72,7 @@ class ControlledINV4:
         return(XOR_1_output, XOR_2_output, XOR_3_output, XOR_4_output)
 
 
-class ControlledINV8:
+class ControlledInverter8:
     """
     This controlled inverter has nine inputs (one of which is an enable input)
     and eight outputs:
@@ -127,15 +127,27 @@ class ControlledINV8:
             input_8
         ) = self._inputs
 
-        inv_1 = ControlledINV4(enable, input_1, input_2, input_3, input_4)
+        inv_1 = ControlledInverter4(
+            enable,
+            input_1,
+            input_2,
+            input_3,
+            input_4
+        )
         inv_1_output = inv_1.get_output()
-        inv_2 = ControlledINV4(enable, input_5, input_6, input_7, input_8)
+        inv_2 = ControlledInverter4(
+            enable,
+            input_5,
+            input_6,
+            input_7,
+            input_8
+        )
         inv_2_output = inv_2.get_output()
 
         return(*inv_1_output, *inv_2_output)
 
 
-class ControlledINV16:
+class ControlledInverter16:
     """
     This controlled inverter has seventeen inputs (one of which is an enable
     input) and sixteen outputs:
@@ -190,9 +202,9 @@ class ControlledINV16:
         input_1 = self._inputs[1:9]
         input_2 = self._inputs[9:17]
 
-        inv_1 = ControlledINV8(enable, *input_1)
+        inv_1 = ControlledInverter8(enable, *input_1)
         inv_1_output = inv_1.get_output()
-        inv_2 = ControlledINV8(enable, *input_2)
+        inv_2 = ControlledInverter8(enable, *input_2)
         inv_2_output = inv_2.get_output()
 
         return(*inv_1_output, *inv_2_output)
