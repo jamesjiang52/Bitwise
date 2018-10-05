@@ -1,54 +1,182 @@
 import sys
 sys.path.insert(0, "../../")
-import gate
-from AND import AND
+from wire.WIRE import Wire
+from gate import AND
 
 
 class TestAND:
-    def test_AND_00(self):
-        _and = AND(0, 0)
-        assert _and.get_output() == 0
+    def test_ANDGate2(self):
+        input_1 = Wire(0)
+        input_2 = Wire(0)
+        output = Wire(0)
 
-    def test_AND_01(self):
-        _and = AND(0, 1)
-        assert _and.get_output() == 0
+        AND.ANDGate2(input_1, input_2, output)
 
-    def test_AND_10(self):
-        _and = AND(1, 0)
-        assert _and.get_output() == 0
+        input_1.value = 0
+        input_2.value = 0
+        assert output.value == 0
 
-    def test_AND_11(self):
-        _and = AND(1, 1)
-        assert _and.get_output() == 1
+        input_1.value = 1
+        input_2.value = 0
+        assert output.value == 0
 
-    def test_AND_000(self):
-        _and = AND(0, 0, 0)
-        assert _and.get_output() == 0
+        input_1.value = 0
+        input_2.value = 1
+        assert output.value == 0
 
-    def test_AND_001(self):
-        _and = AND(0, 0, 1)
-        assert _and.get_output() == 0
+        input_1.value = 1
+        input_2.value = 1
+        assert output.value == 1
 
-    def test_AND_010(self):
-        _and = AND(0, 1, 0)
-        assert _and.get_output() == 0
+    def test_ANDGate3(self):
+        input_1 = Wire(0)
+        input_2 = Wire(0)
+        input_3 = Wire(0)
+        output = Wire(0)
 
-    def test_AND_011(self):
-        _and = AND(0, 1, 1)
-        assert _and.get_output() == 0
+        AND.ANDGate3(input_1, input_2, input_3, output)
 
-    def test_AND_100(self):
-        _and = AND(1, 0, 0)
-        assert _and.get_output() == 0
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 0
+        assert output.value == 0
 
-    def test_AND_101(self):
-        _and = AND(1, 0, 1)
-        assert _and.get_output() == 0
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 1
+        assert output.value == 0
 
-    def test_AND_110(self):
-        _and = AND(1, 1, 0)
-        assert _and.get_output() == 0
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 0
+        assert output.value == 0
 
-    def test_AND_111(self):
-        _and = AND(1, 1, 1)
-        assert _and.get_output() == 1
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 1
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 0
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 1
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 0
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 1
+        assert output.value == 1
+
+    def test_ANDGate4(self):
+        input_1 = Wire(0)
+        input_2 = Wire(0)
+        input_3 = Wire(0)
+        input_4 = Wire(0)
+        output = Wire(0)
+
+        AND.ANDGate4(input_1, input_2, input_3, input_4, output)
+
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 0
+        input_4.value = 0
+        assert output.value == 0
+
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 0
+        input_4.value = 1
+        assert output.value == 0
+
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 1
+        input_4.value = 0
+        assert output.value == 0
+
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 1
+        input_4.value = 1
+        assert output.value == 0
+
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 0
+        input_4.value = 0
+        assert output.value == 0
+
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 0
+        input_4.value = 1
+        assert output.value == 0
+
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 1
+        input_4.value = 0
+        assert output.value == 0
+
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 1
+        input_4.value = 1
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 0
+        input_4.value = 0
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 0
+        input_4.value = 1
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 1
+        input_4.value = 0
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 1
+        input_4.value = 1
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 0
+        input_4.value = 0
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 0
+        input_4.value = 1
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 1
+        input_4.value = 0
+        assert output.value == 0
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 1
+        input_4.value = 1
+        assert output.value == 1

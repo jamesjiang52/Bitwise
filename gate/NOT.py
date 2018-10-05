@@ -1,4 +1,4 @@
-class NOT:
+class NOTGate:
     """
     This class simulates a NOT gate, otherwise known as an inverter. The output
     is 1 if the input is 0, and 0 if the input is 1.
@@ -8,14 +8,19 @@ class NOT:
         input ----|________|---- output
 
     """
-    def __init__(self, _input):
-        self._input = _input
+    def __init__(self, input_1, output):
+        self.input_1 = input_1
+        self.output = output
 
-    def set_inputs(self, _input):
-        self._input = _input
+        self.input_1.bind_to(self.update_input_1)
 
-    def get_output(self):
-        if self._input == 0:
-            return 1
-        elif self._input == 1:
-            return 0
+        if self.input_1.value == 1:
+            self.output.value = 0
+        else:
+            self.output.value = 1
+
+    def update_input_1(self, value):
+        if value == 1:
+            self.output.value = 0
+        else:
+            self.output.value = 1

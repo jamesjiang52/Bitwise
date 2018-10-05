@@ -1,11 +1,11 @@
 import os
 import sys
-sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.realpath(__file__)))
 
 import AND
-import NAND
-import NOR
+#import NAND
+#import NOR
 import NOT
 import OR
-import XNOR
-import XOR
+#import XNOR
+#import XOR

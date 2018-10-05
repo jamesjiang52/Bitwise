@@ -1,54 +1,182 @@
 import sys
 sys.path.insert(0, "../../")
-import gate
-from OR import OR
+from wire.WIRE import Wire
+from gate import OR
 
 
 class TestOR:
-    def test_OR_00(self):
-        _or = OR(0, 0)
-        assert _or.get_output() == 0
+    def test_ORGate2(self):
+        input_1 = Wire(0)
+        input_2 = Wire(0)
+        output = Wire(0)
 
-    def test_OR_01(self):
-        _or = OR(0, 1)
-        assert _or.get_output() == 1
+        OR.ORGate2(input_1, input_2, output)
 
-    def test_OR_10(self):
-        _or = OR(1, 0)
-        assert _or.get_output() == 1
+        input_1.value = 0
+        input_2.value = 0
+        assert output.value ==  0
 
-    def test_OR_11(self):
-        _or = OR(1, 1)
-        assert _or.get_output() == 1
+        input_1.value = 0
+        input_2.value = 1
+        assert output.value ==  1
 
-    def test_OR_000(self):
-        _or = OR(0, 0, 0)
-        assert _or.get_output() == 0
+        input_1.value = 1
+        input_2.value = 0
+        assert output.value ==  1
 
-    def test_OR_001(self):
-        _or = OR(0, 0, 1)
-        assert _or.get_output() == 1
+        input_1.value = 1
+        input_2.value = 1
+        assert output.value ==  1
 
-    def test_OR_010(self):
-        _or = OR(0, 1, 0)
-        assert _or.get_output() == 1
+    def test_ORGate3(self):
+        input_1 = Wire(0)
+        input_2 = Wire(0)
+        input_3 = Wire(0)
+        output = Wire(0)
 
-    def test_OR_011(self):
-        _or = OR(0, 1, 1)
-        assert _or.get_output() == 1
+        OR.ORGate3(input_1, input_2, input_3, output)
 
-    def test_OR_100(self):
-        _or = OR(1, 0, 0)
-        assert _or.get_output() == 1
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 0
+        assert output.value == 0
 
-    def test_OR_101(self):
-        _or = OR(1, 0, 1)
-        assert _or.get_output() == 1
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 1
+        assert output.value == 1
 
-    def test_OR_110(self):
-        _or = OR(1, 1, 0)
-        assert _or.get_output() == 1
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 0
+        assert output.value == 1
 
-    def test_OR_111(self):
-        _or = OR(1, 1, 1)
-        assert _or.get_output() == 1
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 1
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 0
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 1
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 0
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 1
+        assert output.value == 1
+
+    def test_ORGate4(self):
+        input_1 = Wire(0)
+        input_2 = Wire(0)
+        input_3 = Wire(0)
+        input_4 = Wire(0)
+        output = Wire(0)
+
+        OR.ORGate4(input_1, input_2, input_3, input_4, output)
+
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 0
+        input_4.value = 0
+        assert output.value == 0
+
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 0
+        input_4.value = 1
+        assert output.value == 1
+
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 1
+        input_4.value = 0
+        assert output.value == 1
+
+        input_1.value = 0
+        input_2.value = 0
+        input_3.value = 1
+        input_4.value = 1
+        assert output.value == 1
+
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 0
+        input_4.value = 0
+        assert output.value == 1
+
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 0
+        input_4.value = 1
+        assert output.value == 1
+
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 1
+        input_4.value = 0
+        assert output.value == 1
+
+        input_1.value = 0
+        input_2.value = 1
+        input_3.value = 1
+        input_4.value = 1
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 0
+        input_4.value = 0
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 0
+        input_4.value = 1
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 1
+        input_4.value = 0
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 0
+        input_3.value = 1
+        input_4.value = 1
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 0
+        input_4.value = 0
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 0
+        input_4.value = 1
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 1
+        input_4.value = 0
+        assert output.value == 1
+
+        input_1.value = 1
+        input_2.value = 1
+        input_3.value = 1
+        input_4.value = 1
+        assert output.value == 1

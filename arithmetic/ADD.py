@@ -15,6 +15,7 @@ The following classes are defined:
 """
 import sys
 sys.path.insert(0, "../")
+import wire
 import gate
 
 
@@ -33,43 +34,14 @@ class HalfAdder:
     they do not have a carry-in input. It is usually better to use a full-adder
     for this purpose.
     """
-    def __init__(self, *_inputs):
-        if len(_inputs) != 2:
-            raise TypeError(
-                "Expected 2 inputs, received {0}.".format(len(_inputs)))
+    def __init__(self, input_1_wire, input_2_wire, carry_out_wire, sum_wire):
+        gate.AND.AND(input_1_wire, input_2_wire, carry_out_wire)
+        gate.XOR.XOR(input_1_wire, input_2_wire, sum_wire)
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
-
-        self._inputs = _inputs
-
-    def set_inputs(self, *_inputs):
-        if len(_inputs) != 2:
-            raise TypeError(
-                "Expected 2 inputs, received {0}.".format(len(_inputs)))
-
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
-
-        self._inputs = _inputs
-
-    def get_output(self):
-        (
-            input_1,
-            input_2
-        ) = self._inputs
-
-        XOR_1 = gate.XOR.XOR(input_1, input_2)
-        XOR_1_output = XOR_1.get_output()
-
-        AND_1 = gate.AND.AND(input_1, input_2)
-        AND_1_output = AND_1.get_output()
-
-        return(AND_1_output, XOR_1_output)
+        self.input_1_wire = input_1_wire
+        self.input_2_wire = input_2_wire
+        self.carry_out_wire = carry_out_wire
+        self.sum_wire = sum_wire
 
 
 class FullAdder:

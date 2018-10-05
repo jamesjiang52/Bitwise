@@ -1,32 +1,61 @@
-from AND import AND
-from NOT import NOT
+"""
+This module defines classes that simulate NAND gates. By definition, the output
+of a NAND gate is 1 if at least one of its inputs are 0. Otherwise, the output
+is 0. It is constructed simply by inverting the output of an AND gate.
+
+The following classes are defined:
+    NANDGate2
+    NANDGate3
+    NANDGate4
+"""
+
+import sys
+sys.path.insert(0, "../")
+from wire.WIRE import Wire
+import AND
+import NOT
 
 
-class NAND:
+class NANDGate2:
     """
-    This class simulates a NAND gate. By definition, the output of a NAND gate
-    is 1 if at least one of its inputs are 0. Otherwise, the output is 0. It is
-    constructed simply by inverting the output of an AND gate.
+    This NAND gate has two inputs and a single output:
+                     ________
+        input_1 ----|        |---- output
+        input_2 ----|________|
 
-    This NAND gate has an arbitary number of inputs and a single output:
+    """
+    def __init__(self, input_1, input_2, output):
+        wire_1 = Wire(0)
+        AND.ANDGate2(input_1, input_2, wire_1)
+        NOT.NOTGate(wire_1, output)
+
+
+class NANDGate3:
+    """
+    This NAND gate has three inputs and a single output:
                      ________
         input_1 ----|        |---- output
         input_2 ----|        |
-            ...     |        |
-        input_n ----|________|
+        input_3 ----|________|
 
     """
-    def __init__(self, *_inputs):
-        self._inputs = _inputs
+    def __init__(self, input_1, input_2, input_3, output):
+        wire_1 = Wire(0)
+        AND.ANDGate3(input_1, input_2, input_3, wire_1)
+        NOT.NOTGate(wire_1, output)
 
-    def set_inputs(self, *_inputs):
-        self._inputs = _inputs
 
-    def get_output(self):
-        AND_1 = AND(*self._inputs)
-        AND_1_output = AND_1.get_output()
+class NANDGate4:
+    """
+    This NAND gate has four inputs and a single output:
+                     ________
+        input_1 ----|        |---- output
+        input_2 ----|        |
+        input_3 ----|        |
+        input_4 ----|________|
 
-        NOT_1 = NOT(AND_1_output)
-        NOT_1_output = NOT_1.get_output()
-
-        return NOT_1_output
+    """
+    def __init__(self, input_1, input_2, input_3, input_4, output):
+        wire_1 = Wire(0)
+        AND.ANDGate4(input_1, input_2, input_3, input_4, wire_1)
+        NOT.NOTGate(wire_1, output)
