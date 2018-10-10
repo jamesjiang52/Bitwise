@@ -9,15 +9,21 @@ The following classes are defined:
     Comparator7
     Comparator15
 """
-import sys
-sys.path.insert(0, "../")
-import gate
-import arithmetic
+
+from .. import wire
+from .. import gate
+from .. import arithmetic
+
+Wire = wire.Wire
+Bus4 = wire.Bus4
+Bus8 = wire.Bus8
+Bus16 = wire.Bus16
 
 
 class Comparator3:
     """
-    This logical comparator has eight inputs and three outputs:
+    This logical comparator has eight inputs in two 4-bit buses and three
+    outputs:
                      ________
         input_1 ----|        |---- greater_than
         input_2 ----|        |---- equal_to
@@ -30,65 +36,54 @@ class Comparator3:
 
     The comparator compares two signed 3-bit binary numbers. The first number
     has input_1, input_2, and input_4 as the sign bit, MSB, and LSB,
-    respectively. The second number has input_5, input_6, and input_8 as the
-    sign bit, MSB, and LSB, respectively. If the first number is greater than
-    the second, the greater_than output will be 1, with all other outputs 0.
-    The other outputs work similarly.
+    respectively (input_bus_1). The second number has input_5, input_6, and
+    input_8 as the sign bit, MSB, and LSB, respectively (input_bus_2). If the
+    first number is greater than the second, the greater_than output will be 1,
+    with all other outputs 0. The other outputs work analogously.
     """
-    def __init__(self, *_inputs):
-        if len(_inputs) != 8:
+    def __init__(self, input_bus_1, input_bus_2, gt, z, lt):
+        if len(input_bus_1.wires) != 4:
             raise TypeError(
-                "Expected 8 inputs, received {0}.".format(len(_inputs)))
+                "Expected bus of width 4, received bus of width {0}.".format(
+                    len(input_bus_1.wires)
+                )
+            )
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
-
-        self._inputs = _inputs
-
-    def set_inputs(self, *_inputs):
-        if len(_inputs) != 8:
+        if len(input_bus_2.wires) != 4:
             raise TypeError(
-                "Expected 8 inputs, received {0}.".format(len(_inputs)))
+                "Expected bus of width 4, received bus of width {0}.".format(
+                    len(input_bus_2.wires)
+                )
+            )
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+        overflow = Wire()
+        carry_out = Wire()
+        wire_1 = Wire()
+        wire_2 = Wire()
+        wire_3 = Wire()
+        lt_or_z = Wire()
+        N = wire()
+        adder_out = Bus4(N, wire_1, wire_2, wire_3)
 
-        self._inputs = _inputs
-
-    def get_output(self):
-        add_sub_1 = arithmetic.ADD_SUB.Adder4Subtractor3(1, *self._inputs)
-        add_sub_1_output = add_sub_1.get_output()
-
-        V = add_sub_1_output[0]
-        N = add_sub_1_output[2]
-
-        NOR_1 = gate.NOR.NOR(
-            add_sub_1_output[2],
-            add_sub_1_output[3],
-            add_sub_1_output[4],
-            add_sub_1_output[5]
+        arithmetic.AdderSubtractor4(
+            1,
+            input_bus_1,
+            input_bus_2,
+            overflow,
+            carry_out,
+            adder_out
         )
-        Z = NOR_1.get_output()
 
-        XOR_1 = gate.XOR.XOR(N, V)
-        lt = XOR_1.get_output()
-
-        OR_1 = gate.OR.OR(lt, Z)
-        OR_1_output = OR_1.get_output()
-
-        NOT_1 = gate.NOT.NOT(OR_1_output)
-        gt = NOT_1.get_output()
-
-        return(gt, Z, lt)
+        gate.NORGate4(*adder_out.wires, z)
+        gate.XORGate2(N, overflow, lt)
+        gate.ORGate2(z, lt, lt_or_z)
+        gate.NOTGate(lt_or_z, gt)
 
 
 class Comparator7:
     """
-    This logical comparator has sixteen inputs and three outputs:
+    This logical comparator has sixteen inputs in two 8-bit buses and three
+    outputs:
                       ________
          input_1 ----|        |---- greater_than
          input_2 ----|        |---- equal_to
@@ -109,69 +104,71 @@ class Comparator7:
 
     The comparator compares two signed 7-bit binary numbers. The first number
     has input_1, input_2, and input_8 as the sign bit, MSB, and LSB,
-    respectively. The second number has input_9, input_10, and input_16 as the
-    sign bit, MSB, and LSB, respectively. If the first number is greater than
-    the second, the greater_than output will be 1, with all other outputs 0.
-    The other outputs work similarly.
+    respectively (input_bus_1). The second number has input_9, input_10, and
+    input_16 as the sign bit, MSB, and LSB, respectively (input_bus_2). If the
+    first number is greater than the second, the greater_than output will be 1,
+    with all other outputs 0. The other outputs work analogously.
     """
-    def __init__(self, *_inputs):
-        if len(_inputs) != 16:
+    def __init__(self, input_bus_1, input_bus_2, gt, z, lt):
+        if len(input_bus_1.wires) != 8:
             raise TypeError(
-                "Expected 16 inputs, received {0}.".format(len(_inputs)))
+                "Expected bus of width 8, received bus of width {0}.".format(
+                    len(input_bus_1.wires)
+                )
+            )
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
-
-        self._inputs = _inputs
-
-    def set_inputs(self, *_inputs):
-        if len(_inputs) != 16:
+        if len(input_bus_2.wires) != 8:
             raise TypeError(
-                "Expected 16 inputs, received {0}.".format(len(_inputs)))
+                "Expected bus of width 8, received bus of width {0}.".format(
+                    len(input_bus_2.wires)
+                )
+            )
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
-
-        self._inputs = _inputs
-
-    def get_output(self):
-        add_sub_1 = arithmetic.ADD_SUB.Adder8Subtractor7(1, *self._inputs)
-        add_sub_1_output = add_sub_1.get_output()
-
-        V = add_sub_1_output[0]
-        N = add_sub_1_output[2]
-
-        NOR_1 = gate.NOR.NOR(
-            add_sub_1_output[2],
-            add_sub_1_output[3],
-            add_sub_1_output[4],
-            add_sub_1_output[5],
-            add_sub_1_output[6],
-            add_sub_1_output[7],
-            add_sub_1_output[8],
-            add_sub_1_output[9]
+        overflow = Wire()
+        carry_out = Wire()
+        wire_1 = Wire()
+        wire_2 = Wire()
+        wire_3 = Wire()
+        wire_4 = Wire()
+        wire_5 = Wire()
+        wire_6 = Wire()
+        wire_7 = Wire()
+        lt_or_z = Wire()
+        N = wire()
+        or_1 = Wire()
+        or_2 = Wire()
+        adder_out = Bus8(
+            N,
+            wire_1,
+            wire_2,
+            wire_3,
+            wire_4,
+            wire_5,
+            wire_6,
+            wire_7
         )
-        Z = NOR_1.get_output()
 
-        XOR_1 = gate.XOR.XOR(N, V)
-        lt = XOR_1.get_output()
+        arithmetic.AdderSubtractor8(
+            1,
+            input_bus_1,
+            input_bus_2,
+            overflow,
+            carry_out,
+            adder_out
+        )
 
-        OR_1 = gate.OR.OR(lt, Z)
-        OR_1_output = OR_1.get_output()
-
-        NOT_1 = gate.NOT.NOT(OR_1_output)
-        gt = NOT_1.get_output()
-
-        return(gt, Z, lt)
+        gate.ORGate4(*adder_out.wires[0:4], or_1)
+        gate.ORGate4(*adder_out.wires[4:8], or_2)
+        gate.NORGate2(or_1, or_2, z)
+        gate.XORGate2(N, overflow, lt)
+        gate.ORGate2(z, lt, lt_or_z)
+        gate.NOTGate(lt_or_z, gt)
 
 
 class Comparator15:
     """
-    This logical comparator has thirty-two inputs and three outputs:
+    This logical comparator has thirty-two inputs in two 16-bit buses and three
+    outputs:
                       ________
          input_1 ----|        |---- greater_than
          input_2 ----|        |---- equal_to
@@ -194,52 +191,82 @@ class Comparator15:
 
     The comparator compares two signed 15-bit binary numbers. The first number
     has input_1, input_2, and input_16 as the sign bit, MSB, and LSB,
-    respectively. The second number has input_17, input_18, and input_32 as the
-    sign bit, MSB, and LSB, respectively. If the first number is greater than
-    the second, the greater_than output will be 1, with all other outputs 0.
-    The other outputs work similarly.
+    respectively (input_bus_1). The second number has input_17, input_18, and
+    input_32 as the sign bit, MSB, and LSB, respectively (input_bus_2). If the
+    first number is greater than the second, the greater_than output will be 1,
+    with all other outputs 0. The other outputs work analogously.
     """
-    def __init__(self, *_inputs):
-        if len(_inputs) != 32:
+    def __init__(self, input_bus_1, input_bus_2, gt, z, lt):
+        if len(input_bus_1.wires) != 16:
             raise TypeError(
-                "Expected 32 inputs, received {0}.".format(len(_inputs)))
+                "Expected bus of width 16, received bus of width {0}.".format(
+                    len(input_bus_1.wires)
+                )
+            )
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
-
-        self._inputs = _inputs
-
-    def set_inputs(self, *_inputs):
-        if len(_inputs) != 32:
+        if len(input_bus_2.wires) != 16:
             raise TypeError(
-                "Expected 32 inputs, received {0}.".format(len(_inputs)))
+                "Expected bus of width 16, received bus of width {0}.".format(
+                    len(input_bus_2.wires)
+                )
+            )
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+        overflow = Wire()
+        carry_out = Wire()
+        wire_1 = Wire()
+        wire_2 = Wire()
+        wire_3 = Wire()
+        wire_4 = Wire()
+        wire_5 = Wire()
+        wire_6 = Wire()
+        wire_7 = Wire()
+        wire_8 = Wire()
+        wire_9 = Wire()
+        wire_10 = Wire()
+        wire_11 = Wire()
+        wire_12 = Wire()
+        wire_13 = Wire()
+        wire_14 = Wire()
+        wire_15 = Wire()
+        lt_or_z = Wire()
+        N = wire()
+        or_1 = Wire()
+        or_2 = Wire()
+        or_3 = Wire()
+        or_4 = Wire()
+        adder_out = Bus16(
+            N,
+            wire_1,
+            wire_2,
+            wire_3,
+            wire_4,
+            wire_5,
+            wire_6,
+            wire_7,
+            wire_8,
+            wire_9,
+            wire_10,
+            wire_11,
+            wire_12,
+            wire_13,
+            wire_14,
+            wire_15
+        )
 
-        self._inputs = _inputs
+        arithmetic.AdderSubtractor16(
+            1,
+            input_bus_1,
+            input_bus_2,
+            overflow,
+            carry_out,
+            adder_out
+        )
 
-    def get_output(self):
-        add_sub_1 = arithmetic.ADD_SUB.Adder16Subtractor15(1, *self._inputs)
-        add_sub_1_output = add_sub_1.get_output()
-
-        V = add_sub_1_output[0]
-        N = add_sub_1_output[2]
-
-        NOR_1 = gate.NOR.NOR(add_sub_1_output[2:18])
-        Z = NOR_1.get_output()
-
-        XOR_1 = gate.XOR.XOR(N, V)
-        lt = XOR_1.get_output()
-
-        OR_1 = gate.OR.OR(lt, Z)
-        OR_1_output = OR_1.get_output()
-
-        NOT_1 = gate.NOT.NOT(OR_1_output)
-        gt = NOT_1.get_output()
-
-        return(gt, Z, lt)
+        gate.ORGate4(*adder_out.wires[0:4], or_1)
+        gate.ORGate4(*adder_out.wires[4:8], or_2)
+        gate.ORGate4(*adder_out.wires[8:12], or_3)
+        gate.ORGate4(*adder_out.wires[12:16], or_4)
+        gate.NORGate4(or_1, or_2, or_3, or_4, z)
+        gate.XORGate2(N, overflow, lt)
+        gate.ORGate2(z, lt, lt_or_z)
+        gate.NOTGate(lt_or_z, gt)

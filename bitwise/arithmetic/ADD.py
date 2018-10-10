@@ -58,7 +58,7 @@ class FullAdder:
     Because full-adders have a carry-in input, they are far more useful as the
     building blocks for larger adders than half-adders.
     """
-    def __init__(carry_in, input_1, input_2, carry_out, sum_):
+    def __init__(self, carry_in, input_1, input_2, carry_out, sum_):
         wire_1 = Wire()
         wire_2 = Wire()
         wire_3 = Wire()
@@ -291,7 +291,8 @@ class LookaheadCarryUnit16:
 
 class Adder4:
     """
-    This adder has nine inputs and five outputs:
+    This adder has eight inputs in two 4-bit buses, a carry_in input, a
+    carry_out output, and four outputs in a single 4-bit bus:
                       ________
         carry_in ----|        |---- carry_out
          input_1 ----|        |---- output_1
@@ -304,70 +305,60 @@ class Adder4:
          input_8 ----|________|
 
     The adder computes the sum of two 4-bit binary numbers. Inputs input_1 and
-    input_4 correspond to the MSB and LSB, respectively, of the first addend,
-    and inputs input_5 and input_8 correspond to the MSB and LSB, respectively,
-    of the second addend. The carry-in input is usually 0 for an adder, but can
-    be 1 if multiple adders are chained together. The outputs have carry_out
-    and output_4 as the MSB and LSB, respectively.
+    input_4 correspond to the MSB and LSB, respectively, of the first addend
+    (input_bus_1), and inputs input_5 and input_8 correspond to the MSB and
+    LSB, respectively, of the second addend (input_bus_2). The carry-in input
+    is usually 0 for an adder, but can be 1 if multiple adders are chained
+    together. The outputs have carry_out and output_4 as the MSB and LSB,
+    respectively.
     """
-    def __init__(self, *_inputs):
-        if len(_inputs) != 9:
-            raise TypeError(
-                "Expected 9 inputs, received {0}.".format(len(_inputs)))
-
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
-
-        self._inputs = _inputs
-
-    def set_inputs(self, *_inputs):
-        if len(_inputs) != 9:
-            raise TypeError(
-                "Expected 9 inputs, received {0}.".format(len(_inputs)))
-
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
-
-        self._inputs = _inputs
-
-    def get_output(self):
-        (
+    def __init__(
+            self,
             carry_in,
-            input_1,
-            input_2,
-            input_3,
-            input_4,
-            input_5,
-            input_6,
-            input_7,
-            input_8
-        ) = self._inputs
+            input_bus_1,
+            input_bus_2,
+            carry_out,
+            output_bus
+            ):
+        if len(input_bus_1.wires) != 4:
+            raise TypeError(
+                "Expected bus of width 4, received bus of width {0}.".format(
+                    len(input_bus_1.wires)
+                )
+            )
 
-        fa_1 = FullAdder(carry_in, input_4, input_8)
-        fa_1_output = fa_1.get_output()
-        fa_2 = FullAdder(fa_1_output[0], input_3, input_7)
-        fa_2_output = fa_2.get_output()
-        fa_3 = FullAdder(fa_2_output[0], input_2, input_6)
-        fa_3_output = fa_3.get_output()
-        fa_4 = FullAdder(fa_3_output[0], input_1, input_5)
-        fa_4_output = fa_4.get_output()
+        if len(input_bus_2.wires) != 4:
+            raise TypeError(
+                "Expected bus of width 4, received bus of width {0}.".format(
+                    len(input_bus_2.wires)
+                )
+            )
 
-        return(
-            fa_4_output[0],
-            fa_4_output[1],
-            fa_3_output[1],
-            fa_2_output[1],
-            fa_1_output[1]
-        )
+        if len(output_bus.wires) != 4:
+            raise TypeError(
+                "Expected bus of width 4, received bus of width {0}.".format(
+                    len(output_bus.wires)
+                )
+            )
+
+        input_1 = input_bus_1.wires
+        input_2 = input_bus_2.wires
+        output = output_bus.wires
+
+        carry_out_1 = Wire()
+        carry_out_2 = Wire()
+        carry_out_3 = Wire()
+
+        FullAdder(carry_in, input_1[3], input_2[3], carry_out_1, output[3])
+        FullAdder(carry_out_1, input_1[2], input_2[2], carry_out_2, output[2])
+        FullAdder(carry_out_2, input_1[1], input_2[1], carry_out_3, output[1])
+        FullAdder(carry_out_3, input_1[0], input_2[0], carry_out, output[0])
 
 
 class Adder8:
     """
-    This adder has seventeen inputs and nine outputs:
+    This adder has sixteen inputs in two 8-bit buses, a carry_in input, a
+    carry_out output, and eight outputs in a single 8-bit bus:
                       ________
         carry_in ----|        |---- carry_out
          input_1 ----|        |---- output_1
@@ -388,55 +379,72 @@ class Adder8:
         input_16 ----|________|
 
     The adder computes the sum of two 8-bit binary numbers. Inputs input_1 and
-    input_8 correspond to the MSB and LSB, respectively, of the first addend,
-    and inputs input_9 and input_16 correspond to the MSB and LSB,
-    respectively, of the second addend. The carry-in input is usually 0 for an
-    adder, but can be 1 if multiple adders are chained together. The outputs
-    have carry_out and output_8 as the MSB and LSB, respectively.
+    input_8 correspond to the MSB and LSB, respectively, of the first addend
+    (input_bus_1), and inputs input_9 and input_16 correspond to the MSB and
+    LSB, respectively, of the second addend (input_bus_2). The carry-in input
+    is usually 0 for an adder, but can be 1 if multiple adders are chained
+    together. The outputs  have carry_out and output_8 as the MSB and LSB,
+    respectively.
     """
-    def __init__(self, *_inputs):
-        if len(_inputs) != 17:
+    def __init__(
+            self,
+            carry_in,
+            input_bus_1,
+            input_bus_2,
+            carry_out,
+            output_bus
+            ):
+        if len(input_bus_1.wires) != 8:
             raise TypeError(
-                "Expected 17 inputs, received {0}.".format(len(_inputs)))
+                "Expected bus of width 8, received bus of width {0}.".format(
+                    len(input_bus_1.wires)
+                )
+            )
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
-
-        self._inputs = _inputs
-
-    def set_inputs(self, *_inputs):
-        if len(_inputs) != 17:
+        if len(input_bus_2.wires) != 8:
             raise TypeError(
-                "Expected 17 inputs, received {0}.".format(len(_inputs)))
+                "Expected bus of width 8, received bus of width {0}.".format(
+                    len(input_bus_2.wires)
+                )
+            )
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+        if len(output_bus.wires) != 8:
+            raise TypeError(
+                "Expected bus of width 8, received bus of width {0}.".format(
+                    len(output_bus.wires)
+                )
+            )
 
-        self._inputs = _inputs
+        input_1 = input_bus_1.wires
+        input_2 = input_bus_2.wires
+        output = output_bus.wires
+        input_1_1 = Bus4(*input_1[0:4])
+        input_1_2 = Bus4(*input_1[4:8])
+        input_2_1 = Bus4(*input_2[0:4])
+        input_2_2 = Bus4(*input_2[4:8])
+        output_1 = Bus4(*output[0:4])
+        output_2 = Bus4(*output[4:8])
 
-    def get_output(self):
-        carry_in = self._inputs[0]
-        input_1 = self._inputs[1:9]
-        input_2 = self._inputs[9:17]
+        lcu_c = Wire()
+        lcu_pg = Wire()
+        lcu_gg = Wire()
 
-        lcu_1 = LookaheadCarryUnit4(carry_in, *input_1[4:8], *input_2[4:8])
-        lcu_1_output = lcu_1.get_output()
-
-        add_1 = Adder4(lcu_1_output[0], *input_1[0:4], *input_2[0:4])
-        add_1_output = add_1.get_output()
-        add_2 = Adder4(carry_in, *input_1[4:8], *input_2[4:8])
-        add_2_output = add_2.get_output()
-
-        return(*add_1_output, *add_2_output[1:5])
+        LookaheadCarryUnit4(
+            carry_in,
+            input_1_2,
+            input_2_2,
+            lcu_c,
+            lcu_pg,
+            lcu_gg
+        )
+        Adder4(lcu_c, input_1_1, input_2_1, carry_out, output_1)
+        Adder4(carry_in, input_1_2, input_2_2, lcu_c, output_2)
 
 
 class Adder16:
     """
-    This adder has thirty-three inputs and seventeen outputs:
+    This adder has thirty-two inputs in two 16-bit buses, a carry_in input, a
+    carry_out output, and sixteen outputs in a single 16-bit bus:
                       ________
         carry_in ----|        |---- carry_out
          input_1 ----|        |---- output_1
@@ -459,57 +467,77 @@ class Adder16:
         input_32 ----|________|
 
     The adder computes the sum of two 16-bit binary numbers. Inputs input_1 and
-    input_16 correspond to the MSB and LSB, respectively, of the first addend,
-    and inputs input_17 and input_32 correspond to the MSB and LSB,
-    respectively, of the second addend. The carry-in input is usually 0 for an
-    adder, but can be 1 if multiple adders are chained together. The outputs
-    have carry_out and output_16 as the MSB and LSB, respectively.
+    input_16 correspond to the MSB and LSB, respectively, of the first addend
+    (input_bus_1), and inputs input_17 and input_32 correspond to the MSB and
+    LSB, respectively, of the second addend (input_bus_2). The carry-in input
+    is usually 0 for an adder, but can be 1 if multiple adders are chained
+    together. The outputs have carry_out and output_16 as the MSB and LSB,
+    respectively.
     """
-    def __init__(self, *_inputs):
-        if len(_inputs) != 33:
+    def __init__(
+            self,
+            carry_in,
+            input_bus_1,
+            input_bus_2,
+            carry_out,
+            output_bus
+            ):
+        if len(input_bus_1.wires) != 8:
             raise TypeError(
-                "Expected 33 inputs, received {0}.".format(len(_inputs)))
+                "Expected bus of width 8, received bus of width {0}.".format(
+                    len(input_bus_1.wires)
+                )
+            )
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
-
-        self._inputs = _inputs
-
-    def set_inputs(self, *_inputs):
-        if len(_inputs) != 33:
+        if len(input_bus_2.wires) != 8:
             raise TypeError(
-                "Expected 33 inputs, received {0}.".format(len(_inputs)))
+                "Expected bus of width 8, received bus of width {0}.".format(
+                    len(input_bus_2.wires)
+                )
+            )
 
-        for _input in _inputs:
-            if (_input != 0) and (_input != 1):
-                raise ValueError(
-                    "Inputs must be 0 or 1, received \"{0}\".".format(_input))
+        if len(output_bus.wires) != 8:
+            raise TypeError(
+                "Expected bus of width 8, received bus of width {0}.".format(
+                    len(output_bus.wires)
+                )
+            )
 
-        self._inputs = _inputs
+        input_1 = input_bus_1.wires
+        input_2 = input_bus_2.wires
+        output = output_bus.wires
+        input_1_1 = Bus4(*input_1[0:4])
+        input_1_2 = Bus4(*input_1[4:8])
+        input_1_3 = Bus4(*input_1[8:12])
+        input_1_4 = Bus4(*input_1[12:16])
+        input_2_1 = Bus4(*input_2[0:4])
+        input_2_2 = Bus4(*input_2[4:8])
+        input_2_3 = Bus4(*input_2[8:12])
+        input_2_4 = Bus4(*input_2[12:16])
+        output_1 = Bus4(*output[0:4])
+        output_2 = Bus4(*output[4:8])
+        output_3 = Bus4(*output[8:12])
+        output_4 = Bus4(*output[12:16])
 
-    def get_output(self):
-        carry_in = self._inputs[0]
-        input_1 = self._inputs[1:17]
-        input_2 = self._inputs[17:33]
+        ic_1 = Wire()
+        ic_2 = Wire()
+        ic_3 = Wire()
+        lcu_pg = Wire()
+        lcu_gg = Wire()
 
-        lcu_1 = LookaheadCarryUnit16(carry_in, *input_1, *input_2)
-        lcu_1_output = lcu_1.get_output()
-
-        add_1 = Adder4(lcu_1_output[2], *input_1[0:4], *input_2[0:4])
-        add_1_output = add_1.get_output()
-        add_2 = Adder4(lcu_1_output[1], *input_1[4:8], *input_2[4:8])
-        add_2_output = add_2.get_output()
-        add_3 = Adder4(lcu_1_output[0], *input_1[8:12], *input_2[8:12])
-        add_3_output = add_3.get_output()
-        add_4 = Adder4(carry_in, *input_1[12:16], *input_2[12:16])
-        add_4_output = add_4.get_output()
-
-        return(
-            lcu_1_output[3],
-            *add_1_output,
-            *add_2_output,
-            *add_3_output,
-            *add_4_output
+        LookaheadCarryUnit16(
+            carry_in,
+            input_bus_1,
+            input_bus_2,
+            ic_1,
+            ic_2,
+            ic_3,
+            carry_out,
+            lcu_pg,
+            lcu_gg
         )
+
+        Adder4(ic_3, input_1_1, input_2_1, carry_out, output_1)
+        Adder4(ic_2, input_1_2, input_2_2, ic_3, output_2)
+        Adder4(ic_1, input_1_3, input_2_3, ic_2, output_3)
+        Adder4(carry_in, input_1_4, input_2_4, ic_1, output_4)
