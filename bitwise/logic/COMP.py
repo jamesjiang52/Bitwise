@@ -56,17 +56,19 @@ class Comparator3:
                 )
             )
 
+        add_subtract = Wire()
+        add_subtract.value = 1
         overflow = Wire()
         carry_out = Wire()
         wire_1 = Wire()
         wire_2 = Wire()
         wire_3 = Wire()
         lt_or_z = Wire()
-        N = wire()
+        N = Wire()
         adder_out = Bus4(N, wire_1, wire_2, wire_3)
 
         arithmetic.AdderSubtractor4(
-            1,
+            add_subtract,
             input_bus_1,
             input_bus_2,
             overflow,
@@ -124,6 +126,8 @@ class Comparator7:
                 )
             )
 
+        add_subtract = Wire()
+        add_subtract.value = 1
         overflow = Wire()
         carry_out = Wire()
         wire_1 = Wire()
@@ -134,7 +138,7 @@ class Comparator7:
         wire_6 = Wire()
         wire_7 = Wire()
         lt_or_z = Wire()
-        N = wire()
+        N = Wire()
         or_1 = Wire()
         or_2 = Wire()
         adder_out = Bus8(
@@ -149,7 +153,7 @@ class Comparator7:
         )
 
         arithmetic.AdderSubtractor8(
-            1,
+            add_subtract,
             input_bus_1,
             input_bus_2,
             overflow,
@@ -211,6 +215,8 @@ class Comparator15:
                 )
             )
 
+        add_subtract = Wire()
+        add_subtract.value = 1
         overflow = Wire()
         carry_out = Wire()
         wire_1 = Wire()
@@ -229,7 +235,7 @@ class Comparator15:
         wire_14 = Wire()
         wire_15 = Wire()
         lt_or_z = Wire()
-        N = wire()
+        N = Wire()
         or_1 = Wire()
         or_2 = Wire()
         or_3 = Wire()
@@ -254,7 +260,7 @@ class Comparator15:
         )
 
         arithmetic.AdderSubtractor16(
-            1,
+            add_subtract,
             input_bus_1,
             input_bus_2,
             overflow,

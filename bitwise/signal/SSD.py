@@ -1,7 +1,5 @@
 """
-This module defines classes that simulate converters. A converter, as the name
-suggests, converts code from one format to another, as long as they are enabled
-by the enable input.
+This module defines classes that simulate seven-segment display converters.
 
 The following classes are defined:
     SevenSegmentConverter

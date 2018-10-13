@@ -482,23 +482,23 @@ class Adder16:
             carry_out,
             output_bus
             ):
-        if len(input_bus_1.wires) != 8:
+        if len(input_bus_1.wires) != 16:
             raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
+                "Expected bus of width 16, received bus of width {0}.".format(
                     len(input_bus_1.wires)
                 )
             )
 
-        if len(input_bus_2.wires) != 8:
+        if len(input_bus_2.wires) != 16:
             raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
+                "Expected bus of width 16, received bus of width {0}.".format(
                     len(input_bus_2.wires)
                 )
             )
-
-        if len(output_bus.wires) != 8:
+            
+        if len(output_bus.wires) != 16:
             raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
+                "Expected bus of width 16, received bus of width {0}.".format(
                     len(output_bus.wires)
                 )
             )

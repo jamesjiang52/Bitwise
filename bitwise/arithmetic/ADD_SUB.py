@@ -107,8 +107,8 @@ class AdderSubtractor4:
         gate.NOTGate(input_1[0], not_input_1)
         gate.NOTGate(input_2[0], not_input_2)
         gate.NOTGate(output[0], not_output)
-        gate.ANDGate3(input_1[0], input_2[0], not_output, and_1_wire)
-        gate.ANDGate3(not_input_1, not_input_2, output[0], and_2_wire)
+        gate.ANDGate3(input_1[0], not_input_2, not_output, and_1_wire)
+        gate.ANDGate3(not_input_1, input_2[0], output[0], and_2_wire)
         gate.ORGate2(and_1_wire, and_2_wire, overflow)
 
 
@@ -214,13 +214,13 @@ class AdderSubtractor8:
         output = output_bus.wires
 
         signal.ControlledInverter8(add_subtract, input_bus_2, bus_1)
-        ADD.Adder4(add_subtract, input_bus_1, bus_1, carry_out, output_bus)
+        ADD.Adder8(add_subtract, input_bus_1, bus_1, carry_out, output_bus)
 
         gate.NOTGate(input_1[0], not_input_1)
         gate.NOTGate(input_2[0], not_input_2)
         gate.NOTGate(output[0], not_output)
-        gate.ANDGate3(input_1[0], input_2[0], not_output, and_1_wire)
-        gate.ANDGate3(not_input_1, not_input_2, output[0], and_2_wire)
+        gate.ANDGate3(input_1[0], not_input_2, not_output, and_1_wire)
+        gate.ANDGate3(not_input_1, input_2[0], output[0], and_2_wire)
         gate.ORGate2(and_1_wire, and_2_wire, overflow)
 
 
@@ -343,12 +343,12 @@ class AdderSubtractor16:
         input_2 = input_bus_2.wires
         output = output_bus.wires
 
-        signal.ControlledInverter8(add_subtract, input_bus_2, bus_1)
-        ADD.Adder4(add_subtract, input_bus_1, bus_1, carry_out, output_bus)
+        signal.ControlledInverter16(add_subtract, input_bus_2, bus_1)
+        ADD.Adder16(add_subtract, input_bus_1, bus_1, carry_out, output_bus)
 
         gate.NOTGate(input_1[0], not_input_1)
         gate.NOTGate(input_2[0], not_input_2)
         gate.NOTGate(output[0], not_output)
-        gate.ANDGate3(input_1[0], input_2[0], not_output, and_1_wire)
-        gate.ANDGate3(not_input_1, not_input_2, output[0], and_2_wire)
+        gate.ANDGate3(input_1[0], not_input_2, not_output, and_1_wire)
+        gate.ANDGate3(not_input_1, input_2[0], output[0], and_2_wire)
         gate.ORGate2(and_1_wire, and_2_wire, overflow)
