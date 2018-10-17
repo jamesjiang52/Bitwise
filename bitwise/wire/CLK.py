@@ -28,14 +28,14 @@ class Clock:
         for callback in self.connections:
             callback(self._value)
 
-    def bind_to(self, callback):
+    def _bind_to(self, callback):
         self.connections.append(callback)
 
-    def oscillate(self):
+    def _oscillate(self):
         # no actual timer right now, will find out how to implement later
         while True:
             self.value = 0
             self.value = 1
 
     def start(self):
-        _thread.start_new_thread(self.oscillate, ())
+        _thread.start_new_thread(self._oscillate, ())

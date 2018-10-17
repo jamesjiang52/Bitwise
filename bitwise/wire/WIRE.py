@@ -25,5 +25,5 @@ class Wire:
             for callback in self.connections:
                 callback(self._value)
 
-    def bind_to(self, callback):
+    def _bind_to(self, callback):
         self.connections.append(callback)

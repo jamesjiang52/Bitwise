@@ -1,6 +1,6 @@
-*******
-Bitwise
-*******
+=============
+About Bitwise
+=============
 
 Bitwise is a Python library intended to make hardware design and simulation more accessible
 for software engineers. While it can never replace a true hardware description language,
@@ -24,11 +24,11 @@ The following code creates a half-adder circuit::
         b = bw.wire.Wire()
 
         # initialize outputs
-        sum = bw.wire.Wire()
+        sum_ = bw.wire.Wire()
         carry_out = bw.wire.Wire()
 
         # create circuit
-        bw.gate.XORGate2(a, b, sum)  # XORs a and b and puts the result into sum
+        bw.gate.XORGate2(a, b, sum_)  # XORs a and b and puts the result into sum_
         bw.gate.ANDGate2(a, b, carry_out)  # ANDs a and b and puts the result into carry_out
         
     if __name__ == "__main__":
