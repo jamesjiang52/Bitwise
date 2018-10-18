@@ -1,0 +1,438 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Logic &#8212; Bitwise 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/../../../images/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Python library for hardware design</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="index.html">Home</a></li>
+    
+    <li class="toctree-l1"><a href="install.html">Getting Started</a></li>
+    
+    <li class="toctree-l1"><a href="api.html">API Documentation</a></li>
+    
+</ul>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Logic</a><ul>
+<li><a class="reference internal" href="#comparator3">Comparator3</a></li>
+<li><a class="reference internal" href="#comparator7">Comparator7</a></li>
+<li><a class="reference internal" href="#comparator15">Comparator15</a></li>
+<li><a class="reference internal" href="#paritychecker4">ParityChecker4</a></li>
+<li><a class="reference internal" href="#paritychecker8">ParityChecker8</a></li>
+<li><a class="reference internal" href="#paritychecker16">ParityChecker16</a></li>
+<li><a class="reference internal" href="#paritygenerator4">ParityGenerator4</a></li>
+<li><a class="reference internal" href="#paritygenerator8">ParityGenerator8</a></li>
+<li><a class="reference internal" href="#paritygenerator16">ParityGenerator16</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="logic">
+<h1>Logic</h1>
+<div class="section" id="comparator3">
+<span id="id1"></span><h2>Comparator3</h2>
+<div class="section" id="class-bw-logic-comparator3">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.Comparator3</span></code></h3>
+<img alt="_images/Comparator3.png" src="_images/Comparator3.png" style="width: 600px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/COMP.py">bitwise/logic/COMP.py</a>.</p>
+<p>3-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Digital_comparator">logical comparator</a>.</p>
+</div>
+<div class="section" id="init">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">greater_than</span><span class="p">,</span>
+    <span class="n">equal_to</span><span class="p">,</span>
+    <span class="n">less_than</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 3-bit logical comparator.</p>
+<div class="section" id="args">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The number to be compared. <code class="docutils literal"><span class="pre">a_2</span></code> and <code class="docutils literal"><span class="pre">a_4</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">a_1</span></code> is the sign bit.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The number to be compared against. <code class="docutils literal"><span class="pre">b_2</span></code> and <code class="docutils literal"><span class="pre">b_4</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">b_1</span></code> is the sign bit.</li>
+<li><code class="docutils literal"><span class="pre">greater_than</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The greater-than indicator.</li>
+<li><code class="docutils literal"><span class="pre">equal_to</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The equal-to indicator.</li>
+<li><code class="docutils literal"><span class="pre">less_than</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The less-than indicator.</li>
+</ul>
+</div>
+<div class="section" id="raises">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code> or <code class="docutils literal"><span class="pre">b_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="comparator7">
+<span id="id2"></span><h2>Comparator7</h2>
+<div class="section" id="class-bw-logic-comparator7">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.Comparator7</span></code></h3>
+<img alt="_images/Comparator7.png" src="_images/Comparator7.png" style="width: 600px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/COMP.py">bitwise/logic/COMP.py</a>.</p>
+<p>7-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Digital_comparator">logical comparator</a>.</p>
+</div>
+<div class="section" id="id5">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">greater_than</span><span class="p">,</span>
+    <span class="n">equal_to</span><span class="p">,</span>
+    <span class="n">less_than</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 7-bit logical comparator.</p>
+<div class="section" id="id6">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The number to be compared. <code class="docutils literal"><span class="pre">a_2</span></code> and <code class="docutils literal"><span class="pre">a_8</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">a_1</span></code> is the sign bit.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The number to be compared against. <code class="docutils literal"><span class="pre">b_2</span></code> and <code class="docutils literal"><span class="pre">b_8</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">b_1</span></code> is the sign bit.</li>
+<li><code class="docutils literal"><span class="pre">greater_than</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The greater-than indicator.</li>
+<li><code class="docutils literal"><span class="pre">equal_to</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The equal-to indicator.</li>
+<li><code class="docutils literal"><span class="pre">less_than</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The less-than indicator.</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code> or <code class="docutils literal"><span class="pre">b_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="comparator15">
+<span id="id8"></span><h2>Comparator15</h2>
+<div class="section" id="class-bw-logic-comparator15">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.Comparator15</span></code></h3>
+<img alt="_images/Comparator15.png" src="_images/Comparator15.png" style="width: 600px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/COMP.py">bitwise/logic/COMP.py</a>.</p>
+<p>15-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Digital_comparator">logical comparator</a>.</p>
+</div>
+<div class="section" id="id11">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">greater_than</span><span class="p">,</span>
+    <span class="n">equal_to</span><span class="p">,</span>
+    <span class="n">less_than</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 15-bit logical comparator.</p>
+<div class="section" id="id12">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The number to be compared. <code class="docutils literal"><span class="pre">a_2</span></code> and <code class="docutils literal"><span class="pre">a_16</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">a_1</span></code> is the sign bit.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The number to be compared against. <code class="docutils literal"><span class="pre">b_2</span></code> and <code class="docutils literal"><span class="pre">b_16</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">b_1</span></code> is the sign bit.</li>
+<li><code class="docutils literal"><span class="pre">greater_than</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The greater-than indicator.</li>
+<li><code class="docutils literal"><span class="pre">equal_to</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The equal-to indicator.</li>
+<li><code class="docutils literal"><span class="pre">less_than</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The less-than indicator.</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code> or <code class="docutils literal"><span class="pre">b_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="paritychecker4">
+<span id="id14"></span><h2>ParityChecker4</h2>
+<div class="section" id="class-bw-logic-paritychecker4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityChecker4</span></code></h3>
+<img alt="_images/ParityChecker4.png" src="_images/ParityChecker4.png" style="width: 600px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
+<p>4-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity checker</a>.</p>
+</div>
+<div class="section" id="id15">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">parity_bit</span><span class="p">,</span>
+    <span class="n">error</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit even parity checker.</p>
+<div class="section" id="id16">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The input to the parity checker.</li>
+<li><code class="docutils literal"><span class="pre">parity_bit</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The parity bit.</li>
+<li><code class="docutils literal"><span class="pre">error</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The error indicator.</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="paritychecker8">
+<span id="id18"></span><h2>ParityChecker8</h2>
+<div class="section" id="class-bw-logic-paritychecker8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityChecker8</span></code></h3>
+<img alt="_images/ParityChecker8.png" src="_images/ParityChecker8.png" style="width: 600px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
+<p>8-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity checker</a>.</p>
+</div>
+<div class="section" id="id21">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">parity_bit</span><span class="p">,</span>
+    <span class="n">error</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit even parity checker.</p>
+<div class="section" id="id22">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The input to the parity checker.</li>
+<li><code class="docutils literal"><span class="pre">parity_bit</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The parity bit.</li>
+<li><code class="docutils literal"><span class="pre">error</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The error indicator.</li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="paritychecker16">
+<span id="id24"></span><h2>ParityChecker16</h2>
+<div class="section" id="class-bw-logic-paritychecker16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityChecker16</span></code></h3>
+<img alt="_images/ParityChecker16.png" src="_images/ParityChecker16.png" style="width: 600px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
+<p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity checker</a>.</p>
+</div>
+<div class="section" id="id27">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">parity_bit</span><span class="p">,</span>
+    <span class="n">error</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit even parity checker.</p>
+<div class="section" id="id28">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The input to the parity checker.</li>
+<li><code class="docutils literal"><span class="pre">parity_bit</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The parity bit.</li>
+<li><code class="docutils literal"><span class="pre">error</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The error indicator.</li>
+</ul>
+</div>
+<div class="section" id="id29">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="paritygenerator4">
+<span id="id30"></span><h2>ParityGenerator4</h2>
+<div class="section" id="class-bw-logic-paritygenerator4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityGenerator4</span></code></h3>
+<img alt="_images/ParityGenerator4.png" src="_images/ParityGenerator4.png" style="width: 600px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
+<p>4-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity generator</a>.</p>
+</div>
+<div class="section" id="id32">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">parity_bit</span><span class="p">,</span>
+    <span class="n">error</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit even parity generator.</p>
+<div class="section" id="id33">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The input to the parity generator.</li>
+<li><code class="docutils literal"><span class="pre">parity_bit</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The parity bit.</li>
+</ul>
+</div>
+<div class="section" id="id34">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="paritygenerator8">
+<span id="id35"></span><h2>ParityGenerator8</h2>
+<div class="section" id="class-bw-logic-paritygenerator8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityGenerator8</span></code></h3>
+<img alt="_images/ParityGenerator8.png" src="_images/ParityGenerator8.png" style="width: 600px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
+<p>8-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity generator</a>.</p>
+</div>
+<div class="section" id="id38">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">parity_bit</span><span class="p">,</span>
+    <span class="n">error</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit even parity generator.</p>
+<div class="section" id="id39">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The input to the parity generator.</li>
+<li><code class="docutils literal"><span class="pre">parity_bit</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The parity bit.</li>
+</ul>
+</div>
+<div class="section" id="id40">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="paritygenerator16">
+<span id="id41"></span><h2>ParityGenerator16</h2>
+<div class="section" id="class-bw-logic-paritygenerator16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityGenerator16</span></code></h3>
+<img alt="_images/ParityGenerator16.png" src="_images/ParityGenerator16.png" style="width: 600px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
+<p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity generator</a>.</p>
+</div>
+<div class="section" id="id44">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">parity_bit</span><span class="p">,</span>
+    <span class="n">error</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit even parity generator.</p>
+<div class="section" id="id45">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The input to the parity generator.</li>
+<li><code class="docutils literal"><span class="pre">parity_bit</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The parity bit.</li>
+</ul>
+</div>
+<div class="section" id="id46">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, James Jiang.
+      
+      |
+      <a href="_sources/logic.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

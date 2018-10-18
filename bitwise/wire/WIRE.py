@@ -1,11 +1,4 @@
 class Wire:
-    """
-    This class simulates a wire. It has one attribute, value, that can take on
-    a single integer value of 0 or 1.
-
-        wire |----------------|
-
-    """
     def __init__(self):
         self._value = 0
         self.connections = []

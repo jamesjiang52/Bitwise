@@ -1,0 +1,305 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Wire &#8212; Bitwise 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/../../../images/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Python library for hardware design</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="index.html">Home</a></li>
+    
+    <li class="toctree-l1"><a href="install.html">Getting Started</a></li>
+    
+    <li class="toctree-l1"><a href="api.html">API Documentation</a></li>
+    
+</ul>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Wire</a><ul>
+<li><a class="reference internal" href="#bus4">Bus4</a></li>
+<li><a class="reference internal" href="#bus8">Bus8</a></li>
+<li><a class="reference internal" href="#bus16">Bus16</a></li>
+<li><a class="reference internal" href="#bussevensegmentdisplay">BusSevenSegmentDisplay</a></li>
+<li><a class="reference internal" href="#id17">Wire</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="wire">
+<h1>Wire</h1>
+<div class="section" id="bus4">
+<span id="id1"></span><h2>Bus4</h2>
+<div class="section" id="class-bw-wire-bus4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.wire.Bus4</span></code></h3>
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/BUS.py">bitwise/wire/BUS.py</a>.</p>
+<p>4-bit bus.</p>
+</div>
+<div class="section" id="init">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">wire_1</span><span class="p">,</span>
+    <span class="n">wire_2</span><span class="p">,</span>
+    <span class="n">wire_3</span><span class="p">,</span>
+    <span class="n">wire_4</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Initialize a new 4-bit bus.</p>
+<div class="section" id="args">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">wire_1</span></code>, <code class="docutils literal"><span class="pre">wire_2</span></code>, … , <code class="docutils literal"><span class="pre">wire_4</span></code>: Objects of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="accessors">
+<h3>Accessors:</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">bus.wires</span></code>: A tuple of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">bus.wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="bus8">
+<span id="id2"></span><h2>Bus8</h2>
+<div class="section" id="class-bw-wire-bus8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.wire.Bus8</span></code></h3>
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/BUS.py">bitwise/wire/BUS.py</a>.</p>
+<p>8-bit bus.</p>
+</div>
+<div class="section" id="id4">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">wire_1</span><span class="p">,</span>
+    <span class="n">wire_2</span><span class="p">,</span>
+    <span class="n">wire_3</span><span class="p">,</span>
+    <span class="n">wire_4</span><span class="p">,</span>
+    <span class="n">wire_5</span><span class="p">,</span>
+    <span class="n">wire_6</span><span class="p">,</span>
+    <span class="n">wire_7</span><span class="p">,</span>
+    <span class="n">wire_8</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Initialize a new 8-bit bus.</p>
+<div class="section" id="id5">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">wire_1</span></code>, <code class="docutils literal"><span class="pre">wire_2</span></code>, … , <code class="docutils literal"><span class="pre">wire_8</span></code>: Objects of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>Accessors:</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">bus.wires</span></code>: A tuple of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">bus.wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="bus16">
+<span id="id7"></span><h2>Bus16</h2>
+<div class="section" id="class-bw-wire-bus16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.wire.Bus16</span></code></h3>
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/BUS.py">bitwise/wire/BUS.py</a>.</p>
+<p>16-bit bus.</p>
+</div>
+<div class="section" id="id9">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">wire_1</span><span class="p">,</span>
+    <span class="n">wire_2</span><span class="p">,</span>
+    <span class="n">wire_3</span><span class="p">,</span>
+    <span class="n">wire_4</span><span class="p">,</span>
+    <span class="n">wire_5</span><span class="p">,</span>
+    <span class="n">wire_6</span><span class="p">,</span>
+    <span class="n">wire_7</span><span class="p">,</span>
+    <span class="n">wire_8</span><span class="p">,</span>
+    <span class="n">wire_9</span><span class="p">,</span>
+    <span class="n">wire_10</span><span class="p">,</span>
+    <span class="n">wire_11</span><span class="p">,</span>
+    <span class="n">wire_12</span><span class="p">,</span>
+    <span class="n">wire_13</span><span class="p">,</span>
+    <span class="n">wire_14</span><span class="p">,</span>
+    <span class="n">wire_15</span><span class="p">,</span>
+    <span class="n">wire_16</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Initialize a new 16-bit bus.</p>
+<div class="section" id="id10">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">wire_1</span></code>, <code class="docutils literal"><span class="pre">wire_2</span></code>, … , <code class="docutils literal"><span class="pre">wire_16</span></code>: Objects of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>Accessors:</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">bus.wires</span></code>: A tuple of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">bus.wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="bussevensegmentdisplay">
+<span id="id12"></span><h2>BusSevenSegmentDisplay</h2>
+<div class="section" id="class-bw-wire-bussevensegmentdisplay">
+<h3>Class <code class="docutils literal"><span class="pre">bw.wire.BusSevenSegmentDisplay</span></code></h3>
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/BUS.py">bitwise/wire/BUS.py</a>.</p>
+<p>Bus for output to a seven-segment display.</p>
+</div>
+<div class="section" id="id14">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">wire_1</span><span class="p">,</span>
+    <span class="n">wire_2</span><span class="p">,</span>
+    <span class="n">wire_3</span><span class="p">,</span>
+    <span class="n">wire_4</span><span class="p">,</span>
+    <span class="n">wire_5</span><span class="p">,</span>
+    <span class="n">wire_6</span><span class="p">,</span>
+    <span class="n">wire_7</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Initialize a new seven-segment display bus.</p>
+<div class="section" id="id15">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">wire_1</span></code>, <code class="docutils literal"><span class="pre">wire_2</span></code>, … , <code class="docutils literal"><span class="pre">wire_7</span></code>: Objects of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>Accessors:</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">bus.wires</span></code>: A tuple of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">bus.wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id17">
+<span id="id18"></span><h2>Wire</h2>
+<div class="section" id="class-bw-wire-wire">
+<h3>Class <code class="docutils literal"><span class="pre">bw.wire.Wire</span></code></h3>
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/WIRE.py">bitwise/wire/WIRE.py</a>.</p>
+<p>A wire, with either a 0 or 1 integer value.</p>
+</div>
+<div class="section" id="id19">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Initialize a new wire with value 0.</p>
+<p>After initialization, the value of the wire can be both accessed and mutated using <code class="docutils literal"><span class="pre">wire.value</span></code>. For example:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">bitwise</span> <span class="k">as</span> <span class="nn">bw</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">bw</span><span class="o">.</span><span class="n">wire</span><span class="o">.</span><span class="n">Wire</span><span class="p">()</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">value</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="mi">0</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">a</span><span class="o">.</span><span class="n">value</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="section" id="raises">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">ValueError</span></code>: If value assigned to wire is not 0 or 1.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, James Jiang.
+      
+      |
+      <a href="_sources/wire.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

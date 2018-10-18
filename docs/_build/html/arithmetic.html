@@ -1,0 +1,418 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Arithmetic &#8212; Bitwise 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/../../../images/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Python library for hardware design</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="index.html">Home</a></li>
+    
+    <li class="toctree-l1"><a href="install.html">Getting Started</a></li>
+    
+    <li class="toctree-l1"><a href="api.html">API Documentation</a></li>
+    
+</ul>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Arithmetic</a><ul>
+<li><a class="reference internal" href="#adder4">Adder4</a></li>
+<li><a class="reference internal" href="#adder8">Adder8</a></li>
+<li><a class="reference internal" href="#adder16">Adder16</a></li>
+<li><a class="reference internal" href="#addersubtractor4">AdderSubtractor4</a></li>
+<li><a class="reference internal" href="#addersubtractor8">AdderSubtractor8</a></li>
+<li><a class="reference internal" href="#addersubtractor16">AdderSubtractor16</a></li>
+<li><a class="reference internal" href="#fulladder">FullAdder</a></li>
+<li><a class="reference internal" href="#halfadder">HalfAdder</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="arithmetic">
+<h1>Arithmetic</h1>
+<div class="section" id="adder4">
+<span id="id1"></span><h2>Adder4</h2>
+<div class="section" id="class-bw-arithmetic-adder4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.Adder4</span></code></h3>
+<img alt="_images/Adder4.png" src="_images/Adder4.png" style="width: 720px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD.py">bitwise/arithmetic/ADD.py</a>.</p>
+<p>4-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Adder_(electronics)">adder</a>.</p>
+</div>
+<div class="section" id="init">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">carry_in</span><span class="p">,</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">sum_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit adder.</p>
+<div class="section" id="args">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">carry_in</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-in to the adder.</li>
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The first addend. <code class="docutils literal"><span class="pre">a_1</span></code> and <code class="docutils literal"><span class="pre">a_4</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The second addend. <code class="docutils literal"><span class="pre">b_1</span></code> and <code class="docutils literal"><span class="pre">b_4</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out of the adder.</li>
+<li><code class="docutils literal"><span class="pre">sum_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The sum of the two addends. <code class="docutils literal"><span class="pre">sum_1</span></code> and <code class="docutils literal"><span class="pre">sum_4</span></code> are the most and least significant bit, respectively.</li>
+</ul>
+</div>
+<div class="section" id="raises">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">sum_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="adder8">
+<span id="id2"></span><h2>Adder8</h2>
+<div class="section" id="class-bw-arithmetic-adder8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.Adder8</span></code></h3>
+<img alt="_images/Adder8.png" src="_images/Adder8.png" style="width: 720px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD.py">bitwise/arithmetic/ADD.py</a>.</p>
+<p>8-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Adder_(electronics)">adder</a>.</p>
+</div>
+<div class="section" id="id5">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">carry_in</span><span class="p">,</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">sum_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit adder.</p>
+<div class="section" id="id6">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">carry_in</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-in to the adder.</li>
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The first addend. <code class="docutils literal"><span class="pre">a_1</span></code> and <code class="docutils literal"><span class="pre">a_8</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The second addend. <code class="docutils literal"><span class="pre">b_1</span></code> and <code class="docutils literal"><span class="pre">b_8</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out of the adder.</li>
+<li><code class="docutils literal"><span class="pre">sum_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The sum of the two addends. <code class="docutils literal"><span class="pre">sum_1</span></code> and <code class="docutils literal"><span class="pre">sum_8</span></code> are the most and least significant bit, respectively.</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">sum_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="adder16">
+<span id="id8"></span><h2>Adder16</h2>
+<div class="section" id="class-bw-arithmetic-adder16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.Adder16</span></code></h3>
+<img alt="_images/Adder16.png" src="_images/Adder16.png" style="width: 720px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD.py">bitwise/arithmetic/ADD.py</a>.</p>
+<p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Adder_(electronics)">adder</a>.</p>
+</div>
+<div class="section" id="id11">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">carry_in</span><span class="p">,</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">sum_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit adder.</p>
+<div class="section" id="id12">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">carry_in</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-in to the adder.</li>
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The first addend. <code class="docutils literal"><span class="pre">a_1</span></code> and <code class="docutils literal"><span class="pre">a_16</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The second addend. <code class="docutils literal"><span class="pre">b_1</span></code> and <code class="docutils literal"><span class="pre">b_16</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out of the adder.</li>
+<li><code class="docutils literal"><span class="pre">sum_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The sum of the two addends. <code class="docutils literal"><span class="pre">sum_1</span></code> and <code class="docutils literal"><span class="pre">sum_16</span></code> are the most and least significant bit, respectively.</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">sum_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="addersubtractor4">
+<span id="id14"></span><h2>AdderSubtractor4</h2>
+<div class="section" id="class-bw-arithmetic-addersubtractor4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.AdderSubtractor4</span></code></h3>
+<img alt="_images/AdderSubtractor4.png" src="_images/AdderSubtractor4.png" style="width: 720px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD_SUB.py">bitwise/arithmetic/ADD_SUB.py</a>.</p>
+<p>4-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Adder%E2%80%93subtractor">adder-subtractor</a>.</p>
+</div>
+<div class="section" id="id15">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">add_subtract</span><span class="p">,</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">overflow</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">sum_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit adder-subtractor.</p>
+<div class="section" id="id16">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">add_subtract</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Indicates the operation to carry out - 0 for addition, 1 for subtraction.</li>
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The first addend, or the minuend. <code class="docutils literal"><span class="pre">a_1</span></code> and <code class="docutils literal"><span class="pre">a_4</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">a_1</span></code> is the sign bit in subtraction operations.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The second addend, or the subtrahend. <code class="docutils literal"><span class="pre">b_1</span></code> and <code class="docutils literal"><span class="pre">b_4</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">b_1</span></code> is the sign bit in subtraction operations.</li>
+<li><code class="docutils literal"><span class="pre">overflow</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The overflow indicator of the subtractor.</li>
+<li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out of the adder.</li>
+<li><code class="docutils literal"><span class="pre">sum_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The sum of the two addends, or the difference between the minuend and the subtrahend. <code class="docutils literal"><span class="pre">sum_1</span></code> and <code class="docutils literal"><span class="pre">sum_4</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">sum_1</span></code> is the sign bit in subtraction operations.</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">sum_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="addersubtractor8">
+<span id="id18"></span><h2>AdderSubtractor8</h2>
+<div class="section" id="class-bw-arithmetic-addersubtractor8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.AdderSubtractor8</span></code></h3>
+<img alt="_images/AdderSubtractor8.png" src="_images/AdderSubtractor8.png" style="width: 720px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD_SUB.py">bitwise/arithmetic/ADD_SUB.py</a>.</p>
+<p>8-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Adder%E2%80%93subtractor">adder-subtractor</a>.</p>
+</div>
+<div class="section" id="id21">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">add_subtract</span><span class="p">,</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">overflow</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">sum_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit adder-subtractor.</p>
+<div class="section" id="id22">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">add_subtract</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Indicates the operation to carry out - 0 for addition, 1 for subtraction.</li>
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The first addend, or the minuend. <code class="docutils literal"><span class="pre">a_1</span></code> and <code class="docutils literal"><span class="pre">a_8</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">a_1</span></code> is the sign bit in subtraction operations.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The second addend, or the subtrahend. <code class="docutils literal"><span class="pre">b_1</span></code> and <code class="docutils literal"><span class="pre">b_8</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">b_1</span></code> is the sign bit in subtraction operations.</li>
+<li><code class="docutils literal"><span class="pre">overflow</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The overflow indicator of the subtractor.</li>
+<li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out of the adder.</li>
+<li><code class="docutils literal"><span class="pre">sum_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The sum of the two addends, or the difference between the minuend and the subtrahend. <code class="docutils literal"><span class="pre">sum_1</span></code> and <code class="docutils literal"><span class="pre">sum_8</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">sum_1</span></code> is the sign bit in subtraction operations.</li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">sum_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="addersubtractor16">
+<span id="id24"></span><h2>AdderSubtractor16</h2>
+<div class="section" id="class-bw-arithmetic-addersubtractor16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.AdderSubtractor16</span></code></h3>
+<img alt="_images/AdderSubtractor16.png" src="_images/AdderSubtractor16.png" style="width: 720px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD_SUB.py">bitwise/arithmetic/ADD_SUB.py</a>.</p>
+<p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Adder%E2%80%93subtractor">adder-subtractor</a>.</p>
+</div>
+<div class="section" id="id27">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">add_subtract</span><span class="p">,</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">overflow</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">sum_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit adder-subtractor.</p>
+<div class="section" id="id28">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">add_subtract</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Indicates the operation to carry out - 0 for addition, 1 for subtraction.</li>
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The first addend, or the minuend. <code class="docutils literal"><span class="pre">a_1</span></code> and <code class="docutils literal"><span class="pre">a_16</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">a_1</span></code> is the sign bit in subtraction operations.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The second addend, or the subtrahend. <code class="docutils literal"><span class="pre">b_1</span></code> and <code class="docutils literal"><span class="pre">b_16</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">b_1</span></code> is the sign bit in subtraction operations.</li>
+<li><code class="docutils literal"><span class="pre">overflow</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The overflow indicator of the subtractor.</li>
+<li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out of the adder.</li>
+<li><code class="docutils literal"><span class="pre">sum_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The sum of the two addends, or the difference between the minuend and the subtrahend. <code class="docutils literal"><span class="pre">sum_1</span></code> and <code class="docutils literal"><span class="pre">sum_16</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">sum_1</span></code> is the sign bit in subtraction operations.</li>
+</ul>
+</div>
+<div class="section" id="id29">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">sum_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="fulladder">
+<span id="id30"></span><h2>FullAdder</h2>
+<div class="section" id="class-bw-arithmetic-fulladder">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.FullAdder</span></code></h3>
+<img alt="_images/FullAdder.png" src="_images/FullAdder.png" style="width: 400px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD.py">bitwise/arithmetic/ADD.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Full_adder">Full adder</a>.</p>
+</div>
+<div class="section" id="id32">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">carry_in</span><span class="p">,</span>
+    <span class="n">a</span><span class="p">,</span>
+    <span class="n">b</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">sum_</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new full adder.</p>
+<div class="section" id="id33">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">carry_in</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-in to the adder.</li>
+<li><code class="docutils literal"><span class="pre">a</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first addend.</li>
+<li><code class="docutils literal"><span class="pre">b</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The second addend.</li>
+<li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out of the adder.</li>
+<li><code class="docutils literal"><span class="pre">sum_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The sum of the two addends.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="halfadder">
+<span id="id34"></span><h2>HalfAdder</h2>
+<div class="section" id="class-bw-arithmetic-halfadder">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.HalfAdder</span></code></h3>
+<img alt="_images/HalfAdder.png" src="_images/HalfAdder.png" style="width: 400px;" />
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD.py">bitwise/arithmetic/ADD.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Adder_(electronics)#Half_adder">Half adder</a>.</p>
+</div>
+<div class="section" id="id36">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a</span><span class="p">,</span>
+    <span class="n">b</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">sum_</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new half adder.</p>
+<div class="section" id="id37">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first addend.</li>
+<li><code class="docutils literal"><span class="pre">b</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The second addend.</li>
+<li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out of the adder.</li>
+<li><code class="docutils literal"><span class="pre">sum_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The sum of the two addends.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, James Jiang.
+      
+      |
+      <a href="_sources/arithmetic.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

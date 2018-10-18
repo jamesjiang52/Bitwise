@@ -8,6 +8,12 @@ it aims to serve as a useful tool in the hardware design process, allowing a use
 their digital circuits in a high-level programming language (i.e. with simpler syntax and more
 flexible semantics) before implementing them using an HDL.
 
+Getting Started
+===============
+
+Refer to the `documentation <https://bitwise.readthedocs.io/en/latest/>`_ for installation 
+instructions, usage examples, API reference, and more.
+
 Quick Example
 =============
 
@@ -24,11 +30,11 @@ The following code creates a half-adder circuit::
         b = bw.wire.Wire()
 
         # initialize outputs
-        sum = bw.wire.Wire()
+        sum_ = bw.wire.Wire()
         carry_out = bw.wire.Wire()
 
         # create circuit
-        bw.gate.XORGate2(a, b, sum)  # XORs a and b and puts the result into sum
+        bw.gate.XORGate2(a, b, sum_)  # XORs a and b and puts the result into sum_
         bw.gate.ANDGate2(a, b, carry_out)  # ANDs a and b and puts the result into carry_out
         
     if __name__ == "__main__":

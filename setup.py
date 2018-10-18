@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 def readme():
     with open("README.rst") as f:
@@ -6,7 +6,7 @@ def readme():
 
 setup(
     name="bitwise",
-    version="0.1.0.1",
+    version="0.1.1",
     description="Bitwise is a library for utilizing Python as a hardware description language",
     long_description=readme(),
     classifiers=[
@@ -24,7 +24,7 @@ setup(
     author="James Jiang",
     author_email="jamesjiang52@gmail.com",
     license="MIT",
-    packages=["bitwise"],
+    packages=find_packages(),
     install_requires=[],
     include_package_data=True,
     zip_safe=False

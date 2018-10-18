@@ -12,7 +12,7 @@ project = "Bitwise"
 copyright = "2018, James Jiang"
 author = "James Jiang"
 version = "0.1"
-release = "0.1.0.1"
+release = "0.1.1"
 
 nav_links = {
     "Home": "index.html",

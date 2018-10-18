@@ -1,25 +1,4 @@
-"""
-This module defines classes that simulate buses, which are simply groups of
-wires that serve as common input or output.
-
-The following classes are defined:
-    Bus4
-    Bus8
-    Bus16
-    BusSevenSegmentDisplay
-"""
-
-
 class Bus4:
-    """
-    This bus is four bits wide:
-
-        wire_1 |----------------|
-        wire_2 |----------------|
-        wire_3 |----------------|
-        wire_4 |----------------|
-
-    """
     def __init__(self, wire_1, wire_2, wire_3, wire_4):
         self._wires = (wire_1, wire_2, wire_3, wire_4)
 
@@ -33,19 +12,6 @@ class Bus4:
 
 
 class Bus8:
-    """
-    This bus is eight bits wide:
-
-        wire_1 |----------------|
-        wire_2 |----------------|
-        wire_3 |----------------|
-        wire_4 |----------------|
-        wire_5 |----------------|
-        wire_6 |----------------|
-        wire_7 |----------------|
-        wire_8 |----------------|
-
-    """
     def __init__(
         self,
         wire_1,
@@ -78,27 +44,6 @@ class Bus8:
 
 
 class Bus16:
-    """
-    This bus is sixteen bits wide:
-
-         wire_1 |----------------|
-         wire_2 |----------------|
-         wire_3 |----------------|
-         wire_4 |----------------|
-         wire_5 |----------------|
-         wire_6 |----------------|
-         wire_7 |----------------|
-         wire_8 |----------------|
-         wire_9 |----------------|
-        wire_10 |----------------|
-        wire_11 |----------------|
-        wire_12 |----------------|
-        wire_13 |----------------|
-        wire_14 |----------------|
-        wire_15 |----------------|
-        wire_16 |----------------|
-
-    """
     def __init__(
         self,
         wire_1,
@@ -147,19 +92,6 @@ class Bus16:
 
 
 class BusSevenSegmentDisplay:
-    """
-    This bus is seven bits wide, and is specially used for seven-segment
-    displays:
-
-         wire_1 |----------------|
-         wire_2 |----------------|
-         wire_3 |----------------|
-         wire_4 |----------------|
-         wire_5 |----------------|
-         wire_6 |----------------|
-         wire_7 |----------------|
-
-    """
     def __init__(
         self,
         wire_1,
