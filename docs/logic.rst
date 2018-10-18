@@ -37,8 +37,8 @@ Construct a new 3-bit logical comparator.
 
 Args:
 ~~~~~
-* ``a_bus``: An object of type ``Bus4``. The number to be compared. ``a_2`` and ``a_4`` are the most and least significant bit, respectively. ``a_1`` is the sign bit.
-* ``b_bus``: An object of type ``Bus4``. The number to be compared against. ``b_2`` and ``b_4`` are the most and least significant bit, respectively. ``b_1`` is the sign bit.
+* ``a_bus``: An object of type ``Bus4``. The number to be compared. ``a_bus[1]`` and ``a_bus[3]`` are the most and least significant bit, respectively. ``a_bus[0]`` is the sign bit.
+* ``b_bus``: An object of type ``Bus4``. The number to be compared against. ``b_bus[1]`` and ``b_bus[3]`` are the most and least significant bit, respectively. ``b_bus[0]`` is the sign bit.
 * ``greater_than``: An object of type ``Wire``. The greater-than indicator.
 * ``equal_to``: An object of type ``Wire``. The equal-to indicator.
 * ``less_than``: An object of type ``Wire``. The less-than indicator.
@@ -80,8 +80,8 @@ Construct a new 7-bit logical comparator.
 
 Args:
 ~~~~~
-* ``a_bus``: An object of type ``Bus8``. The number to be compared. ``a_2`` and ``a_8`` are the most and least significant bit, respectively. ``a_1`` is the sign bit.
-* ``b_bus``: An object of type ``Bus8``. The number to be compared against. ``b_2`` and ``b_8`` are the most and least significant bit, respectively. ``b_1`` is the sign bit.
+* ``a_bus``: An object of type ``Bus8``. The number to be compared. ``a_bus[1]`` and ``a_bus[7]`` are the most and least significant bit, respectively. ``a_bus[0]`` is the sign bit.
+* ``b_bus``: An object of type ``Bus8``. The number to be compared against. ``b_bus[1]`` and ``b_bus[7]`` are the most and least significant bit, respectively. ``b_bus[0]`` is the sign bit.
 * ``greater_than``: An object of type ``Wire``. The greater-than indicator.
 * ``equal_to``: An object of type ``Wire``. The equal-to indicator.
 * ``less_than``: An object of type ``Wire``. The less-than indicator.
@@ -123,8 +123,8 @@ Construct a new 15-bit logical comparator.
 
 Args:
 ~~~~~
-* ``a_bus``: An object of type ``Bus16``. The number to be compared. ``a_2`` and ``a_16`` are the most and least significant bit, respectively. ``a_1`` is the sign bit.
-* ``b_bus``: An object of type ``Bus16``. The number to be compared against. ``b_2`` and ``b_16`` are the most and least significant bit, respectively. ``b_1`` is the sign bit.
+* ``a_bus``: An object of type ``Bus16``. The number to be compared. ``a_bus[1]`` and ``a_bus[15]`` are the most and least significant bit, respectively. ``a_bus[0]`` is the sign bit.
+* ``b_bus``: An object of type ``Bus16``. The number to be compared against. ``b_bus[1]`` and ``b_bus[15]`` are the most and least significant bit, respectively. ``b_bus[0]`` is the sign bit.
 * ``greater_than``: An object of type ``Wire``. The greater-than indicator.
 * ``equal_to``: An object of type ``Wire``. The equal-to indicator.
 * ``less_than``: An object of type ``Wire``. The less-than indicator.

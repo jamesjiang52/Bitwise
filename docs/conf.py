@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from collections import OrderedDict
+
 extensions = []
 templates_path = ["_templates"]
 source_suffix = ".rst"
@@ -14,11 +16,10 @@ author = "James Jiang"
 version = "0.1"
 release = "0.1.1"
 
-nav_links = {
-    "Home": "index.html",
-    "Getting Started": "install.html",
-    "API Documentation": "api.html"
-}
+nav_links = OrderedDict()
+nav_links["Home"] = "index.html"
+nav_links["Getting Started"] = "install.html"
+nav_links["API Documentation"] = "api.html"
 
 html_theme = "alabaster"
 highlight_language="python3"
@@ -26,7 +27,7 @@ pygments_style = "lovelace"
 html_theme_options = {
     "description": "Python library for hardware design",
     "fixed_sidebar": True,
-    "logo": "../../../images/logo.png",
+    "logo": "logo.png",
     "logo_name": False,
     "page_width": "70%",
     "sidebar_collapse": True,
@@ -35,7 +36,7 @@ html_theme_options = {
     "extra_nav_links": nav_links
 }
 html_favicon = "images/favicon.ico"
-html_static_path = ["_static"]
+html_static_path = ["_static", "_static/logo.png"]
 html_sidebars = {
     "**": [
         "about.html",

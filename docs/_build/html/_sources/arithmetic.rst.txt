@@ -38,10 +38,10 @@ Construct a new 4-bit adder.
 Args:
 ~~~~~
 * ``carry_in``: An object of type ``Wire``. The carry-in to the adder.
-* ``a_bus``: An object of type ``Bus4``. The first addend. ``a_1`` and ``a_4`` are the most and least significant bit, respectively.
-* ``b_bus``: An object of type ``Bus4``. The second addend. ``b_1`` and ``b_4`` are the most and least significant bit, respectively.
+* ``a_bus``: An object of type ``Bus4``. The first addend. ``a_bus[0]`` and ``a_bus[3]`` are the most and least significant bit, respectively.
+* ``b_bus``: An object of type ``Bus4``. The second addend. ``b_bus[0]`` and ``b_bus[3]`` are the most and least significant bit, respectively.
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
-* ``sum_bus``: An object of type ``Bus4``. The sum of the two addends. ``sum_1`` and ``sum_4`` are the most and least significant bit, respectively.
+* ``sum_bus``: An object of type ``Bus4``. The sum of the two addends. ``sum_bus[0]`` and ``sum_bus[3]`` are the most and least significant bit, respectively.
 
 Raises:
 ~~~~~~~
@@ -81,10 +81,10 @@ Construct a new 8-bit adder.
 Args:
 ~~~~~
 * ``carry_in``: An object of type ``Wire``. The carry-in to the adder.
-* ``a_bus``: An object of type ``Bus8``. The first addend. ``a_1`` and ``a_8`` are the most and least significant bit, respectively.
-* ``b_bus``: An object of type ``Bus8``. The second addend. ``b_1`` and ``b_8`` are the most and least significant bit, respectively.
+* ``a_bus``: An object of type ``Bus8``. The first addend. ``a_bus[0]`` and ``a_bus[7]`` are the most and least significant bit, respectively.
+* ``b_bus``: An object of type ``Bus8``. The second addend. ``b_bus[0]`` and ``b_bus[7]`` are the most and least significant bit, respectively.
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
-* ``sum_bus``: An object of type ``Bus8``. The sum of the two addends. ``sum_1`` and ``sum_8`` are the most and least significant bit, respectively.
+* ``sum_bus``: An object of type ``Bus8``. The sum of the two addends. ``sum_bus[0]`` and ``sum_bus[7]`` are the most and least significant bit, respectively.
 
 Raises:
 ~~~~~~~
@@ -124,10 +124,10 @@ Construct a new 16-bit adder.
 Args:
 ~~~~~
 * ``carry_in``: An object of type ``Wire``. The carry-in to the adder.
-* ``a_bus``: An object of type ``Bus16``. The first addend. ``a_1`` and ``a_16`` are the most and least significant bit, respectively.
-* ``b_bus``: An object of type ``Bus16``. The second addend. ``b_1`` and ``b_16`` are the most and least significant bit, respectively.
+* ``a_bus``: An object of type ``Bus16``. The first addend. ``a_bus[0]`` and ``a_bus[15]`` are the most and least significant bit, respectively.
+* ``b_bus``: An object of type ``Bus16``. The second addend. ``b_bus[0]`` and ``b_bus[15]`` are the most and least significant bit, respectively.
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
-* ``sum_bus``: An object of type ``Bus16``. The sum of the two addends. ``sum_1`` and ``sum_16`` are the most and least significant bit, respectively.
+* ``sum_bus``: An object of type ``Bus16``. The sum of the two addends. ``sum_bus[0]`` and ``sum_bus[15]`` are the most and least significant bit, respectively.
 
 Raises:
 ~~~~~~~
@@ -168,11 +168,11 @@ Construct a new 4-bit adder-subtractor.
 Args:
 ~~~~~
 * ``add_subtract``: An object of type ``Wire``. Indicates the operation to carry out - 0 for addition, 1 for subtraction.
-* ``a_bus``: An object of type ``Bus4``. The first addend, or the minuend. ``a_1`` and ``a_4`` are the most and least significant bit, respectively. ``a_1`` is the sign bit in subtraction operations.
-* ``b_bus``: An object of type ``Bus4``. The second addend, or the subtrahend. ``b_1`` and ``b_4`` are the most and least significant bit, respectively. ``b_1`` is the sign bit in subtraction operations.
+* ``a_bus``: An object of type ``Bus4``. The first addend, or the minuend. ``a_bus[0]`` and ``a_bus[3]`` are the most and least significant bit, respectively. ``a_bus[0]`` is the sign bit in subtraction operations.
+* ``b_bus``: An object of type ``Bus4``. The second addend, or the subtrahend. ``b_bus[0]`` and ``b_bus[3]`` are the most and least significant bit, respectively. ``b_bus[0]`` is the sign bit in subtraction operations.
 * ``overflow``: An object of type ``Wire``. The overflow indicator of the subtractor.
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
-* ``sum_bus``: An object of type ``Bus4``. The sum of the two addends, or the difference between the minuend and the subtrahend. ``sum_1`` and ``sum_4`` are the most and least significant bit, respectively. ``sum_1`` is the sign bit in subtraction operations.
+* ``sum_bus``: An object of type ``Bus4``. The sum of the two addends, or the difference between the minuend and the subtrahend. ``sum_bus[0]`` and ``sum_bus[3]`` are the most and least significant bit, respectively. ``sum_bus[0]`` is the sign bit in subtraction operations.
 
 Raises:
 ~~~~~~~
@@ -213,11 +213,11 @@ Construct a new 8-bit adder-subtractor.
 Args:
 ~~~~~
 * ``add_subtract``: An object of type ``Wire``. Indicates the operation to carry out - 0 for addition, 1 for subtraction.
-* ``a_bus``: An object of type ``Bus8``. The first addend, or the minuend. ``a_1`` and ``a_8`` are the most and least significant bit, respectively. ``a_1`` is the sign bit in subtraction operations.
-* ``b_bus``: An object of type ``Bus8``. The second addend, or the subtrahend. ``b_1`` and ``b_8`` are the most and least significant bit, respectively. ``b_1`` is the sign bit in subtraction operations.
+* ``a_bus``: An object of type ``Bus8``. The first addend, or the minuend. ``a_bus[0]`` and ``a_bus[7]`` are the most and least significant bit, respectively. ``a_bus[0]`` is the sign bit in subtraction operations.
+* ``b_bus``: An object of type ``Bus8``. The second addend, or the subtrahend. ``b_bus[0]`` and ``b_bus[7]`` are the most and least significant bit, respectively. ``b_bus[0]`` is the sign bit in subtraction operations.
 * ``overflow``: An object of type ``Wire``. The overflow indicator of the subtractor.
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
-* ``sum_bus``: An object of type ``Bus8``. The sum of the two addends, or the difference between the minuend and the subtrahend. ``sum_1`` and ``sum_8`` are the most and least significant bit, respectively. ``sum_1`` is the sign bit in subtraction operations.
+* ``sum_bus``: An object of type ``Bus8``. The sum of the two addends, or the difference between the minuend and the subtrahend. ``sum_bus[0]`` and ``sum_bus[7]`` are the most and least significant bit, respectively. ``sum_bus[0]`` is the sign bit in subtraction operations.
 
 Raises:
 ~~~~~~~
@@ -258,11 +258,11 @@ Construct a new 16-bit adder-subtractor.
 Args:
 ~~~~~
 * ``add_subtract``: An object of type ``Wire``. Indicates the operation to carry out - 0 for addition, 1 for subtraction.
-* ``a_bus``: An object of type ``Bus16``. The first addend, or the minuend. ``a_1`` and ``a_16`` are the most and least significant bit, respectively. ``a_1`` is the sign bit in subtraction operations.
-* ``b_bus``: An object of type ``Bus16``. The second addend, or the subtrahend. ``b_1`` and ``b_16`` are the most and least significant bit, respectively. ``b_1`` is the sign bit in subtraction operations.
+* ``a_bus``: An object of type ``Bus16``. The first addend, or the minuend. ``a_bus[0]`` and ``a_bus[15]`` are the most and least significant bit, respectively. ``a_bus[0]`` is the sign bit in subtraction operations.
+* ``b_bus``: An object of type ``Bus16``. The second addend, or the subtrahend. ``b_bus[0]`` and ``b_bus[15]`` are the most and least significant bit, respectively. ``b_bus[0]`` is the sign bit in subtraction operations.
 * ``overflow``: An object of type ``Wire``. The overflow indicator of the subtractor.
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
-* ``sum_bus``: An object of type ``Bus16``. The sum of the two addends, or the difference between the minuend and the subtrahend. ``sum_1`` and ``sum_16`` are the most and least significant bit, respectively. ``sum_1`` is the sign bit in subtraction operations.
+* ``sum_bus``: An object of type ``Bus16``. The sum of the two addends, or the difference between the minuend and the subtrahend. ``sum_bus[0]`` and ``sum_bus[15]`` are the most and least significant bit, respectively. ``sum_bus[0]`` is the sign bit in subtraction operations.
 
 Raises:
 ~~~~~~~
