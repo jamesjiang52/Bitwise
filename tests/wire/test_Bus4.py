@@ -22,6 +22,15 @@ class TestBus4:
 
         wire_2.value = 1
         assert bus_1.wire_values == (1, 1, 0, 0)
+        
+        assert bus_1[0].value == 1
+        assert bus_1[1].value == 1
+        assert bus_1[2].value == 0
+        assert bus_1[3].value == 0
+        assert bus_1[-4].value == 1
+        assert bus_1[-3].value == 1
+        assert bus_1[-2].value == 0
+        assert bus_1[-1].value == 0
 
         wire_3.value = 1
         assert bus_1.wire_values == (1, 1, 1, 0)

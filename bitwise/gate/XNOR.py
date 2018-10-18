@@ -1,3 +1,8 @@
+"""
+The following classes are defined:
+    XNORGate2
+"""
+
 from .. import wire
 from . import AND
 from . import OR
@@ -7,6 +12,13 @@ Wire = wire.Wire
 
 
 class XNORGate2:
+    """Construct a new two-input XNOR gate.
+
+    Args:
+        input_1: An object of type Wire. The first input to the XNOR gate.
+        input_2: An object of type Wire. The second input to the XNOR gate.
+        output: An object of type Wire. The output of the XNOR gate.
+    """
     def __init__(self, input_1, input_2, output):
         wire_1 = Wire()
         wire_2 = Wire()

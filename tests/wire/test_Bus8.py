@@ -36,6 +36,23 @@ class TestBus8:
 
         wire_4.value = 1
         assert bus_1.wire_values == (1, 1, 1, 1, 0, 0, 0, 0)
+        
+        assert bus_1[0].value == 1
+        assert bus_1[1].value == 1
+        assert bus_1[2].value == 1
+        assert bus_1[3].value == 1
+        assert bus_1[4].value == 0
+        assert bus_1[5].value == 0
+        assert bus_1[6].value == 0
+        assert bus_1[7].value == 0
+        assert bus_1[-8].value == 1
+        assert bus_1[-7].value == 1
+        assert bus_1[-6].value == 1
+        assert bus_1[-5].value == 1
+        assert bus_1[-4].value == 0
+        assert bus_1[-3].value == 0
+        assert bus_1[-2].value == 0
+        assert bus_1[-1].value == 0
 
         wire_5.value = 1
         assert bus_1.wire_values == (1, 1, 1, 1, 1, 0, 0, 0)

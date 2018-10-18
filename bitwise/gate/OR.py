@@ -1,9 +1,23 @@
+"""
+The following classes are defined:
+    ORGate2
+    ORGate3
+    ORGate4
+"""
+
 from .. import wire
 
 Wire = wire.Wire
 
 
 class ORGate2:
+    """Construct a new two-input OR gate.
+
+    Args:
+        input_1: An object of type Wire. The first input to the OR gate.
+        input_2: An object of type Wire. The second input to the OR gate.
+        output: An object of type Wire. The output of the OR gate.
+    """
     def __init__(self, input_1, input_2, output):
         self.input_1 = input_1
         self.input_2 = input_2
@@ -32,6 +46,14 @@ class ORGate2:
 
 
 class ORGate3:
+    """Construct a new three-input OR gate.
+
+    Args:
+        input_1: An object of type Wire. The first input to the OR gate.
+        input_2: An object of type Wire. The second input to the OR gate.
+        input_3: An object of type Wire. The third input to the OR gate.
+        output: An object of type Wire. The output of the OR gate.
+    """
     def __init__(self, input_1, input_2, input_3, output):
         wire_1 = Wire()
         ORGate2(input_1, input_2, wire_1)
@@ -39,6 +61,15 @@ class ORGate3:
 
 
 class ORGate4:
+    """Construct a new four-input OR gate.
+
+    Args:
+        input_1: An object of type Wire. The first input to the OR gate.
+        input_2: An object of type Wire. The second input to the OR gate.
+        input_3: An object of type Wire. The third input to the OR gate.
+        input_4: An object of type Wire. The fourth input to the OR gate.
+        output: An object of type Wire. The output of the OR gate.
+    """
     def __init__(self, input_1, input_2, input_3, input_4, output):
         wire_1 = Wire()
         wire_2 = Wire()

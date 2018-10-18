@@ -1,4 +1,16 @@
+"""
+The following classes are defined:
+    Wire
+"""
+
+
 class Wire:
+    """Initialize a new wire with value 0. After initialization, the value of the wire can be both 
+    accessed and mutated using wire.value. 
+    
+    Raises:
+        ValueError: If value assigned to wire is not 0 or 1.
+    """
     def __init__(self):
         self._value = 0
         self.connections = []

@@ -1,9 +1,23 @@
+"""
+The following classes are defined:
+    ANDGate2
+    ANDGate3
+    ANDGate4
+"""
+
 from .. import wire
 
 Wire = wire.Wire
 
 
 class ANDGate2:
+    """Construct a new two-input AND gate.
+
+    Args:
+        input_1: An object of type Wire. The first input to the AND gate.
+        input_2: An object of type Wire. The second input to the AND gate.
+        output: An object of type Wire. The output of the AND gate.
+    """
     def __init__(self, input_1, input_2, output):
         self.input_1 = input_1
         self.input_2 = input_2
@@ -32,6 +46,14 @@ class ANDGate2:
 
 
 class ANDGate3:
+    """Construct a new three-input AND gate.
+
+    Args:
+        input_1: An object of type Wire. The first input to the AND gate.
+        input_2: An object of type Wire. The second input to the AND gate.
+        input_3: An object of type Wire. The third input to the AND gate.
+        output: An object of type Wire. The output of the AND gate.
+    """
     def __init__(self, input_1, input_2, input_3, output):
         wire_1 = Wire()
         ANDGate2(input_1, input_2, wire_1)
@@ -39,6 +61,15 @@ class ANDGate3:
 
 
 class ANDGate4:
+    """Construct a new four-input AND gate.
+
+    Args:
+        input_1: An object of type Wire. The first input to the AND gate.
+        input_2: An object of type Wire. The second input to the AND gate.
+        input_3: An object of type Wire. The third input to the AND gate.
+        input_4: An object of type Wire. The fourth input to the AND gate.
+        output: An object of type Wire. The output of the AND gate.
+    """
     def __init__(self, input_1, input_2, input_3, input_4, output):
         wire_1 = Wire()
         wire_2 = Wire()

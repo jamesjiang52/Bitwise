@@ -1,3 +1,8 @@
+"""
+The following classes are defined:
+    Clock
+"""
+
 import _thread
 
 

@@ -1,10 +1,4 @@
 """
-This module defines classes that simulate decoders. A decoder receives an
-encoded value, such as a binary value, and transmits a one-hot output
-corresponding to the decoded value. The decoders in this module have an
-additional enable input; if this input is 0, all the output values are 0,
-regardless of the other inputs.
-
 The following classes are defined:
     Decoder1Of4
     Decoder1Of8
@@ -21,19 +15,20 @@ Bus16 = wire.Bus16
 
 
 class Decoder1Of4:
-    """
-    This decoder has two data inputs, an enable input, and four outputs in a
-    single 4-bit bus:
-                     ________
-         enable ----|        |---- output_1
-        input_1 ----|        |---- output_2
-        input_2 ----|        |---- output_3
-                    |________|---- output_4
+    """Construct a new 1-of-4 decoder.
 
-    The inputs have input_1 and input_2 as the MSB and LSB, respectively. The
-    outputs have output_1 corresponding to the (1, 1) input and output_4
-    corresponding to the (0, 0) input. If the enable is 0, the outputs are
-    all 0, regardless of input.
+    Args:
+        enable: An object of type Wire. Enables the decoder.
+        input_1: An object of type Wire. The most significant bit of the data
+            input.
+        input_2: An object of type Wire. The least significant bit of the data
+            input.
+        output_bus: An object of type Bus4. A one-hot encoded value of the
+            input, with output_bus[0] corresponding to a (1, 1) input and
+            output_bus[3] corresponding to a (0, 0) input.
+
+    Raises:
+        TypeError: If output_bus is not a bus of width 4.
     """
     def __init__(self, enable, input_1, input_2, output_bus):
         if len(output_bus.wires) != 4:
@@ -56,23 +51,21 @@ class Decoder1Of4:
 
 
 class Decoder1Of8:
-    """
-    This decoder has three data inputs, an enable input, and eight outputs in a
-    single 8-bit bus:
-                     ________
-         enable ----|        |---- output_1
-        input_1 ----|        |---- output_2
-        input_2 ----|        |---- output_3
-        input_3 ----|        |---- output_4
-                    |        |---- output_5
-                    |        |---- output_6
-                    |        |---- output_7
-                    |________|---- output_8
+    """Construct a new 1-of-8 decoder.
 
-    The inputs have input_1 and input_3 as the MSB and LSB, respectively. The
-    outputs have output_1 corresponding to the (1, 1, 1) input and output_8
-    corresponding to the (0, 0, 0) input. If the enable is 0, the outputs are
-    all 0, regardless of input.
+    Args:
+        enable: An object of type Wire. Enables the decoder.
+        input_1: An object of type Wire. The most significant bit of the data
+            input.
+        input_2: An object of type Wire.
+        input_3: An object of type Wire. The least significant bit of the data
+            input.
+        output_bus: An object of type Bus8. A one-hot encoded value of the data
+            input, with output[0] corresponding to a (1, 1, 1) input and
+            output[7] corresponding to a (0, 0, 0) input.
+
+    Raises:
+        TypeError: If output_bus is not a bus of width 8.
     """
     def __init__(self, enable, input_1, input_2, input_3, output_bus):
         if len(output_bus.wires) != 8:
@@ -97,30 +90,20 @@ class Decoder1Of8:
 
 class Decoder1Of16:
     """
-    This decoder has four data inputs in a single 4-bit bus, an enable input,
-    and sixteen outputs in a single 16-bit bus:
-                     ________
-         enable ----|        |---- output_1
-        input_1 ----|        |---- output_2
-        input_2 ----|        |---- output_3
-        input_3 ----|        |---- output_4
-        input_4 ----|        |---- output_5
-                    |        |---- output_6
-                    |        |---- output_7
-                    |        |---- output_8
-                    |        |---- output_9
-                    |        |---- output_10
-                    |        |---- output_11
-                    |        |---- output_12
-                    |        |---- output_13
-                    |        |---- output_14
-                    |        |---- output_15
-                    |________|---- output_16
+    Construct a new 1-of-16 decoder.
 
-    The inputs have input_1 and input_4 as the MSB and LSB, respectively. The
-    outputs have output_1 corresponding to the (1, 1, 1, 1) input and
-    output_16 corresponding to the (0, 0, 0, 0) input. If the enable is 0, the
-    outputs are all 0, regardless of input.
+    Args:
+        enable: An object of type Wire. Enables the decoder.
+        input_bus: An object of type Bus4. The data input to the decoder.
+            input_1 and input_4 are the most and least significant bit,
+            respectively.
+        output_bus: An object of type Bus16. A one-hot encoded value of the
+            input, with output[0] corresponding to a (1, 1, 1, 1) input and
+            output[15] corresponding to a (0, 0, 0, 0) input.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 4, or if output_bus is
+            not a bus of width 16.
     """
     def __init__(self, enable, input_bus, output_bus):
         if len(input_bus.wires) != 4:

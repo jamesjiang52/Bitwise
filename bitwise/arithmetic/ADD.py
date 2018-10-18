@@ -1,3 +1,12 @@
+"""
+The following classes are defined:
+    Adder4
+    Adder8
+    Adder16
+    FullAdder
+    HalfAdder
+"""
+
 from .. import wire
 from .. import gate
 
@@ -8,12 +17,29 @@ Bus16 = wire.Bus16
 
 
 class HalfAdder:
+    """Construct a new half adder.
+
+    Args:
+        a: An object of type Wire. The first addend.
+        b: An object of type Wire. The second addend.
+        carry_out: An object of type Wire. The carry-out of the adder.
+        sum_: An object of type Wire. The sum of the two addends.
+    """
     def __init__(self, input_1, input_2, carry_out, sum_):
         gate.ANDGate2(input_1, input_2, carry_out)
         gate.XORGate2(input_1, input_2, sum_)
 
 
 class FullAdder:
+    """Construct a new full adder.
+
+    Args:
+        carry_in: An object of type Wire. The carry-in to the adder.
+        a: An object of type Wire. The first addend.
+        b: An object of type Wire. The second addend.
+        carry_out: An object of type Wire. The carry-out of the adder.
+        sum_: An object of type Wire. The sum of the two addends.
+    """
     def __init__(self, carry_in, input_1, input_2, carry_out, sum_):
         wire_1 = Wire()
         wire_2 = Wire()
@@ -26,7 +52,38 @@ class FullAdder:
         gate.ORGate2(wire_2, wire_3, carry_out)
 
 
-class LookaheadCarryUnit4:
+class _LookaheadCarryUnit4:
+    """
+    This class simulates a lookahead carry unit for a 4-bit adder. Though an
+    LCU is not used in the 4-bit adder itself, it is useful for fast operations
+    with chained 4-bit adders. An LCU takes the binary numbers being added
+    together and determines if a carry is generated, without waiting for all
+    the carries to "ripple" through the chain.
+
+    This LCU has eight inputs in two 4-bit buses, a carry_in input, and three
+    outputs:
+                      ________
+        carry_in ----|        |---- carry_out
+         input_1 ----|        |---- group_propagate
+         input_2 ----|        |---- group_generate
+         input_3 ----|        |
+         input_4 ----|        |
+         input_5 ----|        |
+         input_6 ----|        |
+         input_7 ----|        |
+         input_8 ----|________|
+
+    Inputs input_1 and input_4 correspond to the MSB and LSB, respectively,
+    of the first addend, and inputs input_5 and input_8 correspond to the MSB
+    and LSB, respectively, of the second addend. The carry-in input is usually
+    0 for an adder, but can be 1 if multiple adders are chained together.
+
+    The carry_out output denotes whether or not the two 4-bit binary numbers
+    will have a carry-out. The group_propagate and group_generate outputs are
+    used in higher-order LCU's and denote, respectively, whether the binary
+    numbers will propagate an input carry-in to carry-out, and whether the
+    binary numbers will themselves generate a carry-out.
+    """
     def __init__(
             self,
             carry_in,
@@ -84,7 +141,50 @@ class LookaheadCarryUnit4:
         gate.ORGate2(wire_4, group_generate, carry_out)
 
 
-class LookaheadCarryUnit16:
+class _LookaheadCarryUnit16:
+    """
+    This class simulates a lookahead carry unit for a 16-bit adder. It is
+    useful for fast operations, since it takes the binary numbers being added
+    together and determines if a carry is generated, without waiting for all
+    the carries to "ripple" through the chain of adders.
+
+    This LCU has thirty-two inputs in two 16-bit buses, a carry_in input, and
+    six outputs:
+                      ________
+        carry_in ----|        |---- internal_carry_1
+         input_1 ----|        |---- internal_carry_2
+         input_2 ----|        |---- internal_carry_3
+         input_3 ----|        |---- carry_out
+         input_4 ----|        |---- group_propagate
+             ...     |        |---- group_generate
+        input_13 ----|        |
+        input_14 ----|        |
+        input_15 ----|        |
+        input_16 ----|        |
+        input_17 ----|        |
+        input_18 ----|        |
+        input_19 ----|        |
+        input_20 ----|        |
+             ...
+        input_29 ----|        |
+        input_30 ----|        |
+        input_31 ----|        |
+        input_32 ----|________|
+
+    Inputs input_1 and input_16 correspond to the MSB and LSB, respectively,
+    of the first addend, and inputs input_17 and input_32 correspond to the MSB
+    and LSB, respectively, of the second addend. The carry-in input is usually
+    0 for an adder, but can be 1 if multiple adders are chained together.
+
+    The carry_out output denotes whether or not the two 16-bit binary numbers
+    will have a carry-out. The internal_carry outputs are used in the 16-bit
+    adder to speed up operations, with internal_carry_1 corresponding to the
+    carry from the LSB to the second-LSB. The group_propagate and
+    group_generate outputs are used in higher-order LCU's and denote,
+    respectively, whether the binary numbers will propagate an input carry-in
+    to carry-out, and whether the binary numbers will themselves generate a
+    carry-out.
+    """
     def __init__(
             self,
             carry_in,
@@ -131,7 +231,7 @@ class LookaheadCarryUnit16:
         wire_2 = Wire()
         wire_3 = Wire()
 
-        LookaheadCarryUnit4(
+        _LookaheadCarryUnit4(
             carry_in,
             input_1_bus_1,
             input_2_bus_1,
@@ -139,7 +239,7 @@ class LookaheadCarryUnit16:
             lcu_1_pg,
             lcu_1_gg
         )
-        LookaheadCarryUnit4(
+        _LookaheadCarryUnit4(
             internal_carry_1,
             input_1_bus_2,
             input_2_bus_2,
@@ -147,7 +247,7 @@ class LookaheadCarryUnit16:
             lcu_2_pg,
             lcu_2_gg
         )
-        LookaheadCarryUnit4(
+        _LookaheadCarryUnit4(
             internal_carry_2,
             input_1_bus_3,
             input_2_bus_3,
@@ -155,7 +255,7 @@ class LookaheadCarryUnit16:
             lcu_3_pg,
             lcu_3_gg
         )
-        LookaheadCarryUnit4(
+        _LookaheadCarryUnit4(
             internal_carry_3,
             input_1_bus_4,
             input_2_bus_4,
@@ -172,14 +272,30 @@ class LookaheadCarryUnit16:
 
 
 class Adder4:
+    """Construct a new 4-bit adder.
+
+    Args:
+        carry_in: An object of type Wire. The carry-in to the adder.
+        a_bus: An object of type Bus4. The first addend. a_bus[0] and a_bus[3]
+            are the most and least significant bit, respectively.
+        b_bus: An object of type Bus4. The second addend. b_bus[0] and b_bus[3]
+            are the most and least significant bit, respectively.
+        carry_out: An object of type Wire. The carry-out of the adder.
+        sum_bus: An object of type Bus4. The sum of the two addends. sum_bus[0]
+            and sum_bus[3] are the most and least significant bit,
+            respectively.
+
+    Raises:
+        TypeError: If either a_bus, b_bus, or sum_bus is not a bus of width 4.
+    """
     def __init__(
-            self,
-            carry_in,
-            input_bus_1,
-            input_bus_2,
-            carry_out,
-            output_bus
-            ):
+        self,
+        carry_in,
+        input_bus_1,
+        input_bus_2,
+        carry_out,
+        output_bus
+    ):
         if len(input_bus_1.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
@@ -216,14 +332,30 @@ class Adder4:
 
 
 class Adder8:
+    """Construct a new 8-bit adder.
+
+    Args:
+        carry_in: An object of type Wire. The carry-in to the adder.
+        a_bus: An object of type Bus8. The first addend. a_bus[0] and a_bus[7]
+            are the most and least significant bit, respectively.
+        b_bus: An object of type Bus8. The second addend. b_bus[0] and b_bus[7]
+            are the most and least significant bit, respectively.
+        carry_out: An object of type Wire. The carry-out of the adder.
+        sum_bus: An object of type Bus8. The sum of the two addends. sum_bus[0]
+            and sum_bus[7] are the most and least significant bit,
+            respectively.
+
+    Raises:
+        TypeError: If either a_bus, b_bus, or sum_bus is not a bus of width 8.
+    """
     def __init__(
-            self,
-            carry_in,
-            input_bus_1,
-            input_bus_2,
-            carry_out,
-            output_bus
-            ):
+        self,
+        carry_in,
+        input_bus_1,
+        input_bus_2,
+        carry_out,
+        output_bus
+    ):
         if len(input_bus_1.wires) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
@@ -259,7 +391,7 @@ class Adder8:
         lcu_pg = Wire()
         lcu_gg = Wire()
 
-        LookaheadCarryUnit4(
+        _LookaheadCarryUnit4(
             carry_in,
             input_1_2,
             input_2_2,
@@ -272,14 +404,30 @@ class Adder8:
 
 
 class Adder16:
+    """Construct a new 16-bit adder.
+
+    Args:
+        carry_in: An object of type Wire. The carry-in to the adder.
+        a_bus: An object of type Bus16. The first addend. a_bus[0] and
+            a_bus[15] are the most and least significant bit, respectively.
+        b_bus: An object of type Bus16. The second addend. b_bus[0] and
+            b_bus[15] are the most and least significant bit, respectively.
+        carry_out: An object of type Wire. The carry-out of the adder.
+        sum_bus: An object of type Bus16. The sum of the two addends.
+            sum_bus[0] and sum_bus[15] are the most and least significant bit,
+            respectively.
+
+    Raises:
+        TypeError: If either a_bus, b_bus, or sum_bus is not a bus of width 16.
+    """
     def __init__(
-            self,
-            carry_in,
-            input_bus_1,
-            input_bus_2,
-            carry_out,
-            output_bus
-            ):
+        self,
+        carry_in,
+        input_bus_1,
+        input_bus_2,
+        carry_out,
+        output_bus
+    ):
         if len(input_bus_1.wires) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
@@ -293,7 +441,7 @@ class Adder16:
                     len(input_bus_2.wires)
                 )
             )
-            
+
         if len(output_bus.wires) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
@@ -323,7 +471,7 @@ class Adder16:
         lcu_pg = Wire()
         lcu_gg = Wire()
 
-        LookaheadCarryUnit16(
+        _LookaheadCarryUnit16(
             carry_in,
             input_bus_1,
             input_bus_2,

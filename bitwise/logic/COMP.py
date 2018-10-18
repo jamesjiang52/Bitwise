@@ -1,9 +1,4 @@
 """
-This module defines classes that simulate logical comparators. While there are
-many different forms of comparators, the ones in this module simply receive two
-signed binary numbers in two's complement form and determine if the first is
-greater than, equal to, or less than the second.
-
 The following classes are defined:
     Comparator3
     Comparator7
@@ -21,25 +16,21 @@ Bus16 = wire.Bus16
 
 
 class Comparator3:
-    """
-    This logical comparator has eight inputs in two 4-bit buses and three
-    outputs:
-                     ________
-        input_1 ----|        |---- greater_than
-        input_2 ----|        |---- equal_to
-        input_3 ----|        |---- less_than
-        input_4 ----|        |
-        input_5 ----|        |
-        input_6 ----|        |
-        input_7 ----|        |
-        input_8 ----|________|
+    """Construct a new 3-bit logical comparator.
 
-    The comparator compares two signed 3-bit binary numbers. The first number
-    has input_1, input_2, and input_4 as the sign bit, MSB, and LSB,
-    respectively (input_bus_1). The second number has input_5, input_6, and
-    input_8 as the sign bit, MSB, and LSB, respectively (input_bus_2). If the
-    first number is greater than the second, the greater_than output will be 1,
-    with all other outputs 0. The other outputs work analogously.
+    Args:
+        a_bus: An object of type Bus4. The number to be compared. a_bus[1] and
+            a_bus[3] are the most and least significant bit, respectively.
+            a_bus[0] is the sign bit.
+        b_bus: An object of type Bus4. The number to be compared against.
+            b_bus[1] and b_bus[3] are the most and least significant bit,
+            respectively. b_bus[0] is the sign bit.
+        greater_than: An object of type Wire. The greater-than indicator.
+        equal_to: An object of type Wire. The equal-to indicator.
+        less_than: An object of type Wire. The less-than indicator.
+
+    Raises:
+        TypeError: If either a_bus or b_bus is not a bus of width 4.
     """
     def __init__(self, input_bus_1, input_bus_2, gt, z, lt):
         if len(input_bus_1.wires) != 4:
@@ -83,33 +74,21 @@ class Comparator3:
 
 
 class Comparator7:
-    """
-    This logical comparator has sixteen inputs in two 8-bit buses and three
-    outputs:
-                      ________
-         input_1 ----|        |---- greater_than
-         input_2 ----|        |---- equal_to
-         input_3 ----|        |---- less_than
-         input_4 ----|        |
-         input_5 ----|        |
-         input_6 ----|        |
-         input_7 ----|        |
-         input_8 ----|        |
-         input_9 ----|        |
-        input_10 ----|        |
-        input_11 ----|        |
-        input_12 ----|        |
-        input_13 ----|        |
-        input_14 ----|        |
-        input_15 ----|        |
-        input_16 ----|________|
+    """Construct a new 7-bit logical comparator.
 
-    The comparator compares two signed 7-bit binary numbers. The first number
-    has input_1, input_2, and input_8 as the sign bit, MSB, and LSB,
-    respectively (input_bus_1). The second number has input_9, input_10, and
-    input_16 as the sign bit, MSB, and LSB, respectively (input_bus_2). If the
-    first number is greater than the second, the greater_than output will be 1,
-    with all other outputs 0. The other outputs work analogously.
+    Args:
+        a_bus: An object of type Bus8. The number to be compared. a_bus[1] and
+            a_bus[7] are the most and least significant bit, respectively.
+            a_bus[0] is the sign bit.
+        b_bus: An object of type Bus8. The number to be compared against.
+            b_bus[1] and b_bus[7] are the most and least significant bit,
+            respectively. b_bus[0] is the sign bit.
+        greater_than: An object of type Wire. The greater-than indicator.
+        equal_to: An object of type Wire. The equal-to indicator.
+        less_than: An object of type Wire. The less-than indicator.
+
+    Raises:
+        TypeError: If either a_bus or b_bus is not a bus of width 8.
     """
     def __init__(self, input_bus_1, input_bus_2, gt, z, lt):
         if len(input_bus_1.wires) != 8:
@@ -170,35 +149,21 @@ class Comparator7:
 
 
 class Comparator15:
-    """
-    This logical comparator has thirty-two inputs in two 16-bit buses and three
-    outputs:
-                      ________
-         input_1 ----|        |---- greater_than
-         input_2 ----|        |---- equal_to
-         input_3 ----|        |---- less_than
-         input_4 ----|        |
-             ...     |        |
-        input_13 ----|        |
-        input_14 ----|        |
-        input_15 ----|        |
-        input_16 ----|        |
-        input_17 ----|        |
-        input_18 ----|        |
-        input_19 ----|        |
-        input_20 ----|        |
-             ...     |        |
-        input_29 ----|        |
-        input_30 ----|        |
-        input_31 ----|        |
-        input_32 ----|________|
+    """Construct a new 15-bit logical comparator.
 
-    The comparator compares two signed 15-bit binary numbers. The first number
-    has input_1, input_2, and input_16 as the sign bit, MSB, and LSB,
-    respectively (input_bus_1). The second number has input_17, input_18, and
-    input_32 as the sign bit, MSB, and LSB, respectively (input_bus_2). If the
-    first number is greater than the second, the greater_than output will be 1,
-    with all other outputs 0. The other outputs work analogously.
+    Args:
+        a_bus: An object of type Bus16. The number to be compared. a_bus[1] and
+            a_bus[15] are the most and least significant bit, respectively.
+            a_bus[0] is the sign bit.
+        b_bus: An object of type Bus16. The number to be compared against.
+            b_bus[1] and b_bus[15] are the most and least significant bit,
+            respectively. b_bus[0] is the sign bit.
+        greater_than: An object of type Wire. The greater-than indicator.
+        equal_to: An object of type Wire. The equal-to indicator.
+        less_than: An object of type Wire. The less-than indicator.
+
+    Raises:
+        TypeError: If either a_bus or b_bus is not a bus of width 16.
     """
     def __init__(self, input_bus_1, input_bus_2, gt, z, lt):
         if len(input_bus_1.wires) != 16:

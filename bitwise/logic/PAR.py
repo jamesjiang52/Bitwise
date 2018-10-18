@@ -1,19 +1,4 @@
 """
-This module defines classes that simulate parity generators and parity
-checkers. These two circuits have essentially the same structure, but perform
-different functions. A parity generator transmits a single output, called a
-parity bit, based on its inputs. A parity checker transmits a single output
-that denotes an error if it has value 1.
-
-All the parity generators in this module are even. If the input carries an even
-number of 1's, the parity bit is 0. If the input carries an odd number of 1's,
-the parity bit is 1. This ensures that the total number of 1's in the input and
-the parity bit is even, which is the premise for a parity checker.
-
-The parity checkers in this module are even. If the input carries an even
-number of 1's, there is no error and the output is 0. If the input carries an
-odd number of 1's, there has been an error in transmission and the output is 1.
-
 The following classes are defined:
     ParityGenerator4
     ParityChecker4
@@ -33,17 +18,14 @@ Bus16 = wire.Bus16
 
 
 class ParityGenerator4:
-    """
-    This parity generator has four inputs in a single 4-bit bus and a single
-    output:
-                     ________
-        input_1 ----|        |---- parity_bit
-        input_2 ----|        |
-        input_3 ----|        |
-        input_4 ----|________|
+    """Construct a new 4-bit even parity generator.
 
-    If the number of 1's in the input is even, parity_bit is 0. If the number
-    of 1's in the input is odd, parity_bit is 1.
+    Args:
+        input_bus: An object of type Bus4. The input to the parity generator.
+        parity_bit: An object of type Wire. The parity bit.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 4.
     """
     def __init__(self, input_bus, parity_bit):
         if len(input_bus.wires) != 4:
@@ -62,19 +44,15 @@ class ParityGenerator4:
 
 
 class ParityChecker4:
-    """
-    This parity checker has four inputs in a single 4-bit bus, a parity_bit
-    input, and a single output, denoting if an error has occurred:
-                        ________
-           input_1 ----|        |---- error
-           input_2 ----|        |
-           input_3 ----|        |
-           input_4 ----|        |
-        parity_bit ----|________|
+    """Construct a new 4-bit even parity checker.
 
-    If the number of 1's in the input, including parity_bit, is even, no error
-    has occurred and the output is 0. If the number of 1's in the input,
-    including parity_bit, is odd, an error has occurred and the output is 1.
+    Args:
+        input_bus: An object of type Bus4. The input to the parity checker.
+        parity_bit: An object of type Wire. The parity bit.
+        error: An object of type Wire. The error indicator.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 4.
     """
     def __init__(self, input_bus, parity_bit, error):
         if len(input_bus.wires) != 4:
@@ -90,21 +68,14 @@ class ParityChecker4:
 
 
 class ParityGenerator8:
-    """
-    This parity generator has eight inputs in a single 8-bit bus and a single
-    output:
-                     ________
-        input_1 ----|        |---- parity_bit
-        input_2 ----|        |
-        input_3 ----|        |
-        input_4 ----|        |
-        input_5 ----|        |
-        input_6 ----|        |
-        input_7 ----|        |
-        input_8 ----|________|
+    """Construct a new 8-bit even parity generator.
 
-    If the number of 1's in the input is even, parity_bit is 0. If the number
-    of 1's in the input is odd, parity_bit is 1.
+    Args:
+        input_bus: An object of type Bus8. The input to the parity generator.
+        parity_bit: An object of type Wire. The parity bit.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 8.
     """
     def __init__(self, input_bus, parity_bit):
         if len(input_bus.wires) != 8:
@@ -125,23 +96,15 @@ class ParityGenerator8:
 
 
 class ParityChecker8:
-    """
-    This parity checker has eight inputs in a single 8-bit bus, a parity_bit
-    input, and a single output, denoting if an error has occurred:
-                        ________
-           input_1 ----|        |---- error
-           input_2 ----|        |
-           input_3 ----|        |
-           input_4 ----|        |
-           input_5 ----|        |
-           input_6 ----|        |
-           input_7 ----|        |
-           input_8 ----|        |
-        parity_bit ----|________|
+    """Construct a new 8-bit even parity checker.
 
-    If the number of 1's in the input, including parity_bit, is even, no error
-    has occurred and the output is 0. If the number of 1's in the input,
-    including parity_bit, is odd, an error has occurred and the output is 1.
+    Args:
+        input_bus: An object of type Bus8. The input to the parity checker.
+        parity_bit: An object of type Wire. The parity bit.
+        error: An object of type Wire. The error indicator.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 8.
     """
     def __init__(self, input_bus, parity_bit, error):
         if len(input_bus.wires) != 8:
@@ -157,29 +120,14 @@ class ParityChecker8:
 
 
 class ParityGenerator16:
-    """
-    This parity generator has sixteen inputs in a single 16-bit bus and a
-    single output:
-                      ________
-         input_1 ----|        |---- parity_bit
-         input_2 ----|        |
-         input_3 ----|        |
-         input_4 ----|        |
-         input_5 ----|        |
-         input_6 ----|        |
-         input_7 ----|        |
-         input_8 ----|        |
-         input_9 ----|        |
-        input_10 ----|        |
-        input_11 ----|        |
-        input_12 ----|        |
-        input_13 ----|        |
-        input_14 ----|        |
-        input_15 ----|        |
-        input_16 ----|________|
+    """Construct a new 16-bit even parity generator.
 
-    If the number of 1's in the input is even, parity_bit is 0. If the number
-    of 1's in the input is odd, parity_bit is 1.
+    Args:
+        input_bus: An object of type Bus16. The input to the parity generator.
+        parity_bit: An object of type Wire. The parity bit.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 16.
     """
     def __init__(self, input_bus, parity_bit):
         if len(input_bus.wires) != 16:
@@ -200,31 +148,15 @@ class ParityGenerator16:
 
 
 class ParityChecker16:
-    """
-    This parity checker has sixteen inputs in a single 16-bit bus, a parity_bit
-    input, and a single output, denoting if an error has occurred:
-                        ________
-           input_1 ----|        |---- error
-           input_2 ----|        |
-           input_3 ----|        |
-           input_4 ----|        |
-           input_5 ----|        |
-           input_6 ----|        |
-           input_7 ----|        |
-           input_8 ----|        |
-           input_9 ----|        |
-          input_10 ----|        |
-          input_11 ----|        |
-          input_12 ----|        |
-          input_13 ----|        |
-          input_14 ----|        |
-          input_15 ----|        |
-          input_16 ----|        |
-        parity_bit ----|________|
+    """Construct a new 16-bit even parity checker.
 
-    If the number of 1's in the input, including parity_bit, is even, no error
-    has occurred and the output is 0. If the number of 1's in the input,
-    including parity_bit, is odd, an error has occurred and the output is 1.
+    Args:
+        input_bus: An object of type Bus16. The input to the parity checker.
+        parity_bit: An object of type Wire. The parity bit.
+        error: An object of type Wire. The error indicator.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 16.
     """
     def __init__(self, input_bus, parity_bit, error):
         if len(input_bus.wires) != 16:
