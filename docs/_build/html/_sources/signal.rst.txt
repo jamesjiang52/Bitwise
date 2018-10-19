@@ -39,7 +39,7 @@ Args:
 * ``enable``: An object of type ``Wire``. Enables the decoder.
 * ``input_1``: An object of type ``Wire``. The most significant bit of the data input.
 * ``input_2``: An object of type ``Wire``. The least significant bit of the data input.
-* ``output_bus``: An object of type ``Bus4``. A one-hot encoded value of the input, with ``output_1`` corresponding to a (1, 1) input and ``output_4`` corresponding to a (0, 0) input.
+* ``output_bus``: An object of type ``Bus4``. A one-hot encoded value of the input, with ``output_bus[0]`` corresponding to a (1, 1) input and ``output_bus[3]`` corresponding to a (0, 0) input.
 
 Raises:
 ~~~~~~~
@@ -82,7 +82,7 @@ Args:
 * ``input_1``: An object of type ``Wire``. The most significant bit of the data input.
 * ``input_2``: An object of type ``Wire``.
 * ``input_3``: An object of type ``Wire``. The least significant bit of the data input.
-* ``output_bus``: An object of type ``Bus8``. A one-hot encoded value of the data input, with ``output_1`` corresponding to a (1, 1, 1) input and ``output_8`` corresponding to a (0, 0, 0) input.
+* ``output_bus``: An object of type ``Bus8``. A one-hot encoded value of the data input, with ``output_bus[0]`` corresponding to a (1, 1, 1) input and ``output_bus[7]`` corresponding to a (0, 0, 0) input.
 
 Raises:
 ~~~~~~~
@@ -120,8 +120,8 @@ Construct a new 1-of-16 decoder.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the decoder.
-* ``input_bus``: An object of type ``Bus4``. The data input to the decoder. ``input_1`` and ``input_4`` are the most and least significant bit, respectively.
-* ``output_bus``: An object of type ``Bus16``. A one-hot encoded value of the input, with ``output_1`` corresponding to a (1, 1, 1, 1) input and ``output_16`` corresponding to a (0, 0, 0, 0) input.
+* ``input_bus``: An object of type ``Bus4``. The data input to the decoder. ``input_bus[0]`` and ``input_bus[3]`` are the most and least significant bit, respectively.
+* ``output_bus``: An object of type ``Bus16``. A one-hot encoded value of the input, with ``output_bus[0]`` corresponding to a (1, 1, 1, 1) input and ``output_bus[15]`` corresponding to a (0, 0, 0, 0) input.
 
 Raises:
 ~~~~~~~
@@ -203,7 +203,7 @@ Args:
 * ``select_1``: An object of type ``Wire``. The most significant bit of the select input.
 * ``select_2``: An object of type ``Wire``. The least significant bit of the select input.
 * ``input_``: An object of type ``Wire``. The data input to the demultiplexer.
-* ``output_bus``: An object of type ``Bus4``. ``output_1`` transmits the value of ``input_`` for a (1, 1) select, and ``output_4`` transmits the value of ``input_`` for a (0, 0) select.
+* ``output_bus``: An object of type ``Bus4``. ``output_bus[0]`` transmits the value of ``input_`` for a (1, 1) select, and ``output_bus[3]`` transmits the value of ``input_`` for a (0, 0) select.
 
 Raises:
 ~~~~~~~
@@ -248,7 +248,7 @@ Args:
 * ``select_2``: An object of type ``Wire``.
 * ``select_3``: An object of type ``Wire``. The least significant bit of the select input.
 * ``input_``: An object of type ``Wire``. The data input to the demultiplexer.
-* ``output_bus``: An object of type ``Bus8``. ``output_1`` transmits the value of ``input_`` for a (1, 1, 1) select, and ``output_8`` transmits the value of ``input_`` for a (0, 0, 0) select.
+* ``output_bus``: An object of type ``Bus8``. ``output_bus[0]`` transmits the value of ``input_`` for a (1, 1, 1) select, and ``output_bus[7]`` transmits the value of ``input_`` for a (0, 0, 0) select.
 
 Raises:
 ~~~~~~~
@@ -287,9 +287,9 @@ Construct a new 1-to-16 demultiplexer.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the demultiplexer.
-* ``select_bus``: An object of type ``Bus4``. The select input to the demultiplexer. ``select_1`` and ``select_4`` are the most and least significant bit, respectively.
+* ``select_bus``: An object of type ``Bus4``. The select input to the demultiplexer. ``select_bus[0]`` and ``select_bus[3]`` are the most and least significant bit, respectively.
 * ``input_``: An object of type ``Wire``. The data input to the demultiplexer.
-* ``output_bus``: An object of type ``Bus16``. ``output_1`` transmits the value of ``input_`` for a (1, 1, 1, 1) select, and ``output_4`` transmits the value of ``input_`` for a (0, 0, 0, 0) select.
+* ``output_bus``: An object of type ``Bus16``. ``output_bus[0]`` transmits the value of ``input_`` for a (1, 1, 1, 1) select, and ``output_bus[15]`` transmits the value of ``input_`` for a (0, 0, 0, 0) select.
 
 Raises:
 ~~~~~~~

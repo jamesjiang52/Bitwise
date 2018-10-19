@@ -38,7 +38,7 @@
         <div class="sphinxsidebarwrapper">
 <p class="logo">
   <a href="index.html">
-    <img class="logo" src="_static/../../../images/logo.png" alt="Logo"/>
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
     
   </a>
 </p>
@@ -123,7 +123,7 @@
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the decoder.</li>
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the data input.</li>
 <li><code class="docutils literal"><span class="pre">input_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the data input.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. A one-hot encoded value of the input, with <code class="docutils literal"><span class="pre">output_1</span></code> corresponding to a (1, 1) input and <code class="docutils literal"><span class="pre">output_4</span></code> corresponding to a (0, 0) input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. A one-hot encoded value of the input, with <code class="docutils literal"><span class="pre">output_bus[0]</span></code> corresponding to a (1, 1) input and <code class="docutils literal"><span class="pre">output_bus[3]</span></code> corresponding to a (0, 0) input.</li>
 </ul>
 </div>
 <div class="section" id="raises">
@@ -161,7 +161,7 @@
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the data input.</li>
 <li><code class="docutils literal"><span class="pre">input_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
 <li><code class="docutils literal"><span class="pre">input_3</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the data input.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. A one-hot encoded value of the data input, with <code class="docutils literal"><span class="pre">output_1</span></code> corresponding to a (1, 1, 1) input and <code class="docutils literal"><span class="pre">output_8</span></code> corresponding to a (0, 0, 0) input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. A one-hot encoded value of the data input, with <code class="docutils literal"><span class="pre">output_bus[0]</span></code> corresponding to a (1, 1, 1) input and <code class="docutils literal"><span class="pre">output_bus[7]</span></code> corresponding to a (0, 0, 0) input.</li>
 </ul>
 </div>
 <div class="section" id="id7">
@@ -194,8 +194,8 @@
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the decoder.</li>
-<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The data input to the decoder. <code class="docutils literal"><span class="pre">input_1</span></code> and <code class="docutils literal"><span class="pre">input_4</span></code> are the most and least significant bit, respectively.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. A one-hot encoded value of the input, with <code class="docutils literal"><span class="pre">output_1</span></code> corresponding to a (1, 1, 1, 1) input and <code class="docutils literal"><span class="pre">output_16</span></code> corresponding to a (0, 0, 0, 0) input.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The data input to the decoder. <code class="docutils literal"><span class="pre">input_bus[0]</span></code> and <code class="docutils literal"><span class="pre">input_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. A one-hot encoded value of the input, with <code class="docutils literal"><span class="pre">output_bus[0]</span></code> corresponding to a (1, 1, 1, 1) input and <code class="docutils literal"><span class="pre">output_bus[15]</span></code> corresponding to a (0, 0, 0, 0) input.</li>
 </ul>
 </div>
 <div class="section" id="id13">
@@ -265,7 +265,7 @@
 <li><code class="docutils literal"><span class="pre">select_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the select input.</li>
 <li><code class="docutils literal"><span class="pre">select_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the select input.</li>
 <li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. <code class="docutils literal"><span class="pre">output_1</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1) select, and <code class="docutils literal"><span class="pre">output_4</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0) select.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[3]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0) select.</li>
 </ul>
 </div>
 <div class="section" id="id22">
@@ -305,7 +305,7 @@
 <li><code class="docutils literal"><span class="pre">select_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
 <li><code class="docutils literal"><span class="pre">select_3</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the select input.</li>
 <li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. <code class="docutils literal"><span class="pre">output_1</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_8</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0, 0) select.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[7]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0, 0) select.</li>
 </ul>
 </div>
 <div class="section" id="id28">
@@ -339,9 +339,9 @@
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">select_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The select input to the demultiplexer. <code class="docutils literal"><span class="pre">select_1</span></code> and <code class="docutils literal"><span class="pre">select_4</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">select_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The select input to the demultiplexer. <code class="docutils literal"><span class="pre">select_bus[0]</span></code> and <code class="docutils literal"><span class="pre">select_bus[3]</span></code> are the most and least significant bit, respectively.</li>
 <li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. <code class="docutils literal"><span class="pre">output_1</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_4</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0, 0, 0) select.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[15]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0, 0, 0) select.</li>
 </ul>
 </div>
 <div class="section" id="id34">
