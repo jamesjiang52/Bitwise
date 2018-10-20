@@ -1,10 +1,4 @@
 """
-This module defines classes that simulate multiplexers. A multiplexer receives
-multiple inputs and selects one of them to be the output. This selection is
-done by one or more select inputs. The multiplexers in this module have an
-additional enable input; if this input is 0, all the output values are 0,
-regardless of the other inputs.
-
 The following classes are defined:
     Multiplexer2To1
     Multiplexer4To1
@@ -22,17 +16,18 @@ Bus16 = wire.Bus16
 
 
 class Multiplexer2To1:
-    """
-    This multiplexer has two data inputs, an enable input, a single select
-    input, and a single output:
-                     ________
-         enable ----|        |---- output
-         select ----|        |
-        input_1 ----|        |
-        input_2 ----|________|
+    """Construct a new 2-to-1 multiplexer.
 
-    The output takes on the value of input_2 for a (0) select and input_1 for a
-    (1) select. If the enable is 0, the outputs are all 0, regardless of input.
+    Args:
+        enable: An object of type Wire. Enables the multiplexer.
+        select: An object of type Wire. The select input.
+        input_1: An object of type Wire. The first data input to the
+            multiplexer.
+        input_2: An object of type Wire. The second data input to the
+            multiplexer.
+        output: An object of type Wire. The output of the multiplexer, which
+            takes on the value of input_1 for a 1 select and input_2 for a 0
+            select.
     """
     def __init__(self, enable, select, input_1, input_2, output):
         wire_1 = Wire()
@@ -48,22 +43,21 @@ class Multiplexer2To1:
 
 
 class Multiplexer4To1:
-    """
-    This multiplexer has four data inputs in a single 4-bit bus, an enable
-    input, two select inputs, and a single output:
-                      ________
-          enable ----|        |---- output
-        select_1 ----|        |
-        select_2 ----|        |
-         input_1 ----|        |
-         input_2 ----|        |
-         input_3 ----|        |
-         input_4 ----|________|
+    """Construct a new 4-to-1 multiplexer.
 
-    The selects have select_1 and select_2 as the MSB and LSB, respectively.
-    The output takes on the value of input_4 for a (0, 0) select and input_1
-    for a (1, 1) select. If the enable is 0, the output is 0, regardless of
-    input.
+    Args:
+        enable: An object of type Wire. Enables the multiplexer.
+        select_1: An object of type Wire. The most significant bit of the
+            select input.
+        select_2: An object of type Wire. The least significant bit of the
+            select input.
+        input_bus: An object of type Bus4. The data input to the multiplexer.
+        output: An object of type Wire. The output of the multiplexer, which
+            takes on the value of input_bus[0] for a (1, 1) select and
+            input_bus[3] for a (0, 0) select.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 4.
     """
     def __init__(self, enable, select_1, select_2, input_bus, output):
         if len(input_bus.wires) != 4:
@@ -82,27 +76,22 @@ class Multiplexer4To1:
 
 
 class Multiplexer8To1:
-    """
-    This multiplexer has eight data inputs in a single 8-bit bus, an enable
-    input, three select inputs, and a single output:
-                      ________
-          enable ----|        |---- output
-        select_1 ----|        |
-        select_2 ----|        |
-        select_3 ----|        |
-         input_1 ----|        |
-         input_2 ----|        |
-         input_3 ----|        |
-         input_4 ----|        |
-         input_5 ----|        |
-         input_6 ----|        |
-         input_7 ----|        |
-         input_8 ----|________|
+    """Construct a new 8-to-1 multiplexer.
 
-    The selects have select_1 and select_3 as the MSB and LSB, respectively.
-    The output takes on the value of input_8 for a (0, 0, 0) select and input_1
-    for a (1, 1, 1) select. If the enable is 0, the output is 0, regardless of
-    input.
+    Args:
+        enable: An object of type Wire. Enables the multiplexer.
+        select_1: An object of type Wire. The most significant bit of the
+            select input.
+        select_2: An object of type Wire.
+        select_3: An object of type Wire. The least significant bit of the
+            select input.
+        input_bus: An object of type Bus8. The data input to the multiplexer.
+        output: An object of type Wire. The output of the multiplexer, which
+            takes on the value of input_bus[0] for a (1, 1, 1) select and
+            input_bus[7] for a (0, 0, 0) select.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 8.
     """
     def __init__(
             self, enable, select_1, select_2, select_3, input_bus, output):
@@ -124,36 +113,20 @@ class Multiplexer8To1:
 
 
 class Multiplexer16To1:
-    """
-    This multiplexer has sixteen data inputs in a single 16-bit bus, an enable
-    input, four select inputs in a single 4-bit bus, and a single output:
-                      ________
-          enable ----|        |---- output
-        select_1 ----|        |
-        select_2 ----|        |
-        select_3 ----|        |
-        select_4 ----|        |
-         input_1 ----|        |
-         input_2 ----|        |
-         input_3 ----|        |
-         input_4 ----|        |
-         input_5 ----|        |
-         input_6 ----|        |
-         input_7 ----|        |
-         input_8 ----|        |
-         input_9 ----|        |
-        input_10 ----|        |
-        input_11 ----|        |
-        input_12 ----|        |
-        input_13 ----|        |
-        input_14 ----|        |
-        input_15 ----|        |
-        input_16 ----|________|
+    """Construct a new 16-to-1 multiplexer.
 
-    The selects have select_1 and select_4 as the MSB and LSB, respectively.
-    The output takes on the value of input_16 for a (0, 0, 0, 0) select and
-    input_1 for a (1, 1, 1, 1) select. If the enable is 0, the output is 0,
-    regardless of input.
+    Args:
+        enable: An object of type Wire. Enables the multiplexer.
+        select_bus: An object of type Bus4. select_bus[0] and select_bus[3] are
+            the most and least significant bit, respectively.
+        input_bus: An object of type Bus16. The data input to the multiplexer.
+        output: An object of type Wire. The output of the multiplexer, which
+            takes on the value of input_bus[0] for a (1, 1, 1, 1) select and
+            input_bus[15] for a (0, 0, 0, 0) select.
+
+    Raises:
+        TypeError: If select_bus is not a bus of width 4, or if input_bus is
+            not a bus of width 16.
     """
     def __init__(self, enable, select_bus, input_bus, output):
         if len(input_bus.wires) != 16:

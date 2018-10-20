@@ -69,6 +69,9 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Signal</a><ul>
+<li><a class="reference internal" href="#controlledinverter4">ControlledInverter4</a></li>
+<li><a class="reference internal" href="#controlledinverter8">ControlledInverter8</a></li>
+<li><a class="reference internal" href="#controlledinverter16">ControlledInverter16</a></li>
 <li><a class="reference internal" href="#decoder1of4">Decoder1Of4</a></li>
 <li><a class="reference internal" href="#decoder1of8">Decoder1Of8</a></li>
 <li><a class="reference internal" href="#decoder1of16">Decoder1Of16</a></li>
@@ -76,6 +79,16 @@
 <li><a class="reference internal" href="#demultiplexer1to4">Demultiplexer1To4</a></li>
 <li><a class="reference internal" href="#demultiplexer1to8">Demultiplexer1To8</a></li>
 <li><a class="reference internal" href="#demultiplexer1to16">Demultiplexer1To16</a></li>
+<li><a class="reference internal" href="#encoder4to2">Encoder4To2</a></li>
+<li><a class="reference internal" href="#encoder8to3">Encoder8To3</a></li>
+<li><a class="reference internal" href="#encoder16to4">Encoder16To4</a></li>
+<li><a class="reference internal" href="#multiplexer2to1">Multiplexer2To1</a></li>
+<li><a class="reference internal" href="#multiplexer4to1">Multiplexer4To1</a></li>
+<li><a class="reference internal" href="#multiplexer8to1">Multiplexer8To1</a></li>
+<li><a class="reference internal" href="#multiplexer16to1">Multiplexer16To1</a></li>
+<li><a class="reference internal" href="#sevensegmentconverter">SevenSegmentConverter</a></li>
+<li><a class="reference internal" href="#sevensegmentconverterdual">SevenSegmentConverterDual</a></li>
+<li><a class="reference internal" href="#sevensegmentconverterquad">SevenSegmentConverterQuad</a></li>
 </ul>
 </li>
 </ul>
@@ -98,15 +111,113 @@
             
   <div class="section" id="signal">
 <h1>Signal</h1>
-<div class="section" id="decoder1of4">
-<span id="id1"></span><h2>Decoder1Of4</h2>
-<div class="section" id="class-bw-signal-decoder1of4">
-<h3>Class <code class="docutils literal"><span class="pre">bw.signal.Decoder1Of4</span></code></h3>
-<img alt="_images/Decoder1Of4.png" src="_images/Decoder1Of4.png" style="width: 600px;" />
-<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEC.py">bitwise/signal/DEC.py</a>.</p>
-<p>1-of-4 <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_decoder">decoder</a>.</p>
+<div class="section" id="controlledinverter4">
+<span id="id1"></span><h2>ControlledInverter4</h2>
+<div class="section" id="class-bw-signal-controlledinverter4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.ControlledInverter4</span></code></h3>
+<img alt="_images/ControlledInverter4.svg" src="_images/ControlledInverter4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/INV_CTRL.py">bitwise/signal/INV_CTRL.py</a>.</p>
+<p>4-bit <a class="reference external" href="https://en.wikiversity.org/wiki/Logic_gates/XOR">controlled inverter</a>.</p>
 </div>
 <div class="section" id="init">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit controlled inverter.</p>
+<div class="section" id="args">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the controlled inverter.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The data input to the controlled inverter.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the controlled inverter, which is the inverted form of the data input iff <code class="docutils literal"><span class="pre">enable</span></code> has value 1.</li>
+</ul>
+</div>
+<div class="section" id="raises">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">input_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="controlledinverter8">
+<span id="id2"></span><h2>ControlledInverter8</h2>
+<div class="section" id="class-bw-signal-controlledinverter8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.ControlledInverter8</span></code></h3>
+<img alt="_images/ControlledInverter8.svg" src="_images/ControlledInverter8.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/INV_CTRL.py">bitwise/signal/INV_CTRL.py</a>.</p>
+<p>8-bit <a class="reference external" href="https://en.wikiversity.org/wiki/Logic_gates/XOR">controlled inverter</a>.</p>
+</div>
+<div class="section" id="id5">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit controlled inverter.</p>
+<div class="section" id="id6">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the controlled inverter.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The data input to the controlled inverter.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The output of the controlled inverter, which is the inverted form of the data input iff <code class="docutils literal"><span class="pre">enable</span></code> has value 1.</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">input_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="controlledinverter16">
+<span id="id8"></span><h2>ControlledInverter16</h2>
+<div class="section" id="class-bw-signal-controlledinverter16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.ControlledInverter16</span></code></h3>
+<img alt="_images/ControlledInverter16.svg" src="_images/ControlledInverter16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/INV_CTRL.py">bitwise/signal/INV_CTRL.py</a>.</p>
+<p>16-bit <a class="reference external" href="https://en.wikiversity.org/wiki/Logic_gates/XOR">controlled inverter</a>.</p>
+</div>
+<div class="section" id="id11">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit controlled inverter.</p>
+<div class="section" id="id12">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the controlled inverter.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The data input to the controlled inverter.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The output of the controlled inverter, which is the inverted form of the data input iff <code class="docutils literal"><span class="pre">enable</span></code> has value 1.</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">input_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="decoder1of4">
+<span id="id14"></span><h2>Decoder1Of4</h2>
+<div class="section" id="class-bw-signal-decoder1of4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.Decoder1Of4</span></code></h3>
+<img alt="_images/Decoder1Of4.svg" src="_images/Decoder1Of4.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEC.py">bitwise/signal/DEC.py</a>.</p>
+<p>1-of-4 <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_decoder">decoder</a>.</p>
+</div>
+<div class="section" id="id15">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">enable</span><span class="p">,</span>
@@ -117,7 +228,7 @@
 </pre></div>
 </div>
 <p>Construct a new 1-of-4 decoder.</p>
-<div class="section" id="args">
+<div class="section" id="id16">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the decoder.</li>
@@ -126,7 +237,7 @@
 <li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. A one-hot encoded value of the input, with <code class="docutils literal"><span class="pre">output_bus[0]</span></code> corresponding to a (1, 1) input and <code class="docutils literal"><span class="pre">output_bus[3]</span></code> corresponding to a (0, 0) input.</li>
 </ul>
 </div>
-<div class="section" id="raises">
+<div class="section" id="id17">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
@@ -135,14 +246,13 @@
 </div>
 </div>
 <div class="section" id="decoder1of8">
-<span id="id2"></span><h2>Decoder1Of8</h2>
+<span id="id18"></span><h2>Decoder1Of8</h2>
 <div class="section" id="class-bw-signal-decoder1of8">
 <h3>Class <code class="docutils literal"><span class="pre">bw.signal.Decoder1Of8</span></code></h3>
-<img alt="_images/Decoder1Of8.png" src="_images/Decoder1Of8.png" style="width: 600px;" />
-<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEC.py">bitwise/signal/DEC.py</a>.</p>
+<img alt="_images/Decoder1Of8.svg" src="_images/Decoder1Of8.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEC.py">bitwise/signal/DEC.py</a>.</p>
 <p>1-of-8 <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_decoder">decoder</a>.</p>
 </div>
-<div class="section" id="id5">
+<div class="section" id="id21">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">enable</span><span class="p">,</span>
@@ -154,7 +264,7 @@
 </pre></div>
 </div>
 <p>Construct a new 1-of-8 decoder.</p>
-<div class="section" id="id6">
+<div class="section" id="id22">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the decoder.</li>
@@ -164,7 +274,7 @@
 <li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. A one-hot encoded value of the data input, with <code class="docutils literal"><span class="pre">output_bus[0]</span></code> corresponding to a (1, 1, 1) input and <code class="docutils literal"><span class="pre">output_bus[7]</span></code> corresponding to a (0, 0, 0) input.</li>
 </ul>
 </div>
-<div class="section" id="id7">
+<div class="section" id="id23">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
@@ -173,14 +283,13 @@
 </div>
 </div>
 <div class="section" id="decoder1of16">
-<span id="id8"></span><h2>Decoder1Of16</h2>
+<span id="id24"></span><h2>Decoder1Of16</h2>
 <div class="section" id="class-bw-signal-decoder1of16">
 <h3>Class <code class="docutils literal"><span class="pre">bw.signal.Decoder1Of16</span></code></h3>
-<img alt="_images/Decoder1Of16.png" src="_images/Decoder1Of16.png" style="width: 720px;" />
-<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEC.py">bitwise/signal/DEC.py</a>.</p>
+<img alt="_images/Decoder1Of16.svg" src="_images/Decoder1Of16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEC.py">bitwise/signal/DEC.py</a>.</p>
 <p>1-of-16 <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_decoder">decoder</a>.</p>
 </div>
-<div class="section" id="id11">
+<div class="section" id="id27">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">enable</span><span class="p">,</span>
@@ -190,7 +299,7 @@
 </pre></div>
 </div>
 <p>Construct a new 1-of-16 decoder.</p>
-<div class="section" id="id12">
+<div class="section" id="id28">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the decoder.</li>
@@ -198,7 +307,7 @@
 <li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. A one-hot encoded value of the input, with <code class="docutils literal"><span class="pre">output_bus[0]</span></code> corresponding to a (1, 1, 1, 1) input and <code class="docutils literal"><span class="pre">output_bus[15]</span></code> corresponding to a (0, 0, 0, 0) input.</li>
 </ul>
 </div>
-<div class="section" id="id13">
+<div class="section" id="id29">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 4, or if <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
@@ -207,14 +316,13 @@
 </div>
 </div>
 <div class="section" id="demultiplexer1to2">
-<span id="id14"></span><h2>Demultiplexer1To2</h2>
+<span id="id30"></span><h2>Demultiplexer1To2</h2>
 <div class="section" id="class-bw-signal-demultiplexer1to2">
 <h3>Class <code class="docutils literal"><span class="pre">bw.signal.Demultiplexer1To2</span></code></h3>
-<img alt="_images/Demultiplexer1To2.png" src="_images/Demultiplexer1To2.png" style="width: 440px;" />
-<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEMUX.py">bitwise/signal/DEMUX.py</a>.</p>
+<img alt="_images/Demultiplexer1To2.svg" src="_images/Demultiplexer1To2.svg" width="400px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEMUX.py">bitwise/signal/DEMUX.py</a>.</p>
 <p>1-to-2 <a class="reference external" href="https://en.wikipedia.org/wiki/Multiplexer#Digital_demultiplexers">demultiplexer</a>.</p>
 </div>
-<div class="section" id="id15">
+<div class="section" id="id31">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">enable</span><span class="p">,</span>
@@ -226,27 +334,26 @@
 </pre></div>
 </div>
 <p>Construct a new 1-to-2 demultiplexer.</p>
-<div class="section" id="id16">
+<div class="section" id="id32">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the demultiplexer.</li>
 <li><code class="docutils literal"><span class="pre">select</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The select input.</li>
 <li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> if the value of <code class="docutils literal"><span class="pre">select</span></code> is 1.</li>
-<li><code class="docutils literal"><span class="pre">output_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> if the value of <code class="docutils literal"><span class="pre">select</span></code> is 0.</li>
+<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> if the value of <code class="docutils literal"><span class="pre">select</span></code> is 1.</li>
+<li><code class="docutils literal"><span class="pre">output_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> if the value of <code class="docutils literal"><span class="pre">select</span></code> is 0.</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="section" id="demultiplexer1to4">
-<span id="id17"></span><h2>Demultiplexer1To4</h2>
+<span id="id33"></span><h2>Demultiplexer1To4</h2>
 <div class="section" id="class-bw-signal-demultiplexer1to4">
 <h3>Class <code class="docutils literal"><span class="pre">bw.signal.Demultiplexer1To4</span></code></h3>
-<img alt="_images/Demultiplexer1To4.png" src="_images/Demultiplexer1To4.png" style="width: 600px;" />
-<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEMUX.py">bitwise/signal/DEMUX.py</a>.</p>
+<img alt="_images/Demultiplexer1To4.svg" src="_images/Demultiplexer1To4.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEMUX.py">bitwise/signal/DEMUX.py</a>.</p>
 <p>1-to-4 <a class="reference external" href="https://en.wikipedia.org/wiki/Multiplexer#Digital_demultiplexers">demultiplexer</a>.</p>
 </div>
-<div class="section" id="id20">
+<div class="section" id="id36">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">enable</span><span class="p">,</span>
@@ -258,17 +365,17 @@
 </pre></div>
 </div>
 <p>Construct a new 1-to-4 demultiplexer.</p>
-<div class="section" id="id21">
+<div class="section" id="id37">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the demultiplexer.</li>
 <li><code class="docutils literal"><span class="pre">select_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the select input.</li>
 <li><code class="docutils literal"><span class="pre">select_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the select input.</li>
 <li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[3]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0) select.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[3]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0) select.</li>
 </ul>
 </div>
-<div class="section" id="id22">
+<div class="section" id="id38">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
@@ -277,14 +384,13 @@
 </div>
 </div>
 <div class="section" id="demultiplexer1to8">
-<span id="id23"></span><h2>Demultiplexer1To8</h2>
+<span id="id39"></span><h2>Demultiplexer1To8</h2>
 <div class="section" id="class-bw-signal-demultiplexer1to8">
 <h3>Class <code class="docutils literal"><span class="pre">bw.signal.Demultiplexer1To8</span></code></h3>
-<img alt="_images/Demultiplexer1To8.png" src="_images/Demultiplexer1To8.png" style="width: 600px;" />
-<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEMUX.py">bitwise/signal/DEMUX.py</a>.</p>
+<img alt="_images/Demultiplexer1To8.svg" src="_images/Demultiplexer1To8.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEMUX.py">bitwise/signal/DEMUX.py</a>.</p>
 <p>1-to-8 <a class="reference external" href="https://en.wikipedia.org/wiki/Multiplexer#Digital_demultiplexers">demultiplexer</a>.</p>
 </div>
-<div class="section" id="id26">
+<div class="section" id="id42">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">enable</span><span class="p">,</span>
@@ -297,7 +403,7 @@
 </pre></div>
 </div>
 <p>Construct a new 1-to-8 demultiplexer.</p>
-<div class="section" id="id27">
+<div class="section" id="id43">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the demultiplexer.</li>
@@ -305,10 +411,10 @@
 <li><code class="docutils literal"><span class="pre">select_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
 <li><code class="docutils literal"><span class="pre">select_3</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the select input.</li>
 <li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[7]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0, 0) select.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[7]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0, 0) select.</li>
 </ul>
 </div>
-<div class="section" id="id28">
+<div class="section" id="id44">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
@@ -317,14 +423,13 @@
 </div>
 </div>
 <div class="section" id="demultiplexer1to16">
-<span id="id29"></span><h2>Demultiplexer1To16</h2>
+<span id="id45"></span><h2>Demultiplexer1To16</h2>
 <div class="section" id="class-bw-signal-demultiplexer1to16">
 <h3>Class <code class="docutils literal"><span class="pre">bw.signal.Demultiplexer1To16</span></code></h3>
-<img alt="_images/Demultiplexer1To16.png" src="_images/Demultiplexer1To16.png" style="width: 720px;" />
-<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEMUX.py">bitwise/signal/DEMUX.py</a>.</p>
+<img alt="_images/Demultiplexer1To16.svg" src="_images/Demultiplexer1To16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/DEMUX.py">bitwise/signal/DEMUX.py</a>.</p>
 <p>1-to-16 <a class="reference external" href="https://en.wikipedia.org/wiki/Multiplexer#Digital_demultiplexers">demultiplexer</a>.</p>
 </div>
-<div class="section" id="id32">
+<div class="section" id="id48">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">enable</span><span class="p">,</span>
@@ -335,19 +440,379 @@
 </pre></div>
 </div>
 <p>Construct a new 1-to-16 demultiplexer.</p>
-<div class="section" id="id33">
+<div class="section" id="id49">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the demultiplexer.</li>
 <li><code class="docutils literal"><span class="pre">select_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The select input to the demultiplexer. <code class="docutils literal"><span class="pre">select_bus[0]</span></code> and <code class="docutils literal"><span class="pre">select_bus[3]</span></code> are the most and least significant bit, respectively.</li>
 <li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[15]</span></code> transmits the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0, 0, 0) select.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[15]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0, 0, 0) select.</li>
 </ul>
 </div>
-<div class="section" id="id34">
+<div class="section" id="id50">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">select_bus</span></code> is not a bus of width 4, or if <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="encoder4to2">
+<span id="id51"></span><h2>Encoder4To2</h2>
+<div class="section" id="class-bw-signal-encoder4to2">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.Encoder4To2</span></code></h3>
+<img alt="_images/Encoder4To2.svg" src="_images/Encoder4To2.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/ENC.py">bitwise/signal/ENC.py</a>.</p>
+<p>4-to-2 <a class="reference external" href="https://en.wikipedia.org/wiki/Priority_encoder">priority encoder</a>.</p>
+</div>
+<div class="section" id="id52">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">valid</span><span class="p">,</span>
+    <span class="n">output_1</span><span class="p">,</span>
+    <span class="n">output_2</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-to-2 priority encoder.</p>
+<div class="section" id="id53">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the encoder.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The data input to the encoder. <code class="docutils literal"><span class="pre">input_bus[0]</span></code> corresponds to an input value of 3, and <code class="docutils literal"><span class="pre">input_bus[3]</span></code> corresponds to an input value of 0.</li>
+<li><code class="docutils literal"><span class="pre">valid</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The valid indicator. Only takes on the value 0 if all the wires in <code class="docutils literal"><span class="pre">input_bus</span></code> have value 0.</li>
+<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the output.</li>
+<li><code class="docutils literal"><span class="pre">output_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the output.</li>
+</ul>
+</div>
+<div class="section" id="id54">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="encoder8to3">
+<span id="id55"></span><h2>Encoder8To3</h2>
+<div class="section" id="class-bw-signal-encoder8to3">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.Encoder8To3</span></code></h3>
+<img alt="_images/Encoder8To3.svg" src="_images/Encoder8To3.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/ENC.py">bitwise/signal/ENC.py</a>.</p>
+<p>8-to-3 <a class="reference external" href="https://en.wikipedia.org/wiki/Priority_encoder">priority encoder</a>.</p>
+</div>
+<div class="section" id="id58">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">valid</span><span class="p">,</span>
+    <span class="n">output_1</span><span class="p">,</span>
+    <span class="n">output_2</span><span class="p">,</span>
+    <span class="n">output_3</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-to-3 priority encoder.</p>
+<div class="section" id="id59">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the encoder.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The data input to the encoder. <code class="docutils literal"><span class="pre">input_bus[0]</span></code> corresponds to an input value of 7, and <code class="docutils literal"><span class="pre">input_bus[7]</span></code> corresponds to an input value of 0.</li>
+<li><code class="docutils literal"><span class="pre">valid</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The valid indicator. Only takes on the value 0 if all the wires in <code class="docutils literal"><span class="pre">input_bus</span></code> have value 0.</li>
+<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the output.</li>
+<li><code class="docutils literal"><span class="pre">output_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">output_3</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the output.</li>
+</ul>
+</div>
+<div class="section" id="id60">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="encoder16to4">
+<span id="id61"></span><h2>Encoder16To4</h2>
+<div class="section" id="class-bw-signal-encoder16to4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.Encoder16To4</span></code></h3>
+<img alt="_images/Encoder16To4.svg" src="_images/Encoder16To4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/ENC.py">bitwise/signal/ENC.py</a>.</p>
+<p>16-to-4 <a class="reference external" href="https://en.wikipedia.org/wiki/Priority_encoder">priority encoder</a>.</p>
+</div>
+<div class="section" id="id64">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">valid</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-to-4 priority encoder.</p>
+<div class="section" id="id65">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the encoder.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The data input to the encoder. <code class="docutils literal"><span class="pre">input_bus[0]</span></code> corresponds to an input value of 15, and <code class="docutils literal"><span class="pre">input_bus[15]</span></code> corresponds to an input value of 0.</li>
+<li><code class="docutils literal"><span class="pre">valid</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The valid indicator. Only takes on the value 0 if all the wires in <code class="docutils literal"><span class="pre">input_bus</span></code> have value 0.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the encoder. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+</ul>
+</div>
+<div class="section" id="id66">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 16, or if <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="multiplexer2to1">
+<span id="id67"></span><h2>Multiplexer2To1</h2>
+<div class="section" id="class-bw-signal-multiplexer2to1">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.Multiplexer2To1</span></code></h3>
+<img alt="_images/Multiplexer2To1.svg" src="_images/Multiplexer2To1.svg" width="400px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/MUX.py">bitwise/signal/MUX.py</a>.</p>
+<p>2-to-1 <a class="reference external" href="https://en.wikipedia.org/wiki/Multiplexer">multiplexer</a>.</p>
+</div>
+<div class="section" id="id68">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">select</span><span class="p">,</span>
+    <span class="n">input_1</span><span class="p">,</span>
+    <span class="n">input_2</span><span class="p">,</span>
+    <span class="n">output</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 2-to-1 multiplexer.</p>
+<div class="section" id="id69">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the multiplexer.</li>
+<li><code class="docutils literal"><span class="pre">select</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The select input.</li>
+<li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first data input to the multiplexer.</li>
+<li><code class="docutils literal"><span class="pre">input_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The second data input to the multiplexer.</li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The output of the multiplexer, which takes on the value of <code class="docutils literal"><span class="pre">input_1</span></code> for a 1 select and <code class="docutils literal"><span class="pre">input_2</span></code> for a 0 select.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="multiplexer4to1">
+<span id="id70"></span><h2>Multiplexer4To1</h2>
+<div class="section" id="class-bw-signal-multiplexer4to1">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.Multiplexer4To1</span></code></h3>
+<img alt="_images/Multiplexer4To1.svg" src="_images/Multiplexer4To1.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/MUX.py">bitwise/signal/MUX.py</a>.</p>
+<p>4-to-1 <a class="reference external" href="https://en.wikipedia.org/wiki/Multiplexer">multiplexer</a>.</p>
+</div>
+<div class="section" id="id73">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">select_1</span><span class="p">,</span>
+    <span class="n">select_2</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-to-1 multiplexer.</p>
+<div class="section" id="id74">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the multiplexer.</li>
+<li><code class="docutils literal"><span class="pre">select_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the select input.</li>
+<li><code class="docutils literal"><span class="pre">select_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the select input.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The data input to the multiplexer.</li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The output of the multiplexer, which takes on the value of <code class="docutils literal"><span class="pre">input_bus[0]</span></code> for a (1, 1) select and <code class="docutils literal"><span class="pre">input_bus[3]</span></code> for a (0, 0) select.</li>
+</ul>
+</div>
+<div class="section" id="id75">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="multiplexer8to1">
+<span id="id76"></span><h2>Multiplexer8To1</h2>
+<div class="section" id="class-bw-signal-multiplexer8to1">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.Multiplexer8To1</span></code></h3>
+<img alt="_images/Multiplexer8To1.svg" src="_images/Multiplexer8To1.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/MUX.py">bitwise/signal/MUX.py</a>.</p>
+<p>8-to-1 <a class="reference external" href="https://en.wikipedia.org/wiki/Multiplexer">multiplexer</a>.</p>
+</div>
+<div class="section" id="id79">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">select_1</span><span class="p">,</span>
+    <span class="n">select_2</span><span class="p">,</span>
+    <span class="n">select_3</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-to-1 multiplexer.</p>
+<div class="section" id="id80">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the multiplexer.</li>
+<li><code class="docutils literal"><span class="pre">select_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the select input.</li>
+<li><code class="docutils literal"><span class="pre">select_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">select_3</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the select input.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The data input to the multiplexer.</li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The output of the multiplexer, which takes on the value of <code class="docutils literal"><span class="pre">input_bus[0]</span></code> for a (1, 1, 1) select and <code class="docutils literal"><span class="pre">input_bus[7]</span></code> for a (0, 0, 0) select.</li>
+</ul>
+</div>
+<div class="section" id="id81">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="multiplexer16to1">
+<span id="id82"></span><h2>Multiplexer16To1</h2>
+<div class="section" id="class-bw-signal-multiplexer16to1">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.Multiplexer16To1</span></code></h3>
+<img alt="_images/Multiplexer16To1.svg" src="_images/Multiplexer16To1.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/MUX.py">bitwise/signal/MUX.py</a>.</p>
+<p>16-to-1 <a class="reference external" href="https://en.wikipedia.org/wiki/Multiplexer">multiplexer</a>.</p>
+</div>
+<div class="section" id="id85">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">select_bus</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-to-1 multiplexer.</p>
+<div class="section" id="id86">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the multiplexer.</li>
+<li><code class="docutils literal"><span class="pre">select_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. <code class="docutils literal"><span class="pre">select_bus[0]</span></code> and <code class="docutils literal"><span class="pre">select_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The data input to the multiplexer.</li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The output of the multiplexer, which takes on the value of <code class="docutils literal"><span class="pre">input_bus[0]</span></code> for a (1, 1, 1, 1) select and <code class="docutils literal"><span class="pre">input_bus[15]</span></code> for a (0, 0, 0, 0) select.</li>
+</ul>
+</div>
+<div class="section" id="id87">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">select_bus</span></code> is not a bus of width 4, or if <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="sevensegmentconverter">
+<span id="id88"></span><h2>SevenSegmentConverter</h2>
+<div class="section" id="class-bw-signal-sevensegmentconverter">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.SevenSegmentConverter</span></code></h3>
+<img alt="_images/SevenSegmentConverter.svg" src="_images/SevenSegmentConverter.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/SSD.py">bitwise/signal/SSD.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Seven-segment_display">Seven-segment converter</a> with a <a class="reference external" href="https://forum.digikey.com/t/common-anode-vs-common-cathode/808">common anode</a>.</p>
+</div>
+<div class="section" id="id89">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new seven-segment converter.</p>
+<div class="section" id="id90">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the seven-segment converter.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The data input to the seven-segment converter. <code class="docutils literal"><span class="pre">input_bus[0]</span></code> and <code class="docutils literal"><span class="pre">input_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">BusSevenSegmentDisplay</span></code>. The output of the seven-segment converter. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus[7]</span></code> correspond to segment G and segment A, respectively.</li>
+</ul>
+</div>
+<div class="section" id="id91">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 4, or if <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 7.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="sevensegmentconverterdual">
+<span id="id92"></span><h2>SevenSegmentConverterDual</h2>
+<div class="section" id="class-bw-signal-sevensegmentconverterdual">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.SevenSegmentConverterDual</span></code></h3>
+<img alt="_images/SevenSegmentConverterDual.svg" src="_images/SevenSegmentConverterDual.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/SSD.py">bitwise/signal/SSD.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Seven-segment_display">Dual seven-segment converter</a> with a <a class="reference external" href="https://forum.digikey.com/t/common-anode-vs-common-cathode/808">common anode</a>.</p>
+</div>
+<div class="section" id="id95">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output_bus_1</span><span class="p">,</span>
+    <span class="n">output_bus_2</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new dual seven-segment converter.</p>
+<div class="section" id="id96">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the seven-segment converter.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The data input to the seven-segment converter. <code class="docutils literal"><span class="pre">input_bus[0]</span></code> and <code class="docutils literal"><span class="pre">input_bus[7]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">output_bus_1</span></code>: An object of type <code class="docutils literal"><span class="pre">BusSevenSegmentDisplay</span></code>. The first output bus of the seven-segment converter, using <code class="docutils literal"><span class="pre">input_bus[0]</span></code> and <code class="docutils literal"><span class="pre">input_bus[3]</span></code> as the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">output_bus_1[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus_1[7]</span></code> correspond to segment G and segment A, respectively.</li>
+<li><code class="docutils literal"><span class="pre">output_bus_2</span></code>: An object of type <code class="docutils literal"><span class="pre">BusSevenSegmentDisplay</span></code>. The second output bus of the seven-segment converter, using <code class="docutils literal"><span class="pre">input_bus[4]</span></code> and <code class="docutils literal"><span class="pre">input_bus[7]</span></code> as the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">output_bus_2[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus_2[7]</span></code> correspond to segment G and segment A, respectively.</li>
+</ul>
+</div>
+<div class="section" id="id97">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 8, or if either <code class="docutils literal"><span class="pre">output_bus_1</span></code> or <code class="docutils literal"><span class="pre">output_bus_2</span></code> is not a bus of width 7.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="sevensegmentconverterquad">
+<span id="id98"></span><h2>SevenSegmentConverterQuad</h2>
+<div class="section" id="class-bw-signal-sevensegmentconverterquad">
+<h3>Class <code class="docutils literal"><span class="pre">bw.signal.SevenSegmentConverterQuad</span></code></h3>
+<img alt="_images/SevenSegmentConverterQuad.svg" src="_images/SevenSegmentConverterQuad.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/signal/SSD.py">bitwise/signal/SSD.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Seven-segment_display">Quad seven-segment converter</a> with a <a class="reference external" href="https://forum.digikey.com/t/common-anode-vs-common-cathode/808">common anode</a>.</p>
+</div>
+<div class="section" id="id101">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output_bus_1</span><span class="p">,</span>
+    <span class="n">output_bus_2</span><span class="p">,</span>
+    <span class="n">output_bus_3</span><span class="p">,</span>
+    <span class="n">output_bus_4</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new quad seven-segment converter.</p>
+<div class="section" id="id102">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the seven-segment converter.</li>
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The data input to the seven-segment converter. <code class="docutils literal"><span class="pre">input_bus[0]</span></code> and <code class="docutils literal"><span class="pre">input_bus[15]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">output_bus_1</span></code>: An object of type <code class="docutils literal"><span class="pre">BusSevenSegmentDisplay</span></code>. The first output bus of the seven-segment converter, using <code class="docutils literal"><span class="pre">input_bus[0]</span></code> and <code class="docutils literal"><span class="pre">input_bus[3]</span></code> as the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">output_bus_1[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus_1[7]</span></code> correspond to segment G and segment A, respectively.</li>
+<li><code class="docutils literal"><span class="pre">output_bus_2</span></code>: An object of type <code class="docutils literal"><span class="pre">BusSevenSegmentDisplay</span></code>. The second output bus of the seven-segment converter, using <code class="docutils literal"><span class="pre">input_bus[4]</span></code> and <code class="docutils literal"><span class="pre">input_bus[7]</span></code> as the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">output_bus_2[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus_2[7]</span></code> correspond to segment G and segment A, respectively.</li>
+<li><code class="docutils literal"><span class="pre">output_bus_3</span></code>: An object of type <code class="docutils literal"><span class="pre">BusSevenSegmentDisplay</span></code>. The third output bus of the seven-segment converter, using <code class="docutils literal"><span class="pre">input_bus[8]</span></code> and <code class="docutils literal"><span class="pre">input_bus[11]</span></code> as the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">output_bus_3[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus_3[7]</span></code> correspond to segment G and segment A, respectively.</li>
+<li><code class="docutils literal"><span class="pre">output_bus_4</span></code>: An object of type <code class="docutils literal"><span class="pre">BusSevenSegmentDisplay</span></code>. The fourth output bus of the seven-segment converter, using <code class="docutils literal"><span class="pre">input_bus[12]</span></code> and <code class="docutils literal"><span class="pre">input_bus[15]</span></code> as the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">output_bus_4[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus_4[7]</span></code> correspond to segment G and segment A, respectively.</li>
+</ul>
+</div>
+<div class="section" id="id103">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 16, or if either <code class="docutils literal"><span class="pre">output_bus_1</span></code>, <code class="docutils literal"><span class="pre">output_bus_2</span></code>, <code class="docutils literal"><span class="pre">output_bus_3</span></code>, or <code class="docutils literal"><span class="pre">output_bus_4</span></code> is not a bus of width 7.</li>
 </ul>
 </div>
 </div>

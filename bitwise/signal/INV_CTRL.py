@@ -1,8 +1,4 @@
 """
-This module defines classes that simulate controlled inverters. A controlled
-inverter inverts all of its inputs when an enable input is set to 1. Otherwise,
-the inputs pass through the inverter unchanged.
-
 The following classes are defined:
     ControlledInverter4
     ControlledInverter8
@@ -19,18 +15,18 @@ Bus16 = wire.Bus16
 
 
 class ControlledInverter4:
-    """
-    This controlled inverter has four inputs in a single 4-bit bus, an enable
-    input, and four outputs in a single 4-bit bus:
-                     ________
-         enable ----|        |---- output_1
-        input_1 ----|        |---- output_2
-        input_2 ----|        |---- output_3
-        input_3 ----|        |---- output_4
-        input_4 ----|________|
+    """Construct a new 4-bit controlled inverter.
 
-    Output output_1 corresponds to input input_1, output_2 corresponds to
-    input_2, and so on.
+    Args:
+        enable: An object of type Wire. Enables the controlled inverter.
+        input_bus: An object of type Bus4. The data input to the controlled
+            inverter.
+        output_bus: An object of type Bus4. The output of the controlled
+            inverter, which is the inverted form of the data input iff enable
+            has value 1.
+
+    Raises:
+        TypeError: If either input_bus or output_bus is not a bus of width 4.
     """
     def __init__(self, enable, input_bus, output_bus):
         if len(input_bus.wires) != 4:
@@ -54,22 +50,18 @@ class ControlledInverter4:
 
 
 class ControlledInverter8:
-    """
-    This controlled inverter has eight inputs in a single 8-bit bus, an enable
-    input, and eight outputs in a single 8-bit bus:
-                     ________
-         enable ----|        |---- output_1
-        input_1 ----|        |---- output_2
-        input_2 ----|        |---- output_3
-        input_3 ----|        |---- output_4
-        input_4 ----|        |---- output_5
-        input_5 ----|        |---- output_6
-        input_6 ----|        |---- output_7
-        input_7 ----|        |---- output_8
-        input_8 ----|________|
+    """Construct a new 8-bit controlled inverter.
 
-    Output output_1 corresponds to input input_1, output_2 corresponds to
-    input_2, and so on.
+    Args:
+        enable: An object of type Wire. Enables the controlled inverter.
+        input_bus: An object of type Bus8. The data input to the controlled
+            inverter.
+        output_bus: An object of type Bus8. The output of the controlled
+            inverter, which is the inverted form of the data input iff enable
+            has value 1.
+
+    Raises:
+        TypeError: If either input_bus or output_bus is not a bus of width 8.
     """
     def __init__(self, enable, input_bus, output_bus):
         if len(input_bus.wires) != 8:
@@ -96,30 +88,18 @@ class ControlledInverter8:
 
 
 class ControlledInverter16:
-    """
-    This controlled inverter has sixteen inputs in a single 16-bit bus, an
-    enable input, and sixteen outputs in a single 16-bit bus:
-                      ________
-          enable ----|        |---- output_1
-         input_1 ----|        |---- output_2
-         input_2 ----|        |---- output_3
-         input_3 ----|        |---- output_4
-         input_4 ----|        |---- output_5
-         input_5 ----|        |---- output_6
-         input_6 ----|        |---- output_7
-         input_7 ----|        |---- output_8
-         input_8 ----|        |---- output_9
-         input_9 ----|        |---- output_10
-        input_10 ----|        |---- output_11
-        input_11 ----|        |---- output_12
-        input_12 ----|        |---- output_13
-        input_13 ----|        |---- output_14
-        input_14 ----|        |---- output_15
-        input_15 ----|        |---- output_16
-        input_16 ----|________|
+    """Construct a new 16-bit controlled inverter.
 
-    Output output_1 corresponds to input input_1, output_2 corresponds to
-    input_2, and so on.
+    Args:
+        enable: An object of type Wire. Enables the controlled inverter.
+        input_bus: An object of type Bus16. The data input to the controlled
+            inverter.
+        output_bus: An object of type Bus16. The output of the controlled
+            inverter, which is the inverted form of the data input iff enable
+            has value 1.
+
+    Raises:
+        TypeError: If either input_bus or output_bus is not a bus of width 16.
     """
     def __init__(self, enable, input_bus, output_bus):
         if len(input_bus.wires) != 16:

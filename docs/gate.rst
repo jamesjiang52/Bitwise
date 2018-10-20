@@ -13,8 +13,8 @@ ANDGate2
 Class ``bw.gate.ANDGate2``
 --------------------------
 
-.. image:: images/schematics/gate/ANDGate2.png
-    :width: 400px
+.. image:: images/schematics/gate/ANDGate2.svg
+    :width: 360px
 
 Defined in `bitwise/gate/AND.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/AND.py>`_.
 
@@ -48,8 +48,8 @@ ANDGate3
 Class ``bw.gate.ANDGate3``
 --------------------------
 
-.. image:: images/schematics/gate/ANDGate3.png
-    :width: 400px
+.. image:: images/schematics/gate/ANDGate3.svg
+    :width: 360px
 
 Defined in `bitwise/gate/AND.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/AND.py>`_.
 
@@ -85,8 +85,8 @@ ANDGate4
 Class ``bw.gate.ANDGate4``
 --------------------------
 
-.. image:: images/schematics/gate/ANDGate4.png
-    :width: 400px
+.. image:: images/schematics/gate/ANDGate4.svg
+    :width: 360px
 
 Defined in `bitwise/gate/AND.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/AND.py>`_.
 
@@ -124,8 +124,8 @@ NANDGate2
 Class ``bw.gate.NANDGate2``
 ---------------------------
 
-.. image:: images/schematics/gate/NANDGate2.png
-    :width: 400px
+.. image:: images/schematics/gate/NANDGate2.svg
+    :width: 360px
 
 Defined in `bitwise/gate/NAND.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NAND.py>`_.
 
@@ -159,8 +159,8 @@ NANDGate3
 Class ``bw.gate.NANDGate3``
 ---------------------------
 
-.. image:: images/schematics/gate/NANDGate3.png
-    :width: 400px
+.. image:: images/schematics/gate/NANDGate3.svg
+    :width: 360px
 
 Defined in `bitwise/gate/NAND.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NAND.py>`_.
 
@@ -196,8 +196,8 @@ NANDGate4
 Class ``bw.gate.NANDGate4``
 ---------------------------
 
-.. image:: images/schematics/gate/NANDGate4.png
-    :width: 400px
+.. image:: images/schematics/gate/NANDGate4.svg
+    :width: 360px
 
 Defined in `bitwise/gate/NAND.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NAND.py>`_.
 
@@ -235,8 +235,8 @@ NORGate2
 Class ``bw.gate.NORGate2``
 ---------------------------
 
-.. image:: images/schematics/gate/NORGate2.png
-    :width: 400px
+.. image:: images/schematics/gate/NORGate2.svg
+    :width: 360px
 
 Defined in `bitwise/gate/NOR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NOR.py>`_.
 
@@ -270,8 +270,8 @@ NORGate3
 Class ``bw.gate.NORGate3``
 ---------------------------
 
-.. image:: images/schematics/gate/NORGate3.png
-    :width: 400px
+.. image:: images/schematics/gate/NORGate3.svg
+    :width: 360px
 
 Defined in `bitwise/gate/NOR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NOR.py>`_.
 
@@ -307,8 +307,8 @@ NORGate4
 Class ``bw.gate.NORGate4``
 ---------------------------
 
-.. image:: images/schematics/gate/NORGate4.png
-    :width: 400px
+.. image:: images/schematics/gate/NORGate4.svg
+    :width: 360px
 
 Defined in `bitwise/gate/NOR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NOR.py>`_.
 
@@ -346,8 +346,8 @@ NOTGate
 Class ``bw.gate.NOTGate``
 ---------------------------
 
-.. image:: images/schematics/gate/NOTGate.png
-    :width: 400px
+.. image:: images/schematics/gate/NOTGate.svg
+    :width: 360px
 
 Defined in `bitwise/gate/NOT.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NOT.py>`_.
 
@@ -379,8 +379,8 @@ ORGate2
 Class ``bw.gate.ORGate2``
 ---------------------------
 
-.. image:: images/schematics/gate/ORGate2.png
-    :width: 400px
+.. image:: images/schematics/gate/ORGate2.svg
+    :width: 360px
 
 Defined in `bitwise/gate/OR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/OR.py>`_.
 
@@ -414,8 +414,8 @@ ORGate3
 Class ``bw.gate.ORGate3``
 ---------------------------
 
-.. image:: images/schematics/gate/ORGate3.png
-    :width: 400px
+.. image:: images/schematics/gate/ORGate3.svg
+    :width: 360px
 
 Defined in `bitwise/gate/OR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/OR.py>`_.
 
@@ -451,8 +451,8 @@ ORGate4
 Class ``bw.gate.ORGate4``
 ---------------------------
 
-.. image:: images/schematics/gate/ORGate4.png
-    :width: 400px
+.. image:: images/schematics/gate/ORGate4.svg
+    :width: 360px
 
 Defined in `bitwise/gate/OR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/OR.py>`_.
 
@@ -490,8 +490,8 @@ XNORGate2
 Class ``bw.gate.XNORGate2``
 ---------------------------
 
-.. image:: images/schematics/gate/XNORGate2.png
-    :width: 400px
+.. image:: images/schematics/gate/XNORGate2.svg
+    :width: 360px
 
 Defined in `bitwise/gate/XNOR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/XNOR.py>`_.
 
@@ -525,8 +525,8 @@ XORGate2
 Class ``bw.gate.XORGate2``
 ---------------------------
 
-.. image:: images/schematics/gate/XORGate2.png
-    :width: 400px
+.. image:: images/schematics/gate/XORGate2.svg
+    :width: 360px
 
 Defined in `bitwise/gate/XOR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/XOR.py>`_.
 

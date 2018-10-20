@@ -1,14 +1,4 @@
 """
-This module defines classes that simulate encoders. An encoder receives a
-one-hot input and encodes it into something like a binary value, transmitting
-the output. The encoders in this module have an additional enable input; if
-this input is 0, all the output values are 0, regardless of the other inputs.
-Also, the encoders have an additional output that is 0 if all of the inputs are
-0. Otherwise, this output has a value of 1. In the case that more than one of
-the inputs is 1, the input representing the largest value takes priority (e.g.
-if two inputs are 1 and represent the values 2 and 13, the output will be the
-encoded value of 13).
-
 The following classes are defined:
     Encoder4To2
     Encoder8To3
@@ -26,20 +16,22 @@ Bus16 = wire.Bus16
 
 
 class Encoder4To2:
-    """
-    This priority encoder has four inputs in a single 4-bit bus, an enable
-    input, two outputs, and an additional valid output:
-                     ________
-         enable ----|        |---- valid
-        input_1 ----|        |---- output_1
-        input_2 ----|        |---- output_2
-        input_3 ----|        |
-        input_4 ----|________|
+    """Construct a new 4-to-2 priority encoder.
 
-    The outputs have output_1 and output_2 as the MSB and LSB, respectively.
-    The output takes on the value of (1, 1) for a one-hot input_1 input and
-    (0, 0) for a one-hot input_4 input. If the enable is 0, the outputs are all
-    0, regardless of input.
+    Args:
+        enable: An object of type Wire. Enables the encoder.
+        input_bus: An object of type Bus4. The data input to the encoder.
+            input_bus[0] corresponds to an input value of 3, and input_bus[3]
+            corresponds to an input value of 0.
+        valid: An object of type Wire. The valid indicator. Only takes on the
+            value of 0 if all the wires in input_bus have value 0.
+        output_1: An object of type Wire. The most significant bit of the
+            output.
+        output_2: An object of type Wire. The least significant bit of the
+            output.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 4.
     """
     def __init__(self, enable, input_bus, valid, output_1, output_2):
         if len(input_bus.wires) != 4:
@@ -66,24 +58,23 @@ class Encoder4To2:
 
 
 class Encoder8To3:
-    """
-    This priority encoder has eight inputs in a single 8-bit bus, an enable
-    input, three outputs, and an additional valid output:
-                     ________
-         enable ----|        |---- valid
-        input_1 ----|        |---- output_1
-        input_2 ----|        |---- output_2
-        input_3 ----|        |---- output_3
-        input_4 ----|        |
-        input_5 ----|        |
-        input_6 ----|        |
-        input_7 ----|        |
-        input_8 ----|________|
+    """Construct a new 8-to-3 priority encoder.
 
-    The outputs have output_1 and output_3 as the MSB and LSB, respectively.
-    The output takes on the value of (1, 1, 1) for a one-hot input_1 input and
-    (0, 0, 0) for a one-hot input_8 input. If the enable is 0, the outputs are
-    all 0, regardless of input.
+    Args:
+        enable: An object of type Wire. Enables the encoder.
+        input_bus: An object of type Bus8. The data input to the encoder.
+            input_bus[0] corresponds to an input value of 7, and input_bus[7]
+            corresponds to an input value of 0.
+        valid: An object of type Wire. The valid indicator. Only takes on the
+            value of 0 if all the wires in input_bus have value 0.
+        output_1: An object of type Wire. The most significant bit of the
+            output.
+        output_2: An object of type Wire.
+        output_3: An object of type Wire. The least significant bit of the
+            output.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 8.
     """
     def __init__(self, enable, input_bus, valid, output_1, output_2, output_3):
         if len(input_bus.wires) != 8:
@@ -121,32 +112,22 @@ class Encoder8To3:
 
 
 class Encoder16To4:
-    """
-    This priority encoder has sixteen inputs in a single 16-bit bus, an enable
-    input, four outputs in a single 4-bit bus, and an additional valid output:
-                      ________
-          enable ----|        |---- valid
-         input_1 ----|        |---- output_1
-         input_2 ----|        |---- output_2
-         input_3 ----|        |---- output_3
-         input_4 ----|        |---- output_4
-         input_5 ----|        |
-         input_6 ----|        |
-         input_7 ----|        |
-         input_8 ----|        |
-         input_9 ----|        |
-        input_10 ----|        |
-        input_11 ----|        |
-        input_12 ----|        |
-        input_13 ----|        |
-        input_14 ----|        |
-        input_15 ----|        |
-        input_16 ----|________|
+    """Construct a new 16-to-4 priority encoder.
 
-    The outputs have output_1 and output_4 as the MSB and LSB, respectively.
-    The output takes on the value of (1, 1, 1, 1) for a one-hot input_1 input
-    and (0, 0, 0, 0) for a one-hot input_16 input. If the enable is 0, the
-    outputs are all 0, regardless of input.
+    Args:
+        enable: An object of type Wire. Enables the encoder.
+        input_bus: An object of type Bus16. The data input to the encoder.
+            input_bus[0] corresponds to an input value of 15, and input_bus[15]
+            corresponds to an input value of 0.
+        valid: An object of type Wire. The valid indicator. Only takes on the
+            value of 0 if all the wires in input_bus have value 0.
+        output_bus: An object of type Bus4. The output of the encoder.
+            output_bus[0] and output_bus[3] are the most and least significant
+            bit, respectively.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 16, or if output_bus is
+        not a bus of width 4.
     """
     def __init__(self, enable, input_bus, valid, output_bus):
         if len(input_bus.wires) != 16:

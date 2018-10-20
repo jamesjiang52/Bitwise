@@ -45,6 +45,9 @@ API Documentation
 
 :doc:`signal`
 =============
+* :ref:`ControlledInverter4`
+* :ref:`ControlledInverter8`
+* :ref:`ControlledInverter16`
 * :ref:`Decoder1Of4`
 * :ref:`Decoder1Of8`
 * :ref:`Decoder1Of16`
@@ -52,6 +55,16 @@ API Documentation
 * :ref:`Demultiplexer1To4`
 * :ref:`Demultiplexer1To8`
 * :ref:`Demultiplexer1To16`
+* :ref:`Encoder4To2`
+* :ref:`Encoder8To3`
+* :ref:`Encoder16To4`
+* :ref:`Multiplexer2To1`
+* :ref:`Multiplexer4To1`
+* :ref:`Multiplexer8To1`
+* :ref:`Multiplexer16To1`
+* :ref:`SevenSegmentConverter`
+* :ref:`SevenSegmentConverterDual`
+* :ref:`SevenSegmentConverterQuad`
 
 :doc:`storage`
 ==============

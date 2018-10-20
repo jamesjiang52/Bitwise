@@ -1,6 +1,4 @@
 """
-This module defines classes that simulate seven-segment display converters.
-
 The following classes are defined:
     SevenSegmentConverter
     SevenSegmentConverterDual
@@ -16,35 +14,20 @@ BusSevenSegmentDisplay = wire.BusSevenSegmentDisplay
 
 
 class SevenSegmentConverter:
-    """
-    This converter converts a four-bit input into a seven-segment display with
-    a common anode. It has four inputs in a single 4-bit bus, an enable input,
-    and seven outputs in a single 7-bit bus:
-                     ________
-         enable ----|        |---- output_1
-        input_1 ----|        |---- output_2
-        input_2 ----|        |---- output_3
-        input_3 ----|        |---- output_4
-        input_4 ----|        |---- output_5
-                    |        |---- output_6
-                    |________|---- output_7
+    """Construct a new seven-segment converter.
 
-    The inputs have input_1 and input_4 as the MSB and LSB, respectively.
-    Referring to the below diagram, the outputs have output_1 as G, output_2 as
-    F, output_3 as E, and so on. Since the LED's have a common anode, they are
-    illuminated by an output of value 0.
-        ________
-       |   A    |
-     F |        | B
-       |        |
-       |________|
-       |   G    |
-     E |        | C
-       |        |
-       |________|
-           D
+    Args:
+        enable: An object of type Wire. Enables the seven-segment converter.
+        input_bus: An object of type Bus4. The data input to the seven-segment
+            converter. input_bus[0] and input_bus[3] are the most and least
+            significant bit, respectively.
+        output_bus: An object of type BusSevenSegmentDisplay. The output of the
+            seven-segment converter. output_bus[0] and output_bus[7] correspond
+            to segment G and segment A, respectively.
 
-    If the enable is 0, the outputs are all 1, regardless of input.
+    Raises:
+        TypeError: If input_bus is not a bus of width 4, or if output_bus is
+            not a bus of width 7.
     """
     def __init__(self, enable, input_bus, output_bus):
         if len(input_bus.wires) != 4:
@@ -145,31 +128,27 @@ class SevenSegmentConverter:
 
 
 class SevenSegmentConverterDual:
-    """
-    This converter simply stacks two seven-segment displays with common anodes.
-    It has eight inputs in a single 8-bit bus, an enable input, and fourteen
-    outputs in two 7-bit buses:
-                     ________
-         enable ----|        |---- output_1
-        input_1 ----|        |---- output_2
-        input_2 ----|        |---- output_3
-        input_3 ----|        |---- output_4
-        input_4 ----|        |---- output_5
-        input_5 ----|        |---- output_6
-        input_6 ----|        |---- output_7
-        input_7 ----|        |---- output_8
-        input_8 ----|        |---- output_9
-                    |        |---- output_10
-                    |        |---- output_11
-                    |        |---- output_12
-                    |        |---- output_13
-                    |________|---- output_14
+    """Construct a new dual seven-segment converter.
 
-    The inputs have input_1 and input_8 as the MSB and LSB, respectively.
-    Inputs input_1 to input_4 are converted to outputs output_1 to output_7
-    (the first output bus). Inputs input_5 to input_8 are converted to outputs
-    output_8 to output_14 (the second output bus). If the enable is 0, the
-    outputs are all 1, regardless of input.
+    Args:
+        enable: An object of type Wire. Enables the seven-segment converter.
+        input_bus: An object of type Bus8. The data input to the seven-segment
+            converter. input_bus[0] and input_bus[7] are the most and least
+            significant bit, respectively.
+        output_bus_1: An object of type BusSevenSegmentDisplay. The first
+            output bus of the seven-segment converter, using input_bus[0] and
+            input_bus[3] as the most and least significant bit, respectively.
+            output_bus_1[0] and output_bus_1[7] correspond to segment G and
+            segment A, respectively.
+        output_bus_2: An object of type BusSevenSegmentDisplay. The second
+            output bus of the seven-segment converter, using input_bus[4] and
+            input_bus[7] as the most and least significant bit, respectively.
+            output_bus_2[0] and output_bus_2[7] correspond to segment G and
+            segment A, respectively.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 8, or if either
+            output_bus_1 or output_bus_2 is not a bus of width 7.
     """
     def __init__(self, enable, input_bus, output_bus_1, output_bus_2):
         if len(input_bus.wires) != 8:
@@ -201,48 +180,38 @@ class SevenSegmentConverterDual:
 
 
 class SevenSegmentConverterQuad:
-    """
-    This converter simply stacks four seven-segment displays with common
-    anodes. It has sixteen inputs in a single 16-bit bus, an enable input, and
-    twenty-eight outputs in four 7-bit buses:
-                      ________
-          enable ----|        |---- output_1
-         input_1 ----|        |---- output_2
-         input_2 ----|        |---- output_3
-         input_3 ----|        |---- output_4
-         input_4 ----|        |---- output_5
-         input_5 ----|        |---- output_6
-         input_6 ----|        |---- output_7
-         input_7 ----|        |---- output_8
-         input_8 ----|        |---- output_9
-         input_9 ----|        |---- output_10
-        input_10 ----|        |---- output_11
-        input_11 ----|        |---- output_12
-        input_12 ----|        |---- output_13
-        input_13 ----|        |---- output_14
-        input_14 ----|        |---- output_15
-        input_15 ----|        |---- output_16
-        input_16 ----|        |---- output_17
-                     |        |---- output_18
-                     |        |---- output_19
-                     |        |---- output_20
-                     |        |---- output_21
-                     |        |---- output_22
-                     |        |---- output_23
-                     |        |---- output_24
-                     |        |---- output_25
-                     |        |---- output_26
-                     |        |---- output_27
-                     |________|---- output_28
+    """Construct a new quad seven-segment converter.
 
-    The inputs have input_1 and input_16 as the MSB and LSB, respectively.
-    Inputs input_1 to input_4 are converted to outputs output_1 to output_7 (
-    the first output bus). Inputs input_5 to input_8 are converted to outputs
-    output_8 to output_14 (the second output bus). Inputs input_9 to input_12
-    are converted to outputs output_15 to output_21 (the third output bus).
-    Inputs input_13 to input_16 are converted to outputs output_22 to output_28
-    (the fourth output bus). If the enable is 0, the outputs are all 1,
-    regardless of input.
+    Args:
+        enable: An object of type Wire. Enables the seven-segment converter.
+        input_bus: An object of type Bus16. The data input to the seven-segment
+            converter. input_bus[0] and input_bus[15] are the most and least
+            significant bit, respectively.
+        output_bus_1: An object of type BusSevenSegmentDisplay. The first
+            output bus of the seven-segment converter, using input_bus[0] and
+            input_bus[3] as the most and least significant bit, respectively.
+            output_bus_1[0] and output_bus_1[7] correspond to segment G and
+            segment A, respectively.
+        output_bus_2: An object of type BusSevenSegmentDisplay. The second
+            output bus of the seven-segment converter, using input_bus[4] and
+            input_bus[7] as the most and least significant bit, respectively.
+            output_bus_2[0] and output_bus_2[7] correspond to segment G and
+            segment A, respectively.
+        output_bus_3: An object of type BusSevenSegmentDisplay. The third
+            output bus of the seven-segment converter, using input_bus[8] and
+            input_bus[11] as the most and least significant bit, respectively.
+            output_bus_3[0] and output_bus_3[7] correspond to segment G and
+            segment A, respectively.
+        output_bus_4: An object of type BusSevenSegmentDisplay. The fourth
+            output bus of the seven-segment converter, using input_bus[12] and
+            input_bus[15] as the most and least significant bit, respectively.
+            output_bus_4[0] and output_bus_4[7] correspond to segment G and
+            segment A, respectively.
+
+    Raises:
+        TypeError: If input_bus is not a bus of width 16, or if either
+            output_bus_1, output_bus_2, output_bus_3, or output_bus_4 is not a
+            bus of width 7.
     """
     def __init__(
             self,
