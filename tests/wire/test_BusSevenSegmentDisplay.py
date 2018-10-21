@@ -34,7 +34,7 @@ class TestBusSevenSegmentDisplay:
 
         wire_4.value = 1
         assert bus_1.wire_values == (1, 1, 1, 1, 0, 0, 0)
-        
+
         assert bus_1[0].value == 1
         assert bus_1[1].value == 1
         assert bus_1[2].value == 1
@@ -42,13 +42,9 @@ class TestBusSevenSegmentDisplay:
         assert bus_1[4].value == 0
         assert bus_1[5].value == 0
         assert bus_1[6].value == 0
-        assert bus_1[-7].value == 1
-        assert bus_1[-6].value == 1
-        assert bus_1[-5].value == 1
-        assert bus_1[-4].value == 1
-        assert bus_1[-3].value == 0
-        assert bus_1[-2].value == 0
-        assert bus_1[-1].value == 0
+        assert [i.value for i in bus_1[0:4]] == [1, 1, 1, 1]
+        assert [i.value for i in bus_1[4:7]] == [0, 0, 0]
+        assert [i.value for i in bus_1[0:7]] == [1, 1, 1, 1, 0, 0, 0]
 
         wire_5.value = 1
         assert bus_1.wire_values == (1, 1, 1, 1, 1, 0, 0)
@@ -67,3 +63,5 @@ class TestBusSevenSegmentDisplay:
         wire_6.value = 0
         wire_7.value = 0
         assert bus_1.wire_values == (0, 0, 0, 0, 0, 0, 0)
+
+        assert len(bus_1) == 7

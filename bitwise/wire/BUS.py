@@ -16,7 +16,7 @@ class Bus4:
 
     Args:
         wire_1, wire_2, ... , wire_4: Objects of type Wire.
-        
+
     Accessors:
         bus.wires: A tuple of the wires in the bus.
         bus.wire_values: A tuple of values of the wires in the bus.
@@ -31,14 +31,19 @@ class Bus4:
     @property
     def wire_values(self):
         return tuple([wire.value for wire in self._wires])
-        
+
     def __getitem__(self, key):
+        if isinstance(key, slice):
+            return tuple(
+                self._wires[i] for i in range(*key.indices(len(self._wires)))
+            )
         if (key >= 0) and (key < 4):
             return self._wires[key]
-        elif (key < 0) and (key >= -4):
-            return self._wires[4 + key]
         else:
             raise IndexError("Bus width exceeded.")
+
+    def __len__(self):
+        return len(self._wires)
 
 
 class Bus8:
@@ -46,7 +51,7 @@ class Bus8:
 
     Args:
         wire_1, wire_2, ... , wire_8: Objects of type Wire.
-        
+
     Accessors:
         bus.wires: A tuple of the wires in the bus.
         bus.wire_values: A tuple of values of the wires in the bus.
@@ -80,14 +85,19 @@ class Bus8:
     @property
     def wire_values(self):
         return tuple([wire.value for wire in self._wires])
-        
+
     def __getitem__(self, key):
+        if isinstance(key, slice):
+            return tuple(
+                self._wires[i] for i in range(*key.indices(len(self._wires)))
+            )
         if (key >= 0) and (key < 8):
             return self._wires[key]
-        elif (key < 0) and (key >= -8):
-            return self._wires[8 + key]
         else:
             raise IndexError("Bus width exceeded.")
+
+    def __len__(self):
+        return len(self._wires)
 
 
 class Bus16:
@@ -95,7 +105,7 @@ class Bus16:
 
     Args:
         wire_1, wire_2, ... , wire_16: Objects of type Wire.
-        
+
     Accessors:
         bus.wires: A tuple of the wires in the bus.
         bus.wire_values: A tuple of values of the wires in the bus.
@@ -145,14 +155,19 @@ class Bus16:
     @property
     def wire_values(self):
         return tuple([wire.value for wire in self._wires])
-        
+
     def __getitem__(self, key):
+        if isinstance(key, slice):
+            return tuple(
+                self._wires[i] for i in range(*key.indices(len(self._wires)))
+            )
         if (key >= 0) and (key < 16):
             return self._wires[key]
-        elif (key < 0) and (key >= -16):
-            return self._wires[16 + key]
         else:
             raise IndexError("Bus width exceeded.")
+
+    def __len__(self):
+        return len(self._wires)
 
 
 class BusSevenSegmentDisplay:
@@ -160,7 +175,7 @@ class BusSevenSegmentDisplay:
 
     Args:
         wire_1, wire_2, ... , wire_7: Objects of type Wire.
-        
+
     Accessors:
         bus.wires: A tuple of the wires in the bus.
         bus.wire_values: A tuple of values of the wires in the bus.
@@ -192,11 +207,16 @@ class BusSevenSegmentDisplay:
     @property
     def wire_values(self):
         return tuple([wire.value for wire in self._wires])
-        
+
     def __getitem__(self, key):
+        if isinstance(key, slice):
+            return tuple(
+                self._wires[i] for i in range(*key.indices(len(self._wires)))
+            )
         if (key >= 0) and (key < 7):
             return self._wires[key]
-        elif (key < 0) and (key >= -7):
-            return self._wires[7 + key]
         else:
             raise IndexError("Bus width exceeded.")
+
+    def __len__(self):
+        return len(self._wires)
