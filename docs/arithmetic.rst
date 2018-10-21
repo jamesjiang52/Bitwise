@@ -13,8 +13,8 @@ Adder4
 Class ``bw.arithmetic.Adder4``
 ------------------------------
 
-.. image:: images/schematics/arithmetic/Adder4.png
-    :width: 720px
+.. image:: images/schematics/arithmetic/Adder4.svg
+    :width: 800px
 
 Defined in `bitwise/arithmetic/ADD.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD.py>`_.
 
@@ -56,8 +56,8 @@ Adder8
 Class ``bw.arithmetic.Adder8``
 ------------------------------
 
-.. image:: images/schematics/arithmetic/Adder8.png
-    :width: 720px
+.. image:: images/schematics/arithmetic/Adder8.svg
+    :width: 800px
 
 Defined in `bitwise/arithmetic/ADD.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD.py>`_.
 
@@ -99,8 +99,8 @@ Adder16
 Class ``bw.arithmetic.Adder16``
 -------------------------------
 
-.. image:: images/schematics/arithmetic/Adder16.png
-    :width: 720px
+.. image:: images/schematics/arithmetic/Adder16.svg
+    :width: 800px
 
 Defined in `bitwise/arithmetic/ADD.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD.py>`_.
 
@@ -142,8 +142,8 @@ AdderSubtractor4
 Class ``bw.arithmetic.AdderSubtractor4``
 ----------------------------------------
 
-.. image:: images/schematics/arithmetic/AdderSubtractor4.png
-    :width: 720px
+.. image:: images/schematics/arithmetic/AdderSubtractor4.svg
+    :width: 800px
 
 Defined in `bitwise/arithmetic/ADD_SUB.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD_SUB.py>`_.
 
@@ -187,8 +187,8 @@ AdderSubtractor8
 Class ``bw.arithmetic.AdderSubtractor8``
 ----------------------------------------
 
-.. image:: images/schematics/arithmetic/AdderSubtractor8.png
-    :width: 720px
+.. image:: images/schematics/arithmetic/AdderSubtractor8.svg
+    :width: 800px
 
 Defined in `bitwise/arithmetic/ADD_SUB.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD_SUB.py>`_.
 
@@ -232,8 +232,8 @@ AdderSubtractor16
 Class ``bw.arithmetic.AdderSubtractor16``
 -----------------------------------------
 
-.. image:: images/schematics/arithmetic/AdderSubtractor16.png
-    :width: 720px
+.. image:: images/schematics/arithmetic/AdderSubtractor16.svg
+    :width: 800px
 
 Defined in `bitwise/arithmetic/ADD_SUB.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD_SUB.py>`_.
 
@@ -277,7 +277,7 @@ FullAdder
 Class ``bw.arithmetic.FullAdder``
 ---------------------------------
 
-.. image:: images/schematics/arithmetic/FullAdder.png
+.. image:: images/schematics/arithmetic/FullAdder.svg
     :width: 400px
 
 Defined in `bitwise/arithmetic/ADD.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD.py>`_.
@@ -316,8 +316,8 @@ HalfAdder
 Class ``bw.arithmetic.HalfAdder``
 ---------------------------------
 
-.. image:: images/schematics/arithmetic/HalfAdder.png
-    :width: 400px
+.. image:: images/schematics/arithmetic/HalfAdder.svg
+    :width: 360px
 
 Defined in `bitwise/arithmetic/ADD.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/ADD.py>`_.
 

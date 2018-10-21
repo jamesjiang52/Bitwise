@@ -13,7 +13,7 @@ Comparator3
 Class ``bw.logic.Comparator3``
 ------------------------------
 
-.. image:: images/schematics/logic/Comparator3.png
+.. image:: images/schematics/logic/Comparator3.svg
     :width: 600px
 
 Defined in `bitwise/logic/COMP.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/COMP.py>`_.
@@ -56,7 +56,7 @@ Comparator7
 Class ``bw.logic.Comparator7``
 ------------------------------
 
-.. image:: images/schematics/logic/Comparator7.png
+.. image:: images/schematics/logic/Comparator7.svg
     :width: 600px
 
 Defined in `bitwise/logic/COMP.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/COMP.py>`_.
@@ -99,7 +99,7 @@ Comparator15
 Class ``bw.logic.Comparator15``
 -------------------------------
 
-.. image:: images/schematics/logic/Comparator15.png
+.. image:: images/schematics/logic/Comparator15.svg
     :width: 600px
 
 Defined in `bitwise/logic/COMP.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/COMP.py>`_.
@@ -142,7 +142,7 @@ ParityChecker4
 Class ``bw.logic.ParityChecker4``
 ---------------------------------
 
-.. image:: images/schematics/logic/ParityChecker4.png
+.. image:: images/schematics/logic/ParityChecker4.svg
     :width: 600px
 
 Defined in `bitwise/logic/PAR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py>`_.
@@ -181,7 +181,7 @@ ParityChecker8
 Class ``bw.logic.ParityChecker8``
 ---------------------------------
 
-.. image:: images/schematics/logic/ParityChecker8.png
+.. image:: images/schematics/logic/ParityChecker8.svg
     :width: 600px
 
 Defined in `bitwise/logic/PAR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py>`_.
@@ -220,7 +220,7 @@ ParityChecker16
 Class ``bw.logic.ParityChecker16``
 ----------------------------------
 
-.. image:: images/schematics/logic/ParityChecker16.png
+.. image:: images/schematics/logic/ParityChecker16.svg
     :width: 600px
 
 Defined in `bitwise/logic/PAR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py>`_.
@@ -259,7 +259,7 @@ ParityGenerator4
 Class ``bw.logic.ParityGenerator4``
 -----------------------------------
 
-.. image:: images/schematics/logic/ParityGenerator4.png
+.. image:: images/schematics/logic/ParityGenerator4.svg
     :width: 600px
 
 Defined in `bitwise/logic/PAR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py>`_.
@@ -273,8 +273,7 @@ __init__
 
     __init__(
         input_bus,
-        parity_bit,
-        error
+        parity_bit
     )
 
 Construct a new 4-bit even parity generator.
@@ -297,7 +296,7 @@ ParityGenerator8
 Class ``bw.logic.ParityGenerator8``
 -----------------------------------
 
-.. image:: images/schematics/logic/ParityGenerator8.png
+.. image:: images/schematics/logic/ParityGenerator8.svg
     :width: 600px
 
 Defined in `bitwise/logic/PAR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py>`_.
@@ -311,8 +310,7 @@ __init__
 
     __init__(
         input_bus,
-        parity_bit,
-        error
+        parity_bit
     )
 
 Construct a new 8-bit even parity generator.
@@ -335,7 +333,7 @@ ParityGenerator16
 Class ``bw.logic.ParityGenerator16``
 ------------------------------------
 
-.. image:: images/schematics/logic/ParityGenerator16.png
+.. image:: images/schematics/logic/ParityGenerator16.svg
     :width: 600px
 
 Defined in `bitwise/logic/PAR.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py>`_.
@@ -349,8 +347,7 @@ __init__
 
     __init__(
         input_bus,
-        parity_bit,
-        error
+        parity_bit
     )
 
 Construct a new 16-bit even parity generator.

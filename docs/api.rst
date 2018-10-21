@@ -18,6 +18,7 @@ API Documentation
 * :ref:`ANDGate2`
 * :ref:`ANDGate3`
 * :ref:`ANDGate4`
+* :ref:`Buffer`
 * :ref:`NANDGate2`
 * :ref:`NANDGate3`
 * :ref:`NANDGate4`

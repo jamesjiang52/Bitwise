@@ -116,6 +116,39 @@ Args:
 * ``output``: An object of type ``Wire``. The output of the AND gate.
 
 
+.. _Buffer:
+
+Buffer
+======
+
+Class ``bw.gate.Buffer``
+--------------------------
+
+.. image:: images/schematics/gate/Buffer.svg
+    :width: 360px
+
+Defined in `bitwise/gate/BUF.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/BUF.py>`_.
+
+`Digital buffer <https://en.wikipedia.org/wiki/Digital_buffer>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        input_1,
+        output
+    )
+
+Construct a new buffer.
+
+Args:
+~~~~~
+* ``input_1``: An object of type ``Wire``. The input to the buffer.
+* ``output``: An object of type ``Wire``. The output of the buffer.
+
+
 .. _NANDGate2:
 
 NANDGate2
