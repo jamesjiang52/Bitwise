@@ -15,14 +15,26 @@ Bus16 = wire.Bus16
 
 
 class SerialToParallelConverter1To4:
-    """
+    """Construct a new serial-to-4-bit-parallel converter.
 
+    Args:
+        enable: An object of type Wire. Enables the converter.
+        clear_n: An object of type Wire. Clears all 4 internal registers to 0
+            if its value is 0.
+        data: An object of type Wire. The serial data input.
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus4. The parallel output of the
+            converter. output[0] corresponds to the most recent serial data
+            input.
+
+    Raises:
+        TypeError: If output_bus is not a bus of width 4.
     """
     def __init__(self, enable, reset_n, data, clock, output_bus):
-        if len(output_bus.wires) != 4:
+        if len(output_bus) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(output_bus)
                 )
             )
 
@@ -51,14 +63,26 @@ class SerialToParallelConverter1To4:
 
 
 class SerialToParallelConverter1To8:
-    """
+    """Construct a new serial-to-8-bit-parallel converter.
 
+    Args:
+        enable: An object of type Wire. Enables the converter.
+        clear_n: An object of type Wire. Clears all 8 internal registers to 0
+            if its value is 0.
+        data: An object of type Wire. The serial data input.
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus8. The parallel output of the
+            converter. output[0] corresponds to the most recent serial data
+            input.
+
+    Raises:
+        TypeError: If output_bus is not a bus of width 8.
     """
     def __init__(self, enable, reset_n, data, clock, output_bus):
-        if len(output_bus.wires) != 8:
+        if len(output_bus) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(output_bus)
                 )
             )
 
@@ -91,14 +115,26 @@ class SerialToParallelConverter1To8:
 
 
 class SerialToParallelConverter1To16:
-    """
+    """Construct a new serial-to-16-bit-parallel converter.
 
+    Args:
+        enable: An object of type Wire. Enables the converter.
+        clear_n: An object of type Wire. Clears all 16 internal registers to 0
+            if its value is 0.
+        data: An object of type Wire. The serial data input.
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus16. The parallel output of the
+            converter. output[0] corresponds to the most recent serial data
+            input.
+
+    Raises:
+        TypeError: If output_bus is not a bus of width 16.
     """
     def __init__(self, enable, reset_n, data, clock, output_bus):
-        if len(output_bus.wires) != 16:
+        if len(output_bus) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(output_bus)
                 )
             )
 

@@ -17,8 +17,28 @@ Bus16 = wire.Bus16
 
 
 class ShiftRegister4:
-    """
+    """Construct a new 4-bit shift register.
 
+    Args:
+        enable: An object of type Wire. Enables the shift register.
+        clear_n: An object of type Wire. Clears output_bus and output_serial to
+            0 if its value is 1.
+        shift_load: An object of type Wire. The mode select. A value of 0
+            indicates a parallel load operation, where output_bus takes on the
+            value of data_bus. A value of 1 indicates a shift-right operation,
+            where output_bus[3] takes on the value of output_bus[2],
+            output_bus[2] takes on the value of output_bus[1], and so on;
+            output_bus[0] takes on the value of data_serial.
+        data_bus: An object of type Bus4. The parallel data input.
+        data_serial. An object of type Wire. The serial data input.
+        clock. An object of type Wire or Clock. The clock input to the shift
+            register.
+        output_bus. An object of type Bus4. The parallel data output.
+        output_serial. An object of type Wire. The serial data output.
+            Identical to output_bus[3].
+
+    Raises:
+        TypeError: If either data_bus or output_bus is not a bus of width 4.
     """
     def __init__(
         self,
@@ -31,17 +51,17 @@ class ShiftRegister4:
         output_bus,
         output_s
     ):
-        if len(data_bus.wires) != 4:
+        if len(data_bus) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(data_bus.wires)
+                    len(data_bus)
                 )
             )
 
-        if len(output_bus.wires) != 4:
+        if len(output_bus) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(output_bus)
                 )
             )
 
@@ -126,8 +146,28 @@ class ShiftRegister4:
 
 
 class ShiftRegister8:
-    """
+    """Construct a new 8-bit shift register.
 
+    Args:
+        enable: An object of type Wire. Enables the shift register.
+        clear_n: An object of type Wire. Clears output_bus and output_serial to
+            0 if its value is 1.
+        shift_load: An object of type Wire. The mode select. A value of 0
+            indicates a parallel load operation, where output_bus takes on the
+            value of data_bus. A value of 1 indicates a shift-right operation,
+            where output_bus[7] takes on the value of output_bus[6],
+            output_bus[6] takes on the value of output_bus[5], and so on;
+            output_bus[0] takes on the value of data_serial.
+        data_bus: An object of type Bus8. The parallel data input.
+        data_serial. An object of type Wire. The serial data input.
+        clock. An object of type Wire or Clock. The clock input to the shift
+            register.
+        output_bus. An object of type Bus8. The parallel data output.
+        output_serial. An object of type Wire. The serial data output.
+            Identical to output_bus[7].
+
+    Raises:
+        TypeError: If either data_bus or output_bus is not a bus of width 8.
     """
     def __init__(
         self,
@@ -140,17 +180,17 @@ class ShiftRegister8:
         output_bus,
         output_s
     ):
-        if len(data_bus.wires) != 8:
+        if len(data_bus) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(data_bus.wires)
+                    len(data_bus)
                 )
             )
 
-        if len(output_bus.wires) != 8:
+        if len(output_bus) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(output_bus)
                 )
             )
 
@@ -302,8 +342,28 @@ class ShiftRegister8:
 
 
 class ShiftRegister16:
-    """
+    """Construct a new 16-bit shift register.
 
+    Args:
+        enable: An object of type Wire. Enables the shift register.
+        clear_n: An object of type Wire. Clears output_bus and output_serial to
+            0 if its value is 1.
+        shift_load: An object of type Wire. The mode select. A value of 0
+            indicates a parallel load operation, where output_bus takes on the
+            value of data_bus. A value of 1 indicates a shift-right operation,
+            where output_bus[15] takes on the value of output_bus[14],
+            output_bus[14] takes on the value of output_bus[13], and so on;
+            output_bus[0] takes on the value of data_serial.
+        data_bus: An object of type Bus16. The parallel data input.
+        data_serial. An object of type Wire. The serial data input.
+        clock. An object of type Wire or Clock. The clock input to the shift
+            register.
+        output_bus. An object of type Bus16. The parallel data output.
+        output_serial. An object of type Wire. The serial data output.
+            Identical to output_bus[15].
+
+    Raises:
+        TypeError: If either data_bus or output_bus is not a bus of width 16.
     """
     def __init__(
         self,
@@ -316,17 +376,17 @@ class ShiftRegister16:
         output_bus,
         output_s
     ):
-        if len(data_bus.wires) != 16:
+        if len(data_bus) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(data_bus.wires)
+                    len(data_bus)
                 )
             )
 
-        if len(output_bus.wires) != 16:
+        if len(output_bus) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(output_bus)
                 )
             )
 

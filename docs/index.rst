@@ -1,3 +1,17 @@
+.. toctree::
+    :hidden:
+    
+    api
+    arithmetic
+    changelog
+    gate
+    install
+    logic
+    signal
+    storage
+    wire
+    
+
 =============
 About Bitwise
 =============
@@ -40,7 +54,7 @@ Interacting with it in a Python session::
     
     In [2]: b.value = 0
     
-    In [3]: sum.value
+    In [3]: sum_.value
     Out[3]: 0
     
     In [4]: carry_out.value
@@ -48,7 +62,7 @@ Interacting with it in a Python session::
     
     In [5]: a.value = 1
     
-    In [6]: sum.value
+    In [6]: sum_.value
     Out[6]: 1
     
     In [7]: carry_out.value
@@ -56,7 +70,7 @@ Interacting with it in a Python session::
     
     In [8]: b.value = 1
     
-    In [9]: sum.value
+    In [9]: sum_.value
     Out[9]: 0
     
     In [10]: carry_out.value

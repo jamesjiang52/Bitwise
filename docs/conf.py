@@ -20,6 +20,7 @@ nav_links = OrderedDict()
 nav_links["Home"] = "index.html"
 nav_links["Getting Started"] = "install.html"
 nav_links["API Documentation"] = "api.html"
+nav_links["Changelog"] = "changelog.html"
 
 html_theme = "alabaster"
 highlight_language="python3"
@@ -30,6 +31,7 @@ html_theme_options = {
     "logo": "logo.png",
     "logo_name": False,
     "page_width": "70%",
+    "sidebar_width": "240px",
     "sidebar_collapse": True,
     "sidebar_includehidden": False,
     "show_powered_by": False,

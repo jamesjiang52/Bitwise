@@ -1,9 +1,4 @@
 """
-This module defines classes that simulate primitive storage elements, namely
-1-bit latches and 1-bit flip-flops. Latches are level-sensitive, changing their
-value according to the value of a clock input, while flip-flops are edge-
-sensitive, changing their value according to edges of a clock input.
-
 The following classes are defined:
     SRLatch
     GatedSRLatch
@@ -24,16 +19,15 @@ Wire = wire.Wire
 
 
 class SRLatch:
-    """
-    This class simulates an SR latch, which has two inputs and two outputs:
-                   ________
-          set ----|        |---- output
-        reset ----|________|---- output_not
+    """Construct a new SR latch.
 
-    If set is 1 and reset is 0, output and output_not are 1 and 0,
-    respectively. If set is 0 and reset is 1, output and output_not are 0 and
-    1, respectively. If both set and reset are 0, output and output_not hold
-    their current values. The input where both set and reset are 1 is not used.
+    Args:
+        set_: An object of type Wire. The set input to the latch.
+        reset: An object of type Wire. The reset input to the latch.
+        output: An object of type Wire. The output of the latch. Takes on the
+            value of 1 if the value of set is 1 and the value of 0 if the value
+            of reset is 1.
+        output_not: An object of type Wire. The complemented form of output.
     """
     def __init__(self, set_, reset, output, output_not):
         gate.NORGate2(set_, output, output_not)
@@ -41,21 +35,16 @@ class SRLatch:
 
 
 class GatedSRLatch:
-    """
-    This class simulates a gated SR latch, which has three inputs, including a
-    clock, and two outputs:
-                   ________
-          set ----|        |---- output
-        reset ----|        |---- output_not
-        clock ----|________|
+    """Construct a new gated SR latch.
 
-    If clock is 0, output and output_not hold their current values, regardless
-    of the set and reset inputs. If clock is 1 and set and reset are 1 and 0,
-    respectively, output and output_not are 1 and 0, respectively. If clock is
-    1 and set and reset are 1 and 0, respectively, output and output_not are 0
-    and 1, respectively. If clock is 1 and both set and reset are 0, output and
-    output_not hold their current values. The input where both set and reset
-    are 1 is not used.
+    Args:
+        set_: An object of type Wire. The set input to the latch.
+        reset: An object of type Wire. The reset input to the latch.
+        clock: An object of type Wire. The clock input to the latch.
+        output: An object of type Wire. The output of the latch. When the value
+            of clock is 1, takes on the value of 1 if the value of set is 1 and
+            the value of 0 if the value of reset is 1.
+        output_not: An object of type Wire. The complemented form of output.
     """
     def __init__(self, set_, reset, clock, output, output_not):
         wire_1 = Wire()
@@ -67,16 +56,14 @@ class GatedSRLatch:
 
 
 class GatedDLatch:
-    """
-    This class simulates a gated D latch, which has two inputs, including a
-    clock, and two outputs:
-                   ________
-         data ----|        |---- output
-        clock ----|________|---- output_not
+    """Construct a new gated D latch.
 
-    If clock is 0, output and output_not hold their current values, regardless
-    of the data input. If clock is 1, output takes on the value of data and
-    output_not takes on the opposite value.
+    Args:
+        data: An object of type Wire. The data input to the latch.
+        clock: An object of type Wire. The clock input to the latch.
+        output: An object of type Wire. The output of the latch. Takes on the
+            value of data if the value of clock is 1.
+        output_not: An object of type Wire. The complemented form of output.
     """
     def __init__(self, data, clock, output, output_not):
         wire_1 = Wire()
@@ -86,17 +73,14 @@ class GatedDLatch:
 
 
 class DFlipFlop:
-    """
-    This class simulates a D flip-flop, which has two inputs, including a
-    clock, and two outputs:
-                   ________
-         data ----|        |---- output
-        clock ----|________|---- output_not
+    """Construct a new positive edge-triggered D flip-flop.
 
-    On the positive edge of clock (i.e. on the clock transition from a 0 value
-    to a 1 value), output takes on the value of data and output_not takes on
-    the opposite value. Otherwise, output and output_not hold their current
-    values.
+    Args:
+        data: An object of type Wire. The data input to the flip-flop.
+        clock: An object of type Wire. The clock input to the flip-flop.
+        output: An object of type Wire. The output of the flip-flop. Takes on
+            the value of data on the positive edges of clock.
+        output_not: An object of type Wire. The complemented form of output.
     """
     def __init__(self, data, clock, output, output_not):
         q_1 = Wire()
@@ -109,24 +93,19 @@ class DFlipFlop:
 
 
 class DFlipFlopPresetClear:
-    """
-    This class simulates a D flip-flop, with additional inputs for presetting
-    and clearing the flip_flop. It has four inputs, including a clock, and two
-    outputs:
-                      ________
-            data ----|        |---- output
-        preset_n ----|        |---- output_not
-         clear_n ----|        |
-           clock ----|________|
+    """Construct a new positive edge-triggered D flip-flop with preset/clear
+        capabilities.
 
-    On the positive edge of clock (i.e. on the clock transition from a 0 value
-    to a 1 value), output takes on the value of data and output_not takes on
-    the opposite value. Otherwise, output and output_not hold their current
-    values.
-
-    Inputs preset_n and clear_n are, respectively, an active low
-    asynchronous preset (setting output to 1 and output_not to 0) and an active
-    low asynchronous clear (setting output to 0 and output_not to 1).
+    Args:
+        data: An object of type Wire. The data input to the flip-flop.
+        preset_n: An object of type Wire. Presets output to 1 and output_not to
+            0 if its value is 0.
+        clear_n: An object of type Wire. Clears output to 0 and output_not to 1
+            if its value is 0.
+        clock: An object of type Wire. The clock input to the flip-flop.
+        output: An object of type Wire. The output of the flip-flop. Takes on
+            the value of data on the positive edges of clock.
+        output_not: An object of type Wire. The complemented form of output.
     """
     def __init__(self, data, preset_n, clear_n, clock, output, output_not):
         not_clock = Wire()
@@ -151,17 +130,15 @@ class DFlipFlopPresetClear:
 
 
 class TFlipFlop:
-    """
-    This class simulates a T flip-flop, which has two inputs, including a
-    clock, and two outputs:
-                    ________
-        toggle ----|        |---- output
-         clock ----|________|---- output_not
+    """Construct a new positive edge-triggered T flip-flop.
 
-    On the positive edge of clock (i.e. on the clock transition from a 0 value
-    to a 1 value), if toggle has the value 1, both output and output_not toggle
-    their current values. If toggle has the value 0, both output and output_not
-    are unchanged.
+    Args:
+        toggle: An object of type Wire. The toggle input to the flip-flop.
+        clock: An object of type Wire. The clock input to the flip-flop.
+        output: An object of type Wire. The output of the flip-flop. Toggles
+            its value on the positive edges of clock if the value of toggle is
+            1.
+        output_not: An object of type Wire. The complemented form of output.
     """
     def __init__(self, toggle, clock, output, output_not):
         mux_output = Wire()
@@ -173,24 +150,20 @@ class TFlipFlop:
 
 
 class TFlipFlopPresetClear:
-    """
-    This class simulates a T flip-flop, with additional inputs for presetting
-    and clearing the flip_flop. It has four inputs, including a clock, and two
-    outputs:
-                      ________
-          toggle ----|        |---- output
-        preset_n ----|        |---- output_not
-         clear_n ----|        |
-           clock ----|________|
+    """Construct a new positive edge-triggered T flip-flop with preset/clear
+        capabilities.
 
-    On the positive edge of clock (i.e. on the clock transition from a 0 value
-    to a 1 value), if toggle has the value 1, both output and output_not toggle
-    their current values. If toggle has the value 0, both output and output_not
-    are unchanged.
-
-    Inputs preset_n and clear_n are, respectively, an active low
-    asynchronous preset (setting output to 1 and output_not to 0) and an active
-    low asynchronous clear (setting output to 0 and output_not to 1).
+    Args:
+        toggle: An object of type Wire. The toggle input to the flip-flop.
+        preset_n: An object of type Wire. Presets output to 1 and output_not to
+            0 if its value is 0.
+        clear_n: An object of type Wire. Clears output to 0 and output_not to 1
+            if its value is 0.
+        clock: An object of type Wire. The clock input to the flip-flop.
+        output: An object of type Wire. The output of the flip-flop. Toggles
+            its value on the positive edges of clock if the value of toggle is
+            1.
+        output_not: An object of type Wire. The complemented form of output.
     """
     def __init__(self, toggle, preset_n, clear_n, clock, output, output_not):
         mux_output = Wire()
@@ -209,20 +182,17 @@ class TFlipFlopPresetClear:
 
 
 class JKFlipFlop:
-    """
-    This class simulates a JK flip-flop, which has three inputs, including a
-    clock, and two outputs:
-                   ________
-            J ----|        |---- output
-            K ----|        |---- output_not
-        clock ----|________|
+    """Construct a new positive edge-triggered JK flip-flop.
 
-    On the positive edge of clock (i.e. on the clock transition from a 0 value
-    to a 1 value), if J is 1 and K is 0, output and output_not are 1 and 0,
-    respectively. If J is 0 and K is 1, output and output_not are 0 and 1,
-    respectively. If J and K are both 0, both output and output_not hold their
-    current values. If J and K are both 1, both output and output_not toggle
-    their current values.
+    Args:
+        J: An object of type Wire. The J input to the flip-flop.
+        K: An object of type Wire. The K input to the flip-flop.
+        clock: An object of type Wire. The clock input to the flip-flop.
+        output: An object of type Wire. The output of the flip-flop. On the
+            positive edges of clock, takes on the value of 1 if the value of J
+            is 1, takes on the value of 0 if the value of K is 1, and toggles
+            its value if both J and K have value 1.
+        output_not: An object of type Wire. The complemented form of output.
     """
     def __init__(self, j, k, clock, output, output_not):
         and_1 = Wire()
@@ -238,27 +208,22 @@ class JKFlipFlop:
 
 
 class JKFlipFlopPresetClear:
-    """
-    This class simulates a JK flip-flop, with additional inputs for presetting
-    and clearing the flip_flop. It has five inputs, including a clock, and two
-    outputs:
-                      ________
-               J ----|        |---- output
-               K ----|        |---- output_not
-        preset_n ----|        |
-         clear_n ----|        |
-           clock ----|________|
+    """Construct a new positive edge-triggered JK flip-flop with preset/clear
+        capabilities.
 
-    On the positive edge of clock (i.e. on the clock transition from a 0 value
-    to a 1 value), if J is 1 and K is 0, output and output_not are 1 and 0,
-    respectively. If J is 0 and K is 1, output and output_not are 0 and 1,
-    respectively. If J and K are both 0, both output and output_not hold their
-    current values. If J and K are both 1, both output and output_not toggle
-    their current values.
-
-    Inputs preset_n and clear_n are, respectively, an active low
-    asynchronous preset (setting output to 1 and output_not to 0) and an active
-    low asynchronous clear (setting output to 0 and output_not to 1).
+    Args:
+        J: An object of type Wire. The J input to the flip-flop.
+        K: An object of type Wire. The K input to the flip-flop.
+        preset_n: An object of type Wire. Presets output to 1 and output_not to
+            0 if its value is 0.
+        clear_n: An object of type Wire. Clears output to 0 and output_not to 1
+            if its value is 0.
+        clock: An object of type Wire. The clock input to the flip-flop.
+        output: An object of type Wire. The output of the flip-flop. On the
+            positive edges of clock, takes on the value of 1 if the value of J
+            is 1, takes on the value of 0 if the value of K is 1, and toggles
+            its value if both J and K have value 1.
+        output_not: An object of type Wire. The complemented form of output.
     """
     def __init__(self, j, k, preset_n, clear_n, clock, output, output_not):
         and_1 = Wire()

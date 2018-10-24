@@ -69,6 +69,27 @@ API Documentation
 
 :doc:`storage`
 ==============
+* :ref:`DFlipFlop`
+* :ref:`DFlipFlopPresetClear`
+* :ref:`GatedDLatch`
+* :ref:`GatedSRLatch`
+* :ref:`JKFlipFlop`
+* :ref:`JKFlipFlopPresetClear`
+* :ref:`ParallelToSerialConverter4To1`
+* :ref:`ParallelToSerialConverter8To1`
+* :ref:`ParallelToSerialConverter16To1`
+* :ref:`SerialToParallelConverter1To4`
+* :ref:`SerialToParallelConverter1To8`
+* :ref:`SerialToParallelConverter1To16`
+* :ref:`Register4`
+* :ref:`Register8`
+* :ref:`Register16`
+* :ref:`ShiftRegister4`
+* :ref:`ShiftRegister8`
+* :ref:`ShiftRegister16`
+* :ref:`SRLatch`
+* :ref:`TFlipFlop`
+* :ref:`TFlipFlopPresetClear`
 
 :doc:`wire`
 ===========

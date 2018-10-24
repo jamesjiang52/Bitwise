@@ -15,8 +15,23 @@ Bus16 = wire.Bus16
 
 
 class ParallelToSerialConverter4To1:
-    """
+    """Construct a new 4-bit-parallel-to-serial converter.
 
+    Args:
+        enable: An object of type Wire. Enables the converter.
+        clear_n: An object of type Wire. Clears all 4 internal registers to 0
+            if its value is 0.
+        load_n: An object of type Wire. The mode select. A value of 0 indicates
+            a parallel load operation, where the values of data_bus are loaded
+            into the internal registers. A value of 1 indicates a shift-right
+            operation.
+        data_bus: An object of type Bus4. The parallel data input.
+        clock: An object of type Wire or Clock. The clock input.
+        output: An object of type Wire. The serial output of the converter.
+            data_bus[3] is outputted first, and data_bus[0] is outputted last.
+
+    Raises:
+        TypeError: If data_bus is not a bus of width 4.
     """
     def __init__(
         self,
@@ -27,10 +42,10 @@ class ParallelToSerialConverter4To1:
         clock,
         output
     ):
-        if len(data_bus.wires) != 4:
+        if len(data_bus) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(data_bus.wires)
+                    len(data_bus)
                 )
             )
 
@@ -59,8 +74,23 @@ class ParallelToSerialConverter4To1:
 
 
 class ParallelToSerialConverter8To1:
-    """
+    """Construct a new 8-bit-parallel-to-serial converter.
 
+    Args:
+        enable: An object of type Wire. Enables the converter.
+        clear_n: An object of type Wire. Clears all 8 internal registers to 0
+            if its value is 0.
+        load_n: An object of type Wire. The mode select. A value of 0 indicates
+            a parallel load operation, where the values of data_bus are loaded
+            into the internal registers. A value of 1 indicates a shift-right
+            operation.
+        data_bus: An object of type Bus8. The parallel data input.
+        clock: An object of type Wire or Clock. The clock input.
+        output: An object of type Wire. The serial output of the converter.
+            data_bus[7] is outputted first, and data_bus[0] is outputted last.
+
+    Raises:
+        TypeError: If data_bus is not a bus of width 8.
     """
     def __init__(
         self,
@@ -71,10 +101,10 @@ class ParallelToSerialConverter8To1:
         clock,
         output
     ):
-        if len(data_bus.wires) != 8:
+        if len(data_bus) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(data_bus.wires)
+                    len(data_bus)
                 )
             )
 
@@ -107,8 +137,23 @@ class ParallelToSerialConverter8To1:
 
 
 class ParallelToSerialConverter16To1:
-    """
+    """Construct a new 16-bit-parallel-to-serial converter.
 
+    Args:
+        enable: An object of type Wire. Enables the converter.
+        clear_n: An object of type Wire. Clears all 16 internal registers to 0
+            if its value is 0.
+        load_n: An object of type Wire. The mode select. A value of 0 indicates
+            a parallel load operation, where the values of data_bus are loaded
+            into the internal registers. A value of 1 indicates a shift-right
+            operation.
+        data_bus: An object of type Bus16. The parallel data input.
+        clock: An object of type Wire or Clock. The clock input.
+        output: An object of type Wire. The serial output of the converter.
+            data_bus[15] is outputted first, and data_bus[0] is outputted last.
+
+    Raises:
+        TypeError: If data_bus is not a bus of width 16.
     """
     def __init__(
         self,
@@ -119,10 +164,10 @@ class ParallelToSerialConverter16To1:
         clock,
         output
     ):
-        if len(data_bus.wires) != 16:
+        if len(data_bus) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(data_bus.wires)
+                    len(data_bus)
                 )
             )
 
