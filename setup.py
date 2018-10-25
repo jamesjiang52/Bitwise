@@ -3,10 +3,12 @@ from setuptools import setup, find_packages
 def readme():
     with open("README.rst") as f:
         return f.read()
+        
+execfile("bitwise/_version.py")
 
 setup(
     name="bitwise",
-    version="0.1.1",
+    version=__version__,
     description="Bitwise is a library for utilizing Python as a hardware description language",
     long_description=readme(),
     classifiers=[

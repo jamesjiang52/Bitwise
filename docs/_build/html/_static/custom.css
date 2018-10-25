@@ -4,20 +4,7 @@
 body {
     font-family: 'Sorts Mill Goudy', serif;
 }
-/*
-div.sphinxsidebar {
-    width: 240px;
-    font-size: 14px;
-    line-height: 1.5;
-    overflow-y: scroll;
-    top: 40px;
-    bottom: 0;
-}
 
-div.sphinxsidebarwrapper {
-    padding: 18px 10px;
-}
-*/
 div.sphinxsidebar input {
     font-family: 'Sorts Mill Goudy', serif;
 }
@@ -37,4 +24,23 @@ div.body h6 {
     font-weight: normal;
     margin: 30px 0px 10px 0px;
     padding: 0;
+}
+
+div.sphinxsidebar h3,
+div.sphinxsidebar h4 {
+    font-family: 'Garamond', 'Georgia', serif;
+    color: #444;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0 0 5px 0;
+    padding: 0;
+}
+
+div.admonition p.admonition-title {
+    font-family: 'Garamond', 'Georgia', serif;
+    font-weight: normal;
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    line-height: 1;
 }

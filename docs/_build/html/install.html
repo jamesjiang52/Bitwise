@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>&lt;no title&gt; &#8212; Bitwise 0.1.1 documentation</title>
+    <title>Getting Started &#8212; Bitwise 0.1.1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -68,6 +68,25 @@
     
     <li class="toctree-l1"><a href="changelog.html">Changelog</a></li>
     
+    <li class="toctree-l1"><a href="https://github.com/jamesjiang52/Bitwise">View on Github</a></li>
+    
+</ul>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#basics">Basics</a><ul>
+<li><a class="reference internal" href="#wires">Wires</a></li>
+<li><a class="reference internal" href="#logic-elements">Logic Elements</a></li>
+<li><a class="reference internal" href="#sensitivity">Sensitivity</a></li>
+<li><a class="reference internal" href="#hierarchy">Hierarchy</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#issues">Issues</a></li>
+</ul>
+</li>
 </ul>
 
 <div id="searchbox" style="display: none" role="search">
@@ -86,7 +105,291 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  
+  <div class="section" id="getting-started">
+<h1>Getting Started</h1>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<p>Before installing, make sure your Python version is 3.5 or greater. Older versions may work properly but are unsupported. To check your Python version, use</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>$ python --version
+</pre></div>
+</div>
+<p>in a terminal or command prompt.</p>
+<p>If this requirement is not met, you can download the latest version of Python <a class="reference external" href="https://www.python.org/downloads/">here</a>.</p>
+<p>Once Python is installed, you can install Bitwise using</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>$ pip install bitwise
+</pre></div>
+</div>
+<p>If there are no errors, you can open a Python session and verify the installation by checking the version number:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; import bitwise as bw
+&gt;&gt; bw.__version__
+&#39;0.1.1&#39;
+</pre></div>
+</div>
+<p>Refer to the <a class="reference internal" href="changelog.html"><span class="doc">changelog</span></a> for version details. In this documentation, it is canonical to have imported Bitwise as <code class="docutils literal"><span class="pre">bw</span></code>.</p>
+</div>
+<div class="section" id="basics">
+<h2>Basics</h2>
+<p>The use case of Bitwise is to model logic circuits in software; thus, it is useful to keep in mind that when you are using this library, you are actually <cite>building a circuit</cite> rather than writing a conventional software program.
+To facilitate this, there are a plethora of new features that are introduced.</p>
+<div class="section" id="wires">
+<h3>Wires</h3>
+<p>By far the most important class defined by this library is <code class="docutils literal"><span class="pre">Wire</span></code>. As the name suggests, <code class="docutils literal"><span class="pre">Wire</span></code> is used to connect different logic elements together, just like a real physical wire. They can be instantiated like so:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; my_wire = bw.wire.Wire()
+&gt;&gt; my_other_wire = bw.wire.Wire()
+</pre></div>
+</div>
+<p>This creates two objects of type <code class="docutils literal"><span class="pre">Wire</span></code>. Objects of this class have a single attribute, <code class="docutils literal"><span class="pre">value</span></code>, that can take on 1 of two binary values (0 or 1). The default <code class="docutils literal"><span class="pre">value</span></code> is 0, and it can be both accessed and mutated
+using <code class="docutils literal"><span class="pre">Wire.value</span></code>.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; my_wire.value
+0
+&gt;&gt; my_other_wire.value
+0
+&gt;&gt; my_wire.value = 1
+&gt;&gt; my_wire.value
+1
+&gt;&gt; my_wire.value = 0
+&gt;&gt; my_wire.value
+0
+</pre></div>
+</div>
+<p>Other values will throw a <code class="docutils literal"><span class="pre">ValueError</span></code>.</p>
+</div>
+<div class="section" id="logic-elements">
+<h3>Logic Elements</h3>
+<p>Alongside <code class="docutils literal"><span class="pre">Wire</span></code>, various logic elements are also at your disposal. These range from primitive logic gates to larger-scale logic circuits such as multiplexers and counters. In order to create new logic elements, usually a few
+<code class="docutils literal"><span class="pre">Wire</span></code> objects must be created first in order to make the necessary connections with the rest of your circuit. For example, the class that implements a two-input AND gate, <code class="docutils literal"><span class="pre">ANDGate2</span></code>, takes three arguments in its
+<code class="docutils literal"><span class="pre">__init__</span></code> method, all of type <code class="docutils literal"><span class="pre">Wire</span></code>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; input_1 = bw.wire.Wire()
+&gt;&gt; input_2 = bw.wire.Wire()
+&gt;&gt; output = bw.wire.Wire()
+&gt;&gt; my_AND_gate = bw.gate.ANDGate2(input_1, input_2, output)
+</pre></div>
+</div>
+<p>Here, the value of <code class="docutils literal"><span class="pre">output</span></code> will take on the result of AND-ing the values of <code class="docutils literal"><span class="pre">input_1</span></code> and <code class="docutils literal"><span class="pre">input_2</span></code>. Note that all the arguments must be present and valid for proper instantiation.</p>
+<p>Some logic elements may require buses as arguments in order to be created. In Bitwise, buses are simply groups of objects of type <code class="docutils literal"><span class="pre">Wire</span></code>, and can be instantiated simply by giving the appropriate bus class the
+correct number of arguments. For example, the following creates a bus of width 4:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; wire_1 = bw.wire.Wire()
+&gt;&gt; wire_2 = bw.wire.Wire()
+&gt;&gt; wire_3 = bw.wire.Wire()
+&gt;&gt; wire_4 = bw.wire.Wire()
+&gt;&gt; my_bus = bw.wire.Bus4(wire_1, wire_2, wire_3, wire_4)
+</pre></div>
+</div>
+<p>After instantiation, the wires can be accessed using <code class="docutils literal"><span class="pre">Bus.wires[index]</span></code>, or more simply by <code class="docutils literal"><span class="pre">Bus[index]</span></code>. The values of the wires can also be accessed using <code class="docutils literal"><span class="pre">Bus.wire_values[index]</span></code>. Note that in order to <em>mutate</em> the
+values of the wires in the bus, the value of the individual <code class="docutils literal"><span class="pre">Wire</span></code> must be mutated. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; my_bus.wire_values
+(0, 0, 0, 0)
+&gt;&gt; wire_2.value = 1
+&gt;&gt; my_bus.wire_values
+(0, 1, 0, 0)
+&gt;&gt; wire_2.value
+1
+&gt;&gt; my_bus.wire_values[1]
+1
+&gt;&gt; my_bus.wires[1].value
+1
+&gt;&gt; my_bus[1].value
+1
+</pre></div>
+</div>
+<p>Logic elements that require buses as arguments may then be instantiated. For example, the 4-bit parity generator, <code class="docutils literal"><span class="pre">ParityGenerator4</span></code>, receives two arguments: an object of type <code class="docutils literal"><span class="pre">Bus4</span></code> and an object of type <code class="docutils literal"><span class="pre">Wire</span></code>. It
+can be instantiated like so:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; output = bw.wire.Wire()
+&gt;&gt; my_parity_generator = bw.logic.ParityGenerator4(my_bus, output)
+</pre></div>
+</div>
+<p>For a catalog of all logic elements available, refer to the <a class="reference internal" href="api.html"><span class="doc">API documentation</span></a>.</p>
+</div>
+<div class="section" id="sensitivity">
+<h3>Sensitivity</h3>
+<p>The concept of sensitivity is another key feature of this library. In a hardware circuit, when an input changes, the output changes immediately. In Bitwise, this type of behavior is accomplished by retaining a list of all
+the connections that an object of type <code class="docutils literal"><span class="pre">Wire</span></code> has, but it is akin to a sensitivity list in a true hardware description language like Verilog. To see sensitivity in action, consider again the <code class="docutils literal"><span class="pre">ANDGate2</span></code> example from the
+previous subsection:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; input_1 = bw.wire.Wire()
+&gt;&gt; input_2 = bw.wire.Wire()
+&gt;&gt; output = bw.wire.Wire()
+&gt;&gt; my_AND_gate = bw.gate.ANDGate2(input_1, input_2, output)
+</pre></div>
+</div>
+<p>We can examine the value of <code class="docutils literal"><span class="pre">output</span></code> for every combination of values for <code class="docutils literal"><span class="pre">input_1</span></code> and <code class="docutils literal"><span class="pre">input_2</span></code>. Recall that the default value of a <code class="docutils literal"><span class="pre">Wire</span></code> object is 0.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; output.value
+0
+&gt;&gt; input_1.value = 1
+&gt;&gt; output.value
+0
+&gt;&gt; input_1.value = 0
+&gt;&gt; input_2.value = 1
+&gt;&gt; output.value
+0
+&gt;&gt; input_1.value = 1
+&gt;&gt; output.value
+1
+&gt;&gt; input_1.value = 0
+&gt;&gt; input_2.value = 0
+&gt;&gt; output.value
+0
+</pre></div>
+</div>
+<p>Notice that <code class="docutils literal"><span class="pre">output.value</span></code> reacts immediately to changes in the values of <code class="docutils literal"><span class="pre">input_1</span></code> and <code class="docutils literal"><span class="pre">input_2</span></code>, mimicking the behavior of a hardware circuit. (Moreover, we’ve verified that the two-input AND gate works as intended.)</p>
+</div>
+<div class="section" id="hierarchy">
+<h3>Hierarchy</h3>
+<p>In order to build higher-level logic circuits, the concept of hierarchy must be introduced. Quite simply, logic elements can have instances of other logic elements, which in turn can have instances of yet other logic elements.
+The result is a hierarchical design pattern, with the primitive logic gates at the bottom (since they do not instantiate any other elements). For example, consider the following Python script, which defines a logic element
+with three inputs and one output. The value of <code class="docutils literal"><span class="pre">output</span></code> is the result of AND’ing the first two inputs and OR’ing the result with the third input.</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bitwise</span> <span class="k">as</span> <span class="nn">bw</span>
+
+<span class="k">class</span> <span class="nc">MyLogicElement</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_1</span><span class="p">,</span> <span class="n">input_2</span><span class="p">,</span> <span class="n">input_3</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+        <span class="n">wire_1</span> <span class="o">=</span> <span class="n">bw</span><span class="o">.</span><span class="n">wire</span><span class="o">.</span><span class="n">Wire</span><span class="p">()</span>  <span class="c1"># used as the output of the AND gate</span>
+        <span class="n">bw</span><span class="o">.</span><span class="n">gate</span><span class="o">.</span><span class="n">ANDGate2</span><span class="p">(</span><span class="n">input_1</span><span class="p">,</span> <span class="n">input_2</span><span class="p">,</span> <span class="n">wire_1</span><span class="p">)</span>
+        <span class="n">bw</span><span class="o">.</span><span class="n">gate</span><span class="o">.</span><span class="n">ORGate2</span><span class="p">(</span><span class="n">wire_1</span><span class="p">,</span> <span class="n">input_3</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice, first and foremost, that the class has only one method, <code class="docutils literal"><span class="pre">__init__</span></code>, which only takes in arguments of type <code class="docutils literal"><span class="pre">Wire</span></code> (and bus types) and whose purpose is simply to make the necessary wire connections with the rest
+of the logic circuit. Notice also that the logic element itself instantiates an object of type <code class="docutils literal"><span class="pre">Wire</span></code>, <code class="docutils literal"><span class="pre">wire_1</span></code>. This is necessary in order to internally connect the output of the two-input AND gate to one of the inputs
+of the OR gate. Lastly, notice that both the inputs and the output of the logic element are given as arguments to the <code class="docutils literal"><span class="pre">__init__</span></code> method. Again, this is necessary so that both the inputs and the output are connected in
+some way to the rest of the logic circuit.</p>
+<p>Objects of <code class="docutils literal"><span class="pre">MyLogicElement</span></code> can now be instantiated:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; input_1 = bw.wire.Wire()
+&gt;&gt; input_2 = bw.wire.Wire()
+&gt;&gt; input_3 = bw.wire.Wire()
+&gt;&gt; output = bw.wire.Wire()
+&gt;&gt; my_logic_element = MyLogicElement(input_1, input_2, input_3, output)
+</pre></div>
+</div>
+<p>We can test various values for <code class="docutils literal"><span class="pre">input_1</span></code>, <code class="docutils literal"><span class="pre">input_2</span></code>, and <code class="docutils literal"><span class="pre">input_3</span></code> to verify that the circuit works as intended:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt; output.value
+0
+&gt;&gt; input_1.value = 1
+&gt;&gt; output.value
+0
+&gt;&gt; input_2.value = 1
+&gt;&gt; output.value
+1
+&gt;&gt; input_1.value = 0
+&gt;&gt; input_2.value = 0
+&gt;&gt; output.value
+0
+&gt;&gt; input_3.value = 1
+&gt;&gt; output.value
+1
+</pre></div>
+</div>
+<p>Additionally, objects of <code class="docutils literal"><span class="pre">MyLogicElement</span></code> can now be instantiated in other logic elements and circuits.</p>
+</div>
+<div class="section" id="example">
+<h3>Example</h3>
+<p>As a short example, let us construct a 2-bit adder. An adder simply takes two inputs, of a certain width, and outputs the sum. In this case, since we have two inputs of width 2, four inputs to the adder are needed.
+Additionally, three outputs are needed, since the sum of two 2-bit numbers can be at most 3 bits wide.</p>
+<p>Before a full 2-bit adder can be constructed, we first need a 1-bit adder. This adder must have not two, but three inputs, since we need one input to be a “carry-in” input from the previous 1-bit adder. Two outputs
+are also needed. Skipping a few details, the following script defines a class that simulates our 1-bit adder:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bitwise</span> <span class="k">as</span> <span class="nn">bw</span>
+
+<span class="k">class</span> <span class="nc">OneBitAdder</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">carry_in</span><span class="p">,</span> <span class="n">input_1</span><span class="p">,</span> <span class="n">input_2</span><span class="p">,</span> <span class="n">sum_1</span><span class="p">,</span> <span class="n">sum_2</span><span class="p">):</span>
+        <span class="c1"># these wires connect the appropriate gates together (trust me, it works)</span>
+        <span class="n">wire_1</span> <span class="o">=</span> <span class="n">bw</span><span class="o">.</span><span class="n">wireWire</span><span class="p">()</span>
+        <span class="n">wire_2</span> <span class="o">=</span> <span class="n">bw</span><span class="o">.</span><span class="n">wire</span><span class="o">.</span><span class="n">Wire</span><span class="p">()</span>
+        <span class="n">wire_3</span> <span class="o">=</span> <span class="n">bw</span><span class="o">.</span><span class="n">wire</span><span class="o">.</span><span class="n">Wire</span><span class="p">()</span>
+
+        <span class="n">bw</span><span class="o">.</span><span class="n">gate</span><span class="o">.</span><span class="n">XORGate2</span><span class="p">(</span><span class="n">input_1</span><span class="p">,</span> <span class="n">input_2</span><span class="p">,</span> <span class="n">wire_1</span><span class="p">)</span>
+        <span class="n">bw</span><span class="o">.</span><span class="n">gate</span><span class="o">.</span><span class="n">XORGate2</span><span class="p">(</span><span class="n">carry_in</span><span class="p">,</span> <span class="n">wire_1</span><span class="p">,</span> <span class="n">sum_2</span><span class="p">)</span>
+        <span class="n">bw</span><span class="o">.</span><span class="n">gate</span><span class="o">.</span><span class="n">ANDGate2</span><span class="p">(</span><span class="n">input_1</span><span class="p">,</span> <span class="n">input_2</span><span class="p">,</span> <span class="n">wire_2</span><span class="p">)</span>
+        <span class="n">bw</span><span class="o">.</span><span class="n">gate</span><span class="o">.</span><span class="n">ANDGate2</span><span class="p">(</span><span class="n">carry_in</span><span class="p">,</span> <span class="n">wire_1</span><span class="p">,</span> <span class="n">wire_3</span><span class="p">)</span>
+        <span class="n">bw</span><span class="o">.</span><span class="n">gate</span><span class="o">.</span><span class="n">ORGate2</span><span class="p">(</span><span class="n">wire_2</span><span class="p">,</span> <span class="n">wire_3</span><span class="p">,</span> <span class="n">sum_1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal"><span class="pre">sum_1</span></code> and <code class="docutils literal"><span class="pre">sum_2</span></code> are the most and least significant bits of the sum, respectively. It can be verified that this element behaves as intended:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt;&gt; carry_in = bw.wire.Wire()
+&gt;&gt;&gt; input_1 = bw.wire.Wire()
+&gt;&gt;&gt; input_2 = bw.wire.Wire()
+&gt;&gt;&gt; sum_1 = bw.wire.Wire()
+&gt;&gt;&gt; sum_2 = bw.wire.Wire()
+&gt;&gt;&gt; myOneBitAdder = OneBitAdder(carry_in, input_1, input_2, sum_1, sum_2)
+&gt;&gt;&gt; sum_1.value
+0
+&gt;&gt;&gt; sum_2.value
+0
+&gt;&gt;&gt; input_1.value = 1
+&gt;&gt;&gt; sum_1.value
+0
+&gt;&gt;&gt; sum_2.value
+1
+&gt;&gt;&gt; input_2.value = 1
+&gt;&gt;&gt; sum_1.value
+1
+&gt;&gt;&gt; sum_2.value
+0
+&gt;&gt;&gt; carry_in.value = 1
+&gt;&gt;&gt; sum_1.value
+1
+&gt;&gt;&gt; sum_2.value
+1
+</pre></div>
+</div>
+<p>A 2-bit adder may now be constructed by creating two instances of <code class="docutils literal"><span class="pre">OneBitAdder</span></code> in a hierarchical design pattern and connecting the wires appropriately:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TwoBitAdder</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_1_a</span><span class="p">,</span> <span class="n">input_1_b</span><span class="p">,</span> <span class="n">input_2_a</span><span class="p">,</span> <span class="n">input_2_b</span><span class="p">,</span> <span class="n">sum_1</span><span class="p">,</span> <span class="n">sum_2</span><span class="p">,</span> <span class="n">sum_3</span><span class="p">):</span>
+        <span class="n">wire_1</span> <span class="o">=</span> <span class="n">bw</span><span class="o">.</span><span class="n">wire</span><span class="o">.</span><span class="n">Wire</span><span class="p">()</span>  <span class="c1"># used to connect the two 1-bit adders</span>
+        <span class="n">gnd</span> <span class="o">=</span> <span class="n">bw</span><span class="o">.</span><span class="n">wire</span><span class="o">.</span><span class="n">Wire</span><span class="p">()</span>
+        <span class="n">gnd</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">OneBitAdder</span><span class="p">(</span><span class="n">gnd</span><span class="p">,</span> <span class="n">input_1_b</span><span class="p">,</span> <span class="n">input_2_b</span><span class="p">,</span> <span class="n">wire_1</span><span class="p">,</span> <span class="n">sum_3</span><span class="p">)</span>
+        <span class="n">OneBitAdder</span><span class="p">(</span><span class="n">wire_1</span><span class="p">,</span> <span class="n">input_1_a</span><span class="p">,</span> <span class="n">input_2_a</span><span class="p">,</span> <span class="n">sum_1</span><span class="p">,</span> <span class="n">sum_2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal"><span class="pre">input_1_a</span></code> and <code class="docutils literal"><span class="pre">input_1_b</span></code> are the most and least significant bits of the first input, respectively, <code class="docutils literal"><span class="pre">input_2_a</span></code> and <code class="docutils literal"><span class="pre">input_2_b</span></code> are the most and least significant bits of the second input, respectively, and
+<code class="docutils literal"><span class="pre">sum_1</span></code> and <code class="docutils literal"><span class="pre">sum_3</span></code> are the most and least significant bits of the sum, respectively. Since the least significant adder has to carry-in, the <code class="docutils literal"><span class="pre">gnd</span></code> wire is used for the <code class="docutils literal"><span class="pre">carry_in</span></code> input. The <code class="docutils literal"><span class="pre">wire_1</span></code> wire is used to
+connect the most significant bit of the sum from the least significant adder with the carry-in of the most significant adder.</p>
+<p>Again, it can be verified that this element behaves as intended by trying out a few test cases:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>&gt;&gt;&gt; i_1_a = bw.wire.Wire()
+&gt;&gt;&gt; i_1_b = bw.wire.Wire()
+&gt;&gt;&gt; i_2_a = bw.wire.Wire()
+&gt;&gt;&gt; i_2_b = bw.wire.Wire()
+&gt;&gt;&gt; sum_1 = bw.wire.Wire()
+&gt;&gt;&gt; sum_2 = bw.wire.Wire()
+&gt;&gt;&gt; sum_3 = bw.wire.Wire()
+&gt;&gt;&gt; myTwoBitAdder = TwoBitAdder(i_1_a, i_1_b, i_2_a, i_2_b, sum_1, sum_2, sum_3)
+&gt;&gt;&gt; sum_1.value
+0
+&gt;&gt;&gt; sum_2.value
+0
+&gt;&gt;&gt; sum_3.value
+0
+&gt;&gt;&gt; i_1_b.value = 1
+&gt;&gt;&gt; i_2_b.value = 1
+&gt;&gt;&gt; sum_1.value
+0
+&gt;&gt;&gt; sum_2.value
+1
+&gt;&gt;&gt; sum_3.value
+0
+&gt;&gt;&gt; i_1_a.value = 1
+&gt;&gt;&gt; sum_1.value
+1
+&gt;&gt;&gt; sum_2.value
+0
+&gt;&gt;&gt; sum_3.value
+0
+&gt;&gt;&gt; i_2_a.value = 1
+&gt;&gt;&gt; sum_1.value
+1
+&gt;&gt;&gt; sum_2.value
+1
+&gt;&gt;&gt; sum_3.value
+0
+</pre></div>
+</div>
+<p>All of the sums are as expected (00 + 00 = 000, 01 + 01 = 010, 11 + 01 = 100, 11 + 11 = 110).</p>
+</div>
+</div>
+<div class="section" id="issues">
+<h2>Issues</h2>
+<p>Please post all bugs, issues, and feature requests in the <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/issues">issues</a> section of the Github repository.</p>
+</div>
+</div>
+
 
           </div>
         </div>

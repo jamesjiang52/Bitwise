@@ -24,7 +24,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="install.html" />
+    <link rel="next" title="Getting Started" href="install.html" />
     <link rel="prev" title="Changelog" href="changelog.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -68,6 +68,8 @@
     
     <li class="toctree-l1"><a href="changelog.html">Changelog</a></li>
     
+    <li class="toctree-l1"><a href="https://github.com/jamesjiang52/Bitwise">View on Github</a></li>
+    
 </ul>
 
   <h3><a href="index.html">Table Of Contents</a></h3>
@@ -77,6 +79,7 @@
 <li><a class="reference internal" href="#andgate3">ANDGate3</a></li>
 <li><a class="reference internal" href="#andgate4">ANDGate4</a></li>
 <li><a class="reference internal" href="#buffer">Buffer</a></li>
+<li><a class="reference internal" href="#implygate">IMPLYGate</a></li>
 <li><a class="reference internal" href="#nandgate2">NANDGate2</a></li>
 <li><a class="reference internal" href="#nandgate3">NANDGate3</a></li>
 <li><a class="reference internal" href="#nandgate4">NANDGate4</a></li>
@@ -223,12 +226,12 @@
 </div>
 </div>
 </div>
-<div class="section" id="nandgate2">
-<span id="id15"></span><h2>NANDGate2</h2>
-<div class="section" id="class-bw-gate-nandgate2">
-<h3>Class <code class="docutils literal"><span class="pre">bw.gate.NANDGate2</span></code></h3>
-<img alt="_images/NANDGate2.svg" src="_images/NANDGate2.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NAND.py">bitwise/gate/NAND.py</a>.</p>
-<p>Two-input <a class="reference external" href="https://en.wikipedia.org/wiki/NAND_gate">NAND gate</a>.</p>
+<div class="section" id="implygate">
+<span id="id15"></span><h2>IMPLYGate</h2>
+<div class="section" id="class-bw-gate-implygate">
+<h3>Class <code class="docutils literal"><span class="pre">bw.gate.IMPLYGate</span></code></h3>
+<img alt="_images/IMPLYGate.svg" src="_images/IMPLYGate.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/IMPLY.py">bitwise/gate/IMPLY.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/IMPLY_gate">IMPLY gate</a>.</p>
 </div>
 <div class="section" id="id16">
 <h3>__init__</h3>
@@ -239,8 +242,35 @@
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Construct a new two-input NAND gate.</p>
+<p>Construct a new IMPLY gate.</p>
 <div class="section" id="id17">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the IMPLY gate.</li>
+<li><code class="docutils literal"><span class="pre">input_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The second input to the IMPLY gate.</li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The output of the IMPLY gate.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="nandgate2">
+<span id="id18"></span><h2>NANDGate2</h2>
+<div class="section" id="class-bw-gate-nandgate2">
+<h3>Class <code class="docutils literal"><span class="pre">bw.gate.NANDGate2</span></code></h3>
+<img alt="_images/NANDGate2.svg" src="_images/NANDGate2.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NAND.py">bitwise/gate/NAND.py</a>.</p>
+<p>Two-input <a class="reference external" href="https://en.wikipedia.org/wiki/NAND_gate">NAND gate</a>.</p>
+</div>
+<div class="section" id="id19">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_1</span><span class="p">,</span>
+    <span class="n">input_2</span><span class="p">,</span>
+    <span class="n">output</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new two-input NAND gate.</p>
+<div class="section" id="id20">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the NAND gate.</li>
@@ -251,13 +281,13 @@
 </div>
 </div>
 <div class="section" id="nandgate3">
-<span id="id18"></span><h2>NANDGate3</h2>
+<span id="id21"></span><h2>NANDGate3</h2>
 <div class="section" id="class-bw-gate-nandgate3">
 <h3>Class <code class="docutils literal"><span class="pre">bw.gate.NANDGate3</span></code></h3>
 <img alt="_images/NANDGate3.svg" src="_images/NANDGate3.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NAND.py">bitwise/gate/NAND.py</a>.</p>
 <p>Three-input <a class="reference external" href="https://en.wikipedia.org/wiki/NAND_gate">NAND gate</a>.</p>
 </div>
-<div class="section" id="id21">
+<div class="section" id="id24">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_1</span><span class="p">,</span>
@@ -268,7 +298,7 @@
 </pre></div>
 </div>
 <p>Construct a new three-input NAND gate.</p>
-<div class="section" id="id22">
+<div class="section" id="id25">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the NAND gate.</li>
@@ -280,13 +310,13 @@
 </div>
 </div>
 <div class="section" id="nandgate4">
-<span id="id23"></span><h2>NANDGate4</h2>
+<span id="id26"></span><h2>NANDGate4</h2>
 <div class="section" id="class-bw-gate-nandgate4">
 <h3>Class <code class="docutils literal"><span class="pre">bw.gate.NANDGate4</span></code></h3>
 <img alt="_images/NANDGate4.svg" src="_images/NANDGate4.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NAND.py">bitwise/gate/NAND.py</a>.</p>
 <p>Four-input <a class="reference external" href="https://en.wikipedia.org/wiki/NAND_gate">NAND gate</a>.</p>
 </div>
-<div class="section" id="id26">
+<div class="section" id="id29">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_1</span><span class="p">,</span>
@@ -298,7 +328,7 @@
 </pre></div>
 </div>
 <p>Construct a new four-input NAND gate.</p>
-<div class="section" id="id27">
+<div class="section" id="id30">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the NAND gate.</li>
@@ -311,13 +341,13 @@
 </div>
 </div>
 <div class="section" id="norgate2">
-<span id="id28"></span><h2>NORGate2</h2>
+<span id="id31"></span><h2>NORGate2</h2>
 <div class="section" id="class-bw-gate-norgate2">
 <h3>Class <code class="docutils literal"><span class="pre">bw.gate.NORGate2</span></code></h3>
 <img alt="_images/NORGate2.svg" src="_images/NORGate2.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NOR.py">bitwise/gate/NOR.py</a>.</p>
 <p>Two-input <a class="reference external" href="https://en.wikipedia.org/wiki/NOR_gate">NOR gate</a>.</p>
 </div>
-<div class="section" id="id29">
+<div class="section" id="id32">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_1</span><span class="p">,</span>
@@ -327,7 +357,7 @@
 </pre></div>
 </div>
 <p>Construct a new two-input NOR gate.</p>
-<div class="section" id="id30">
+<div class="section" id="id33">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the NOR gate.</li>
@@ -338,13 +368,13 @@
 </div>
 </div>
 <div class="section" id="norgate3">
-<span id="id31"></span><h2>NORGate3</h2>
+<span id="id34"></span><h2>NORGate3</h2>
 <div class="section" id="class-bw-gate-norgate3">
 <h3>Class <code class="docutils literal"><span class="pre">bw.gate.NORGate3</span></code></h3>
 <img alt="_images/NORGate3.svg" src="_images/NORGate3.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NOR.py">bitwise/gate/NOR.py</a>.</p>
 <p>Three-input <a class="reference external" href="https://en.wikipedia.org/wiki/NOR_gate">NOR gate</a>.</p>
 </div>
-<div class="section" id="id34">
+<div class="section" id="id37">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_1</span><span class="p">,</span>
@@ -355,7 +385,7 @@
 </pre></div>
 </div>
 <p>Construct a new three-input NOR gate.</p>
-<div class="section" id="id35">
+<div class="section" id="id38">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the NOR gate.</li>
@@ -367,13 +397,13 @@
 </div>
 </div>
 <div class="section" id="norgate4">
-<span id="id36"></span><h2>NORGate4</h2>
+<span id="id39"></span><h2>NORGate4</h2>
 <div class="section" id="class-bw-gate-norgate4">
 <h3>Class <code class="docutils literal"><span class="pre">bw.gate.NORGate4</span></code></h3>
 <img alt="_images/NORGate4.svg" src="_images/NORGate4.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NOR.py">bitwise/gate/NOR.py</a>.</p>
 <p>Four-input <a class="reference external" href="https://en.wikipedia.org/wiki/NOR_gate">NOR gate</a>.</p>
 </div>
-<div class="section" id="id39">
+<div class="section" id="id42">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_1</span><span class="p">,</span>
@@ -385,7 +415,7 @@
 </pre></div>
 </div>
 <p>Construct a new four-input NOR gate.</p>
-<div class="section" id="id40">
+<div class="section" id="id43">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the NOR gate.</li>
@@ -398,13 +428,13 @@
 </div>
 </div>
 <div class="section" id="notgate">
-<span id="id41"></span><h2>NOTGate</h2>
+<span id="id44"></span><h2>NOTGate</h2>
 <div class="section" id="class-bw-gate-notgate">
 <h3>Class <code class="docutils literal"><span class="pre">bw.gate.NOTGate</span></code></h3>
 <img alt="_images/NOTGate.svg" src="_images/NOTGate.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/NOT.py">bitwise/gate/NOT.py</a>.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Inverter_(logic_gate)">NOT gate</a>.</p>
 </div>
-<div class="section" id="id42">
+<div class="section" id="id45">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_1</span><span class="p">,</span>
@@ -413,7 +443,7 @@
 </pre></div>
 </div>
 <p>Construct a new NOT gate.</p>
-<div class="section" id="id43">
+<div class="section" id="id46">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The input to the NOT gate.</li>
@@ -423,13 +453,13 @@
 </div>
 </div>
 <div class="section" id="orgate2">
-<span id="id44"></span><h2>ORGate2</h2>
+<span id="id47"></span><h2>ORGate2</h2>
 <div class="section" id="class-bw-gate-orgate2">
 <h3>Class <code class="docutils literal"><span class="pre">bw.gate.ORGate2</span></code></h3>
 <img alt="_images/ORGate2.svg" src="_images/ORGate2.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/OR.py">bitwise/gate/OR.py</a>.</p>
 <p>Two-input <a class="reference external" href="https://en.wikipedia.org/wiki/OR_gate">OR gate</a>.</p>
 </div>
-<div class="section" id="id45">
+<div class="section" id="id48">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_1</span><span class="p">,</span>
@@ -439,7 +469,7 @@
 </pre></div>
 </div>
 <p>Construct a new two-input OR gate.</p>
-<div class="section" id="id46">
+<div class="section" id="id49">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the OR gate.</li>
@@ -450,13 +480,13 @@
 </div>
 </div>
 <div class="section" id="orgate3">
-<span id="id47"></span><h2>ORGate3</h2>
+<span id="id50"></span><h2>ORGate3</h2>
 <div class="section" id="class-bw-gate-orgate3">
 <h3>Class <code class="docutils literal"><span class="pre">bw.gate.ORGate3</span></code></h3>
 <img alt="_images/ORGate3.svg" src="_images/ORGate3.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/OR.py">bitwise/gate/OR.py</a>.</p>
 <p>Three-input <a class="reference external" href="https://en.wikipedia.org/wiki/OR_gate">OR gate</a>.</p>
 </div>
-<div class="section" id="id50">
+<div class="section" id="id53">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_1</span><span class="p">,</span>
@@ -467,7 +497,7 @@
 </pre></div>
 </div>
 <p>Construct a new three-input OR gate.</p>
-<div class="section" id="id51">
+<div class="section" id="id54">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the OR gate.</li>
@@ -479,13 +509,13 @@
 </div>
 </div>
 <div class="section" id="orgate4">
-<span id="id52"></span><h2>ORGate4</h2>
+<span id="id55"></span><h2>ORGate4</h2>
 <div class="section" id="class-bw-gate-orgate4">
 <h3>Class <code class="docutils literal"><span class="pre">bw.gate.ORGate4</span></code></h3>
 <img alt="_images/ORGate4.svg" src="_images/ORGate4.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/OR.py">bitwise/gate/OR.py</a>.</p>
 <p>Four-input <a class="reference external" href="https://en.wikipedia.org/wiki/OR_gate">OR gate</a>.</p>
 </div>
-<div class="section" id="id55">
+<div class="section" id="id58">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_1</span><span class="p">,</span>
@@ -497,7 +527,7 @@
 </pre></div>
 </div>
 <p>Construct a new four-input OR gate.</p>
-<div class="section" id="id56">
+<div class="section" id="id59">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the OR gate.</li>
@@ -510,38 +540,11 @@
 </div>
 </div>
 <div class="section" id="xnorgate2">
-<span id="id57"></span><h2>XNORGate2</h2>
+<span id="id60"></span><h2>XNORGate2</h2>
 <div class="section" id="class-bw-gate-xnorgate2">
 <h3>Class <code class="docutils literal"><span class="pre">bw.gate.XNORGate2</span></code></h3>
 <img alt="_images/XNORGate2.svg" src="_images/XNORGate2.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/XNOR.py">bitwise/gate/XNOR.py</a>.</p>
 <p>Two-input <a class="reference external" href="https://en.wikipedia.org/wiki/XNOR_gate">XNOR gate</a>.</p>
-</div>
-<div class="section" id="id58">
-<h3>__init__</h3>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
-    <span class="n">input_1</span><span class="p">,</span>
-    <span class="n">input_2</span><span class="p">,</span>
-    <span class="n">output</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p>Construct a new two-input XNOR gate.</p>
-<div class="section" id="id59">
-<h4>Args:</h4>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the XNOR gate.</li>
-<li><code class="docutils literal"><span class="pre">input_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The second input to the XNOR gate.</li>
-<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The output of the XNOR gate.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="section" id="xorgate2">
-<span id="id60"></span><h2>XORGate2</h2>
-<div class="section" id="class-bw-gate-xorgate2">
-<h3>Class <code class="docutils literal"><span class="pre">bw.gate.XORGate2</span></code></h3>
-<img alt="_images/XORGate2.svg" src="_images/XORGate2.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/XOR.py">bitwise/gate/XOR.py</a>.</p>
-<p>Two-input <a class="reference external" href="https://en.wikipedia.org/wiki/XOR_gate">XOR gate</a>.</p>
 </div>
 <div class="section" id="id61">
 <h3>__init__</h3>
@@ -552,8 +555,35 @@
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Construct a new two-input XOR gate.</p>
+<p>Construct a new two-input XNOR gate.</p>
 <div class="section" id="id62">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the XNOR gate.</li>
+<li><code class="docutils literal"><span class="pre">input_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The second input to the XNOR gate.</li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The output of the XNOR gate.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="xorgate2">
+<span id="id63"></span><h2>XORGate2</h2>
+<div class="section" id="class-bw-gate-xorgate2">
+<h3>Class <code class="docutils literal"><span class="pre">bw.gate.XORGate2</span></code></h3>
+<img alt="_images/XORGate2.svg" src="_images/XORGate2.svg" width="360px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/XOR.py">bitwise/gate/XOR.py</a>.</p>
+<p>Two-input <a class="reference external" href="https://en.wikipedia.org/wiki/XOR_gate">XOR gate</a>.</p>
+</div>
+<div class="section" id="id64">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_1</span><span class="p">,</span>
+    <span class="n">input_2</span><span class="p">,</span>
+    <span class="n">output</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new two-input XOR gate.</p>
+<div class="section" id="id65">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The first input to the XOR gate.</li>

@@ -14,11 +14,12 @@ API Documentation
 * :ref:`HalfAdder`
 
 :doc:`gate`
-===============
+===========
 * :ref:`ANDGate2`
 * :ref:`ANDGate3`
 * :ref:`ANDGate4`
 * :ref:`Buffer`
+* :ref:`IMPLYGate`
 * :ref:`NANDGate2`
 * :ref:`NANDGate3`
 * :ref:`NANDGate4`

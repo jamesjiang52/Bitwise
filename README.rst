@@ -42,28 +42,19 @@ The following code creates a half-adder circuit::
 
 Interacting with it in a Python session::
 
-    In [1]: a.value = 0
-    
-    In [2]: b.value = 0
-    
-    In [3]: sum_.value
-    Out[3]: 0
-    
-    In [4]: carry_out.value
-    Out[4]: 0
-    
-    In [5]: a.value = 1
-    
-    In [6]: sum_.value
-    Out[6]: 1
-    
-    In [7]: carry_out.value
-    Out[7]: 0
-    
-    In [8]: b.value = 1
-    
-    In [9]: sum_.value
-    Out[9]: 0
-    
-    In [10]: carry_out.value
-    Out[10]: 1
+    >> a.value = 0
+    >> b.value = 0
+    >> sum_.value
+    0
+    >> carry_out.value
+    0
+    >> a.value = 1
+    >> sum_.value
+    1
+    >> carry_out.value
+    0
+    >> b.value = 1
+    >> sum_.value
+    0
+    >> carry_out.value
+    1

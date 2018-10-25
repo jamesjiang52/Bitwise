@@ -1,5 +1,6 @@
 from .AND import *
 from .BUF import *
+from .IMPLY import *
 from .NAND import *
 from .NOR import *
 from .NOT import *

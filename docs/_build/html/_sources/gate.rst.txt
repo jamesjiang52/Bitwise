@@ -149,6 +149,41 @@ Args:
 * ``output``: An object of type ``Wire``. The output of the buffer.
 
 
+.. _IMPLYGate:
+
+IMPLYGate
+=========
+
+Class ``bw.gate.IMPLYGate``
+---------------------------
+
+.. image:: images/schematics/gate/IMPLYGate.svg
+    :width: 360px
+
+Defined in `bitwise/gate/IMPLY.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/gate/IMPLY.py>`_.
+
+`IMPLY gate <https://en.wikipedia.org/wiki/IMPLY_gate>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        input_1,
+        input_2,
+        output
+    )
+
+Construct a new IMPLY gate.
+
+Args:
+~~~~~
+* ``input_1``: An object of type ``Wire``. The first input to the IMPLY gate.
+* ``input_2``: An object of type ``Wire``. The second input to the IMPLY gate.
+* ``output``: An object of type ``Wire``. The output of the IMPLY gate.
+
+
 .. _NANDGate2:
 
 NANDGate2

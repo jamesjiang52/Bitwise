@@ -21,6 +21,7 @@ nav_links["Home"] = "index.html"
 nav_links["Getting Started"] = "install.html"
 nav_links["API Documentation"] = "api.html"
 nav_links["Changelog"] = "changelog.html"
+nav_links["View on Github"] = "https://github.com/jamesjiang52/Bitwise"
 
 html_theme = "alabaster"
 highlight_language="python3"
