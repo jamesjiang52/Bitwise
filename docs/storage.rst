@@ -76,11 +76,145 @@ Construct a new positive edge-triggered D flip-flop with preset/clear capabiliti
 Args:
 ~~~~~
 * ``data``: An object of type ``Wire``. The data input to the flip-flop.
-* ``preset_n``: An object of type ``Wire``. Presets ``output`` to 1 and ``output_not`` to 0 if its value is 0.
-* ``clear_n``: An object of type ``Wire``. Clears ``output`` to 0 and ``output_not`` to 1 if its value is 0.
+* ``preset_n``: An object of type ``Wire``. Presets ``output`` to 1 and ``output_not`` to 0 asynchronously if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears ``output`` to 0 and ``output_not`` to 1 asynchronously if its value is 0.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the flip-flop.
 * ``output``: An object of type ``Wire``. The output of the flip-flop. Takes on the value of ``data`` on the positive edges of ``clock``.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
+
+
+.. _DownCounterMod4:
+
+DownCounterMod4
+===============
+
+Class ``bw.storage.DownCounterMod4``
+------------------------------------
+
+.. image:: images/schematics/storage/DownCounterMod4.svg
+    :width: 400px
+
+Defined in `bitwise/storage/COUNT.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/COUNT.py>`_.
+
+2-bit (mod-4) down `counter <https://en.wikipedia.org/wiki/Counter_(digital)>`_ with parallel load.
+
+__init__
+--------
+
+::
+
+    __init__(
+        enable,
+        load_n,
+        load_1,
+        load_2,
+        clock,
+        output_1,
+        output_2
+    )
+
+Construct a new mod-4 down counter.
+
+Args:
+~~~~~
+* ``enable``: An object of type ``Wire``. Enables the counter.
+* ``load_n``: An object of type ``Wire``. Loads ``load_1`` into ``output_1`` and ``load_2`` into ``output_2`` if its value is 0.
+* ``load_1``: An object of type ``Wire``. The most significant bit of the load input.
+* ``load_2``: An object of type ``Wire``. The least significant bit of the load input.
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the counter.
+* ``output_1``: An object of type ``Wire``. The most significant bit of the output.
+* ``output_2``: An object of type ``Wire``. The least significant bit of the output.
+
+
+.. _DownCounterMod8:
+
+DownCounterMod8
+===============
+
+Class ``bw.storage.DownCounterMod8``
+------------------------------------
+
+.. image:: images/schematics/storage/DownCounterMod8.svg
+    :width: 400px
+
+Defined in `bitwise/storage/COUNT.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/COUNT.py>`_.
+
+3-bit (mod-8) down `counter <https://en.wikipedia.org/wiki/Counter_(digital)>`_ with parallel load.
+
+__init__
+--------
+
+::
+
+    __init__(
+        enable,
+        load_n,
+        load_1,
+        load_2,
+        load_3,
+        clock,
+        output_1,
+        output_2,
+        output_3
+    )
+
+Construct a new mod-8 down counter.
+
+Args:
+~~~~~
+* ``enable``: An object of type ``Wire``. Enables the counter.
+* ``load_n``: An object of type ``Wire``. Loads ``load_1`` into ``output_1``, ``load_2`` into ``output_2``, and ``load_3`` into ``output_3`` if its value is 0.
+* ``load_1``: An object of type ``Wire``. The most significant bit of the load input.
+* ``load_2``: An object of type ``Wire``.
+* ``load_3``: An object of type ``Wire``. The least significant bit of the load input.
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the counter.
+* ``output_1``: An object of type ``Wire``. The most significant bit of the output.
+* ``output_2``: An object of type ``Wire``.
+* ``output_3``: An object of type ``Wire``. The least significant bit of the output.
+
+
+.. _DownCounterMod16:
+
+DownCounterMod16
+================
+
+Class ``bw.storage.DownCounterMod16``
+-------------------------------------
+
+.. image:: images/schematics/storage/DownCounterMod16.svg
+    :width: 800px
+
+Defined in `bitwise/storage/COUNT.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/COUNT.py>`_.
+
+4-bit (mod-16) down `counter <https://en.wikipedia.org/wiki/Counter_(digital)>`_ with parallel load.
+
+__init__
+--------
+
+::
+
+    __init__(
+        self,
+        enable,
+        load_n,
+        load_bus,
+        clock,
+        output_bus
+    )
+
+Construct a new mod-16 down counter.
+
+Args:
+~~~~~
+* ``enable``: An object of type ``Wire``. Enables the counter.
+* ``load_n``: An object of type ``Wire``. Loads ``load_bus`` into ``output_bus`` if its value is 0.
+* ``load_bus``: An object of type ``Bus4``. The load input to the counter. ``load_bus[0]`` and ``load_bus[3]`` are the most and least significant bit, respectively.
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the counter.
+* ``output_1``: An object of type ``Bus4``. The output of the counter. ``output_bus[0]`` and ``output_bus[3]`` are the most and least significant bit, respectively.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``load_bus`` or ``output_bus`` is not a bus of width 4.
 
 
 .. _GatedDLatch:
@@ -234,8 +368,8 @@ Args:
 ~~~~~
 * ``J``: An object of type ``Wire``. The J input to the flip-flop.
 * ``K``: An object of type ``Wire``. The K input to the flip-flop.
-* ``preset_n``: An object of type ``Wire``. Presets ``output`` to 1 and ``output_not`` to 0 if its value is 0.
-* ``clear_n``: An object of type ``Wire``. Clears ``output`` to 0 and ``output_not`` to 1 if its value is 0.
+* ``preset_n``: An object of type ``Wire``. Presets ``output`` to 1 and ``output_not`` to 0 asynchronously if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears ``output`` to 0 and ``output_not`` to 1 asynchronously if its value is 0.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the flip-flop.
 * ``output``: An object of type ``Wire``. The output of the flip-flop. On the positive edges of ``clock``, takes on the value of 1 if the value of ``J`` is 1, takes on the value of 0 if the value of ``K`` is 1, and toggles its value if both ``J`` and ``K`` have value 1.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
@@ -275,7 +409,7 @@ Construct a new 4-bit-parallel-to-serial converter.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the converter.
-* ``clear_n``: An object of type ``Wire``. Clears all 4 internal registers to 0 if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears all 4 internal registers to 0 asynchronously if its value is 0.
 * ``load_n``: An object of type ``Wire``. The mode select. A value of 0 indicates a parallel load operation, where the values of ``data_bus`` are loaded into the internal registers. A value of 1 indicates a shift-right operation.
 * ``data_bus``: An object of type ``Bus4``. The parallel data input.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
@@ -320,7 +454,7 @@ Construct a new 8-bit-parallel-to-serial converter.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the converter.
-* ``clear_n``: An object of type ``Wire``. Clears all 8 internal registers to 0 if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears all 8 internal registers to 0 asynchronously if its value is 0.
 * ``load_n``: An object of type ``Wire``. The mode select. A value of 0 indicates a parallel load operation, where the values of ``data_bus`` are loaded into the internal registers. A value of 1 indicates a shift-right operation.
 * ``data_bus``: An object of type ``Bus8``. The parallel data input.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
@@ -365,7 +499,7 @@ Construct a new 16-bit-parallel-to-serial converter.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the converter.
-* ``clear_n``: An object of type ``Wire``. Clears all 16 internal registers to 0 if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears all 16 internal registers to 0 asynchronously if its value is 0.
 * ``load_n``: An object of type ``Wire``. The mode select. A value of 0 indicates a parallel load operation, where the values of ``data_bus`` are loaded into the internal registers. A value of 1 indicates a shift-right operation.
 * ``data_bus``: An object of type ``Bus16``. The parallel data input.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
@@ -526,7 +660,7 @@ Construct a new serial-to-4-bit-parallel converter.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the converter.
-* ``clear_n``: An object of type ``Wire``. Clears all 4 internal registers to 0 if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears all 4 internal registers to 0 asynchronously if its value is 0.
 * ``data``: An object of type ``Wire``. The serial data input.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
 * ``output_bus``: An object of type ``Bus4``. The parallel output of the converter. ``output[0]`` corresponds to the most recent serial data input.
@@ -569,7 +703,7 @@ Construct a new serial-to-8-bit-parallel converter.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the converter.
-* ``clear_n``: An object of type ``Wire``. Clears all 8 internal registers to 0 if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears all 8 internal registers to 0 asynchronously if its value is 0.
 * ``data``: An object of type ``Wire``. The serial data input.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
 * ``output_bus``: An object of type ``Bus8``. The parallel output of the converter. ``output[0]`` corresponds to the most recent serial data input.
@@ -612,7 +746,7 @@ Construct a new serial-to-16-bit-parallel converter.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the converter.
-* ``clear_n``: An object of type ``Wire``. Clears all 16 internal registers to 0 if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears all 16 internal registers to 0 asynchronously if its value is 0.
 * ``data``: An object of type ``Wire``. The serial data input.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
 * ``output_bus``: An object of type ``Bus16``. The parallel output of the converter. ``output[0]`` corresponds to the most recent serial data input.
@@ -658,7 +792,7 @@ Construct a new 4-bit shift register.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the shift register.
-* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` and ``output_serial`` to 0 if its value is 1.
+* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` and ``output_serial`` to 0 asynchronously if its value is 0.
 * ``shift_load``: An object of type ``Wire``. The mode select. A value of 0 indicates a parallel load operation, where ``output_bus`` takes on the value of ``data_bus``. A value of 1 indicates a shift-right operation, where ``output_bus[3]`` takes on the value of ``output_bus[2]``, ``output_bus[2]`` takes on the value of ``output_bus[1]``, and so on; ``output_bus[0]`` takes on the value of ``data_serial``.
 * ``data_bus``: An object of type ``Bus4``. The parallel data input.
 * ``data_serial``. An object of type ``Wire``. The serial data input.
@@ -707,7 +841,7 @@ Construct a new 8-bit shift register.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the shift register.
-* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` and ``output_serial`` to 0 if its value is 1.
+* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` and ``output_serial`` to 0 asynchronously if its value is 0.
 * ``shift_load``: An object of type ``Wire``. The mode select. A value of 0 indicates a parallel load operation, where ``output_bus`` takes on the value of ``data_bus``. A value of 1 indicates a shift-right operation, where ``output_bus[7]`` takes on the value of ``output_bus[6]``, ``output_bus[6]`` takes on the value of ``output_bus[5]``, and so on; ``output_bus[0]`` takes on the value of ``data_serial``.
 * ``data_bus``: An object of type ``Bus8``. The parallel data input.
 * ``data_serial``. An object of type ``Wire``. The serial data input.
@@ -756,7 +890,7 @@ Construct a new 16-bit shift register.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the shift register.
-* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` and ``output_serial`` to 0 if its value is 1.
+* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` and ``output_serial`` to 0 asynchronously if its value is 0.
 * ``shift_load``: An object of type ``Wire``. The mode select. A value of 0 indicates a parallel load operation, where ``output_bus`` takes on the value of ``data_bus``. A value of 1 indicates a shift-right operation, where ``output_bus[15]`` takes on the value of ``output_bus[14]``, ``output_bus[14]`` takes on the value of ``output_bus[13]``, and so on; ``output_bus[0]`` takes on the value of ``data_serial``.
 * ``data_bus``: An object of type ``Bus16``. The parallel data input.
 * ``data_serial``. An object of type ``Wire``. The serial data input.
@@ -877,8 +1011,129 @@ Construct a new positive edge-triggered T flip-flop with preset/clear capabiliti
 Args:
 ~~~~~
 * ``toggle``: An object of type ``Wire``. The toggle input to the flip-flop.
-* ``preset_n``: An object of type ``Wire``. Presets ``output`` to 1 and ``output_not`` to 0 if its value is 0.
-* ``clear_n``: An object of type ``Wire``. Clears ``output`` to 0 and ``output_not`` to 1 if its value is 0.
+* ``preset_n``: An object of type ``Wire``. Presets ``output`` to 1 and ``output_not`` to 0 asynchronously if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears ``output`` to 0 and ``output_not`` to 1 asynchronously if its value is 0.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the flip-flop.
 * ``output``: An object of type ``Wire``. The output of the flip-flop. Toggles its value on the positive edges of ``clock`` if the value of ``toggle`` is 1.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
+
+
+.. _UpCounterMod4:
+
+UpCounterMod4
+=============
+
+Class ``bw.storage.UpCounterMod4``
+----------------------------------
+
+.. image:: images/schematics/storage/UpCounterMod4.svg
+    :width: 400px
+
+Defined in `bitwise/storage/COUNT.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/COUNT.py>`_.
+
+2-bit (mod-4) up `counter <https://en.wikipedia.org/wiki/Counter_(digital)>`_ with asynchronous clear.
+
+__init__
+--------
+
+::
+
+    __init__(
+        enable, 
+        clear_n, 
+        clock,
+        output_1, 
+        output_2
+    )
+
+Construct a new mod-4 up counter.
+
+Args:
+~~~~~
+* ``enable``: An object of type ``Wire``. Enables the counter.
+* ``clear_n``: An object of type ``Wire``. Clears ``output_1`` and ``output_2`` to 0 asynchronously if its value is 0.
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the counter.
+* ``output_1``: An object of type ``Wire``. The most significant bit of the output.
+* ``output_2``: An object of type ``Wire``. The least significant bit of the output.
+
+
+.. _UpCounterMod8:
+
+UpCounterMod8
+=============
+
+Class ``bw.storage.UpCounterMod8``
+----------------------------------
+
+.. image:: images/schematics/storage/UpCounterMod8.svg
+    :width: 400px
+
+Defined in `bitwise/storage/COUNT.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/COUNT.py>`_.
+
+3-bit (mod-8) up `counter <https://en.wikipedia.org/wiki/Counter_(digital)>`_ with asynchronous clear.
+
+__init__
+--------
+
+::
+
+    __init__(
+        enable, 
+        clear_n, 
+        clock, 
+        output_1, 
+        output_2, 
+        output_3
+    )
+
+Construct a new mod-8 up counter.
+
+Args:
+~~~~~
+* ``enable``: An object of type ``Wire``. Enables the counter.
+* ``clear_n``: An object of type ``Wire``. Clears ``output_1``, ``output_2``, and ``output_3`` to 0 asynchronously if its value is 0.
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the counter.
+* ``output_1``: An object of type ``Wire``. The most significant bit of the output.
+* ``output_2``: An object of type ``Wire``.
+* ``output_3``: An object of type ``Wire``. The least significant bit of the output.
+
+
+.. _UpCounterMod16:
+
+UpCounterMod16
+==============
+
+Class ``bw.storage.UpCounterMod16``
+-----------------------------------
+
+.. image:: images/schematics/storage/UpCounterMod16.svg
+    :width: 600px
+
+Defined in `bitwise/storage/COUNT.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/COUNT.py>`_.
+
+4-bit (mod-16) up `counter <https://en.wikipedia.org/wiki/Counter_(digital)>`_ with asynchronous clear.
+
+__init__
+--------
+
+::
+
+    __init__(
+        enable, 
+        clear_n, 
+        clock, 
+        output_bus
+    )
+
+Construct a new mod-16 up counter.
+
+Args:
+~~~~~
+* ``enable``: An object of type ``Wire``. Enables the counter.
+* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` to 0 asynchronously if its value is 0.
+* ``clock``: An object of type ``Wire`` or ```Clock``. The clock input to the counter.
+* ``output_bus``: An object of type ``Bus4``. The output of the counter. ``output_bus[0]`` and ``output_bus[3]`` are the most and least significant bit, respectively.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If ``output_bus`` is not a bus of width 4.

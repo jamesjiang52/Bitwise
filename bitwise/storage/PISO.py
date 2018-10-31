@@ -20,7 +20,7 @@ class ParallelToSerialConverter4To1:
     Args:
         enable: An object of type Wire. Enables the converter.
         clear_n: An object of type Wire. Clears all 4 internal registers to 0
-            if its value is 0.
+            asynchronously if its value is 0.
         load_n: An object of type Wire. The mode select. A value of 0 indicates
             a parallel load operation, where the values of data_bus are loaded
             into the internal registers. A value of 1 indicates a shift-right
@@ -79,7 +79,7 @@ class ParallelToSerialConverter8To1:
     Args:
         enable: An object of type Wire. Enables the converter.
         clear_n: An object of type Wire. Clears all 8 internal registers to 0
-            if its value is 0.
+            asynchronously if its value is 0.
         load_n: An object of type Wire. The mode select. A value of 0 indicates
             a parallel load operation, where the values of data_bus are loaded
             into the internal registers. A value of 1 indicates a shift-right
@@ -142,7 +142,7 @@ class ParallelToSerialConverter16To1:
     Args:
         enable: An object of type Wire. Enables the converter.
         clear_n: An object of type Wire. Clears all 16 internal registers to 0
-            if its value is 0.
+            asynchronously if its value is 0.
         load_n: An object of type Wire. The mode select. A value of 0 indicates
             a parallel load operation, where the values of data_bus are loaded
             into the internal registers. A value of 1 indicates a shift-right

@@ -20,7 +20,7 @@ class SerialToParallelConverter1To4:
     Args:
         enable: An object of type Wire. Enables the converter.
         clear_n: An object of type Wire. Clears all 4 internal registers to 0
-            if its value is 0.
+            asynchronously if its value is 0.
         data: An object of type Wire. The serial data input.
         clock: An object of type Wire or Clock. The clock input.
         output_bus: An object of type Bus4. The parallel output of the
@@ -68,7 +68,7 @@ class SerialToParallelConverter1To8:
     Args:
         enable: An object of type Wire. Enables the converter.
         clear_n: An object of type Wire. Clears all 8 internal registers to 0
-            if its value is 0.
+            asynchronously if its value is 0.
         data: An object of type Wire. The serial data input.
         clock: An object of type Wire or Clock. The clock input.
         output_bus: An object of type Bus8. The parallel output of the
@@ -120,7 +120,7 @@ class SerialToParallelConverter1To16:
     Args:
         enable: An object of type Wire. Enables the converter.
         clear_n: An object of type Wire. Clears all 16 internal registers to 0
-            if its value is 0.
+            asynchronously if its value is 0.
         data: An object of type Wire. The serial data input.
         clock: An object of type Wire or Clock. The clock input.
         output_bus: An object of type Bus16. The parallel output of the

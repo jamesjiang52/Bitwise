@@ -268,7 +268,7 @@ A 2-bit adder may now be constructed by creating two instances of ``OneBitAdder`
             OneBitAdder(wire_1, input_1_a, input_2_a, sum_1, sum_2)
             
 Here, ``input_1_a`` and ``input_1_b`` are the most and least significant bits of the first input, respectively, ``input_2_a`` and ``input_2_b`` are the most and least significant bits of the second input, respectively, and 
-``sum_1`` and ``sum_3`` are the most and least significant bits of the sum, respectively. Since the least significant adder has to carry-in, the ``gnd`` wire is used for the ``carry_in`` input. The ``wire_1`` wire is used to
+``sum_1`` and ``sum_3`` are the most and least significant bits of the sum, respectively. Since the least significant adder has no carry-in, the ``gnd`` wire is used for the ``carry_in`` input. The ``wire_1`` wire is used to
 connect the most significant bit of the sum from the least significant adder with the carry-in of the most significant adder.
 
 .. highlight:: none

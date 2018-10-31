@@ -22,7 +22,7 @@ class ShiftRegister4:
     Args:
         enable: An object of type Wire. Enables the shift register.
         clear_n: An object of type Wire. Clears output_bus and output_serial to
-            0 if its value is 1.
+            0 asynchronously if its value is 0.
         shift_load: An object of type Wire. The mode select. A value of 0
             indicates a parallel load operation, where output_bus takes on the
             value of data_bus. A value of 1 indicates a shift-right operation,
@@ -151,7 +151,7 @@ class ShiftRegister8:
     Args:
         enable: An object of type Wire. Enables the shift register.
         clear_n: An object of type Wire. Clears output_bus and output_serial to
-            0 if its value is 1.
+            0 asynchronously if its value is 0.
         shift_load: An object of type Wire. The mode select. A value of 0
             indicates a parallel load operation, where output_bus takes on the
             value of data_bus. A value of 1 indicates a shift-right operation,
@@ -347,7 +347,7 @@ class ShiftRegister16:
     Args:
         enable: An object of type Wire. Enables the shift register.
         clear_n: An object of type Wire. Clears output_bus and output_serial to
-            0 if its value is 1.
+            0 asynchronously if its value is 0.
         shift_load: An object of type Wire. The mode select. A value of 0
             indicates a parallel load operation, where output_bus takes on the
             value of data_bus. A value of 1 indicates a shift-right operation,
