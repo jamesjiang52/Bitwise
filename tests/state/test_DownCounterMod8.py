@@ -13,7 +13,7 @@ class TestDownCounterMod8:
         output_2 = bw.wire.Wire()
         output_3 = bw.wire.Wire()
 
-        bw.storage.DownCounterMod8(
+        bw.state.DownCounterMod8(
             enable,
             load_n,
             load_1,

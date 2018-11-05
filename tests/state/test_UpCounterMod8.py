@@ -10,7 +10,7 @@ class TestUpCounterMod8:
         output_2 = bw.wire.Wire()
         output_3 = bw.wire.Wire()
 
-        bw.storage.UpCounterMod8(
+        bw.state.UpCounterMod8(
             enable,
             clear_n,
             clock,

@@ -68,6 +68,27 @@ API Documentation
 * :ref:`SevenSegmentConverterDual`
 * :ref:`SevenSegmentConverterQuad`
 
+:doc:`state`
+============
+* :ref:`DownCounterMod4`
+* :ref:`DownCounterMod8`
+* :ref:`DownCounterMod16`
+* :ref:`ParallelToSerialConverter4To1`
+* :ref:`ParallelToSerialConverter8To1`
+* :ref:`ParallelToSerialConverter16To1`
+* :ref:`RingCounter4`
+* :ref:`RingCounter8`
+* :ref:`RingCounter16`
+* :ref:`SerialToParallelConverter1To4`
+* :ref:`SerialToParallelConverter1To8`
+* :ref:`SerialToParallelConverter1To16`
+* :ref:`ShiftRegister4`
+* :ref:`ShiftRegister8`
+* :ref:`ShiftRegister16`
+* :ref:`UpCounterMod4`
+* :ref:`UpCounterMod8`
+* :ref:`UpCounterMod16`
+
 :doc:`storage`
 ==============
 * :ref:`DFlipFlop`
@@ -76,18 +97,9 @@ API Documentation
 * :ref:`GatedSRLatch`
 * :ref:`JKFlipFlop`
 * :ref:`JKFlipFlopPresetClear`
-* :ref:`ParallelToSerialConverter4To1`
-* :ref:`ParallelToSerialConverter8To1`
-* :ref:`ParallelToSerialConverter16To1`
-* :ref:`SerialToParallelConverter1To4`
-* :ref:`SerialToParallelConverter1To8`
-* :ref:`SerialToParallelConverter1To16`
 * :ref:`Register4`
 * :ref:`Register8`
 * :ref:`Register16`
-* :ref:`ShiftRegister4`
-* :ref:`ShiftRegister8`
-* :ref:`ShiftRegister16`
 * :ref:`SRLatch`
 * :ref:`TFlipFlop`
 * :ref:`TFlipFlopPresetClear`

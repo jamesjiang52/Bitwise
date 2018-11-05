@@ -26,7 +26,7 @@ class TestSerialToParallelConverter1To8:
             output_8
         )
 
-        bw.storage.SerialToParallelConverter1To8(
+        bw.state.SerialToParallelConverter1To8(
             enable,
             reset_n,
             data,

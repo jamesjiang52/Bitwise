@@ -25,9 +25,8 @@ class Multiplexer2To1:
             multiplexer.
         input_2: An object of type Wire. The second data input to the
             multiplexer.
-        output: An object of type Wire. The output of the multiplexer, which
-            takes on the value of input_1 for a 1 select and input_2 for a 0
-            select.
+        output: An object of type Wire. The output of the multiplexer. Takes on
+            the value of input_1 for a 1 select and input_2 for a 0 select.
     """
     def __init__(self, enable, select, input_1, input_2, output):
         wire_1 = Wire()
@@ -52,9 +51,9 @@ class Multiplexer4To1:
         select_2: An object of type Wire. The least significant bit of the
             select input.
         input_bus: An object of type Bus4. The data input to the multiplexer.
-        output: An object of type Wire. The output of the multiplexer, which
-            takes on the value of input_bus[0] for a (1, 1) select and
-            input_bus[3] for a (0, 0) select.
+        output: An object of type Wire. The output of the multiplexer. Takes on
+            the value of input_bus[0] for a (1, 1) select and input_bus[3] for
+            a (0, 0) select.
 
     Raises:
         TypeError: If input_bus is not a bus of width 4.
@@ -86,9 +85,9 @@ class Multiplexer8To1:
         select_3: An object of type Wire. The least significant bit of the
             select input.
         input_bus: An object of type Bus8. The data input to the multiplexer.
-        output: An object of type Wire. The output of the multiplexer, which
-            takes on the value of input_bus[0] for a (1, 1, 1) select and
-            input_bus[7] for a (0, 0, 0) select.
+        output: An object of type Wire. The output of the multiplexer. Takes on
+            the value of input_bus[0] for a (1, 1, 1) select and input_bus[7]
+            for a (0, 0, 0) select.
 
     Raises:
         TypeError: If input_bus is not a bus of width 8.
@@ -120,8 +119,8 @@ class Multiplexer16To1:
         select_bus: An object of type Bus4. select_bus[0] and select_bus[3] are
             the most and least significant bit, respectively.
         input_bus: An object of type Bus16. The data input to the multiplexer.
-        output: An object of type Wire. The output of the multiplexer, which
-            takes on the value of input_bus[0] for a (1, 1, 1, 1) select and
+        output: An object of type Wire. The output of the multiplexer. Takes on
+            the value of input_bus[0] for a (1, 1, 1, 1) select and
             input_bus[15] for a (0, 0, 0, 0) select.
 
     Raises:

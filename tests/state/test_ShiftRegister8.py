@@ -46,7 +46,7 @@ class TestShiftRegister8:
             output_8
         )
 
-        bw.storage.ShiftRegister8(
+        bw.state.ShiftRegister8(
             enable,
             reset_n,
             shift_load,

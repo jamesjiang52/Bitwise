@@ -20,7 +20,7 @@ class TestShiftRegister4:
         data_bus = bw.wire.Bus4(data_1, data_2, data_3, data_4)
         output_bus = bw.wire.Bus4(output_1, output_2, output_3, output_4)
 
-        bw.storage.ShiftRegister4(
+        bw.state.ShiftRegister4(
             enable,
             reset_n,
             shift_load,

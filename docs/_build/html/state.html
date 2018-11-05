@@ -1,0 +1,809 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>State &#8212; Bitwise 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Python library for hardware design</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="index.html">Home</a></li>
+    
+    <li class="toctree-l1"><a href="install.html">Getting Started</a></li>
+    
+    <li class="toctree-l1"><a href="api.html">API Documentation</a></li>
+    
+    <li class="toctree-l1"><a href="changelog.html">Changelog</a></li>
+    
+    <li class="toctree-l1"><a href="https://github.com/jamesjiang52/Bitwise">View on Github</a></li>
+    
+</ul>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">State</a><ul>
+<li><a class="reference internal" href="#downcountermod4">DownCounterMod4</a></li>
+<li><a class="reference internal" href="#downcountermod8">DownCounterMod8</a></li>
+<li><a class="reference internal" href="#downcountermod16">DownCounterMod16</a></li>
+<li><a class="reference internal" href="#paralleltoserialconverter4to1">ParallelToSerialConverter4To1</a></li>
+<li><a class="reference internal" href="#paralleltoserialconverter8to1">ParallelToSerialConverter8To1</a></li>
+<li><a class="reference internal" href="#paralleltoserialconverter16to1">ParallelToSerialConverter16To1</a></li>
+<li><a class="reference internal" href="#ringcounter4">RingCounter4</a></li>
+<li><a class="reference internal" href="#ringcounter8">RingCounter8</a></li>
+<li><a class="reference internal" href="#ringcounter16">RingCounter16</a></li>
+<li><a class="reference internal" href="#serialtoparallelconverter1to4">SerialToParallelConverter1To4</a></li>
+<li><a class="reference internal" href="#serialtoparallelconverter1to8">SerialToParallelConverter1To8</a></li>
+<li><a class="reference internal" href="#serialtoparallelconverter1to16">SerialToParallelConverter1To16</a></li>
+<li><a class="reference internal" href="#shiftregister4">ShiftRegister4</a></li>
+<li><a class="reference internal" href="#shiftregister8">ShiftRegister8</a></li>
+<li><a class="reference internal" href="#shiftregister16">ShiftRegister16</a></li>
+<li><a class="reference internal" href="#upcountermod4">UpCounterMod4</a></li>
+<li><a class="reference internal" href="#upcountermod8">UpCounterMod8</a></li>
+<li><a class="reference internal" href="#upcountermod16">UpCounterMod16</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="state">
+<h1>State</h1>
+<div class="section" id="downcountermod4">
+<span id="id1"></span><h2>DownCounterMod4</h2>
+<div class="section" id="class-bw-state-downcountermod4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.DownCounterMod4</span></code></h3>
+<img alt="_images/DownCounterMod4.svg" src="_images/DownCounterMod4.svg" width="400px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/COUNT.py">bitwise/state/COUNT.py</a>.</p>
+<p>2-bit (mod-4) down <a class="reference external" href="https://en.wikipedia.org/wiki/Counter_(digital)">counter</a> with parallel load.</p>
+</div>
+<div class="section" id="init">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">load_n</span><span class="p">,</span>
+    <span class="n">load_1</span><span class="p">,</span>
+    <span class="n">load_2</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_1</span><span class="p">,</span>
+    <span class="n">output_2</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new mod-4 down counter.</p>
+<div class="section" id="args">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the counter.</li>
+<li><code class="docutils literal"><span class="pre">load_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Loads <code class="docutils literal"><span class="pre">load_1</span></code> into <code class="docutils literal"><span class="pre">output_1</span></code> and <code class="docutils literal"><span class="pre">load_2</span></code> into <code class="docutils literal"><span class="pre">output_2</span></code> if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">load_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the load input.</li>
+<li><code class="docutils literal"><span class="pre">load_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the load input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the counter.</li>
+<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the output.</li>
+<li><code class="docutils literal"><span class="pre">output_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the output.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="downcountermod8">
+<span id="id2"></span><h2>DownCounterMod8</h2>
+<div class="section" id="class-bw-state-downcountermod8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.DownCounterMod8</span></code></h3>
+<img alt="_images/DownCounterMod8.svg" src="_images/DownCounterMod8.svg" width="400px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/COUNT.py">bitwise/state/COUNT.py</a>.</p>
+<p>3-bit (mod-8) down <a class="reference external" href="https://en.wikipedia.org/wiki/Counter_(digital)">counter</a> with parallel load.</p>
+</div>
+<div class="section" id="id5">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">load_n</span><span class="p">,</span>
+    <span class="n">load_1</span><span class="p">,</span>
+    <span class="n">load_2</span><span class="p">,</span>
+    <span class="n">load_3</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_1</span><span class="p">,</span>
+    <span class="n">output_2</span><span class="p">,</span>
+    <span class="n">output_3</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new mod-8 down counter.</p>
+<div class="section" id="id6">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the counter.</li>
+<li><code class="docutils literal"><span class="pre">load_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Loads <code class="docutils literal"><span class="pre">load_1</span></code> into <code class="docutils literal"><span class="pre">output_1</span></code>, <code class="docutils literal"><span class="pre">load_2</span></code> into <code class="docutils literal"><span class="pre">output_2</span></code>, and <code class="docutils literal"><span class="pre">load_3</span></code> into <code class="docutils literal"><span class="pre">output_3</span></code> if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">load_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the load input.</li>
+<li><code class="docutils literal"><span class="pre">load_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">load_3</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the load input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the counter.</li>
+<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the output.</li>
+<li><code class="docutils literal"><span class="pre">output_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">output_3</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the output.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="downcountermod16">
+<span id="id7"></span><h2>DownCounterMod16</h2>
+<div class="section" id="class-bw-state-downcountermod16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.DownCounterMod16</span></code></h3>
+<img alt="_images/DownCounterMod16.svg" src="_images/DownCounterMod16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/COUNT.py">bitwise/state/COUNT.py</a>.</p>
+<p>4-bit (mod-16) down <a class="reference external" href="https://en.wikipedia.org/wiki/Counter_(digital)">counter</a> with parallel load.</p>
+</div>
+<div class="section" id="id10">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">load_n</span><span class="p">,</span>
+    <span class="n">load_bus</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new mod-16 down counter.</p>
+<div class="section" id="id11">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the counter.</li>
+<li><code class="docutils literal"><span class="pre">load_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Loads <code class="docutils literal"><span class="pre">load_bus</span></code> into <code class="docutils literal"><span class="pre">output_bus</span></code> if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">load_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The load input to the counter. <code class="docutils literal"><span class="pre">load_bus[0]</span></code> and <code class="docutils literal"><span class="pre">load_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the counter.</li>
+<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the counter. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+</ul>
+</div>
+<div class="section" id="raises">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">load_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="paralleltoserialconverter4to1">
+<span id="id12"></span><h2>ParallelToSerialConverter4To1</h2>
+<div class="section" id="class-bw-state-paralleltoserialconverter4to1">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.ParallelToSerialConverter4To1</span></code></h3>
+<img alt="_images/ParallelToSerialConverter4To1.svg" src="_images/ParallelToSerialConverter4To1.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/PISO.py">bitwise/state/PISO.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Shift_register#Parallel-in_serial-out_(PISO)">4-bit-parallel-to-serial converter</a>.</p>
+</div>
+<div class="section" id="id13">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">load_n</span><span class="p">,</span>
+    <span class="n">data_bus</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit-parallel-to-serial converter.</p>
+<div class="section" id="id14">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the converter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears all 4 internal registers to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">load_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The mode select. A value of 0 indicates a parallel load operation, where the values of <code class="docutils literal"><span class="pre">data_bus</span></code> are loaded into the internal registers. A value of 1 indicates a shift-right operation.</li>
+<li><code class="docutils literal"><span class="pre">data_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The parallel data input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial output of the converter. <code class="docutils literal"><span class="pre">data_bus[3]</span></code> is outputted first, and <code class="docutils literal"><span class="pre">data_bus[0]</span></code> is outputted last.</li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">data_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="paralleltoserialconverter8to1">
+<span id="id16"></span><h2>ParallelToSerialConverter8To1</h2>
+<div class="section" id="class-bw-state-paralleltoserialconverter8to1">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.ParallelToSerialConverter8To1</span></code></h3>
+<img alt="_images/ParallelToSerialConverter8To1.svg" src="_images/ParallelToSerialConverter8To1.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/PISO.py">bitwise/state/PISO.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Shift_register#Parallel-in_serial-out_(PISO)">8-bit-parallel-to-serial converter</a>.</p>
+</div>
+<div class="section" id="id19">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">load_n</span><span class="p">,</span>
+    <span class="n">data_bus</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit-parallel-to-serial converter.</p>
+<div class="section" id="id20">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the converter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears all 8 internal registers to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">load_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The mode select. A value of 0 indicates a parallel load operation, where the values of <code class="docutils literal"><span class="pre">data_bus</span></code> are loaded into the internal registers. A value of 1 indicates a shift-right operation.</li>
+<li><code class="docutils literal"><span class="pre">data_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The parallel data input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial output of the converter. <code class="docutils literal"><span class="pre">data_bus[7]</span></code> is outputted first, and <code class="docutils literal"><span class="pre">data_bus[0]</span></code> is outputted last.</li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">data_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="paralleltoserialconverter16to1">
+<span id="id22"></span><h2>ParallelToSerialConverter16To1</h2>
+<div class="section" id="class-bw-state-paralleltoserialconverter16to1">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.ParallelToSerialConverter16To1</span></code></h3>
+<img alt="_images/ParallelToSerialConverter16To1.svg" src="_images/ParallelToSerialConverter16To1.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/PISO.py">bitwise/state/PISO.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Shift_register#Parallel-in_serial-out_(PISO)">16-bit-parallel-to-serial converter</a>.</p>
+</div>
+<div class="section" id="id25">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">load_n</span><span class="p">,</span>
+    <span class="n">data_bus</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit-parallel-to-serial converter.</p>
+<div class="section" id="id26">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the converter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears all 16 internal registers to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">load_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The mode select. A value of 0 indicates a parallel load operation, where the values of <code class="docutils literal"><span class="pre">data_bus</span></code> are loaded into the internal registers. A value of 1 indicates a shift-right operation.</li>
+<li><code class="docutils literal"><span class="pre">data_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The parallel data input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial output of the converter. <code class="docutils literal"><span class="pre">data_bus[15]</span></code> is outputted first, and <code class="docutils literal"><span class="pre">data_bus[0]</span></code> is outputted last.</li>
+</ul>
+</div>
+<div class="section" id="id27">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">data_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="ringcounter4">
+<span id="id28"></span><h2>RingCounter4</h2>
+<div class="section" id="class-bw-state-ringcounter4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.RingCounter4</span></code></h3>
+<img alt="_images/RingCounter4.svg" src="_images/RingCounter4.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/RING.py">bitwise/state/RING.py</a>.</p>
+<p>4-bit straight <a class="reference external" href="https://en.wikipedia.org/wiki/Ring_counter">ring counter</a>.</p>
+</div>
+<div class="section" id="id29">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit ring counter.</p>
+<div class="section" id="id30">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the ring counter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> to (0, 0, 0, 1) (the 0 state) if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The one-hot output of the ring counter. Starts at (0, 0, 0, 1) and counts up to (1, 0, 0, 0).</li>
+</ul>
+</div>
+<div class="section" id="id31">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="ringcounter8">
+<span id="id32"></span><h2>RingCounter8</h2>
+<div class="section" id="class-bw-state-ringcounter8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.RingCounter8</span></code></h3>
+<img alt="_images/RingCounter8.svg" src="_images/RingCounter8.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/RING.py">bitwise/state/RING.py</a>.</p>
+<p>8-bit straight <a class="reference external" href="https://en.wikipedia.org/wiki/Ring_counter">ring counter</a>.</p>
+</div>
+<div class="section" id="id35">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit ring counter.</p>
+<div class="section" id="id36">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the ring counter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> to (0, 0, 0, 0, 0, 0, 0, 1) (the 0 state) if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The one-hot output of the ring counter. Starts at (0, 0, 0, 0, 0, 0, 0, 1) and counts up to (1, 0, 0, 0, 0, 0, 0, 0).</li>
+</ul>
+</div>
+<div class="section" id="id37">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="ringcounter16">
+<span id="id38"></span><h2>RingCounter16</h2>
+<div class="section" id="class-bw-state-ringcounter16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.RingCounter16</span></code></h3>
+<img alt="_images/RingCounter16.svg" src="_images/RingCounter16.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/RING.py">bitwise/state/RING.py</a>.</p>
+<p>16-bit straight <a class="reference external" href="https://en.wikipedia.org/wiki/Ring_counter">ring counter</a>.</p>
+</div>
+<div class="section" id="id41">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit ring counter.</p>
+<div class="section" id="id42">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the ring counter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> to (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1) (the 0 state) if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The one-hot output of the ring counter. Starts at (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1) and counts up to (1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0).</li>
+</ul>
+</div>
+<div class="section" id="id43">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="serialtoparallelconverter1to4">
+<span id="id44"></span><h2>SerialToParallelConverter1To4</h2>
+<div class="section" id="class-bw-state-serialtoparallelconverter1to4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.SerialToParallelConverter1To4</span></code></h3>
+<img alt="_images/SerialToParallelConverter1To4.svg" src="_images/SerialToParallelConverter1To4.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/SIPO.py">bitwise/state/SIPO.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Shift_register#Serial-in_parallel-out_(SIPO)">Serial-to-4-bit-parallel converter</a>.</p>
+</div>
+<div class="section" id="id45">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new serial-to-4-bit-parallel converter.</p>
+<div class="section" id="id46">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the converter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears all 4 internal registers to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">data</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial data input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The parallel output of the converter. <code class="docutils literal"><span class="pre">output[0]</span></code> corresponds to the most recent serial data input.</li>
+</ul>
+</div>
+<div class="section" id="id47">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="serialtoparallelconverter1to8">
+<span id="id48"></span><h2>SerialToParallelConverter1To8</h2>
+<div class="section" id="class-bw-state-serialtoparallelconverter1to8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.SerialToParallelConverter1To8</span></code></h3>
+<img alt="_images/SerialToParallelConverter1To8.svg" src="_images/SerialToParallelConverter1To8.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/SIPO.py">bitwise/state/SIPO.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Shift_register#Serial-in_parallel-out_(SIPO)">Serial-to-8-bit-parallel converter</a>.</p>
+</div>
+<div class="section" id="id50">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new serial-to-8-bit-parallel converter.</p>
+<div class="section" id="id51">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the converter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears all 8 internal registers to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">data</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial data input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The parallel output of the converter. <code class="docutils literal"><span class="pre">output[0]</span></code> corresponds to the most recent serial data input.</li>
+</ul>
+</div>
+<div class="section" id="id52">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="serialtoparallelconverter1to16">
+<span id="id53"></span><h2>SerialToParallelConverter1To16</h2>
+<div class="section" id="class-bw-state-serialtoparallelconverter1to16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.SerialToParallelConverter1To16</span></code></h3>
+<img alt="_images/SerialToParallelConverter1To16.svg" src="_images/SerialToParallelConverter1To16.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/SIPO.py">bitwise/state/SIPO.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Shift_register#Serial-in_parallel-out_(SIPO)">Serial-to-16-bit-parallel converter</a>.</p>
+</div>
+<div class="section" id="id55">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new serial-to-16-bit-parallel converter.</p>
+<div class="section" id="id56">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the converter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears all 16 internal registers to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">data</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial data input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The parallel output of the converter. <code class="docutils literal"><span class="pre">output[0]</span></code> corresponds to the most recent serial data input.</li>
+</ul>
+</div>
+<div class="section" id="id57">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="shiftregister4">
+<span id="id58"></span><h2>ShiftRegister4</h2>
+<div class="section" id="class-bw-state-shiftregister4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.ShiftRegister4</span></code></h3>
+<img alt="_images/ShiftRegister4.svg" src="_images/ShiftRegister4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/SHIFT.py">bitwise/state/SHIFT.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Shift_register">4-bit shift register</a>.</p>
+</div>
+<div class="section" id="id59">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">shift_load</span><span class="p">,</span>
+    <span class="n">data_bus</span><span class="p">,</span>
+    <span class="n">data_serial</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span><span class="p">,</span>
+    <span class="n">output_serial</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit shift register.</p>
+<div class="section" id="id60">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the shift register.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> and <code class="docutils literal"><span class="pre">output_serial</span></code> to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">shift_load</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The mode select. A value of 0 indicates a parallel load operation, where <code class="docutils literal"><span class="pre">output_bus</span></code> takes on the value of <code class="docutils literal"><span class="pre">data_bus</span></code>. A value of 1 indicates a shift-right operation, where <code class="docutils literal"><span class="pre">output_bus[3]</span></code> takes on the value of <code class="docutils literal"><span class="pre">output_bus[2]</span></code>, <code class="docutils literal"><span class="pre">output_bus[2]</span></code> takes on the value of <code class="docutils literal"><span class="pre">output_bus[1]</span></code>, and so on; <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">data_serial</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">data_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The parallel data input.</li>
+<li><code class="docutils literal"><span class="pre">data_serial</span></code>. An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial data input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>. An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the shift register.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>. An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The parallel data output.</li>
+<li><code class="docutils literal"><span class="pre">output_serial</span></code>. An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial data output. Identical to <code class="docutils literal"><span class="pre">output_bus[3]</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id61">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">data_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="shiftregister8">
+<span id="id62"></span><h2>ShiftRegister8</h2>
+<div class="section" id="class-bw-state-shiftregister8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.ShiftRegister8</span></code></h3>
+<img alt="_images/ShiftRegister8.svg" src="_images/ShiftRegister8.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/SHIFT.py">bitwise/state/SHIFT.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Shift_register">8-bit shift register</a>.</p>
+</div>
+<div class="section" id="id65">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">shift_load</span><span class="p">,</span>
+    <span class="n">data_bus</span><span class="p">,</span>
+    <span class="n">data_serial</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span><span class="p">,</span>
+    <span class="n">output_serial</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit shift register.</p>
+<div class="section" id="id66">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the shift register.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> and <code class="docutils literal"><span class="pre">output_serial</span></code> to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">shift_load</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The mode select. A value of 0 indicates a parallel load operation, where <code class="docutils literal"><span class="pre">output_bus</span></code> takes on the value of <code class="docutils literal"><span class="pre">data_bus</span></code>. A value of 1 indicates a shift-right operation, where <code class="docutils literal"><span class="pre">output_bus[7]</span></code> takes on the value of <code class="docutils literal"><span class="pre">output_bus[6]</span></code>, <code class="docutils literal"><span class="pre">output_bus[6]</span></code> takes on the value of <code class="docutils literal"><span class="pre">output_bus[5]</span></code>, and so on; <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">data_serial</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">data_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The parallel data input.</li>
+<li><code class="docutils literal"><span class="pre">data_serial</span></code>. An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial data input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>. An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the shift register.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>. An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The parallel data output.</li>
+<li><code class="docutils literal"><span class="pre">output_serial</span></code>. An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial data output. Identical to <code class="docutils literal"><span class="pre">output_bus[7]</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id67">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">data_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="shiftregister16">
+<span id="id68"></span><h2>ShiftRegister16</h2>
+<div class="section" id="class-bw-state-shiftregister16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.ShiftRegister16</span></code></h3>
+<img alt="_images/ShiftRegister16.svg" src="_images/ShiftRegister16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/SHIFT.py">bitwise/state/SHIFT.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Shift_register">16-bit shift register</a>.</p>
+</div>
+<div class="section" id="id71">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">shift_load</span><span class="p">,</span>
+    <span class="n">data_bus</span><span class="p">,</span>
+    <span class="n">data_serial</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span><span class="p">,</span>
+    <span class="n">output_serial</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit shift register.</p>
+<div class="section" id="id72">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the shift register.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> and <code class="docutils literal"><span class="pre">output_serial</span></code> to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">shift_load</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The mode select. A value of 0 indicates a parallel load operation, where <code class="docutils literal"><span class="pre">output_bus</span></code> takes on the value of <code class="docutils literal"><span class="pre">data_bus</span></code>. A value of 1 indicates a shift-right operation, where <code class="docutils literal"><span class="pre">output_bus[15]</span></code> takes on the value of <code class="docutils literal"><span class="pre">output_bus[14]</span></code>, <code class="docutils literal"><span class="pre">output_bus[14]</span></code> takes on the value of <code class="docutils literal"><span class="pre">output_bus[13]</span></code>, and so on; <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">data_serial</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">data_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The parallel data input.</li>
+<li><code class="docutils literal"><span class="pre">data_serial</span></code>. An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial data input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>. An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the shift register.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>. An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The parallel data output.</li>
+<li><code class="docutils literal"><span class="pre">output_serial</span></code>. An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The serial data output. Identical to <code class="docutils literal"><span class="pre">output_bus[15]</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="id73">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">data_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="upcountermod4">
+<span id="id74"></span><h2>UpCounterMod4</h2>
+<div class="section" id="class-bw-state-upcountermod4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.UpCounterMod4</span></code></h3>
+<img alt="_images/UpCounterMod4.svg" src="_images/UpCounterMod4.svg" width="400px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/COUNT.py">bitwise/state/COUNT.py</a>.</p>
+<p>2-bit (mod-4) up <a class="reference external" href="https://en.wikipedia.org/wiki/Counter_(digital)">counter</a> with asynchronous clear.</p>
+</div>
+<div class="section" id="id77">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_1</span><span class="p">,</span>
+    <span class="n">output_2</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new mod-4 up counter.</p>
+<div class="section" id="id78">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the counter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_1</span></code> and <code class="docutils literal"><span class="pre">output_2</span></code> to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the counter.</li>
+<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the output.</li>
+<li><code class="docutils literal"><span class="pre">output_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the output.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="upcountermod8">
+<span id="id79"></span><h2>UpCounterMod8</h2>
+<div class="section" id="class-bw-state-upcountermod8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.UpCounterMod8</span></code></h3>
+<img alt="_images/UpCounterMod8.svg" src="_images/UpCounterMod8.svg" width="400px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/COUNT.py">bitwise/state/COUNT.py</a>.</p>
+<p>3-bit (mod-8) up <a class="reference external" href="https://en.wikipedia.org/wiki/Counter_(digital)">counter</a> with asynchronous clear.</p>
+</div>
+<div class="section" id="id82">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_1</span><span class="p">,</span>
+    <span class="n">output_2</span><span class="p">,</span>
+    <span class="n">output_3</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new mod-8 up counter.</p>
+<div class="section" id="id83">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the counter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_1</span></code>, <code class="docutils literal"><span class="pre">output_2</span></code>, and <code class="docutils literal"><span class="pre">output_3</span></code> to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the counter.</li>
+<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the output.</li>
+<li><code class="docutils literal"><span class="pre">output_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">output_3</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the output.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="upcountermod16">
+<span id="id84"></span><h2>UpCounterMod16</h2>
+<div class="section" id="class-bw-state-upcountermod16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.state.UpCounterMod16</span></code></h3>
+<img alt="_images/UpCounterMod16.svg" src="_images/UpCounterMod16.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/state/COUNT.py">bitwise/state/COUNT.py</a>.</p>
+<p>4-bit (mod-16) up <a class="reference external" href="https://en.wikipedia.org/wiki/Counter_(digital)">counter</a> with asynchronous clear.</p>
+</div>
+<div class="section" id="id87">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">enable</span><span class="p">,</span>
+    <span class="n">clear_n</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new mod-16 up counter.</p>
+<div class="section" id="id88">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the counter.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> to 0 asynchronously if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">`Clock</span></code>. The clock input to the counter.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the counter. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+</ul>
+</div>
+<div class="section" id="id89">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, James Jiang.
+      
+      |
+      <a href="_sources/state.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

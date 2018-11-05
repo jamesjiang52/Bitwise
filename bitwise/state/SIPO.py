@@ -6,7 +6,7 @@ The following classes are defined:
 """
 
 from .. import wire
-from .. import storage
+from . import SHIFT
 
 Wire = wire.Wire
 Bus4 = wire.Bus4
@@ -50,7 +50,7 @@ class SerialToParallelConverter1To4:
         b = Wire()
         d_bus = Bus4(d_1, d_2, d_3, d_4)
 
-        storage.ShiftRegister4(
+        SHIFT.ShiftRegister4(
             enable,
             reset_n,
             vcc,
@@ -102,7 +102,7 @@ class SerialToParallelConverter1To8:
         b = Wire()
         d_bus = Bus8(d_1, d_2, d_3, d_4, d_5, d_6, d_7, d_8)
 
-        storage.ShiftRegister8(
+        SHIFT.ShiftRegister8(
             enable,
             reset_n,
             vcc,
@@ -165,7 +165,7 @@ class SerialToParallelConverter1To16:
             d_9, d_10, d_11, d_12, d_13, d_14, d_15, d_16
         )
 
-        storage.ShiftRegister16(
+        SHIFT.ShiftRegister16(
             enable,
             reset_n,
             vcc,

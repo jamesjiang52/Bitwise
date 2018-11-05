@@ -14,7 +14,7 @@ class TestParallelToSerialConverter4To1:
         output = bw.wire.Wire()
         data_bus = bw.wire.Bus4(data_1, data_2, data_3, data_4)
 
-        bw.storage.ParallelToSerialConverter4To1(
+        bw.state.ParallelToSerialConverter4To1(
             enable,
             reset_n,
             parallel_load_n,

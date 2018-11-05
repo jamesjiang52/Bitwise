@@ -11,7 +11,7 @@ class TestDownCounterMod4:
         output_1 = bw.wire.Wire()
         output_2 = bw.wire.Wire()
 
-        bw.storage.DownCounterMod4(
+        bw.state.DownCounterMod4(
             enable,
             load_n,
             load_1,

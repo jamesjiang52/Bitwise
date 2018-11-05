@@ -8,7 +8,7 @@ The following classes are defined:
 from .. import wire
 from .. import gate
 from .. import signal
-from . import FLOP
+from .. import storage
 
 Wire = wire.Wire
 Bus4 = wire.Bus4
@@ -39,7 +39,7 @@ class UpCounterMod4:
 
         gate.ANDGate2(enable, output_2, and_1)
 
-        FLOP.TFlipFlopPresetClear(
+        storage.TFlipFlopPresetClear(
             and_1,
             vcc,
             clear_n,
@@ -47,7 +47,7 @@ class UpCounterMod4:
             output_1,
             output_not_1
         )
-        FLOP.TFlipFlopPresetClear(
+        storage.TFlipFlopPresetClear(
             enable,
             vcc,
             clear_n,
@@ -84,7 +84,7 @@ class UpCounterMod8:
         gate.ANDGate2(enable, output_3, and_1)
         gate.ANDGate2(and_1, output_2, and_2)
 
-        FLOP.TFlipFlopPresetClear(
+        storage.TFlipFlopPresetClear(
             and_2,
             vcc,
             clear_n,
@@ -92,7 +92,7 @@ class UpCounterMod8:
             output_1,
             output_not_1
         )
-        FLOP.TFlipFlopPresetClear(
+        storage.TFlipFlopPresetClear(
             and_1,
             vcc,
             clear_n,
@@ -100,7 +100,7 @@ class UpCounterMod8:
             output_2,
             output_not_2
         )
-        FLOP.TFlipFlopPresetClear(
+        storage.TFlipFlopPresetClear(
             enable,
             vcc,
             clear_n,
@@ -115,7 +115,8 @@ class UpCounterMod16:
 
     Args:
         enable: An object of type Wire. Enables the counter.
-        clear_n: An object of type Wire. Clears output_bus to 0 asynchronously if its value is 0.
+        clear_n: An object of type Wire. Clears output_bus to 0 asynchronously
+            if its value is 0.
         clock: An object of type Wire or Clock. The clock input to the counter.
         output_bus: An object of type Bus4. The output of the counter.
             output_bus[0] and output_bus[3] are the most and least significant
@@ -147,7 +148,7 @@ class UpCounterMod16:
         gate.ANDGate2(and_1, output_bus[2], and_2)
         gate.ANDGate2(and_2, output_bus[1], and_3)
 
-        FLOP.TFlipFlopPresetClear(
+        storage.TFlipFlopPresetClear(
             and_3,
             vcc,
             clear_n,
@@ -155,7 +156,7 @@ class UpCounterMod16:
             output_bus[0],
             output_not_1
         )
-        FLOP.TFlipFlopPresetClear(
+        storage.TFlipFlopPresetClear(
             and_2,
             vcc,
             clear_n,
@@ -163,7 +164,7 @@ class UpCounterMod16:
             output_bus[1],
             output_not_2
         )
-        FLOP.TFlipFlopPresetClear(
+        storage.TFlipFlopPresetClear(
             and_1,
             vcc,
             clear_n,
@@ -171,7 +172,7 @@ class UpCounterMod16:
             output_bus[2],
             output_not_3
         )
-        FLOP.TFlipFlopPresetClear(
+        storage.TFlipFlopPresetClear(
             enable,
             vcc,
             clear_n,
@@ -227,13 +228,13 @@ class DownCounterMod4:
 
         signal.Multiplexer2To1(vcc, load_n, xor_1, load_2, mux_1)
         signal.Multiplexer2To1(vcc, load_n, xor_2, load_1, mux_2)
-        FLOP.DFlipFlop(
+        storage.DFlipFlop(
             mux_2,
             clock,
             output_1,
             output_not_1
         )
-        FLOP.DFlipFlop(
+        storage.DFlipFlop(
             mux_1,
             clock,
             output_2,
@@ -300,19 +301,19 @@ class DownCounterMod8:
         signal.Multiplexer2To1(vcc, load_n, xor_1, load_3, mux_1)
         signal.Multiplexer2To1(vcc, load_n, xor_2, load_2, mux_2)
         signal.Multiplexer2To1(vcc, load_n, xor_3, load_1, mux_3)
-        FLOP.DFlipFlop(
+        storage.DFlipFlop(
             mux_3,
             clock,
             output_1,
             output_not_1
         )
-        FLOP.DFlipFlop(
+        storage.DFlipFlop(
             mux_2,
             clock,
             output_2,
             output_not_2
         )
-        FLOP.DFlipFlop(
+        storage.DFlipFlop(
             mux_1,
             clock,
             output_3,
@@ -397,25 +398,25 @@ class DownCounterMod16:
         signal.Multiplexer2To1(vcc, load_n, xor_2, load_bus[2], mux_2)
         signal.Multiplexer2To1(vcc, load_n, xor_3, load_bus[1], mux_3)
         signal.Multiplexer2To1(vcc, load_n, xor_4, load_bus[0], mux_4)
-        FLOP.DFlipFlop(
+        storage.DFlipFlop(
             mux_4,
             clock,
             output_bus[0],
             output_not_1
         )
-        FLOP.DFlipFlop(
+        storage.DFlipFlop(
             mux_3,
             clock,
             output_bus[1],
             output_not_2
         )
-        FLOP.DFlipFlop(
+        storage.DFlipFlop(
             mux_2,
             clock,
             output_bus[2],
             output_not_3
         )
-        FLOP.DFlipFlop(
+        storage.DFlipFlop(
             mux_1,
             clock,
             output_bus[3],

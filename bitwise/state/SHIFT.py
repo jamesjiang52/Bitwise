@@ -8,7 +8,7 @@ The following classes are defined:
 from .. import wire
 from .. import gate
 from .. import signal
-from . import FLOP
+from .. import storage
 
 Wire = wire.Wire
 Bus4 = wire.Bus4
@@ -110,7 +110,7 @@ class ShiftRegister4:
             mux_4_out
         )
 
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_4_out,
             vcc,
             reset_n,
@@ -118,7 +118,7 @@ class ShiftRegister4:
             output_bus[3],
             q_4_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_3_out,
             vcc,
             reset_n,
@@ -126,7 +126,7 @@ class ShiftRegister4:
             output_bus[2],
             q_3_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_2_out,
             vcc,
             reset_n,
@@ -134,7 +134,7 @@ class ShiftRegister4:
             output_bus[1],
             q_2_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_1_out,
             vcc,
             reset_n,
@@ -274,7 +274,7 @@ class ShiftRegister8:
             data_bus[7],
             mux_8_out
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_8_out,
             vcc,
             reset_n,
@@ -282,7 +282,7 @@ class ShiftRegister8:
             output_bus[7],
             q_8_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_7_out,
             vcc,
             reset_n,
@@ -290,7 +290,7 @@ class ShiftRegister8:
             output_bus[6],
             q_7_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_6_out,
             vcc,
             reset_n,
@@ -298,7 +298,7 @@ class ShiftRegister8:
             output_bus[5],
             q_6_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_5_out,
             vcc,
             reset_n,
@@ -306,7 +306,7 @@ class ShiftRegister8:
             output_bus[4],
             q_5_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_4_out,
             vcc,
             reset_n,
@@ -314,7 +314,7 @@ class ShiftRegister8:
             output_bus[3],
             q_4_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_3_out,
             vcc,
             reset_n,
@@ -322,7 +322,7 @@ class ShiftRegister8:
             output_bus[2],
             q_3_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_2_out,
             vcc,
             reset_n,
@@ -330,7 +330,7 @@ class ShiftRegister8:
             output_bus[1],
             q_2_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_1_out,
             vcc,
             reset_n,
@@ -542,7 +542,7 @@ class ShiftRegister16:
             data_bus[15],
             mux_16_out
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_16_out,
             vcc,
             reset_n,
@@ -550,7 +550,7 @@ class ShiftRegister16:
             output_bus[15],
             q_16_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_15_out,
             vcc,
             reset_n,
@@ -558,7 +558,7 @@ class ShiftRegister16:
             output_bus[14],
             q_15_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_14_out,
             vcc,
             reset_n,
@@ -566,7 +566,7 @@ class ShiftRegister16:
             output_bus[13],
             q_14_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_13_out,
             vcc,
             reset_n,
@@ -574,7 +574,7 @@ class ShiftRegister16:
             output_bus[12],
             q_13_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_12_out,
             vcc,
             reset_n,
@@ -582,7 +582,7 @@ class ShiftRegister16:
             output_bus[11],
             q_12_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_11_out,
             vcc,
             reset_n,
@@ -590,7 +590,7 @@ class ShiftRegister16:
             output_bus[10],
             q_11_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_10_out,
             vcc,
             reset_n,
@@ -598,7 +598,7 @@ class ShiftRegister16:
             output_bus[9],
             q_10_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_9_out,
             vcc,
             reset_n,
@@ -606,7 +606,7 @@ class ShiftRegister16:
             output_bus[8],
             q_9_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_8_out,
             vcc,
             reset_n,
@@ -614,7 +614,7 @@ class ShiftRegister16:
             output_bus[7],
             q_8_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_7_out,
             vcc,
             reset_n,
@@ -622,7 +622,7 @@ class ShiftRegister16:
             output_bus[6],
             q_7_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_6_out,
             vcc,
             reset_n,
@@ -630,7 +630,7 @@ class ShiftRegister16:
             output_bus[5],
             q_6_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_5_out,
             vcc,
             reset_n,
@@ -638,7 +638,7 @@ class ShiftRegister16:
             output_bus[4],
             q_5_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_4_out,
             vcc,
             reset_n,
@@ -646,7 +646,7 @@ class ShiftRegister16:
             output_bus[3],
             q_4_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_3_out,
             vcc,
             reset_n,
@@ -654,7 +654,7 @@ class ShiftRegister16:
             output_bus[2],
             q_3_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_2_out,
             vcc,
             reset_n,
@@ -662,7 +662,7 @@ class ShiftRegister16:
             output_bus[1],
             q_2_not
         )
-        FLOP.DFlipFlopPresetClear(
+        storage.DFlipFlopPresetClear(
             mux_1_out,
             vcc,
             reset_n,
