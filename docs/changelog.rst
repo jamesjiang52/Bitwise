@@ -11,17 +11,32 @@ Unreleased
 
 Added
 -----
-* Shift register classes to storage subpackage
+* Tri-state buffer to wire subpackage
+* Ring counter classes to state subpackage
+    * ``RingCounter4``
+    * ``RingCounter8``
+    * ``RingCounter16``
+    
+* Up- and down-counter classes to state subpackage
+    * ``UpCounterMod4``
+    * ``UpCounterMod8``
+    * ``UpCounterMod16``
+    * ``DownCounterMod4``
+    * ``DownCounterMod8``
+    * ``DownCounterMod16``
+    
+* ``IMPLY`` logic gate to gate subpackage
+* Shift register classes to state subpackage
     * ``ShiftRegister4``
     * ``ShiftRegister8``
     * ``ShiftRegister16``
     
-* Parallel-to-serial converter classes to signal subpackage
+* Parallel-to-serial converter classes to state subpackage
     * ``ParallelToSerialConverter4To1``
     * ``ParallelToSerialConverter8To1``
     * ``ParallelToSerialConverter16To1``
     
-* Serial-to-parallel converter classes to signal subpackage
+* Serial-to-parallel converter classes to state subpackage
     * ``SerialToParallelConverter1To4``
     * ``SerialToParallelConverter1To8``
     * ``SerialToParallelConverter1To16``
@@ -31,7 +46,7 @@ Added
 
 Changed
 -------
-* Rewrote docstrings for all classes
+* Rewrote docstrings for all existing classes
 * Misc improvements
 
 

@@ -104,8 +104,33 @@
 <div class="section" id="added">
 <h3>Added</h3>
 <ul class="simple">
+<li>Tri-state buffer to wire subpackage</li>
 <li><dl class="first docutils">
-<dt>Shift register classes to storage subpackage</dt>
+<dt>Ring counter classes to state subpackage</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">RingCounter4</span></code></li>
+<li><code class="docutils literal"><span class="pre">RingCounter8</span></code></li>
+<li><code class="docutils literal"><span class="pre">RingCounter16</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Up- and down-counter classes to state subpackage</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">UpCounterMod4</span></code></li>
+<li><code class="docutils literal"><span class="pre">UpCounterMod8</span></code></li>
+<li><code class="docutils literal"><span class="pre">UpCounterMod16</span></code></li>
+<li><code class="docutils literal"><span class="pre">DownCounterMod4</span></code></li>
+<li><code class="docutils literal"><span class="pre">DownCounterMod8</span></code></li>
+<li><code class="docutils literal"><span class="pre">DownCounterMod16</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><code class="docutils literal"><span class="pre">IMPLY</span></code> logic gate to gate subpackage</li>
+<li><dl class="first docutils">
+<dt>Shift register classes to state subpackage</dt>
 <dd><ul class="first last">
 <li><code class="docutils literal"><span class="pre">ShiftRegister4</span></code></li>
 <li><code class="docutils literal"><span class="pre">ShiftRegister8</span></code></li>
@@ -115,7 +140,7 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Parallel-to-serial converter classes to signal subpackage</dt>
+<dt>Parallel-to-serial converter classes to state subpackage</dt>
 <dd><ul class="first last">
 <li><code class="docutils literal"><span class="pre">ParallelToSerialConverter4To1</span></code></li>
 <li><code class="docutils literal"><span class="pre">ParallelToSerialConverter8To1</span></code></li>
@@ -125,7 +150,7 @@
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>Serial-to-parallel converter classes to signal subpackage</dt>
+<dt>Serial-to-parallel converter classes to state subpackage</dt>
 <dd><ul class="first last">
 <li><code class="docutils literal"><span class="pre">SerialToParallelConverter1To4</span></code></li>
 <li><code class="docutils literal"><span class="pre">SerialToParallelConverter1To8</span></code></li>
@@ -141,7 +166,7 @@
 <div class="section" id="changed">
 <h3>Changed</h3>
 <ul class="simple">
-<li>Rewrote docstrings for all classes</li>
+<li>Rewrote docstrings for all existing classes</li>
 <li>Misc improvements</li>
 </ul>
 </div>

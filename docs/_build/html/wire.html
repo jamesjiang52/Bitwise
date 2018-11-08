@@ -78,7 +78,8 @@
 <li><a class="reference internal" href="#bus8">Bus8</a></li>
 <li><a class="reference internal" href="#bus16">Bus16</a></li>
 <li><a class="reference internal" href="#bussevensegmentdisplay">BusSevenSegmentDisplay</a></li>
-<li><a class="reference internal" href="#id17">Wire</a></li>
+<li><a class="reference internal" href="#tristatebuffer">TristateBuffer</a></li>
+<li><a class="reference internal" href="#id20">Wire</a></li>
 </ul>
 </li>
 </ul>
@@ -252,14 +253,41 @@
 </ul>
 </div>
 </div>
-<div class="section" id="id17">
-<span id="id18"></span><h2>Wire</h2>
+<div class="section" id="tristatebuffer">
+<span id="id17"></span><h2>TristateBuffer</h2>
+<div class="section" id="class-bw-wire-tristatebuffer">
+<h3>Class <code class="docutils literal"><span class="pre">bw.wire.TristateBuffer</span></code></h3>
+<p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/TRI.py">bitwise/wire/TRI.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Three-state_logic">Tri-state buffer</a>.</p>
+</div>
+<div class="section" id="id18">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_1</span><span class="p">,</span>
+    <span class="n">switch</span><span class="p">,</span>
+    <span class="n">output</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Initialize a new tri-state buffer.</p>
+<div class="section" id="id19">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">switch</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Takes on the value of <code class="docutils literal"><span class="pre">input_1</span></code> if <code class="docutils literal"><span class="pre">switch</span></code> has value 1. Otherwise, value is independent of <code class="docutils literal"><span class="pre">input_1</span></code>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id20">
+<span id="id21"></span><h2>Wire</h2>
 <div class="section" id="class-bw-wire-wire">
 <h3>Class <code class="docutils literal"><span class="pre">bw.wire.Wire</span></code></h3>
 <p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/WIRE.py">bitwise/wire/WIRE.py</a>.</p>
 <p>A wire, with either a 0 or 1 integer value.</p>
 </div>
-<div class="section" id="id19">
+<div class="section" id="id22">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">()</span>
 </pre></div>

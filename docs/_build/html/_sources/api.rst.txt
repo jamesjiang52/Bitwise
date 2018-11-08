@@ -110,4 +110,5 @@ API Documentation
 * :ref:`Bus8`
 * :ref:`Bus16`
 * :ref:`BusSevenSegmentDisplay`
+* :ref:`TristateBuffer`
 * :ref:`Wire`

@@ -168,6 +168,38 @@ Accessors:
 * ``bus.wire_values``: A tuple of values of the wires in the bus.
 
 
+.. _TristateBuffer:
+
+TristateBuffer
+==============
+
+Class ``bw.wire.TristateBuffer``
+--------------------------------
+
+Defined in `bitwise/wire/TRI.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/TRI.py>`_.
+
+`Tri-state buffer <https://en.wikipedia.org/wiki/Three-state_logic>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        input_1,
+        switch,
+        output
+    )
+
+Initialize a new tri-state buffer.
+
+Args:
+~~~~~
+* ``input_1``: An object of type ``Wire``.
+* ``switch``: An object of type ``Wire``.
+* ``output``: An object of type ``Wire``. Takes on the value of ``input_1`` if ``switch`` has value 1. Otherwise, value is independent of ``input_1``.
+
+
 .. _Wire:
 
 Wire

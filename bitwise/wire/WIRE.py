@@ -5,9 +5,9 @@ The following classes are defined:
 
 
 class Wire:
-    """Initialize a new wire with value 0. After initialization, the value of the wire can be both 
-    accessed and mutated using wire.value. 
-    
+    """Initialize a new wire with value 0. After initialization, the value of
+    the wire can be both accessed and mutated using wire.value.
+
     Raises:
         ValueError: If value assigned to wire is not 0 or 1.
     """
@@ -31,4 +31,5 @@ class Wire:
                 callback(self._value)
 
     def _bind_to(self, callback):
-        self.connections.append(callback)
+        if callback not in self.connections:
+            self.connections.append(callback)
