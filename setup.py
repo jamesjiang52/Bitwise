@@ -4,7 +4,7 @@ def readme():
     with open("README.rst") as f:
         return f.read()
         
-execfile("bitwise/_version.py")
+exec(open("bitwise/_version.py").read())
 
 setup(
     name="bitwise",
