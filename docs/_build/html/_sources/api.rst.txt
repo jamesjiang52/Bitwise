@@ -12,6 +12,8 @@ API Documentation
 * :ref:`AdderSubtractor16`
 * :ref:`FullAdder`
 * :ref:`HalfAdder`
+* :ref:`Multiplier2`
+* :ref:`Multiplier4`
 
 :doc:`gate`
 ===========

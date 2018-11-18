@@ -83,6 +83,8 @@
 <li><a class="reference internal" href="#addersubtractor16">AdderSubtractor16</a></li>
 <li><a class="reference internal" href="#fulladder">FullAdder</a></li>
 <li><a class="reference internal" href="#halfadder">HalfAdder</a></li>
+<li><a class="reference internal" href="#multiplier2">Multiplier2</a></li>
+<li><a class="reference internal" href="#multiplier4">Multiplier4</a></li>
 </ul>
 </li>
 </ul>
@@ -389,6 +391,76 @@
 <li><code class="docutils literal"><span class="pre">b</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The second addend.</li>
 <li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out of the adder.</li>
 <li><code class="docutils literal"><span class="pre">sum_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The sum of the two addends.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="multiplier2">
+<span id="id38"></span><h2>Multiplier2</h2>
+<div class="section" id="class-bw-arithmetic-multiplier2">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.Multiplier2</span></code></h3>
+<img alt="_images/Multiplier2.svg" src="_images/Multiplier2.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/MULT.py">bitwise/arithmetic/MULT.py</a>.</p>
+<p>2-bit unsigned array <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_multiplier">multiplier</a>.</p>
+</div>
+<div class="section" id="id39">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_1</span><span class="p">,</span>
+    <span class="n">a_2</span><span class="p">,</span>
+    <span class="n">b_1</span><span class="p">,</span>
+    <span class="n">b_2</span><span class="p">,</span>
+    <span class="n">product_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 2-bit unsigned multiplier.</p>
+<div class="section" id="id40">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the multiplicand.</li>
+<li><code class="docutils literal"><span class="pre">a_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the multiplicant.</li>
+<li><code class="docutils literal"><span class="pre">b_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the multiplier.</li>
+<li><code class="docutils literal"><span class="pre">b_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the multiplier.</li>
+<li><code class="docutils literal"><span class="pre">product_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The product. <code class="docutils literal"><span class="pre">product_bus[0]</span></code> and <code class="docutils literal"><span class="pre">product_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+</ul>
+</div>
+<div class="section" id="id41">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">product_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="multiplier4">
+<span id="id42"></span><h2>Multiplier4</h2>
+<div class="section" id="class-bw-arithmetic-multiplier4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.Multiplier4</span></code></h3>
+<img alt="_images/Multiplier4.svg" src="_images/Multiplier4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/MULT.py">bitwise/arithmetic/MULT.py</a>.</p>
+<p>4-bit unsigned array <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_multiplier">multiplier</a>.</p>
+</div>
+<div class="section" id="id45">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">product_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit unsigned multiplier.</p>
+<div class="section" id="id46">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The multiplicand. <code class="docutils literal"><span class="pre">a_bus[0]</span></code> and <code class="docutils literal"><span class="pre">a_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The multiplier. <code class="docutils literal"><span class="pre">b_bus[0]</span></code> and <code class="docutils literal"><span class="pre">b_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">product_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The product. <code class="docutils literal"><span class="pre">product_bus[0]</span></code> and <code class="docutils literal"><span class="pre">product_bus[7]</span></code> are the most and least significant bit, respectively.</li>
+</ul>
+</div>
+<div class="section" id="id47">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code> or <code class="docutils literal"><span class="pre">b_bus</span></code> is not a bus of width 4, or if <code class="docutils literal"><span class="pre">product_bus</span></code> is not a bus of width 8.</li>
 </ul>
 </div>
 </div>

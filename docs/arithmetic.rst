@@ -343,3 +343,85 @@ Args:
 * ``b``: An object of type ``Wire``. The second addend.
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
 * ``sum_``: An object of type ``Wire``. The sum of the two addends.
+
+
+.. _Multiplier2:
+
+Multiplier2
+===========
+
+Class ``bw.arithmetic.Multiplier2``
+-----------------------------------
+
+.. image:: images/schematics/arithmetic/Multiplier2.svg
+    :width: 600px
+
+Defined in `bitwise/arithmetic/MULT.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/MULT.py>`_.
+
+2-bit unsigned array `multiplier <https://en.wikipedia.org/wiki/Binary_multiplier>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        a_1,
+        a_2,
+        b_1,
+        b_2,
+        product_bus
+    )
+
+Construct a new 2-bit unsigned multiplier.
+
+Args:
+~~~~~
+* ``a_1``: An object of type ``Wire``. The most significant bit of the multiplicand.
+* ``a_2``: An object of type ``Wire``. The least significant bit of the multiplicant.
+* ``b_1``: An object of type ``Wire``. The most significant bit of the multiplier.
+* ``b_2``: An object of type ``Wire``. The least significant bit of the multiplier.
+* ``product_bus``: An object of type ``Bus4``. The product. ``product_bus[0]`` and ``product_bus[3]`` are the most and least significant bit, respectively.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If ``product_bus`` is not a bus of width 4.
+
+
+.. _Multiplier4:
+
+Multiplier4
+===========
+
+Class ``bw.arithmetic.Multiplier4``
+-----------------------------------
+
+.. image:: images/schematics/arithmetic/Multiplier4.svg
+    :width: 800px
+
+Defined in `bitwise/arithmetic/MULT.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/MULT.py>`_.
+
+4-bit unsigned array `multiplier <https://en.wikipedia.org/wiki/Binary_multiplier>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        a_bus,
+        b_bus,
+        product_bus
+    )
+
+Construct a new 4-bit unsigned multiplier.
+
+Args:
+~~~~~
+* ``a_bus``: An object of type ``Bus4``. The multiplicand. ``a_bus[0]`` and ``a_bus[3]`` are the most and least significant bit, respectively.
+* ``b_bus``: An object of type ``Bus4``. The multiplier. ``b_bus[0]`` and ``b_bus[3]`` are the most and least significant bit, respectively.
+* ``product_bus``: An object of type ``Bus8``. The product. ``product_bus[0]`` and ``product_bus[7]`` are the most and least significant bit, respectively.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``a_bus`` or ``b_bus`` is not a bus of width 4, or if ``product_bus`` is not a bus of width 8.

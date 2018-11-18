@@ -6,6 +6,13 @@ Changelog
 =========
 
 
+Unreleased
+==========
+Added
+-----
+* 2- and 4-bit multipliers to arithmetic subpackage
+
+
 v0.2 - 2018-11-08
 =================
 
