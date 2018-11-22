@@ -14,6 +14,7 @@ API Documentation
 * :ref:`HalfAdder`
 * :ref:`Multiplier2`
 * :ref:`Multiplier4`
+* :ref:`Multiplier8`
 
 :doc:`gate`
 ===========

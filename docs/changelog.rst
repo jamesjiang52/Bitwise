@@ -8,9 +8,17 @@ Changelog
 
 Unreleased
 ==========
+
 Added
 -----
-* 2- and 4-bit multipliers to arithmetic subpackage
+* Multiplier classes to arithmetic subpackage
+    * ``Multiplier2``
+    * ``Multiplier4``
+    * ``Multiplier8``
+
+Changed
+-------
+* Added enable inputs to registers in ``storage.REG``
 
 
 v0.2 - 2018-11-08
@@ -49,10 +57,10 @@ Added
     * ``SerialToParallelConverter1To16``
     
 * Buffer class to gate subpackage
-* ``__getitem__()`` and ``__len__()`` methods to ``Bus4``, ``Bus8``, ``Bus16``, and ``BusSevenSegmentDisplay`` classes
 
 Changed
 -------
+* Added ``__getitem__()`` and ``__len__()`` methods to ``Bus4``, ``Bus8``, ``Bus16``, and ``BusSevenSegmentDisplay`` classes
 * Rewrote docstrings for all existing classes
 * Misc improvements
 

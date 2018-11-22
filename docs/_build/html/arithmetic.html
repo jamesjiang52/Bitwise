@@ -85,6 +85,10 @@
 <li><a class="reference internal" href="#halfadder">HalfAdder</a></li>
 <li><a class="reference internal" href="#multiplier2">Multiplier2</a></li>
 <li><a class="reference internal" href="#multiplier4">Multiplier4</a></li>
+<<<<<<< HEAD
+<li><a class="reference internal" href="#multiplier8">Multiplier8</a></li>
+=======
+>>>>>>> master
 </ul>
 </li>
 </ul>
@@ -465,6 +469,42 @@
 </div>
 </div>
 </div>
+<<<<<<< HEAD
+<div class="section" id="multiplier8">
+<span id="id48"></span><h2>Multiplier8</h2>
+<div class="section" id="class-bw-arithmetic-multiplier8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.arithmetic.Multiplier8</span></code></h3>
+<img alt="_images/Multiplier8.svg" src="_images/Multiplier8.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/MULT.py">bitwise/arithmetic/MULT.py</a>.</p>
+<p>8-bit unsigned array <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_multiplier">multiplier</a>.</p>
+</div>
+<div class="section" id="id51">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">product_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit unsigned multiplier.</p>
+<div class="section" id="id52">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The multiplicand. <code class="docutils literal"><span class="pre">a_bus[0]</span></code> and <code class="docutils literal"><span class="pre">a_bus[7]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The multiplier. <code class="docutils literal"><span class="pre">b_bus[0]</span></code> and <code class="docutils literal"><span class="pre">b_bus[7]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">product_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The product. <code class="docutils literal"><span class="pre">product_bus[0]</span></code> and <code class="docutils literal"><span class="pre">product_bus[15]</span></code> are the most and least significant bit, respectively.</li>
+</ul>
+</div>
+<div class="section" id="id53">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code> or <code class="docutils literal"><span class="pre">b_bus</span></code> is not a bus of width 8, or if <code class="docutils literal"><span class="pre">product_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+=======
+>>>>>>> master
 </div>
 
 

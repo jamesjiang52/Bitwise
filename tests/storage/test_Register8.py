@@ -11,6 +11,7 @@ class TestRegister8:
         input_6 = bw.wire.Wire()
         input_7 = bw.wire.Wire()
         input_8 = bw.wire.Wire()
+        enable = bw.wire.Wire()
         clock = bw.wire.Wire()
         output_1 = bw.wire.Wire()
         output_2 = bw.wire.Wire()
@@ -41,7 +42,9 @@ class TestRegister8:
             output_8
         )
 
-        bw.storage.Register8(input_bus, clock, output_bus)
+        bw.storage.Register8(input_bus, enable, clock, output_bus)
+
+        enable.value = 1
 
         clock.value = 0
         input_1.value = 0
@@ -90,8 +93,16 @@ class TestRegister8:
         clock.value = 1
         assert output_bus.wire_values == (0, 1, 1, 1, 1, 1, 1, 1)
 
+        enable.value = 0
+
         clock.value = 0
         input_1.value = 1
+        clock.value = 1
+        assert output_bus.wire_values == (0, 1, 1, 1, 1, 1, 1, 1)
+
+        enable.value = 1
+
+        clock.value = 0
         clock.value = 1
         assert output_bus.wire_values == (1, 1, 1, 1, 1, 1, 1, 1)
 

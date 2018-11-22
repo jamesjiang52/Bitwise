@@ -425,3 +425,42 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus`` or ``b_bus`` is not a bus of width 4, or if ``product_bus`` is not a bus of width 8.
+
+
+.. _Multiplier8:
+
+Multiplier8
+===========
+
+Class ``bw.arithmetic.Multiplier8``
+-----------------------------------
+
+.. image:: images/schematics/arithmetic/Multiplier8.svg
+    :width: 800px
+
+Defined in `bitwise/arithmetic/MULT.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/arithmetic/MULT.py>`_.
+
+8-bit unsigned array `multiplier <https://en.wikipedia.org/wiki/Binary_multiplier>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        a_bus,
+        b_bus,
+        product_bus
+    )
+
+Construct a new 8-bit unsigned multiplier.
+
+Args:
+~~~~~
+* ``a_bus``: An object of type ``Bus8``. The multiplicand. ``a_bus[0]`` and ``a_bus[7]`` are the most and least significant bit, respectively.
+* ``b_bus``: An object of type ``Bus8``. The multiplier. ``b_bus[0]`` and ``b_bus[7]`` are the most and least significant bit, respectively.
+* ``product_bus``: An object of type ``Bus16``. The product. ``product_bus[0]`` and ``product_bus[15]`` are the most and least significant bit, respectively.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``a_bus`` or ``b_bus`` is not a bus of width 8, or if ``product_bus`` is not a bus of width 16.
