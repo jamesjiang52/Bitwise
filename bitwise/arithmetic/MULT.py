@@ -22,7 +22,7 @@ class Multiplier2:
         a_1: An object of type Wire. The most significant bit of the
             multiplicand.
         a_2: An object of type Wire. The least significant bit of the
-            multiplicant.
+            multiplicand.
         b_1: An object of type Wire. The most significant bit of the
             multiplier.
         b_2: An object of type Wire. The least significant bit of the

@@ -38,6 +38,27 @@ API Documentation
 
 :doc:`logic`
 ============
+* :ref:`BitwiseAND4`
+* :ref:`BitwiseAND8`
+* :ref:`BitwiseAND16`
+* :ref:`BitwiseNAND4`
+* :ref:`BitwiseNAND8`
+* :ref:`BitwiseNAND16`
+* :ref:`BitwiseNOR4`
+* :ref:`BitwiseNOR8`
+* :ref:`BitwiseNOR16`
+* :ref:`BitwiseNOT4`
+* :ref:`BitwiseNOT8`
+* :ref:`BitwiseOR4`
+* :ref:`BitwiseOR8`
+* :ref:`BitwiseOR16`
+* :ref:`BitwiseNOT16`
+* :ref:`BitwiseXNOR4`
+* :ref:`BitwiseXNOR8`
+* :ref:`BitwiseXNOR16`
+* :ref:`BitwiseXOR4`
+* :ref:`BitwiseXOR8`
+* :ref:`BitwiseXOR16`
 * :ref:`Comparator3`
 * :ref:`Comparator7`
 * :ref:`Comparator15`

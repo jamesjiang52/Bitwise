@@ -53,16 +53,7 @@ class FullAdder:
 
 
 class _LookaheadCarryUnit4:
-    """
-    This class simulates a lookahead carry unit for a 4-bit adder. Though an
-    LCU is not used in the 4-bit adder itself, it is useful for fast operations
-    with chained 4-bit adders. An LCU takes the binary numbers being added
-    together and determines if a carry is generated, without waiting for all
-    the carries to "ripple" through the chain.
-
-    This LCU has eight inputs in two 4-bit buses, a carry_in input, and three
-    outputs:
-                      ________
+    """               ________
         carry_in ----|        |---- carry_out
          input_1 ----|        |---- group_propagate
          input_2 ----|        |---- group_generate
@@ -72,17 +63,6 @@ class _LookaheadCarryUnit4:
          input_6 ----|        |
          input_7 ----|        |
          input_8 ----|________|
-
-    Inputs input_1 and input_4 correspond to the MSB and LSB, respectively,
-    of the first addend, and inputs input_5 and input_8 correspond to the MSB
-    and LSB, respectively, of the second addend. The carry-in input is usually
-    0 for an adder, but can be 1 if multiple adders are chained together.
-
-    The carry_out output denotes whether or not the two 4-bit binary numbers
-    will have a carry-out. The group_propagate and group_generate outputs are
-    used in higher-order LCU's and denote, respectively, whether the binary
-    numbers will propagate an input carry-in to carry-out, and whether the
-    binary numbers will themselves generate a carry-out.
     """
     def __init__(
             self,
@@ -142,15 +122,7 @@ class _LookaheadCarryUnit4:
 
 
 class _LookaheadCarryUnit16:
-    """
-    This class simulates a lookahead carry unit for a 16-bit adder. It is
-    useful for fast operations, since it takes the binary numbers being added
-    together and determines if a carry is generated, without waiting for all
-    the carries to "ripple" through the chain of adders.
-
-    This LCU has thirty-two inputs in two 16-bit buses, a carry_in input, and
-    six outputs:
-                      ________
+    """               ________
         carry_in ----|        |---- internal_carry_1
          input_1 ----|        |---- internal_carry_2
          input_2 ----|        |---- internal_carry_3
@@ -170,20 +142,6 @@ class _LookaheadCarryUnit16:
         input_30 ----|        |
         input_31 ----|        |
         input_32 ----|________|
-
-    Inputs input_1 and input_16 correspond to the MSB and LSB, respectively,
-    of the first addend, and inputs input_17 and input_32 correspond to the MSB
-    and LSB, respectively, of the second addend. The carry-in input is usually
-    0 for an adder, but can be 1 if multiple adders are chained together.
-
-    The carry_out output denotes whether or not the two 16-bit binary numbers
-    will have a carry-out. The internal_carry outputs are used in the 16-bit
-    adder to speed up operations, with internal_carry_1 corresponding to the
-    carry from the LSB to the second-LSB. The group_propagate and
-    group_generate outputs are used in higher-order LCU's and denote,
-    respectively, whether the binary numbers will propagate an input carry-in
-    to carry-out, and whether the binary numbers will themselves generate a
-    carry-out.
     """
     def __init__(
             self,

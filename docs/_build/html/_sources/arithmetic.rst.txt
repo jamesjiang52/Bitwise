@@ -378,7 +378,7 @@ Construct a new 2-bit unsigned multiplier.
 Args:
 ~~~~~
 * ``a_1``: An object of type ``Wire``. The most significant bit of the multiplicand.
-* ``a_2``: An object of type ``Wire``. The least significant bit of the multiplicant.
+* ``a_2``: An object of type ``Wire``. The least significant bit of the multiplicand.
 * ``b_1``: An object of type ``Wire``. The most significant bit of the multiplier.
 * ``b_2``: An object of type ``Wire``. The least significant bit of the multiplier.
 * ``product_bus``: An object of type ``Bus4``. The product. ``product_bus[0]`` and ``product_bus[3]`` are the most and least significant bit, respectively.

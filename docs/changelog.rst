@@ -11,6 +11,9 @@ Unreleased
 
 Added
 -----
+* Arithmetic-logic unit to processor subpackage
+* Bitwise logic operations to logic subpackage
+    * Bitwise AND, NAND, NOR, NOT, OR, XNOR, and XOR operations for 4-, 8-, and 16- bit inputs
 * Multiplier classes to arithmetic subpackage
     * ``Multiplier2``
     * ``Multiplier4``

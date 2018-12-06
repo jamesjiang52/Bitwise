@@ -75,6 +75,27 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Logic</a><ul>
+<li><a class="reference internal" href="#bitwiseand4">BitwiseAND4</a></li>
+<li><a class="reference internal" href="#bitwiseand8">BitwiseAND8</a></li>
+<li><a class="reference internal" href="#bitwiseand16">BitwiseAND16</a></li>
+<li><a class="reference internal" href="#bitwisenand4">BitwiseNAND4</a></li>
+<li><a class="reference internal" href="#bitwisenand8">BitwiseNAND8</a></li>
+<li><a class="reference internal" href="#bitwisenand16">BitwiseNAND16</a></li>
+<li><a class="reference internal" href="#bitwisenor4">BitwiseNOR4</a></li>
+<li><a class="reference internal" href="#bitwisenor8">BitwiseNOR8</a></li>
+<li><a class="reference internal" href="#bitwisenor16">BitwiseNOR16</a></li>
+<li><a class="reference internal" href="#bitwisenot4">BitwiseNOT4</a></li>
+<li><a class="reference internal" href="#bitwisenot8">BitwiseNOT8</a></li>
+<li><a class="reference internal" href="#bitwisenot16">BitwiseNOT16</a></li>
+<li><a class="reference internal" href="#bitwiseor4">BitwiseOR4</a></li>
+<li><a class="reference internal" href="#bitwiseor8">BitwiseOR8</a></li>
+<li><a class="reference internal" href="#bitwiseor16">BitwiseOR16</a></li>
+<li><a class="reference internal" href="#bitwisexnor4">BitwiseXNOR4</a></li>
+<li><a class="reference internal" href="#bitwisexnor8">BitwiseXNOR8</a></li>
+<li><a class="reference internal" href="#bitwisexnor16">BitwiseXNOR16</a></li>
+<li><a class="reference internal" href="#bitwisexor4">BitwiseXOR4</a></li>
+<li><a class="reference internal" href="#bitwisexor8">BitwiseXOR8</a></li>
+<li><a class="reference internal" href="#bitwisexor16">BitwiseXOR16</a></li>
 <li><a class="reference internal" href="#comparator3">Comparator3</a></li>
 <li><a class="reference internal" href="#comparator7">Comparator7</a></li>
 <li><a class="reference internal" href="#comparator15">Comparator15</a></li>
@@ -106,14 +127,701 @@
             
   <div class="section" id="logic">
 <h1>Logic</h1>
+<div class="section" id="bitwiseand4">
+<span id="id1"></span><h2>BitwiseAND4</h2>
+<div class="section" id="class-bw-logic-bitwiseand4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseAND4</span></code></h3>
+<img alt="_images/BitwiseAND4.svg" src="_images/BitwiseAND4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/AND.py">bitwise/logic/AND.py</a>.</p>
+<p>4-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/AND_gate">AND</a> circuit.</p>
+</div>
+<div class="section" id="init">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit bitwise AND circuit.</p>
+<div class="section" id="args">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the bitwise AND operation.</li>
+</ul>
+</div>
+<div class="section" id="raises">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwiseand8">
+<span id="id2"></span><h2>BitwiseAND8</h2>
+<div class="section" id="class-bw-logic-bitwiseand8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseAND8</span></code></h3>
+<img alt="_images/BitwiseAND8.svg" src="_images/BitwiseAND8.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/AND.py">bitwise/logic/AND.py</a>.</p>
+<p>8-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/AND_gate">AND</a> circuit.</p>
+</div>
+<div class="section" id="id5">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit bitwise AND circuit.</p>
+<div class="section" id="id6">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The output of the bitwise AND operation.</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwiseand16">
+<span id="id8"></span><h2>BitwiseAND16</h2>
+<div class="section" id="class-bw-logic-bitwiseand16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseAND16</span></code></h3>
+<img alt="_images/BitwiseAND16.svg" src="_images/BitwiseAND16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/AND.py">bitwise/logic/AND.py</a>.</p>
+<p>16-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/AND_gate">AND</a> circuit.</p>
+</div>
+<div class="section" id="id11">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit bitwise AND circuit.</p>
+<div class="section" id="id12">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The output of the bitwise AND operation.</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisenand4">
+<span id="id14"></span><h2>BitwiseNAND4</h2>
+<div class="section" id="class-bw-logic-bitwisenand4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseNAND4</span></code></h3>
+<img alt="_images/BitwiseNAND4.svg" src="_images/BitwiseNAND4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/NAND.py">bitwise/logic/NAND.py</a>.</p>
+<p>4-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/NAND_gate">NAND</a> circuit.</p>
+</div>
+<div class="section" id="id15">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit bitwise NAND circuit.</p>
+<div class="section" id="id16">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the bitwise NAND operation.</li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisenand8">
+<span id="id18"></span><h2>BitwiseNAND8</h2>
+<div class="section" id="class-bw-logic-bitwisenand8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseNAND8</span></code></h3>
+<img alt="_images/BitwiseNAND8.svg" src="_images/BitwiseNAND8.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/NAND.py">bitwise/logic/NAND.py</a>.</p>
+<p>8-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/NAND_gate">NAND</a> circuit.</p>
+</div>
+<div class="section" id="id21">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit bitwise NAND circuit.</p>
+<div class="section" id="id22">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The output of the bitwise NAND operation.</li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisenand16">
+<span id="id24"></span><h2>BitwiseNAND16</h2>
+<div class="section" id="class-bw-logic-bitwisenand16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseNAND16</span></code></h3>
+<img alt="_images/BitwiseNAND16.svg" src="_images/BitwiseNAND16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/NAND.py">bitwise/logic/NAND.py</a>.</p>
+<p>16-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/NAND_gate">NAND</a> circuit.</p>
+</div>
+<div class="section" id="id27">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit bitwise NAND circuit.</p>
+<div class="section" id="id28">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The output of the bitwise NAND operation.</li>
+</ul>
+</div>
+<div class="section" id="id29">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisenor4">
+<span id="id30"></span><h2>BitwiseNOR4</h2>
+<div class="section" id="class-bw-logic-bitwisenor4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseNOR4</span></code></h3>
+<img alt="_images/BitwiseNOR4.svg" src="_images/BitwiseNOR4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/NOR.py">bitwise/logic/NOR.py</a>.</p>
+<p>4-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/NOR_gate">NOR</a> circuit.</p>
+</div>
+<div class="section" id="id31">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit bitwise NOR circuit.</p>
+<div class="section" id="id32">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the bitwise NOR operation.</li>
+</ul>
+</div>
+<div class="section" id="id33">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisenor8">
+<span id="id34"></span><h2>BitwiseNOR8</h2>
+<div class="section" id="class-bw-logic-bitwisenor8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseNOR8</span></code></h3>
+<img alt="_images/BitwiseNOR8.svg" src="_images/BitwiseNOR8.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/NOR.py">bitwise/logic/NOR.py</a>.</p>
+<p>8-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/NOR_gate">NOR</a> circuit.</p>
+</div>
+<div class="section" id="id37">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit bitwise NOR circuit.</p>
+<div class="section" id="id38">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The output of the bitwise NOR operation.</li>
+</ul>
+</div>
+<div class="section" id="id39">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisenor16">
+<span id="id40"></span><h2>BitwiseNOR16</h2>
+<div class="section" id="class-bw-logic-bitwisenor16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseNOR16</span></code></h3>
+<img alt="_images/BitwiseNOR16.svg" src="_images/BitwiseNOR16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/NOR.py">bitwise/logic/NOR.py</a>.</p>
+<p>16-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/NOR_gate">NOR</a> circuit.</p>
+</div>
+<div class="section" id="id43">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit bitwise NOR circuit.</p>
+<div class="section" id="id44">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The output of the bitwise NOR operation.</li>
+</ul>
+</div>
+<div class="section" id="id45">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisenot4">
+<span id="id46"></span><h2>BitwiseNOT4</h2>
+<div class="section" id="class-bw-logic-bitwisenot4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseNOT4</span></code></h3>
+<img alt="_images/BitwiseNOT4.svg" src="_images/BitwiseNOT4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/NOT.py">bitwise/logic/NOT.py</a>.</p>
+<p>4-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/Inverter_(logic_gate)">NOT</a> circuit.</p>
+</div>
+<div class="section" id="id47">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit bitwise NOT circuit.</p>
+<div class="section" id="id48">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The input to the bitwise NOT operation.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the bitwise NOT operation.</li>
+</ul>
+</div>
+<div class="section" id="id49">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">input_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisenot8">
+<span id="id50"></span><h2>BitwiseNOT8</h2>
+<div class="section" id="class-bw-logic-bitwisenot8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseNOT8</span></code></h3>
+<img alt="_images/BitwiseNOT8.svg" src="_images/BitwiseNOT8.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/NOT.py">bitwise/logic/NOT.py</a>.</p>
+<p>8-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/Inverter_(logic_gate)">NOT</a> circuit.</p>
+</div>
+<div class="section" id="id53">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit bitwise NOT circuit.</p>
+<div class="section" id="id54">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The input to the bitwise NOT operation.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The output of the bitwise NOT operation.</li>
+</ul>
+</div>
+<div class="section" id="id55">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">input_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisenot16">
+<span id="id56"></span><h2>BitwiseNOT16</h2>
+<div class="section" id="class-bw-logic-bitwisenot16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseNOT16</span></code></h3>
+<img alt="_images/BitwiseNOT16.svg" src="_images/BitwiseNOT16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/NOT.py">bitwise/logic/NOT.py</a>.</p>
+<p>16-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/Inverter_(logic_gate)">NOT</a> circuit.</p>
+</div>
+<div class="section" id="id59">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">input_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit bitwise NOT circuit.</p>
+<div class="section" id="id60">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The input to the bitwise NOT operation.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The output of the bitwise NOT operation.</li>
+</ul>
+</div>
+<div class="section" id="id61">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">input_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwiseor4">
+<span id="id62"></span><h2>BitwiseOR4</h2>
+<div class="section" id="class-bw-logic-bitwiseor4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseOR4</span></code></h3>
+<img alt="_images/BitwiseOR4.svg" src="_images/BitwiseOR4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/OR.py">bitwise/logic/OR.py</a>.</p>
+<p>4-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/OR_gate">OR</a> circuit.</p>
+</div>
+<div class="section" id="id63">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit bitwise OR circuit.</p>
+<div class="section" id="id64">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the bitwise OR operation.</li>
+</ul>
+</div>
+<div class="section" id="id65">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwiseor8">
+<span id="id66"></span><h2>BitwiseOR8</h2>
+<div class="section" id="class-bw-logic-bitwiseor8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseOR8</span></code></h3>
+<img alt="_images/BitwiseOR8.svg" src="_images/BitwiseOR8.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/OR.py">bitwise/logic/OR.py</a>.</p>
+<p>8-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/OR_gate">OR</a> circuit.</p>
+</div>
+<div class="section" id="id69">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit bitwise OR circuit.</p>
+<div class="section" id="id70">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The output of the bitwise OR operation.</li>
+</ul>
+</div>
+<div class="section" id="id71">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwiseor16">
+<span id="id72"></span><h2>BitwiseOR16</h2>
+<div class="section" id="class-bw-logic-bitwiseor16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseOR16</span></code></h3>
+<img alt="_images/BitwiseOR16.svg" src="_images/BitwiseOR16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/OR.py">bitwise/logic/OR.py</a>.</p>
+<p>16-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/OR_gate">OR</a> circuit.</p>
+</div>
+<div class="section" id="id75">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit bitwise OR circuit.</p>
+<div class="section" id="id76">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The output of the bitwise OR operation.</li>
+</ul>
+</div>
+<div class="section" id="id77">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisexnor4">
+<span id="id78"></span><h2>BitwiseXNOR4</h2>
+<div class="section" id="class-bw-logic-bitwisexnor4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseXNOR4</span></code></h3>
+<img alt="_images/BitwiseXNOR4.svg" src="_images/BitwiseXNOR4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/XNOR.py">bitwise/logic/XNOR.py</a>.</p>
+<p>4-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/XNOR_gate">XNOR</a> circuit.</p>
+</div>
+<div class="section" id="id79">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit bitwise XNOR circuit.</p>
+<div class="section" id="id80">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the bitwise XNOR operation.</li>
+</ul>
+</div>
+<div class="section" id="id81">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisexnor8">
+<span id="id82"></span><h2>BitwiseXNOR8</h2>
+<div class="section" id="class-bw-logic-bitwisexnor8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseXNOR8</span></code></h3>
+<img alt="_images/BitwiseXNOR8.svg" src="_images/BitwiseXNOR8.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/XNOR.py">bitwise/logic/XNOR.py</a>.</p>
+<p>8-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/XNOR_gate">XNOR</a> circuit.</p>
+</div>
+<div class="section" id="id85">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit bitwise XNOR circuit.</p>
+<div class="section" id="id86">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The output of the bitwise XNOR operation.</li>
+</ul>
+</div>
+<div class="section" id="id87">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisexnor16">
+<span id="id88"></span><h2>BitwiseXNOR16</h2>
+<div class="section" id="class-bw-logic-bitwisexnor16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseXNOR16</span></code></h3>
+<img alt="_images/BitwiseXNOR16.svg" src="_images/BitwiseXNOR16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/XNOR.py">bitwise/logic/XNOR.py</a>.</p>
+<p>16-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/XNOR_gate">XNOR</a> circuit.</p>
+</div>
+<div class="section" id="id91">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit bitwise XNOR circuit.</p>
+<div class="section" id="id92">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The output of the bitwise XNOR operation.</li>
+</ul>
+</div>
+<div class="section" id="id93">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisexor4">
+<span id="id94"></span><h2>BitwiseXOR4</h2>
+<div class="section" id="class-bw-logic-bitwisexor4">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseXOR4</span></code></h3>
+<img alt="_images/BitwiseXOR4.svg" src="_images/BitwiseXOR4.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/XOR.py">bitwise/logic/XOR.py</a>.</p>
+<p>4-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/XOR_gate">XOR</a> circuit.</p>
+</div>
+<div class="section" id="id95">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 4-bit bitwise XOR circuit.</p>
+<div class="section" id="id96">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The output of the bitwise XOR operation.</li>
+</ul>
+</div>
+<div class="section" id="id97">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisexor8">
+<span id="id98"></span><h2>BitwiseXOR8</h2>
+<div class="section" id="class-bw-logic-bitwisexor8">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseXOR8</span></code></h3>
+<img alt="_images/BitwiseXOR8.svg" src="_images/BitwiseXOR8.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/XOR.py">bitwise/logic/XOR.py</a>.</p>
+<p>8-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/XOR_gate">XOR</a> circuit.</p>
+</div>
+<div class="section" id="id101">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 8-bit bitwise XOR circuit.</p>
+<div class="section" id="id102">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The output of the bitwise XOR operation.</li>
+</ul>
+</div>
+<div class="section" id="id103">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 8.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="bitwisexor16">
+<span id="id104"></span><h2>BitwiseXOR16</h2>
+<div class="section" id="class-bw-logic-bitwisexor16">
+<h3>Class <code class="docutils literal"><span class="pre">bw.logic.BitwiseXOR16</span></code></h3>
+<img alt="_images/BitwiseXOR16.svg" src="_images/BitwiseXOR16.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/XOR.py">bitwise/logic/XOR.py</a>.</p>
+<p>16-bit bitwise <a class="reference external" href="https://en.wikipedia.org/wiki/XOR_gate">XOR</a> circuit.</p>
+</div>
+<div class="section" id="id107">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit bitwise XOR circuit.</p>
+<div class="section" id="id108">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The first input.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The second input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The output of the bitwise XOR operation.</li>
+</ul>
+</div>
+<div class="section" id="id109">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="section" id="comparator3">
-<span id="id1"></span><h2>Comparator3</h2>
+<span id="id110"></span><h2>Comparator3</h2>
 <div class="section" id="class-bw-logic-comparator3">
 <h3>Class <code class="docutils literal"><span class="pre">bw.logic.Comparator3</span></code></h3>
 <img alt="_images/Comparator3.svg" src="_images/Comparator3.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/COMP.py">bitwise/logic/COMP.py</a>.</p>
 <p>3-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Digital_comparator">logical comparator</a>.</p>
 </div>
-<div class="section" id="init">
+<div class="section" id="id111">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">a_bus</span><span class="p">,</span>
@@ -125,7 +833,7 @@
 </pre></div>
 </div>
 <p>Construct a new 3-bit logical comparator.</p>
-<div class="section" id="args">
+<div class="section" id="id112">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The number to be compared. <code class="docutils literal"><span class="pre">a_bus[1]</span></code> and <code class="docutils literal"><span class="pre">a_bus[3]</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">a_bus[0]</span></code> is the sign bit.</li>
@@ -135,7 +843,7 @@
 <li><code class="docutils literal"><span class="pre">less_than</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The less-than indicator.</li>
 </ul>
 </div>
-<div class="section" id="raises">
+<div class="section" id="id113">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code> or <code class="docutils literal"><span class="pre">b_bus</span></code> is not a bus of width 4.</li>
@@ -144,13 +852,13 @@
 </div>
 </div>
 <div class="section" id="comparator7">
-<span id="id2"></span><h2>Comparator7</h2>
+<span id="id114"></span><h2>Comparator7</h2>
 <div class="section" id="class-bw-logic-comparator7">
 <h3>Class <code class="docutils literal"><span class="pre">bw.logic.Comparator7</span></code></h3>
 <img alt="_images/Comparator7.svg" src="_images/Comparator7.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/COMP.py">bitwise/logic/COMP.py</a>.</p>
 <p>7-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Digital_comparator">logical comparator</a>.</p>
 </div>
-<div class="section" id="id5">
+<div class="section" id="id117">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">a_bus</span><span class="p">,</span>
@@ -162,7 +870,7 @@
 </pre></div>
 </div>
 <p>Construct a new 7-bit logical comparator.</p>
-<div class="section" id="id6">
+<div class="section" id="id118">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The number to be compared. <code class="docutils literal"><span class="pre">a_bus[1]</span></code> and <code class="docutils literal"><span class="pre">a_bus[7]</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">a_bus[0]</span></code> is the sign bit.</li>
@@ -172,7 +880,7 @@
 <li><code class="docutils literal"><span class="pre">less_than</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The less-than indicator.</li>
 </ul>
 </div>
-<div class="section" id="id7">
+<div class="section" id="id119">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code> or <code class="docutils literal"><span class="pre">b_bus</span></code> is not a bus of width 8.</li>
@@ -181,13 +889,13 @@
 </div>
 </div>
 <div class="section" id="comparator15">
-<span id="id8"></span><h2>Comparator15</h2>
+<span id="id120"></span><h2>Comparator15</h2>
 <div class="section" id="class-bw-logic-comparator15">
 <h3>Class <code class="docutils literal"><span class="pre">bw.logic.Comparator15</span></code></h3>
 <img alt="_images/Comparator15.svg" src="_images/Comparator15.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/COMP.py">bitwise/logic/COMP.py</a>.</p>
 <p>15-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Digital_comparator">logical comparator</a>.</p>
 </div>
-<div class="section" id="id11">
+<div class="section" id="id123">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">a_bus</span><span class="p">,</span>
@@ -199,7 +907,7 @@
 </pre></div>
 </div>
 <p>Construct a new 15-bit logical comparator.</p>
-<div class="section" id="id12">
+<div class="section" id="id124">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The number to be compared. <code class="docutils literal"><span class="pre">a_bus[1]</span></code> and <code class="docutils literal"><span class="pre">a_bus[15]</span></code> are the most and least significant bit, respectively. <code class="docutils literal"><span class="pre">a_bus[0]</span></code> is the sign bit.</li>
@@ -209,7 +917,7 @@
 <li><code class="docutils literal"><span class="pre">less_than</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The less-than indicator.</li>
 </ul>
 </div>
-<div class="section" id="id13">
+<div class="section" id="id125">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code> or <code class="docutils literal"><span class="pre">b_bus</span></code> is not a bus of width 16.</li>
@@ -218,13 +926,13 @@
 </div>
 </div>
 <div class="section" id="paritychecker4">
-<span id="id14"></span><h2>ParityChecker4</h2>
+<span id="id126"></span><h2>ParityChecker4</h2>
 <div class="section" id="class-bw-logic-paritychecker4">
 <h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityChecker4</span></code></h3>
 <img alt="_images/ParityChecker4.svg" src="_images/ParityChecker4.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
 <p>4-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity checker</a>.</p>
 </div>
-<div class="section" id="id15">
+<div class="section" id="id127">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_bus</span><span class="p">,</span>
@@ -234,7 +942,7 @@
 </pre></div>
 </div>
 <p>Construct a new 4-bit even parity checker.</p>
-<div class="section" id="id16">
+<div class="section" id="id128">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The input to the parity checker.</li>
@@ -242,7 +950,7 @@
 <li><code class="docutils literal"><span class="pre">error</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The error indicator.</li>
 </ul>
 </div>
-<div class="section" id="id17">
+<div class="section" id="id129">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 4.</li>
@@ -251,13 +959,13 @@
 </div>
 </div>
 <div class="section" id="paritychecker8">
-<span id="id18"></span><h2>ParityChecker8</h2>
+<span id="id130"></span><h2>ParityChecker8</h2>
 <div class="section" id="class-bw-logic-paritychecker8">
 <h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityChecker8</span></code></h3>
 <img alt="_images/ParityChecker8.svg" src="_images/ParityChecker8.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
 <p>8-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity checker</a>.</p>
 </div>
-<div class="section" id="id21">
+<div class="section" id="id133">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_bus</span><span class="p">,</span>
@@ -267,7 +975,7 @@
 </pre></div>
 </div>
 <p>Construct a new 8-bit even parity checker.</p>
-<div class="section" id="id22">
+<div class="section" id="id134">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The input to the parity checker.</li>
@@ -275,7 +983,7 @@
 <li><code class="docutils literal"><span class="pre">error</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The error indicator.</li>
 </ul>
 </div>
-<div class="section" id="id23">
+<div class="section" id="id135">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 8.</li>
@@ -284,13 +992,13 @@
 </div>
 </div>
 <div class="section" id="paritychecker16">
-<span id="id24"></span><h2>ParityChecker16</h2>
+<span id="id136"></span><h2>ParityChecker16</h2>
 <div class="section" id="class-bw-logic-paritychecker16">
 <h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityChecker16</span></code></h3>
 <img alt="_images/ParityChecker16.svg" src="_images/ParityChecker16.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
 <p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity checker</a>.</p>
 </div>
-<div class="section" id="id27">
+<div class="section" id="id139">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_bus</span><span class="p">,</span>
@@ -300,7 +1008,7 @@
 </pre></div>
 </div>
 <p>Construct a new 16-bit even parity checker.</p>
-<div class="section" id="id28">
+<div class="section" id="id140">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The input to the parity checker.</li>
@@ -308,7 +1016,7 @@
 <li><code class="docutils literal"><span class="pre">error</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The error indicator.</li>
 </ul>
 </div>
-<div class="section" id="id29">
+<div class="section" id="id141">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 16.</li>
@@ -317,13 +1025,13 @@
 </div>
 </div>
 <div class="section" id="paritygenerator4">
-<span id="id30"></span><h2>ParityGenerator4</h2>
+<span id="id142"></span><h2>ParityGenerator4</h2>
 <div class="section" id="class-bw-logic-paritygenerator4">
 <h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityGenerator4</span></code></h3>
 <img alt="_images/ParityGenerator4.svg" src="_images/ParityGenerator4.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
 <p>4-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity generator</a>.</p>
 </div>
-<div class="section" id="id32">
+<div class="section" id="id144">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_bus</span><span class="p">,</span>
@@ -332,14 +1040,14 @@
 </pre></div>
 </div>
 <p>Construct a new 4-bit even parity generator.</p>
-<div class="section" id="id33">
+<div class="section" id="id145">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The input to the parity generator.</li>
 <li><code class="docutils literal"><span class="pre">parity_bit</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The parity bit.</li>
 </ul>
 </div>
-<div class="section" id="id34">
+<div class="section" id="id146">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 4.</li>
@@ -348,13 +1056,13 @@
 </div>
 </div>
 <div class="section" id="paritygenerator8">
-<span id="id35"></span><h2>ParityGenerator8</h2>
+<span id="id147"></span><h2>ParityGenerator8</h2>
 <div class="section" id="class-bw-logic-paritygenerator8">
 <h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityGenerator8</span></code></h3>
 <img alt="_images/ParityGenerator8.svg" src="_images/ParityGenerator8.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
 <p>8-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity generator</a>.</p>
 </div>
-<div class="section" id="id38">
+<div class="section" id="id150">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_bus</span><span class="p">,</span>
@@ -363,14 +1071,14 @@
 </pre></div>
 </div>
 <p>Construct a new 8-bit even parity generator.</p>
-<div class="section" id="id39">
+<div class="section" id="id151">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The input to the parity generator.</li>
 <li><code class="docutils literal"><span class="pre">parity_bit</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The parity bit.</li>
 </ul>
 </div>
-<div class="section" id="id40">
+<div class="section" id="id152">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 8.</li>
@@ -379,13 +1087,13 @@
 </div>
 </div>
 <div class="section" id="paritygenerator16">
-<span id="id41"></span><h2>ParityGenerator16</h2>
+<span id="id153"></span><h2>ParityGenerator16</h2>
 <div class="section" id="class-bw-logic-paritygenerator16">
 <h3>Class <code class="docutils literal"><span class="pre">bw.logic.ParityGenerator16</span></code></h3>
 <img alt="_images/ParityGenerator16.svg" src="_images/ParityGenerator16.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/logic/PAR.py">bitwise/logic/PAR.py</a>.</p>
 <p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Parity_bit">even parity generator</a>.</p>
 </div>
-<div class="section" id="id44">
+<div class="section" id="id156">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">input_bus</span><span class="p">,</span>
@@ -394,14 +1102,14 @@
 </pre></div>
 </div>
 <p>Construct a new 16-bit even parity generator.</p>
-<div class="section" id="id45">
+<div class="section" id="id157">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">input_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The input to the parity generator.</li>
 <li><code class="docutils literal"><span class="pre">parity_bit</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The parity bit.</li>
 </ul>
 </div>
-<div class="section" id="id46">
+<div class="section" id="id158">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">input_bus</span></code> is not a bus of width 16.</li>
