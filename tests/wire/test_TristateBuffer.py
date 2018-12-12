@@ -7,7 +7,7 @@ class TestTristateBuffer:
         switch = bw.wire.Wire()
         output = bw.wire.Wire()
 
-        bw.wire.TristateBuffer(input_1, switch, output)
+        bw.wire.TristateBuffer(switch, input_1, output)
 
         switch.value = 0
         input_1.value = 0

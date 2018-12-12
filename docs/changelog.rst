@@ -22,6 +22,7 @@ Added
 Changed
 -------
 * Added enable inputs to registers in ``storage.REG``
+* Changed ordering of parameters to ``TristateBuffer``
 
 
 v0.2 - 2018-11-08

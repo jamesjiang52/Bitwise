@@ -72,3 +72,18 @@ class TestBus8:
         assert bus_1.wire_values == (0, 0, 0, 0, 0, 0, 0, 0)
 
         assert len(bus_1) == 8
+
+        bus_2 = bw.wire.Bus8()
+        assert bus_2.wire_values == (0, 0, 0, 0, 0, 0, 0, 0)
+
+        bus_2[0].value = 1
+        bus_2[2].value = 1
+        bus_2[4].value = 1
+        bus_2[6].value = 1
+        assert bus_2.wire_values == (1, 0, 1, 0, 1, 0, 1, 0)
+
+        bus_1.wire_values = (0, 1, 1, 0, 0, 1, 1, 0)
+        assert bus_1.wire_values == (0, 1, 1, 0, 0, 1, 1, 0)
+
+        bus_2.wire_values = (1, 0, 0, 1, 1, 0, 0, 1)
+        assert bus_2.wire_values == (1, 0, 0, 1, 1, 0, 0, 1)
