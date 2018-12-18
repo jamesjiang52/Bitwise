@@ -5,6 +5,114 @@ Wire
 ====
 
 
+.. _BufferBus4:
+
+BufferBus4
+==========
+
+Class ``bw.wire.BufferBus4``
+----------------------------
+
+Defined in `bitwise/wire/TRI_BUS.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/TRI_BUS.py>`_.
+
+4-bit `buffered <https://en.wikipedia.org/wiki/Three-state_logic>`_ bus.
+
+__init__
+--------
+
+::
+
+    __init__(
+        enable,
+        input_bus,
+        output_bus
+    )
+
+Initialize a new tri-state buffer with buses of width 4 as input and output.
+
+Args:
+~~~~~
+* ``enable``: An object of type ``Wire``.
+* ``input_bus``: An object of type ``Bus4``.
+* ``output_bus``: An object of type ``Bus4``. Takes on the value of ``input_bus`` if ``enable`` has value 1. Otherwise, value is independent of ``input_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 4.
+
+
+.. _BufferBus8:
+
+BufferBus8
+==========
+
+Class ``bw.wire.BufferBus8``
+----------------------------
+
+Defined in `bitwise/wire/TRI_BUS.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/TRI_BUS.py>`_.
+
+8-bit `buffered <https://en.wikipedia.org/wiki/Three-state_logic>`_ bus.
+
+__init__
+--------
+
+::
+
+    __init__(
+        enable,
+        input_bus,
+        output_bus
+    )
+
+Initialize a new tri-state buffer with buses of width 8 as input and output.
+
+Args:
+~~~~~
+* ``enable``: An object of type ``Wire``.
+* ``input_bus``: An object of type ``Bus8``.
+* ``output_bus``: An object of type ``Bus8``. Takes on the value of ``input_bus`` if ``enable`` has value 1. Otherwise, value is independent of ``input_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 8.
+
+
+.. _BufferBus16:
+
+BufferBus16
+===========
+
+Class ``bw.wire.BufferBus16``
+-----------------------------
+
+Defined in `bitwise/wire/TRI_BUS.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/TRI_BUS.py>`_.
+
+16-bit `buffered <https://en.wikipedia.org/wiki/Three-state_logic>`_ bus.
+
+__init__
+--------
+
+::
+
+    __init__(
+        enable,
+        input_bus,
+        output_bus
+    )
+
+Initialize a new tri-state buffer with buses of width 16 as input and output.
+
+Args:
+~~~~~
+* ``enable``: An object of type ``Wire``.
+* ``input_bus``: An object of type ``Bus16``.
+* ``output_bus``: An object of type ``Bus16``. Takes on the value of ``input_bus`` if ``enable`` has value 1. Otherwise, value is independent of ``input_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 16.
+
+
 .. _Bus4:
 
 Bus4
@@ -33,7 +141,7 @@ Initialize a new 4-bit bus.
 
 Args:
 ~~~~~
-* ``wire_1``, ``wire_2``, ... , ``wire_4``: Objects of type ``Wire``.
+* ``wire_1``, ``wire_2``, ... , ``wire_4`` (optional): Objects of type ``Wire``. If not given, new wires will be created, which can then only be accessed by indexing the bus.
 
 Accessors:
 ----------
@@ -73,7 +181,7 @@ Initialize a new 8-bit bus.
 
 Args:
 ~~~~~
-* ``wire_1``, ``wire_2``, ... , ``wire_8``: Objects of type ``Wire``.
+* ``wire_1``, ``wire_2``, ... , ``wire_8`` (optional): Objects of type ``Wire``. If not given, new wires will be created, which can then only be accessed by indexing the bus.
 
 Accessors:
 ----------
@@ -121,7 +229,7 @@ Initialize a new 16-bit bus.
 
 Args:
 ~~~~~
-* ``wire_1``, ``wire_2``, ... , ``wire_16``: Objects of type ``Wire``.
+* ``wire_1``, ``wire_2``, ... , ``wire_16`` (optional): Objects of type ``Wire``. If not given, new wires will be created, which can then only be accessed by indexing the bus.
 
 Accessors:
 ----------
@@ -160,7 +268,7 @@ Initialize a new seven-segment display bus.
 
 Args:
 ~~~~~
-* ``wire_1``, ``wire_2``, ... , ``wire_7``: Objects of type ``Wire``.
+* ``wire_1``, ``wire_2``, ... , ``wire_7`` (optional): Objects of type ``Wire``. If not given, new wires will be created, which can then only be accessed by indexing the bus.
 
 Accessors:
 ----------

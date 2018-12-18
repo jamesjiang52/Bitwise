@@ -130,6 +130,9 @@ API Documentation
 
 :doc:`wire`
 ===========
+* :ref:`BufferBus4`
+* :ref:`BufferBus8`
+* :ref:`BufferBus16`
 * :ref:`Bus4`
 * :ref:`Bus8`
 * :ref:`Bus16`

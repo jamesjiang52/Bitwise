@@ -15,7 +15,9 @@ class Bus4:
     """Initialize a new 4-bit bus.
 
     Args:
-        wire_1, wire_2, ... , wire_4: Objects of type Wire.
+        wire_1, wire_2, ... , wire_4 (optional): Objects of type Wire. If not
+            given, new wires will be created, which can then only be accessed
+            by indexing the bus.
 
     Accessors:
         bus.wires: A tuple of the wires in the bus.
@@ -67,7 +69,9 @@ class Bus8:
     """Initialize a new 8-bit bus.
 
     Args:
-        wire_1, wire_2, ... , wire_8: Objects of type Wire.
+        wire_1, wire_2, ... , wire_8 (optional): Objects of type Wire. If not
+            given, new wires will be created, which can then only be accessed
+            by indexing the bus.
 
     Accessors:
         bus.wires: A tuple of the wires in the bus.
@@ -136,7 +140,9 @@ class Bus16:
     """Initialize a new 16-bit bus.
 
     Args:
-        wire_1, wire_2, ... , wire_16: Objects of type Wire.
+        wire_1, wire_2, ... , wire_16 (optional): Objects of type Wire. If not
+            given, new wires will be created, which can then only be accessed
+            by indexing the bus.
 
     Accessors:
         bus.wires: A tuple of the wires in the bus.
@@ -237,13 +243,13 @@ class BusSevenSegmentDisplay:
     """
     def __init__(
         self,
-        wire_1,
-        wire_2,
-        wire_3,
-        wire_4,
-        wire_5,
-        wire_6,
-        wire_7
+        wire_1=Wire(),
+        wire_2=Wire(),
+        wire_3=Wire(),
+        wire_4=Wire(),
+        wire_5=Wire(),
+        wire_6=Wire(),
+        wire_7=Wire()
      ):
         self._wires = (
             wire_1,
@@ -262,6 +268,21 @@ class BusSevenSegmentDisplay:
     @property
     def wire_values(self):
         return tuple([wire.value for wire in self._wires])
+
+    @wire_values.setter
+    def wire_values(self, values):
+        if len(values) != 7:
+            raise TypeError(
+                "Expected 7 arguments, received {0}.".format(len(values))
+            )
+        self.wires[0].value = values[0]
+        self.wires[1].value = values[1]
+        self.wires[2].value = values[2]
+        self.wires[3].value = values[3]
+        self.wires[4].value = values[4]
+        self.wires[5].value = values[5]
+        self.wires[6].value = values[6]
+        self.wires[7].value = values[7]
 
     def __getitem__(self, key):
         if isinstance(key, slice):

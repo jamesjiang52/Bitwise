@@ -15,7 +15,17 @@ Tri = TRI.TristateBuffer
 
 
 class BufferBus4:
-    """
+    """Initialize a new tri-state buffer with buses of width 4 as input and
+    output.
+
+    Args:
+        enable: An object of type Wire.
+        input_bus: An object of type Bus4.
+        output_bus: An object of type Bus4. Takes on the value of input_bus if
+            enable has value 1. Otherwise, value is independent of input_bus.
+
+    Raises:
+        TypeError: If either input_bus or output_bus is not a bus of width 4.
     """
     def __init__(self, enable, input_bus, output_bus):
         if len(input_bus) != 4:
@@ -39,7 +49,17 @@ class BufferBus4:
 
 
 class BufferBus8:
-    """
+    """Initialize a new tri-state buffer with buses of width 8 as input and
+    output.
+
+    Args:
+        enable: An object of type Wire.
+        input_bus: An object of type Bus8.
+        output_bus: An object of type Bus8. Takes on the value of input_bus if
+            enable has value 1. Otherwise, value is independent of input_bus.
+
+    Raises:
+        TypeError: If either input_bus or output_bus is not a bus of width 8.
     """
     def __init__(self, enable, input_bus, output_bus):
         if len(input_bus) != 8:
@@ -67,7 +87,17 @@ class BufferBus8:
 
 
 class BufferBus16:
-    """
+    """Initialize a new tri-state buffer with buses of width 16 as input and
+    output.
+
+    Args:
+        enable: An object of type Wire.
+        input_bus: An object of type Bus16.
+        output_bus: An object of type Bus16. Takes on the value of input_bus if
+            enable has value 1. Otherwise, value is independent of input_bus.
+
+    Raises:
+        TypeError: If either input_bus or output_bus is not a bus of width 16.
     """
     def __init__(self, enable, input_bus, output_bus):
         if len(input_bus) != 16:
