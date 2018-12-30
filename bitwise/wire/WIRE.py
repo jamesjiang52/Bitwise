@@ -13,8 +13,8 @@ class Wire:
     Raises:
         ValueError: If value assigned to wire is not 0 or 1.
     """
-    def __init__(self):
-        self._value = 0
+    def __init__(self, value=0):
+        self._value = value
         self.connections = []
 
     @property
