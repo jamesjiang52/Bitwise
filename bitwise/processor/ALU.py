@@ -165,27 +165,6 @@ class _Multiplexer2To1_8:
         input_2_bus,
         output_bus
     ):
-        if len(input_1_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_1_bus)
-                )
-            )
-
-        if len(input_2_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_2_bus)
-                )
-            )
-
-        if len(output_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(output_bus)
-                )
-            )
-
         vcc = Wire()
         vcc.value = 1
 
@@ -267,69 +246,6 @@ class _Multiplexer8To1_8:
         input_8_bus,
         output_bus
     ):
-        if len(input_1_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_1_bus)
-                )
-            )
-
-        if len(input_2_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_2_bus)
-                )
-            )
-
-        if len(input_3_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_3_bus)
-                )
-            )
-
-        if len(input_4_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_4_bus)
-                )
-            )
-
-        if len(input_5_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_5_bus)
-                )
-            )
-
-        if len(input_6_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_6_bus)
-                )
-            )
-
-        if len(input_7_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_7_bus)
-                )
-            )
-
-        if len(input_8_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_8_bus)
-                )
-            )
-
-        if len(output_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(output_bus)
-                )
-            )
-
         vcc = Wire()
         vcc.value = 1
 
