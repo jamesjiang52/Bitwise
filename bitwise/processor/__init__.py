@@ -1,2 +1,3 @@
-from ALU import *
-from PROC import *
+from .ALU import *
+from .BUS import *
+from .PROC import *

@@ -128,9 +128,19 @@ class ArithmeticLogicUnit:
             true_bus
         )
 
+        _Multiplexer2To1_8(
+            function_select_bus[3],
+            not_bus,
+            true_bus,
+            output_bus
+        )
+
+        logic.BitwiseNOT8(true_bus, not_bus)
+
         logic.BitwiseAND8(a_bus, b_bus, a_and_b_bus)
         logic.BitwiseOR8(a_bus, b_bus, a_or_b_bus)
         logic.BitwiseXOR8(a_bus, b_bus, a_xor_b_bus)
+
         arithmetic.AdderSubtractor8(
             function_select_bus[1],
             a_bus,
@@ -140,16 +150,6 @@ class ArithmeticLogicUnit:
             a_plus_b_bus
         )
         arithmetic.Multiplier8(a_bus, b_bus, a_times_b_bus_16)
-
-        logic.BitwiseNOT8(true_bus, not_bus)
-
-        _Multiplexer2To1_8(
-            function_select_bus[3],
-            not_bus,
-            true_bus,
-            output_bus
-        )
-
         logic.Comparator7(a_bus, b_bus, greater_than, equal_to, less_than)
 
 
@@ -260,7 +260,7 @@ class _Multiplexer8To1_8:
             input_8_bus[0]
         )
 
-        bus_2 = Bus16(
+        bus_2 = Bus8(
             input_1_bus[1],
             input_2_bus[1],
             input_3_bus[1],
@@ -271,7 +271,7 @@ class _Multiplexer8To1_8:
             input_8_bus[1]
         )
 
-        bus_3 = Bus16(
+        bus_3 = Bus8(
             input_1_bus[2],
             input_2_bus[2],
             input_3_bus[2],
@@ -282,7 +282,7 @@ class _Multiplexer8To1_8:
             input_8_bus[2]
         )
 
-        bus_4 = Bus16(
+        bus_4 = Bus8(
             input_1_bus[3],
             input_2_bus[3],
             input_3_bus[3],
@@ -293,7 +293,7 @@ class _Multiplexer8To1_8:
             input_8_bus[3]
         )
 
-        bus_5 = Bus16(
+        bus_5 = Bus8(
             input_1_bus[4],
             input_2_bus[4],
             input_3_bus[4],
@@ -304,7 +304,7 @@ class _Multiplexer8To1_8:
             input_8_bus[4]
         )
 
-        bus_6 = Bus16(
+        bus_6 = Bus8(
             input_1_bus[5],
             input_2_bus[5],
             input_3_bus[5],
@@ -315,7 +315,7 @@ class _Multiplexer8To1_8:
             input_8_bus[5]
         )
 
-        bus_7 = Bus16(
+        bus_7 = Bus8(
             input_1_bus[6],
             input_2_bus[6],
             input_3_bus[6],
@@ -326,7 +326,7 @@ class _Multiplexer8To1_8:
             input_8_bus[6]
         )
 
-        bus_8 = Bus16(
+        bus_8 = Bus8(
             input_1_bus[7],
             input_2_bus[7],
             input_3_bus[7],

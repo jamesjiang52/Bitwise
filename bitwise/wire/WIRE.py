@@ -41,3 +41,6 @@ class Wire:
     def _bind_to(self, callback):
         if callback not in self.connections:
             self.connections.append(callback)
+
+    def __str__(self):
+        return str(self._value)

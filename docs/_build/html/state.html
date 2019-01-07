@@ -366,7 +366,7 @@
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the ring counter.</li>
-<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> to (0, 0, 0, 1) (the 0 state) if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> to (0, 0, 0, 1) (the 0 state) asynchronously if its value is 0.</li>
 <li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
 <li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The one-hot output of the ring counter. Starts at (0, 0, 0, 1) and counts up to (1, 0, 0, 0).</li>
 </ul>
@@ -401,7 +401,7 @@
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the ring counter.</li>
-<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> to (0, 0, 0, 0, 0, 0, 0, 1) (the 0 state) if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> to (0, 0, 0, 0, 0, 0, 0, 1) (the 0 state) asynchronously if its value is 0.</li>
 <li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
 <li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. The one-hot output of the ring counter. Starts at (0, 0, 0, 0, 0, 0, 0, 1) and counts up to (1, 0, 0, 0, 0, 0, 0, 0).</li>
 </ul>
@@ -436,7 +436,7 @@
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the ring counter.</li>
-<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> to (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1) (the 0 state) if its value is 0.</li>
+<li><code class="docutils literal"><span class="pre">clear_n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Clears <code class="docutils literal"><span class="pre">output_bus</span></code> to (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1) (the 0 state) asynchronously if its value is 0.</li>
 <li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
 <li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The one-hot output of the ring counter. Starts at (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1) and counts up to (1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0).</li>
 </ul>

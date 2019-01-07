@@ -22,17 +22,38 @@ class Bus10:
     """
     def __init__(
         self,
-        wire_1=Wire(),
-        wire_2=Wire(),
-        wire_3=Wire(),
-        wire_4=Wire(),
-        wire_5=Wire(),
-        wire_6=Wire(),
-        wire_7=Wire(),
-        wire_8=Wire(),
-        wire_9=Wire(),
-        wire_10=Wire()
+        wire_1=None,
+        wire_2=None,
+        wire_3=None,
+        wire_4=None,
+        wire_5=None,
+        wire_6=None,
+        wire_7=None,
+        wire_8=None,
+        wire_9=None,
+        wire_10=None
      ):
+        if not wire_1:
+            wire_1 = Wire()
+        if not wire_2:
+            wire_2 = Wire()
+        if not wire_3:
+            wire_3 = Wire()
+        if not wire_4:
+            wire_4 = Wire()
+        if not wire_5:
+            wire_5 = Wire()
+        if not wire_6:
+            wire_6 = Wire()
+        if not wire_7:
+            wire_7 = Wire()
+        if not wire_8:
+            wire_8 = Wire()
+        if not wire_9:
+            wire_9 = Wire()
+        if not wire_10:
+            wire_10 = Wire()
+
         self._wires = (
             wire_1,
             wire_2,
@@ -60,16 +81,16 @@ class Bus10:
             raise TypeError(
                 "Expected 10 arguments, received {0}.".format(len(values))
             )
-        self.wires[0].value = values[0]
-        self.wires[1].value = values[1]
-        self.wires[2].value = values[2]
-        self.wires[3].value = values[3]
-        self.wires[4].value = values[4]
-        self.wires[5].value = values[5]
-        self.wires[6].value = values[6]
-        self.wires[7].value = values[7]
-        self.wires[8].value = values[8]
-        self.wires[9].value = values[9]
+        self._wires[0].value = values[0]
+        self._wires[1].value = values[1]
+        self._wires[2].value = values[2]
+        self._wires[3].value = values[3]
+        self._wires[4].value = values[4]
+        self._wires[5].value = values[5]
+        self._wires[6].value = values[6]
+        self._wires[7].value = values[7]
+        self._wires[8].value = values[8]
+        self._wires[9].value = values[9]
 
     def __getitem__(self, key):
         if isinstance(key, slice):
@@ -83,3 +104,6 @@ class Bus10:
 
     def __len__(self):
         return len(self._wires)
+
+    def __str__(self):
+        return str(self.wire_values)

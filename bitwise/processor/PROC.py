@@ -13,10 +13,11 @@ from . import ALU
 from . import BUS
 
 Wire = wire.Wire
+Clock = wire.Clock
 Bus4 = wire.Bus4
 Bus8 = wire.Bus8
-Bus10 = wire.Bus10
-Bus16 = BUS.Bus16
+Bus10 = BUS.Bus10
+Bus16 = wire.Bus16
 Buffer8 = wire.BufferBus8
 
 
@@ -86,7 +87,7 @@ class Processor:
                 )
             )
 
-        clock = Wire()
+        clock = Clock()
         extern = Wire()
         reg_0_in = Wire()
         reg_0_out = Wire()
@@ -103,7 +104,7 @@ class Processor:
         p = Wire()
         q = Wire()
 
-        _ProcessorDatapath(
+        self.datapath = _ProcessorDatapath(
             clock,
             data,
             extern,
@@ -143,6 +144,11 @@ class Processor:
             p,
             q
         )
+
+        clock.start()
+
+    def get_registers(self):
+        return self.datapath.get_registers()
 
 
 class _ProcessorDatapath:
@@ -220,6 +226,19 @@ class _ProcessorDatapath:
             alu_less_than
         )
 
+        self.reg_0_out_bus = reg_0_out_bus
+        self.reg_1_out_bus = reg_1_out_bus
+        self.reg_2_out_bus = reg_2_out_bus
+        self.reg_3_out_bus = reg_3_out_bus
+
+    def get_registers(self):
+        return (
+            self.reg_0_out_bus,
+            self.reg_1_out_bus,
+            self.reg_2_out_bus,
+            self.reg_3_out_bus
+        )
+
 
 class _ProcessorControlpath:
     """
@@ -276,7 +295,7 @@ class _ProcessorControlpath:
         I_ = Bus16(I_reversed[::-1])
         op = Bus4(*instruction_reg[0:4])
         T_reversed = Bus4()
-        T = Bus4(T_reversed[::-1])
+        T = Bus4(*T_reversed[::-1])
         A = Bus4()
         B = Bus4()
         C = Bus4()
