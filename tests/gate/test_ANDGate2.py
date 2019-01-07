@@ -1,6 +1,5 @@
 import bitwise as bw
 
-
 class TestANDGate2:
     def test_ANDGate2(self):
         input_1 = bw.wire.Wire()

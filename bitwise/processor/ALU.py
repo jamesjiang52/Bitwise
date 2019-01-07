@@ -103,137 +103,15 @@ class ArithmeticLogicUnit:
                 )
             )
 
-        a_and_b_1 = Wire()
-        a_and_b_2 = Wire()
-        a_and_b_3 = Wire()
-        a_and_b_4 = Wire()
-        a_and_b_5 = Wire()
-        a_and_b_6 = Wire()
-        a_and_b_7 = Wire()
-        a_and_b_8 = Wire()
-        a_and_b_bus = Bus8(
-            a_and_b_1,
-            a_and_b_2,
-            a_and_b_3,
-            a_and_b_4,
-            a_and_b_5,
-            a_and_b_6,
-            a_and_b_7,
-            a_and_b_8
-        )
+        a_and_b_bus = Bus8()
+        a_or_b_bus = Bus8()
+        a_xor_b_bus = Bus8()
+        a_plus_b_bus = Bus8()
+        a_times_b_bus_16 = Bus16()
+        a_times_b_bus = Bus8(*a_times_b_bus_16[8:16])
 
-        a_or_b_1 = Wire()
-        a_or_b_2 = Wire()
-        a_or_b_3 = Wire()
-        a_or_b_4 = Wire()
-        a_or_b_5 = Wire()
-        a_or_b_6 = Wire()
-        a_or_b_7 = Wire()
-        a_or_b_8 = Wire()
-        a_or_b_bus = Bus8(
-            a_or_b_1,
-            a_or_b_2,
-            a_or_b_3,
-            a_or_b_4,
-            a_or_b_5,
-            a_or_b_6,
-            a_or_b_7,
-            a_or_b_8
-        )
-
-        a_xor_b_1 = Wire()
-        a_xor_b_2 = Wire()
-        a_xor_b_3 = Wire()
-        a_xor_b_4 = Wire()
-        a_xor_b_5 = Wire()
-        a_xor_b_6 = Wire()
-        a_xor_b_7 = Wire()
-        a_xor_b_8 = Wire()
-        a_xor_b_bus = Bus8(
-            a_xor_b_1,
-            a_xor_b_2,
-            a_xor_b_3,
-            a_xor_b_4,
-            a_xor_b_5,
-            a_xor_b_6,
-            a_xor_b_7,
-            a_xor_b_8
-        )
-
-        a_plus_b_1 = Wire()
-        a_plus_b_2 = Wire()
-        a_plus_b_3 = Wire()
-        a_plus_b_4 = Wire()
-        a_plus_b_5 = Wire()
-        a_plus_b_6 = Wire()
-        a_plus_b_7 = Wire()
-        a_plus_b_8 = Wire()
-        a_plus_b_bus = Bus8(
-            a_plus_b_1,
-            a_plus_b_2,
-            a_plus_b_3,
-            a_plus_b_4,
-            a_plus_b_5,
-            a_plus_b_6,
-            a_plus_b_7,
-            a_plus_b_8
-        )
-
-        a_times_b_1 = Wire()
-        a_times_b_2 = Wire()
-        a_times_b_3 = Wire()
-        a_times_b_4 = Wire()
-        a_times_b_5 = Wire()
-        a_times_b_6 = Wire()
-        a_times_b_7 = Wire()
-        a_times_b_8 = Wire()
-        a_times_b_9 = Wire()
-        a_times_b_10 = Wire()
-        a_times_b_11 = Wire()
-        a_times_b_12 = Wire()
-        a_times_b_13 = Wire()
-        a_times_b_14 = Wire()
-        a_times_b_15 = Wire()
-        a_times_b_16 = Wire()
-        a_times_b_bus_16 = Bus16(
-            a_times_b_1,
-            a_times_b_2,
-            a_times_b_3,
-            a_times_b_4,
-            a_times_b_5,
-            a_times_b_6,
-            a_times_b_7,
-            a_times_b_8,
-            a_times_b_9,
-            a_times_b_10,
-            a_times_b_11,
-            a_times_b_12,
-            a_times_b_13,
-            a_times_b_14,
-            a_times_b_15,
-            a_times_b_16
-        )
-        a_times_b_bus = Bus8(a_times_b_bus_16[8:16])
-
-        tr_1 = Wire()
-        tr_2 = Wire()
-        tr_3 = Wire()
-        tr_4 = Wire()
-        tr_5 = Wire()
-        tr_6 = Wire()
-        tr_7 = Wire()
-        tr_8 = Wire()
-        tr_bus = Bus8(tr_1, tr_2, tr_3, tr_4, tr_5, tr_6, tr_7, tr_8)
-
-        not_1 = Wire()
-        not_2 = Wire()
-        not_3 = Wire()
-        not_4 = Wire()
-        not_5 = Wire()
-        not_6 = Wire()
-        not_7 = Wire()
-        not_8 = Wire()
-        not_bus = Bus8(not_1, not_2, not_3, not_4, not_5, not_6, not_7, not_8)
+        true_bus = Bus8()
+        not_bus = Bus8()
 
         _Multiplexer8To1_8(
             function_select_bus[0],
@@ -247,12 +125,22 @@ class ArithmeticLogicUnit:
             a_and_b_bus,
             b_bus,
             a_bus,
-            tr_bus
+            true_bus
         )
+
+        _Multiplexer2To1_8(
+            function_select_bus[3],
+            not_bus,
+            true_bus,
+            output_bus
+        )
+
+        logic.BitwiseNOT8(true_bus, not_bus)
 
         logic.BitwiseAND8(a_bus, b_bus, a_and_b_bus)
         logic.BitwiseOR8(a_bus, b_bus, a_or_b_bus)
         logic.BitwiseXOR8(a_bus, b_bus, a_xor_b_bus)
+
         arithmetic.AdderSubtractor8(
             function_select_bus[1],
             a_bus,
@@ -262,16 +150,6 @@ class ArithmeticLogicUnit:
             a_plus_b_bus
         )
         arithmetic.Multiplier8(a_bus, b_bus, a_times_b_bus_16)
-
-        logic.BitwiseNOT8(tr_bus, not_bus)
-
-        _Multiplexer2To1_8(
-            function_select_bus[3],
-            not_bus,
-            tr_bus,
-            output_bus
-        )
-
         logic.Comparator7(a_bus, b_bus, greater_than, equal_to, less_than)
 
 
@@ -287,27 +165,6 @@ class _Multiplexer2To1_8:
         input_2_bus,
         output_bus
     ):
-        if len(input_1_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_1_bus)
-                )
-            )
-
-        if len(input_2_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_2_bus)
-                )
-            )
-
-        if len(output_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(output_bus)
-                )
-            )
-
         vcc = Wire()
         vcc.value = 1
 
@@ -389,69 +246,6 @@ class _Multiplexer8To1_8:
         input_8_bus,
         output_bus
     ):
-        if len(input_1_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_1_bus)
-                )
-            )
-
-        if len(input_2_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_2_bus)
-                )
-            )
-
-        if len(input_3_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_3_bus)
-                )
-            )
-
-        if len(input_4_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_4_bus)
-                )
-            )
-
-        if len(input_5_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_5_bus)
-                )
-            )
-
-        if len(input_6_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_6_bus)
-                )
-            )
-
-        if len(input_7_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_7_bus)
-                )
-            )
-
-        if len(input_8_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_8_bus)
-                )
-            )
-
-        if len(output_bus) != 8:
-            raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
-                    len(output_bus)
-                )
-            )
-
         vcc = Wire()
         vcc.value = 1
 
@@ -466,7 +260,7 @@ class _Multiplexer8To1_8:
             input_8_bus[0]
         )
 
-        bus_2 = Bus16(
+        bus_2 = Bus8(
             input_1_bus[1],
             input_2_bus[1],
             input_3_bus[1],
@@ -477,7 +271,7 @@ class _Multiplexer8To1_8:
             input_8_bus[1]
         )
 
-        bus_3 = Bus16(
+        bus_3 = Bus8(
             input_1_bus[2],
             input_2_bus[2],
             input_3_bus[2],
@@ -488,7 +282,7 @@ class _Multiplexer8To1_8:
             input_8_bus[2]
         )
 
-        bus_4 = Bus16(
+        bus_4 = Bus8(
             input_1_bus[3],
             input_2_bus[3],
             input_3_bus[3],
@@ -499,7 +293,7 @@ class _Multiplexer8To1_8:
             input_8_bus[3]
         )
 
-        bus_5 = Bus16(
+        bus_5 = Bus8(
             input_1_bus[4],
             input_2_bus[4],
             input_3_bus[4],
@@ -510,7 +304,7 @@ class _Multiplexer8To1_8:
             input_8_bus[4]
         )
 
-        bus_6 = Bus16(
+        bus_6 = Bus8(
             input_1_bus[5],
             input_2_bus[5],
             input_3_bus[5],
@@ -521,7 +315,7 @@ class _Multiplexer8To1_8:
             input_8_bus[5]
         )
 
-        bus_7 = Bus16(
+        bus_7 = Bus8(
             input_1_bus[6],
             input_2_bus[6],
             input_3_bus[6],
@@ -532,7 +326,7 @@ class _Multiplexer8To1_8:
             input_8_bus[6]
         )
 
-        bus_8 = Bus16(
+        bus_8 = Bus8(
             input_1_bus[7],
             input_2_bus[7],
             input_3_bus[7],

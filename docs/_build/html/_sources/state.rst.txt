@@ -305,7 +305,7 @@ Construct a new 4-bit ring counter.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the ring counter.
-* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` to (0, 0, 0, 1) (the 0 state) if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` to (0, 0, 0, 1) (the 0 state) asynchronously if its value is 0.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
 * ``output_bus``: An object of type ``Bus4``. The one-hot output of the ring counter. Starts at (0, 0, 0, 1) and counts up to (1, 0, 0, 0).
 
@@ -346,7 +346,7 @@ Construct a new 8-bit ring counter.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the ring counter.
-* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` to (0, 0, 0, 0, 0, 0, 0, 1) (the 0 state) if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` to (0, 0, 0, 0, 0, 0, 0, 1) (the 0 state) asynchronously if its value is 0.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
 * ``output_bus``: An object of type ``Bus8``. The one-hot output of the ring counter. Starts at (0, 0, 0, 0, 0, 0, 0, 1) and counts up to (1, 0, 0, 0, 0, 0, 0, 0).
 
@@ -387,7 +387,7 @@ Construct a new 16-bit ring counter.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the ring counter.
-* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` to (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1) (the 0 state) if its value is 0.
+* ``clear_n``: An object of type ``Wire``. Clears ``output_bus`` to (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1) (the 0 state) asynchronously if its value is 0.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
 * ``output_bus``: An object of type ``Bus16``. The one-hot output of the ring counter. Starts at (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1) and counts up to (1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0).
 

@@ -8,32 +8,32 @@ class TristateBuffer:
     """Initialize a new tri-state buffer.
 
     Args:
-        input_1: An object of type Wire.
-        switch: An object of type Wire.
-        output: An object of type Wire. Takes on the value of input_1 if switch
-            has value 1. Otherwise, value is independent of input_1.
+        enable: An object of type Wire.
+        input_: An object of type Wire.
+        output: An object of type Wire. Takes on the value of input_ if enable
+            has value 1. Otherwise, value is independent of input_.
     """
-    def __init__(self, input_1, switch, output):
-        self.input_1 = input_1
-        self.switch = switch
+    def __init__(self, enable, input_, output):
+        self.input_ = input_
+        self.enable = enable
         self.output = output
 
-        self.input_1._bind_to(self._update_input_1)
-        self.switch._bind_to(self._update_switch)
+        self.input_._bind_to(self._update_input)
+        self.enable._bind_to(self._update_enable)
 
-        if switch.value == 1:
-            self.output.value = self.input_1.value
+        if enable.value == 1:
+            self.output.value = self.input_.value
         else:
             pass
 
-    def _update_input_1(self, value):
-        if self.switch.value == 1:
+    def _update_input(self, value):
+        if self.enable.value == 1:
             self.output.value = value
         else:
             pass
 
-    def _update_switch(self, value):
+    def _update_enable(self, value):
         if value == 1:
-            self.output.value = self.input_1.value
+            self.output.value = self.input_.value
         else:
             pass
