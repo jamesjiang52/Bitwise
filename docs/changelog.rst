@@ -21,6 +21,16 @@ Added
 
 Changed
 -------
+* Fixed enable inputs in the following modules to no longer act as a positive clock edge
+    * ``ParallelToSerialConverter4To1``
+    * ``ParallelToSerialConverter8To1``
+    * ``ParallelToSerialConverter16To1``
+    * ``ShiftRegister4``
+    * ``ShiftRegister8``
+    * ``ShiftRegister16``
+    * ``SerialToParallelConverter1To4``
+    * ``SerialToParallelConverter1To8``
+    * ``SerialToParallelConverter1To16``
 * Added enable inputs to registers in ``storage.REG``
 * Changed ordering of parameters to ``TristateBuffer``
 
@@ -60,7 +70,7 @@ Added
     * ``SerialToParallelConverter1To8``
     * ``SerialToParallelConverter1To16``
     
-* Buffer class to gate subpackage
+* ``Buffer`` class to gate subpackage
 
 Changed
 -------

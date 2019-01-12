@@ -78,43 +78,22 @@ class ShiftRegister4:
         q_2_not = Wire()
         q_3_not = Wire()
         q_4_not = Wire()
-        and_out = Wire()
 
-        gate.ANDGate2(clock, enable, and_out)
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            data_s,
-            data_bus[0],
-            mux_1_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[0],
-            data_bus[1],
-            mux_2_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[1],
-            data_bus[2],
-            mux_3_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[2],
-            data_bus[3],
-            mux_4_out
-        )
+        mux_1 = Bus4(data_s, data_bus[0], output_bus[0], output_bus[0])
+        mux_2 = Bus4(output_bus[0], data_bus[1], output_bus[1], output_bus[1])
+        mux_3 = Bus4(output_bus[1], data_bus[2], output_bus[2], output_bus[2])
+        mux_4 = Bus4(output_bus[2], data_bus[3], output_bus[3], output_bus[3])
+
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_1, mux_1_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_2, mux_2_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_3, mux_3_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_4, mux_4_out)
 
         storage.DFlipFlopPresetClear(
             mux_4_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[3],
             q_4_not
         )
@@ -122,7 +101,7 @@ class ShiftRegister4:
             mux_3_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[2],
             q_3_not
         )
@@ -130,7 +109,7 @@ class ShiftRegister4:
             mux_2_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[1],
             q_2_not
         )
@@ -138,7 +117,7 @@ class ShiftRegister4:
             mux_1_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[0],
             q_1_not
         )
@@ -215,70 +194,30 @@ class ShiftRegister8:
         q_6_not = Wire()
         q_7_not = Wire()
         q_8_not = Wire()
-        and_out = Wire()
 
-        gate.ANDGate2(enable, clock, and_out)
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            data_s,
-            data_bus[0],
-            mux_1_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[0],
-            data_bus[1],
-            mux_2_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[1],
-            data_bus[2],
-            mux_3_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[2],
-            data_bus[3],
-            mux_4_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[3],
-            data_bus[4],
-            mux_5_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[4],
-            data_bus[5],
-            mux_6_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[5],
-            data_bus[6],
-            mux_7_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[6],
-            data_bus[7],
-            mux_8_out
-        )
+        mux_1 = Bus4(data_s, data_bus[0], output_bus[0], output_bus[0])
+        mux_2 = Bus4(output_bus[0], data_bus[1], output_bus[1], output_bus[1])
+        mux_3 = Bus4(output_bus[1], data_bus[2], output_bus[2], output_bus[2])
+        mux_4 = Bus4(output_bus[2], data_bus[3], output_bus[3], output_bus[3])
+        mux_5 = Bus4(output_bus[3], data_bus[4], output_bus[4], output_bus[4])
+        mux_6 = Bus4(output_bus[4], data_bus[5], output_bus[5], output_bus[5])
+        mux_7 = Bus4(output_bus[5], data_bus[6], output_bus[6], output_bus[6])
+        mux_8 = Bus4(output_bus[6], data_bus[7], output_bus[7], output_bus[7])
+
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_1, mux_1_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_2, mux_2_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_3, mux_3_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_4, mux_4_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_5, mux_5_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_6, mux_6_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_7, mux_7_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_8, mux_8_out)
+
         storage.DFlipFlopPresetClear(
             mux_8_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[7],
             q_8_not
         )
@@ -286,7 +225,7 @@ class ShiftRegister8:
             mux_7_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[6],
             q_7_not
         )
@@ -294,7 +233,7 @@ class ShiftRegister8:
             mux_6_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[5],
             q_6_not
         )
@@ -302,7 +241,7 @@ class ShiftRegister8:
             mux_5_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[4],
             q_5_not
         )
@@ -310,7 +249,7 @@ class ShiftRegister8:
             mux_4_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[3],
             q_4_not
         )
@@ -318,7 +257,7 @@ class ShiftRegister8:
             mux_3_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[2],
             q_3_not
         )
@@ -326,7 +265,7 @@ class ShiftRegister8:
             mux_2_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[1],
             q_2_not
         )
@@ -334,7 +273,7 @@ class ShiftRegister8:
             mux_1_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[0],
             q_1_not
         )
@@ -427,126 +366,48 @@ class ShiftRegister16:
         q_14_not = Wire()
         q_15_not = Wire()
         q_16_not = Wire()
-        and_out = Wire()
 
-        gate.ANDGate2(enable, clock, and_out)
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            data_s,
-            data_bus[0],
-            mux_1_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[0],
-            data_bus[1],
-            mux_2_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[1],
-            data_bus[2],
-            mux_3_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[2],
-            data_bus[3],
-            mux_4_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[3],
-            data_bus[4],
-            mux_5_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[4],
-            data_bus[5],
-            mux_6_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[5],
-            data_bus[6],
-            mux_7_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[6],
-            data_bus[7],
-            mux_8_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[7],
-            data_bus[8],
-            mux_9_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[8],
-            data_bus[9],
-            mux_10_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[9],
-            data_bus[10],
-            mux_11_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[10],
-            data_bus[11],
-            mux_12_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[11],
-            data_bus[12],
-            mux_13_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[12],
-            data_bus[13],
-            mux_14_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[13],
-            data_bus[14],
-            mux_15_out
-        )
-        signal.Multiplexer2To1(
-            vcc,
-            shift_load,
-            output_bus[14],
-            data_bus[15],
-            mux_16_out
-        )
+        o_bus = output_bus
+
+        mux_1 = Bus4(data_s, data_bus[0], o_bus[0], o_bus[0])
+        mux_2 = Bus4(o_bus[0], data_bus[1], o_bus[1], o_bus[1])
+        mux_3 = Bus4(o_bus[1], data_bus[2], o_bus[2], o_bus[2])
+        mux_4 = Bus4(o_bus[2], data_bus[3], o_bus[3], o_bus[3])
+        mux_5 = Bus4(o_bus[3], data_bus[4], o_bus[4], o_bus[4])
+        mux_6 = Bus4(o_bus[4], data_bus[5], o_bus[5], o_bus[5])
+        mux_7 = Bus4(o_bus[5], data_bus[6], o_bus[6], o_bus[6])
+        mux_8 = Bus4(o_bus[6], data_bus[7], o_bus[7], o_bus[7])
+        mux_9 = Bus4(o_bus[7], data_bus[8], o_bus[8], o_bus[8])
+        mux_10 = Bus4(o_bus[8], data_bus[9], o_bus[9], o_bus[9])
+        mux_11 = Bus4(o_bus[9], data_bus[10], o_bus[10], o_bus[10])
+        mux_12 = Bus4(o_bus[10], data_bus[11], o_bus[11], o_bus[11])
+        mux_13 = Bus4(o_bus[11], data_bus[12], o_bus[12], o_bus[12])
+        mux_14 = Bus4(o_bus[12], data_bus[13], o_bus[13], o_bus[13])
+        mux_15 = Bus4(o_bus[13], data_bus[14], o_bus[14], o_bus[14])
+        mux_16 = Bus4(o_bus[14], data_bus[15], o_bus[15], o_bus[15])
+
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_1, mux_1_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_2, mux_2_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_3, mux_3_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_4, mux_4_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_5, mux_5_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_6, mux_6_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_7, mux_7_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_8, mux_8_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_9, mux_9_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_10, mux_10_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_11, mux_11_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_12, mux_12_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_13, mux_13_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_14, mux_14_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_15, mux_15_out)
+        signal.Multiplexer4To1(vcc, enable, shift_load, mux_16, mux_16_out)
+
         storage.DFlipFlopPresetClear(
             mux_16_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[15],
             q_16_not
         )
@@ -554,7 +415,7 @@ class ShiftRegister16:
             mux_15_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[14],
             q_15_not
         )
@@ -562,7 +423,7 @@ class ShiftRegister16:
             mux_14_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[13],
             q_14_not
         )
@@ -570,7 +431,7 @@ class ShiftRegister16:
             mux_13_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[12],
             q_13_not
         )
@@ -578,7 +439,7 @@ class ShiftRegister16:
             mux_12_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[11],
             q_12_not
         )
@@ -586,7 +447,7 @@ class ShiftRegister16:
             mux_11_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[10],
             q_11_not
         )
@@ -594,7 +455,7 @@ class ShiftRegister16:
             mux_10_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[9],
             q_10_not
         )
@@ -602,7 +463,7 @@ class ShiftRegister16:
             mux_9_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[8],
             q_9_not
         )
@@ -610,7 +471,7 @@ class ShiftRegister16:
             mux_8_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[7],
             q_8_not
         )
@@ -618,7 +479,7 @@ class ShiftRegister16:
             mux_7_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[6],
             q_7_not
         )
@@ -626,7 +487,7 @@ class ShiftRegister16:
             mux_6_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[5],
             q_6_not
         )
@@ -634,7 +495,7 @@ class ShiftRegister16:
             mux_5_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[4],
             q_5_not
         )
@@ -642,7 +503,7 @@ class ShiftRegister16:
             mux_4_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[3],
             q_4_not
         )
@@ -650,7 +511,7 @@ class ShiftRegister16:
             mux_3_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[2],
             q_3_not
         )
@@ -658,7 +519,7 @@ class ShiftRegister16:
             mux_2_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[1],
             q_2_not
         )
@@ -666,7 +527,7 @@ class ShiftRegister16:
             mux_1_out,
             vcc,
             reset_n,
-            and_out,
+            clock,
             output_bus[0],
             q_1_not
         )

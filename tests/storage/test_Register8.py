@@ -13,14 +13,6 @@ class TestRegister8:
         input_8 = bw.wire.Wire()
         enable = bw.wire.Wire()
         clock = bw.wire.Wire()
-        output_1 = bw.wire.Wire()
-        output_2 = bw.wire.Wire()
-        output_3 = bw.wire.Wire()
-        output_4 = bw.wire.Wire()
-        output_5 = bw.wire.Wire()
-        output_6 = bw.wire.Wire()
-        output_7 = bw.wire.Wire()
-        output_8 = bw.wire.Wire()
         input_bus = bw.wire.Bus8(
             input_1,
             input_2,
@@ -31,16 +23,7 @@ class TestRegister8:
             input_7,
             input_8
         )
-        output_bus = bw.wire.Bus8(
-            output_1,
-            output_2,
-            output_3,
-            output_4,
-            output_5,
-            output_6,
-            output_7,
-            output_8
-        )
+        output_bus = bw.wire.Bus8()
 
         bw.storage.Register8(input_bus, enable, clock, output_bus)
 

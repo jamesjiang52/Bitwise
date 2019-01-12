@@ -14,6 +14,10 @@ class Wire:
         ValueError: If value assigned to wire is not 0 or 1.
     """
     def __init__(self, value=0):
+        if ((value != 0) and (value != 1)):
+            raise ValueError(
+                "Wire value must be 0 or 1, received \"{0}\".".format(value))
+
         self._value = value
         self.connections = []
 

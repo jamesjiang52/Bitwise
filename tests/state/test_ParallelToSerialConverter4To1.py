@@ -46,6 +46,10 @@ class TestParallelToSerialConverter4To1:
         assert output.value == 1
 
         enable.value = 1
+        assert output.value == 1
+
+        clock.value = 0
+        clock.value = 1
         assert output.value == 0
 
         clock.value = 0
