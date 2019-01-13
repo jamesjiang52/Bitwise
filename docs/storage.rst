@@ -273,7 +273,7 @@ Construct a new 4-bit storage register.
 Args:
 ~~~~~
 * ``data_bus``: An object of type ``Bus4``. The data input to the register.
-* ``enable``: An object of type ``Wire``. The enable input.
+* ``enable``: An object of type ``Wire``. Enables the register.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the register.
 * ``output_bus``: An object of type ``Bus4``. The output of the register. Takes on the value of ``data_bus`` on the positive edges of ``clock`` if the value of ``enable`` is 1.
 
@@ -314,7 +314,7 @@ Construct a new 8-bit storage register.
 Args:
 ~~~~~
 * ``data_bus``: An object of type ``Bus8``. The data input to the register.
-* ``enable``: An object of type ``Wire``. The enable input.
+* ``enable``: An object of type ``Wire``. Enables the register.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the register.
 * ``output_bus``: An object of type ``Bus8``. The output of the register. Takes on the value of ``data_bus`` on the positive edges of ``clock`` if the value of ``enable`` is 1.
 
@@ -355,7 +355,7 @@ Construct a new 16-bit storage register.
 Args:
 ~~~~~
 * ``data_bus``: An object of type ``Bus16``. The data input to the register.
-* ``enable``: An object of type ``Wire``. The enable input.
+* ``enable``: An object of type ``Wire``. Enables the register.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the register.
 * ``output_bus``: An object of type ``Bus16``. The output of the register. Takes on the value of ``data_bus`` on the positive edges of ``clock`` if the value of ``enable`` is 1.
 

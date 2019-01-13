@@ -95,6 +95,10 @@ class TestSerialToParallelConverter1To4:
         assert output_bus.wire_values == (1, 1, 1, 1)
 
         enable.value = 1
+        assert output_bus.wire_values == (1, 1, 1, 1)
+
+        clock.value = 0
+        clock.value = 1
         assert output_bus.wire_values == (0, 1, 1, 1)
 
         clock.value = 0

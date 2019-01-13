@@ -73,8 +73,8 @@ class TestRingCounter8:
         clock.value = 1
         assert output_bus.wire_values == (0, 0, 0, 0, 0, 0, 1, 0)
 
-        clock.value = 0
         enable.value = 1
+        clock.value = 0
         clock.value = 1
         assert output_bus.wire_values == (0, 0, 0, 0, 0, 1, 0, 0)
 

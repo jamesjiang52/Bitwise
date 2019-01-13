@@ -72,7 +72,7 @@ class Processor:
         Both 0000000000 and 0000011101 do nothing.
         1111111111 does nothing.
     """
-    def __init__(self, instruction, instruction_available, data):
+    def __init__(self, clock, instruction, instruction_available, data):
         if len(instruction) != 10:
             raise TypeError(
                 "Expected bus of width 10, received bus of width {0}.".format(
@@ -87,7 +87,6 @@ class Processor:
                 )
             )
 
-        clock = Clock()
         extern = Wire()
         reg_0_in = Wire()
         reg_0_out = Wire()
@@ -124,7 +123,7 @@ class Processor:
             q
         )
 
-        _ProcessorControlpath(
+        self.controlpath = _ProcessorControlpath(
             clock,
             instruction,
             instruction_available,
@@ -145,10 +144,16 @@ class Processor:
             q
         )
 
-        clock.start()
-
     def get_registers(self):
         return self.datapath.get_registers()
+
+    def get_important_wires(self):
+        return self.controlpath.get_important_wires()
+
+    def __str__(self):
+        return str(
+            tuple([register.wire_values for register in self.get_registers()])
+        )
 
 
 class _ProcessorDatapath:
@@ -267,6 +272,7 @@ class _ProcessorControlpath:
     ):
         aclear = Wire()
         clear = Wire()
+        clear_n = Wire()
         done = Wire()
         func_reg_in = Wire()
         not_w = Wire()
@@ -292,7 +298,7 @@ class _ProcessorControlpath:
 
         instruction_reg = Bus10()
         I_reversed = Bus16()
-        I_ = Bus16(I_reversed[::-1])
+        I_ = Bus16(*I_reversed[::-1])
         op = Bus4(*instruction_reg[0:4])
         T_reversed = Bus4()
         T = Bus4(*T_reversed[::-1])
@@ -329,6 +335,7 @@ class _ProcessorControlpath:
         gate.Buffer(and_T1_I7, alu_function_select[3])
 
         gate.NOTGate(instruction_available, not_w)
+        gate.NOTGate(clear, clear_n)
 
         gate.ORGate3(
             and_T1__or_I1_I11_I12,
@@ -400,7 +407,15 @@ class _ProcessorControlpath:
         signal.Decoder1Of4(vcc, instruction_reg[6], instruction_reg[7], B)
         signal.Decoder1Of4(vcc, instruction_reg[8], instruction_reg[9], C)
 
-        state.RingCounter4(vcc, clear, clock, T_reversed)
+        state.RingCounter4(vcc, clear_n, clock, T_reversed)
+
+        self.T = T
+        self.instruction_reg = instruction_reg
+        self.reg_x_out = reg_x_out
+        self.clear_n = clear_n
+
+    def get_important_wires(self):
+        return self.T.wire_values, self.instruction_reg.wire_values, self.reg_x_out.wire_values, self.clear_n.value
 
 
 class _Multiplexer2To1_8:

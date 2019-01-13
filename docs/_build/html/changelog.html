@@ -129,6 +129,22 @@
 <div class="section" id="changed">
 <h3>Changed</h3>
 <ul class="simple">
+<li><dl class="first docutils">
+<dt>Fixed enable inputs in the following modules to no longer act as a positive clock edge</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">ParallelToSerialConverter4To1</span></code></li>
+<li><code class="docutils literal"><span class="pre">ParallelToSerialConverter8To1</span></code></li>
+<li><code class="docutils literal"><span class="pre">ParallelToSerialConverter16To1</span></code></li>
+<li><code class="docutils literal"><span class="pre">ShiftRegister4</span></code></li>
+<li><code class="docutils literal"><span class="pre">ShiftRegister8</span></code></li>
+<li><code class="docutils literal"><span class="pre">ShiftRegister16</span></code></li>
+<li><code class="docutils literal"><span class="pre">SerialToParallelConverter1To4</span></code></li>
+<li><code class="docutils literal"><span class="pre">SerialToParallelConverter1To8</span></code></li>
+<li><code class="docutils literal"><span class="pre">SerialToParallelConverter1To16</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li>Added enable inputs to registers in <code class="docutils literal"><span class="pre">storage.REG</span></code></li>
 <li>Changed ordering of parameters to <code class="docutils literal"><span class="pre">TristateBuffer</span></code></li>
 </ul>
@@ -194,7 +210,7 @@
 </dd>
 </dl>
 </li>
-<li>Buffer class to gate subpackage</li>
+<li><code class="docutils literal"><span class="pre">Buffer</span></code> class to gate subpackage</li>
 </ul>
 </div>
 <div class="section" id="id2">

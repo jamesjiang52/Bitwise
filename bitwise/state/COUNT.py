@@ -3,6 +3,9 @@ The following classes are defined:
     UpCounterMod4
     UpCounterMod8
     UpCounterMod16
+    DownCounterMod4
+    DownCounterMod8
+    DownCounterMod16
 """
 
 from .. import wire

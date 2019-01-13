@@ -6,10 +6,13 @@ The following classes are defined:
 """
 
 from .. import wire
-from .. import gate
+from .. import signal
 from . import FLOP
 
 Wire = wire.Wire
+Bus4 = wire.Bus4
+Bus8 = wire.Bus8
+Bus16 = wire.Bus16
 
 
 class Register4:
@@ -17,7 +20,7 @@ class Register4:
 
     Args:
         data_bus: An object of type Bus4. The data input to the register.
-        enable: An object of type Wire. The enable input.
+        enable: An object of type Wire. Enables the register.
         clock: An object of type Wire or Clock. The clock input to the
             register.
         output_bus: An object of type Bus4. The output of the register. Takes
@@ -46,14 +49,15 @@ class Register4:
         not_2 = Wire()
         not_3 = Wire()
         not_4 = Wire()
-        and_1 = Wire()
 
-        gate.ANDGate2(clock, enable, and_1)
+        mux_bus = Bus4()
 
-        FLOP.DFlipFlop(input_bus[0], and_1, output_bus[0], not_1)
-        FLOP.DFlipFlop(input_bus[1], and_1, output_bus[1], not_2)
-        FLOP.DFlipFlop(input_bus[2], and_1, output_bus[2], not_3)
-        FLOP.DFlipFlop(input_bus[3], and_1, output_bus[3], not_4)
+        _Multiplexer2To1_4(enable, input_bus, output_bus, mux_bus)
+
+        FLOP.DFlipFlop(mux_bus[0], clock, output_bus[0], not_1)
+        FLOP.DFlipFlop(mux_bus[1], clock, output_bus[1], not_2)
+        FLOP.DFlipFlop(mux_bus[2], clock, output_bus[2], not_3)
+        FLOP.DFlipFlop(mux_bus[3], clock, output_bus[3], not_4)
 
 
 class Register8:
@@ -61,7 +65,7 @@ class Register8:
 
     Args:
         data_bus: An object of type Bus8. The data input to the register.
-        enable: An object of type Wire. The enable input.
+        enable: An object of type Wire. Enables the register.
         clock: An object of type Wire or Clock. The clock input to the
             register.
         output_bus: An object of type Bus8. The output of the register. Takes
@@ -94,18 +98,19 @@ class Register8:
         not_6 = Wire()
         not_7 = Wire()
         not_8 = Wire()
-        and_1 = Wire()
 
-        gate.ANDGate2(clock, enable, and_1)
+        mux_bus = Bus8()
 
-        FLOP.DFlipFlop(input_bus[0], and_1, output_bus[0], not_1)
-        FLOP.DFlipFlop(input_bus[1], and_1, output_bus[1], not_2)
-        FLOP.DFlipFlop(input_bus[2], and_1, output_bus[2], not_3)
-        FLOP.DFlipFlop(input_bus[3], and_1, output_bus[3], not_4)
-        FLOP.DFlipFlop(input_bus[4], and_1, output_bus[4], not_5)
-        FLOP.DFlipFlop(input_bus[5], and_1, output_bus[5], not_6)
-        FLOP.DFlipFlop(input_bus[6], and_1, output_bus[6], not_7)
-        FLOP.DFlipFlop(input_bus[7], and_1, output_bus[7], not_8)
+        _Multiplexer2To1_8(enable, input_bus, output_bus, mux_bus)
+
+        FLOP.DFlipFlop(mux_bus[0], clock, output_bus[0], not_1)
+        FLOP.DFlipFlop(mux_bus[1], clock, output_bus[1], not_2)
+        FLOP.DFlipFlop(mux_bus[2], clock, output_bus[2], not_3)
+        FLOP.DFlipFlop(mux_bus[3], clock, output_bus[3], not_4)
+        FLOP.DFlipFlop(mux_bus[4], clock, output_bus[4], not_5)
+        FLOP.DFlipFlop(mux_bus[5], clock, output_bus[5], not_6)
+        FLOP.DFlipFlop(mux_bus[6], clock, output_bus[6], not_7)
+        FLOP.DFlipFlop(mux_bus[7], clock, output_bus[7], not_8)
 
 
 class Register16:
@@ -113,7 +118,7 @@ class Register16:
 
     Args:
         data_bus: An object of type Bus16. The data input to the register.
-        enable: An object of type Wire. The enable input.
+        enable: An object of type Wire. Enables the register.
         clock: An object of type Wire or Clock. The clock input to the
             register.
         output_bus: An object of type Bus16. The output of the register. Takes
@@ -154,23 +159,272 @@ class Register16:
         not_14 = Wire()
         not_15 = Wire()
         not_16 = Wire()
-        and_1 = Wire()
 
-        gate.ANDGate2(clock, enable, and_1)
+        mux_bus = Bus16()
 
-        FLOP.DFlipFlop(input_bus[0], and_1, output_bus[0], not_1)
-        FLOP.DFlipFlop(input_bus[1], and_1, output_bus[1], not_2)
-        FLOP.DFlipFlop(input_bus[2], and_1, output_bus[2], not_3)
-        FLOP.DFlipFlop(input_bus[3], and_1, output_bus[3], not_4)
-        FLOP.DFlipFlop(input_bus[4], and_1, output_bus[4], not_5)
-        FLOP.DFlipFlop(input_bus[5], and_1, output_bus[5], not_6)
-        FLOP.DFlipFlop(input_bus[6], and_1, output_bus[6], not_7)
-        FLOP.DFlipFlop(input_bus[7], and_1, output_bus[7], not_8)
-        FLOP.DFlipFlop(input_bus[8], and_1, output_bus[8], not_9)
-        FLOP.DFlipFlop(input_bus[9], and_1, output_bus[9], not_10)
-        FLOP.DFlipFlop(input_bus[10], and_1, output_bus[10], not_11)
-        FLOP.DFlipFlop(input_bus[11], and_1, output_bus[11], not_12)
-        FLOP.DFlipFlop(input_bus[12], and_1, output_bus[12], not_13)
-        FLOP.DFlipFlop(input_bus[13], and_1, output_bus[13], not_14)
-        FLOP.DFlipFlop(input_bus[14], and_1, output_bus[14], not_15)
-        FLOP.DFlipFlop(input_bus[15], and_1, output_bus[15], not_16)
+        _Multiplexer2To1_16(enable, input_bus, output_bus, mux_bus)
+
+        FLOP.DFlipFlop(mux_bus[0], clock, output_bus[0], not_1)
+        FLOP.DFlipFlop(mux_bus[1], clock, output_bus[1], not_2)
+        FLOP.DFlipFlop(mux_bus[2], clock, output_bus[2], not_3)
+        FLOP.DFlipFlop(mux_bus[3], clock, output_bus[3], not_4)
+        FLOP.DFlipFlop(mux_bus[4], clock, output_bus[4], not_5)
+        FLOP.DFlipFlop(mux_bus[5], clock, output_bus[5], not_6)
+        FLOP.DFlipFlop(mux_bus[6], clock, output_bus[6], not_7)
+        FLOP.DFlipFlop(mux_bus[7], clock, output_bus[7], not_8)
+        FLOP.DFlipFlop(mux_bus[8], clock, output_bus[8], not_9)
+        FLOP.DFlipFlop(mux_bus[9], clock, output_bus[9], not_10)
+        FLOP.DFlipFlop(mux_bus[10], clock, output_bus[10], not_11)
+        FLOP.DFlipFlop(mux_bus[11], clock, output_bus[11], not_12)
+        FLOP.DFlipFlop(mux_bus[12], clock, output_bus[12], not_13)
+        FLOP.DFlipFlop(mux_bus[13], clock, output_bus[13], not_14)
+        FLOP.DFlipFlop(mux_bus[14], clock, output_bus[14], not_15)
+        FLOP.DFlipFlop(mux_bus[15], clock, output_bus[15], not_16)
+
+
+class _Multiplexer2To1_4:
+    """
+    This is an internal module for Register4. It multiplexes two 4-bit inputs
+    to a single 4-bit output.
+    """
+    def __init__(
+        self,
+        select,
+        input_1_bus,
+        input_2_bus,
+        output_bus
+    ):
+        vcc = Wire()
+        vcc.value = 1
+
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[0],
+            input_2_bus[0],
+            output_bus[0]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[1],
+            input_2_bus[1],
+            output_bus[1]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[2],
+            input_2_bus[2],
+            output_bus[2]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[3],
+            input_2_bus[3],
+            output_bus[3]
+        )
+
+
+class _Multiplexer2To1_8:
+    """
+    This is an internal module for Register8. It multiplexes two 8-bit inputs
+    to a single 8-bit output.
+    """
+    def __init__(
+        self,
+        select,
+        input_1_bus,
+        input_2_bus,
+        output_bus
+    ):
+        vcc = Wire()
+        vcc.value = 1
+
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[0],
+            input_2_bus[0],
+            output_bus[0]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[1],
+            input_2_bus[1],
+            output_bus[1]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[2],
+            input_2_bus[2],
+            output_bus[2]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[3],
+            input_2_bus[3],
+            output_bus[3]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[4],
+            input_2_bus[4],
+            output_bus[4]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[5],
+            input_2_bus[5],
+            output_bus[5]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[6],
+            input_2_bus[6],
+            output_bus[6]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[7],
+            input_2_bus[7],
+            output_bus[7]
+        )
+
+
+class _Multiplexer2To1_16:
+    """
+    This is an internal module for Register16. It multiplexes two 16-bit inputs
+    to a single 16-bit output.
+    """
+    def __init__(
+        self,
+        select,
+        input_1_bus,
+        input_2_bus,
+        output_bus
+    ):
+        vcc = Wire()
+        vcc.value = 1
+
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[0],
+            input_2_bus[0],
+            output_bus[0]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[1],
+            input_2_bus[1],
+            output_bus[1]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[2],
+            input_2_bus[2],
+            output_bus[2]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[3],
+            input_2_bus[3],
+            output_bus[3]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[4],
+            input_2_bus[4],
+            output_bus[4]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[5],
+            input_2_bus[5],
+            output_bus[5]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[6],
+            input_2_bus[6],
+            output_bus[6]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[7],
+            input_2_bus[7],
+            output_bus[7]
+        )
+
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[8],
+            input_2_bus[8],
+            output_bus[8]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[9],
+            input_2_bus[9],
+            output_bus[9]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[10],
+            input_2_bus[10],
+            output_bus[10]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[11],
+            input_2_bus[11],
+            output_bus[11]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[12],
+            input_2_bus[12],
+            output_bus[12]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[13],
+            input_2_bus[13],
+            output_bus[13]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[14],
+            input_2_bus[14],
+            output_bus[14]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[15],
+            input_2_bus[15],
+            output_bus[15]
+        )

@@ -129,6 +129,11 @@ class TestShiftRegister8:
         assert output_serial.value == 0
 
         enable.value = 1
+        assert output_bus.wire_values == (0, 0, 1, 0, 0, 1, 1, 0)
+        assert output_serial.value == 0
+
+        clock.value = 0
+        clock.value = 1
         assert output_bus.wire_values == (0, 0, 0, 1, 0, 0, 1, 1)
         assert output_serial.value == 1
 
