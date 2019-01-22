@@ -18,6 +18,7 @@ class TestProcessor:
         instruction_available.value = 1
 
         # set all registers to 0
+        """
         data.wire_values = (0, 0, 0, 0, 0, 0, 0, 0)
         instruction.wire_values = (1, 0, 1, 1, 0, 0, 0, 0, 0, 0)
         clock.value = 0
@@ -34,32 +35,39 @@ class TestProcessor:
         instruction.wire_values = (1, 0, 1, 1, 1, 1, 0, 0, 0, 0)
         clock.value = 0
         clock.value = 1
+        """
 
         print(processor_)
 
         # set register 2 to 1
         instruction.wire_values = (1, 0, 1, 0, 0, 0, 0, 0, 1, 0)
+        clock.value = 0
         print(processor_.get_important_wires())
-        clock.value = 0
         clock.value = 1
+        clock.value = 0
         print(processor_.get_important_wires())
-        clock.value = 0
         clock.value = 1
+        clock.value = 0
         print(processor_.get_important_wires())
-        clock.value = 0
         clock.value = 1
+        clock.value = 0
         print(processor_.get_important_wires())
-        clock.value = 0
         clock.value = 1
+        clock.value = 0
         print(processor_.get_important_wires())
-        clock.value = 0
         clock.value = 1
         clock.value = 0
+        print(processor_.get_important_wires())
         clock.value = 1
         clock.value = 0
+        print(processor_.get_important_wires())
         clock.value = 1
 
         print(processor_)
+
+        assert 1 == 0
+
+        """
 
         instruction.wire_values = (0, 0, 1, 0, 0, 1, 1, 0, 0, 1)
         instruction.wire_values = (0, 0, 1, 0, 0, 0, 0, 1, 0, 0)
@@ -88,3 +96,4 @@ class TestProcessor:
         assert registers[1].wire_values == (0, 0, 0, 0, 1, 0, 1, 0)
         assert registers[2].wire_values == (0, 0, 0, 0, 0, 0, 0, 1)
         assert registers[3].wire_values == (0, 0, 0, 0, 0, 0, 0, 0)
+        """

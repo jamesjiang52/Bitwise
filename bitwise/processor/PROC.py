@@ -332,18 +332,15 @@ class _ProcessorControlpath:
         and_T1_A__or_I1_to_I12_4 = Bus4()
         and_T2_B__or_I2_to_I10_4 = Bus4()
 
-        gate.Buffer(and_T1_I7, alu_function_select[3])
+        _Register10(instruction, func_reg_in, clock, instruction_reg)
+
+        signal.Decoder1Of16(vcc, op, I_reversed)
+        signal.Decoder1Of4(vcc, instruction_reg[4], instruction_reg[5], A)
+        signal.Decoder1Of4(vcc, instruction_reg[6], instruction_reg[7], B)
+        signal.Decoder1Of4(vcc, instruction_reg[8], instruction_reg[9], C)
 
         gate.NOTGate(instruction_available, not_w)
-        gate.NOTGate(clear, clear_n)
 
-        gate.ORGate3(
-            and_T1__or_I1_I11_I12,
-            and_T2_I7,
-            and_T3__or_I2_to_I10,
-            done
-        )
-        gate.ORGate2(and_T0__not_w, done, aclear)
         gate.ORGate2(I_[9], I_[10], or_I9_I10)
         gate.ORGate2(I_[11], I_[12], or_I11_I12)
         gate.ORGate3(I_[1], I_[11], I_[12], or_I1_I11_I12)
@@ -352,33 +349,21 @@ class _ProcessorControlpath:
         gate.ORGate3(I_[2], I_[4], I_[6], or_I2_I4_I6)
         gate.ORGate4(I_[2], I_[3], I_[4], I_[5], or_I2_I3_I4_I5)
         gate.ORGate4(I_[6], I_[8], I_[9], I_[10], or_I6_I8_I9_I10)
-        gate.ORGate2(or_I2_I3_I4_I5, or_I6_I8_I9_I10, or_I2_to_I10)
         gate.ORGate3(I_[1], I_[7], I_[12], or_I1_I7_I12)
+        gate.ORGate2(or_I2_I3_I4_I5, or_I6_I8_I9_I10, or_I2_to_I10)
         gate.ORGate3(
             or_I2_I3_I4_I5,
             or_I6_I8_I9_I10,
             or_I1_I7_I12,
             or_I1_to_I12
         )
-        gate.ORGate2(and_T2__or_I2_I4_I6, and_T1_I7, alu_function_select[2])
-        gate.ORGate2(and_T2__or_I2_to_I10, and_T1_I7, reg_alu_in)
-        gate.ORGate2(and_T3__or_I2_to_I10, and_T2_I7, reg_alu_out)
 
-        gate.ANDGate2(clock, aclear, clear)
-        gate.ANDGate2(instruction_available, T[0], func_reg_in)
-        gate.ANDGate2(not_w, T[0], and_T0__not_w)
+        gate.ANDGate2(T[1], I_[7], and_T1_I7)
+        gate.ANDGate2(T[2], I_[7], and_T2_I7)
         gate.ANDGate2(T[2], or_I2_I4_I6, and_T2__or_I2_I4_I6)
         gate.ANDGate2(T[2], or_I2_to_I10, and_T2__or_I2_to_I10)
         gate.ANDGate2(T[3], or_I2_to_I10, and_T3__or_I2_to_I10)
         gate.ANDGate2(T[1], or_I1_I11_I12, and_T1__or_I1_I11_I12)
-        gate.ANDGate2(T[1], I_[7], and_T1_I7)
-        gate.ANDGate2(T[2], I_[7], and_T2_I7)
-        gate.ANDGate2(T[2], or_I9_I10, p)
-        gate.ANDGate2(T[2], I_[10], q)
-        gate.ANDGate2(T[1], or_I11_I12, extern)
-        gate.ANDGate2(T[2], or_I2_I3_I4_I8, alu_function_select[0])
-        gate.ANDGate2(T[2], or_I3_I4_I5_I6, alu_function_select[1])
-        gate.ANDGate2(T[1], or_I2_to_I10, reg_temp_in)
 
         _BitwiseAND4_3(T1_4, A, I11_4, and_T1_A_I11_4)
         _BitwiseAND4_3(T1_4, B, I1_4, and_T1_B_I1_4)
@@ -386,6 +371,35 @@ class _ProcessorControlpath:
         _BitwiseAND4_3(T3_4, C, or_I2_to_I10_4, and_T3_C__or_I2_to_I10_4)
         _BitwiseAND4_3(T1_4, A, or_I1_to_I12_4, and_T1_A__or_I1_to_I12_4)
         _BitwiseAND4_3(T2_4, B, or_I2_to_I10_4, and_T2_B__or_I2_to_I10_4)
+
+        gate.ORGate3(
+            and_T1__or_I1_I11_I12,
+            and_T2_I7,
+            and_T3__or_I2_to_I10,
+            done
+        )
+
+        gate.ORGate2(and_T0__not_w, done, aclear)
+        gate.ANDGate2(clock, aclear, clear)
+        gate.NOTGate(clear, clear_n)
+
+        state.RingCounter4(vcc, clear_n, clock, T_reversed)
+
+        gate.Buffer(and_T1_I7, alu_function_select[3])
+
+        gate.ORGate2(and_T2__or_I2_I4_I6, and_T1_I7, alu_function_select[2])
+        gate.ORGate2(and_T2__or_I2_to_I10, and_T1_I7, reg_alu_in)
+        gate.ORGate2(and_T3__or_I2_to_I10, and_T2_I7, reg_alu_out)
+
+        gate.ANDGate2(instruction_available, T[0], func_reg_in)
+        gate.ANDGate2(not_w, T[0], and_T0__not_w)
+
+        gate.ANDGate2(T[2], or_I9_I10, p)
+        gate.ANDGate2(T[2], I_[10], q)
+        gate.ANDGate2(T[1], or_I11_I12, extern)
+        gate.ANDGate2(T[2], or_I2_I3_I4_I8, alu_function_select[0])
+        gate.ANDGate2(T[2], or_I3_I4_I5_I6, alu_function_select[1])
+        gate.ANDGate2(T[1], or_I2_to_I10, reg_temp_in)
 
         logic.BitwiseOR4(
             and_T1_A__or_I1_to_I12_4,
@@ -400,22 +414,13 @@ class _ProcessorControlpath:
             reg_x_in
         )
 
-        _Register10(instruction, func_reg_in, clock, instruction_reg)
-
-        signal.Decoder1Of16(vcc, op, I_reversed)
-        signal.Decoder1Of4(vcc, instruction_reg[4], instruction_reg[5], A)
-        signal.Decoder1Of4(vcc, instruction_reg[6], instruction_reg[7], B)
-        signal.Decoder1Of4(vcc, instruction_reg[8], instruction_reg[9], C)
-
-        state.RingCounter4(vcc, clear_n, clock, T_reversed)
-
         self.T = T
         self.instruction_reg = instruction_reg
-        self.reg_x_out = reg_x_out
+        self.I_ = I_
         self.clear_n = clear_n
 
     def get_important_wires(self):
-        return self.T.wire_values, self.instruction_reg.wire_values, self.reg_x_out.wire_values, self.clear_n.value
+        return self.T.wire_values, self.I_.wire_values, self.instruction_reg.wire_values, self.clear_n.value
 
 
 class _Multiplexer2To1_8:
