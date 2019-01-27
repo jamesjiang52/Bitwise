@@ -25,7 +25,7 @@ If there are no errors, you can open a Python session and verify the installatio
 
     >> import bitwise as bw
     >> bw.__version__
-    '0.1.1'
+    '0.3'
     
 Refer to the :doc:`changelog <changelog>` for version details. In this documentation, it is canonical to have imported Bitwise as ``bw``.
 

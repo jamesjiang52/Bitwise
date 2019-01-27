@@ -63,6 +63,29 @@ class TestProcessor:
         print(processor_.get_important_wires())
         clock.value = 1
 
+        instruction.wire_values = (1, 0, 1, 0, 0, 0, 0, 0, 1, 0)
+        clock.value = 0
+        print(processor_.get_important_wires())
+        clock.value = 1
+        clock.value = 0
+        print(processor_.get_important_wires())
+        clock.value = 1
+        clock.value = 0
+        print(processor_.get_important_wires())
+        clock.value = 1
+        clock.value = 0
+        print(processor_.get_important_wires())
+        clock.value = 1
+        clock.value = 0
+        print(processor_.get_important_wires())
+        clock.value = 1
+        clock.value = 0
+        print(processor_.get_important_wires())
+        clock.value = 1
+        clock.value = 0
+        print(processor_.get_important_wires())
+        clock.value = 1
+
         print(processor_)
 
         assert 1 == 0

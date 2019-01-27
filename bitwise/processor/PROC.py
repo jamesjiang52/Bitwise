@@ -103,9 +103,10 @@ class Processor:
         p = Wire()
         q = Wire()
 
-        self.datapath = _ProcessorDatapath(
+        self.controlpath = _ProcessorControlpath(
             clock,
-            data,
+            instruction,
+            instruction_available,
             extern,
             reg_0_in,
             reg_0_out,
@@ -123,10 +124,9 @@ class Processor:
             q
         )
 
-        self.controlpath = _ProcessorControlpath(
+        self.datapath = _ProcessorDatapath(
             clock,
-            instruction,
-            instruction_available,
+            data,
             extern,
             reg_0_in,
             reg_0_out,
@@ -332,6 +332,8 @@ class _ProcessorControlpath:
         and_T1_A__or_I1_to_I12_4 = Bus4()
         and_T2_B__or_I2_to_I10_4 = Bus4()
 
+        state.RingCounter4(vcc, clear_n, clock, T_reversed)
+
         _Register10(instruction, func_reg_in, clock, instruction_reg)
 
         signal.Decoder1Of16(vcc, op, I_reversed)
@@ -382,8 +384,6 @@ class _ProcessorControlpath:
         gate.ORGate2(and_T0__not_w, done, aclear)
         gate.ANDGate2(clock, aclear, clear)
         gate.NOTGate(clear, clear_n)
-
-        state.RingCounter4(vcc, clear_n, clock, T_reversed)
 
         gate.Buffer(and_T1_I7, alu_function_select[3])
 
