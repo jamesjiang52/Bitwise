@@ -5,9 +5,24 @@
 Changelog
 =========
 
-
 Unreleased
 ==========
+
+Added
+-----
+* Condition code flag flip-flops module to processor subpackage
+
+Changed
+-------
+
+Removed
+-------
+* 10-bit bus module from processor subpackage
+* Processor from processor subpackage
+
+
+0.3 - 2019-01-26
+================
 
 Added
 -----

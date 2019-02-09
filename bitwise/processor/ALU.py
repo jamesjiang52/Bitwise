@@ -15,7 +15,8 @@ Bus16 = wire.Bus16
 
 
 class ArithmeticLogicUnit:
-    """Construct a new arithmetic-logic unit with the following functions:
+    """Construct a new 16-bit arithmetic-logic unit with the following
+    functions:
         0000: a
         0001: NOT a
         0010: b
@@ -30,20 +31,18 @@ class ArithmeticLogicUnit:
         1011: NOT (a PLUS b)
         1100: a MINUS b
         1101: NOT (a MINUS b)
-        1110: a TIMES b (MOD 256)
-        1111: NOT (a TIMES b (MOD 256))
+        1110: 0
+        1111: 1
 
     Args:
-        a_bus: An object of type Bus8. The first input to the ALU. The first
-            addend in add operations, the minuend in subtract operations, and
-            the multiplicand in multiply operations. Also the number to be
-            compared. a_bus[0] and a_bus[7] are the most and least significant
-            bit, respectively.
-        b_bus: An object of type Bus8. The second input to the ALU. The second
-            addend in add operations, the subtrahend in subtract operations,
-            and the multiplier in multiply operations. Also the number to be
-            compared against. b_bus[0] and b_bus[7] are the most and least
-            significant bit, respectively.
+        a_bus: An object of type Bus16. The first input to the ALU. The first
+            addend in add operations and the minuend in subtract operations.
+            Also the number to be compared. a_bus[0] and a_bus[15] are the most
+            and least significant bit, respectively.
+        b_bus: An object of type Bus16. The second input to the ALU. The second
+            addend in add operations and the subtrahend in subtract operations.
+            Also the number to be compared against. b_bus[0] and b_bus[15] are
+            the most and least significant bit, respectively.
         function_select_bus: An object of type Bus4. The function select input
             of the ALU, with functions defined above. function_select_bus[0]
             and function_select_bus[3] are the most and least significant bit,
@@ -52,16 +51,13 @@ class ArithmeticLogicUnit:
             Only valid for functions 1100 and 1101 (subtract operations).
         carry_out: An object of type Wire. The carry-out. Only valid for
             functions 1010 and 1011 (add operations).
-        output_bus: An object of type Bus8. The output of the ALU.
-            output_bus[0] and output_bus[7] are the most and least significant
+        output_bus: An object of type Bus16. The output of the ALU.
+            output_bus[0] and output_bus[15] are the most and least significant
             bit, respectively.
-        greater_than: An object of type Wire. The greater-than indicator.
-        equal_to: An object of type Wire. The equal-to indicator.
-        less_than: An object of type Wire. The less-than indicator.
 
     Raises:
         TypeError: If either a_bus, b_bus, or output_bus is not a bus of width
-            8, or if function_select_bus is not a bus of width 4.
+            16, or if function_select_bus is not a bus of width 4.
     """
     def __init__(
         self,
@@ -70,28 +66,25 @@ class ArithmeticLogicUnit:
         function_select_bus,
         overflow,
         carry_out,
-        output_bus,
-        greater_than,
-        equal_to,
-        less_than
+        output_bus
     ):
-        if len(a_bus) != 8:
+        if len(a_bus) != 16:
             raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
+                "Expected bus of width 16, received bus of width {0}.".format(
                     len(a_bus)
                 )
             )
 
-        if len(b_bus) != 8:
+        if len(b_bus) != 16:
             raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
+                "Expected bus of width 16, received bus of width {0}.".format(
                     len(b_bus)
                 )
             )
 
-        if len(output_bus) != 8:
+        if len(output_bus) != 16:
             raise TypeError(
-                "Expected bus of width 8, received bus of width {0}.".format(
+                "Expected bus of width 16, received bus of width {0}.".format(
                     len(output_bus)
                 )
             )
@@ -103,21 +96,20 @@ class ArithmeticLogicUnit:
                 )
             )
 
-        a_and_b_bus = Bus8()
-        a_or_b_bus = Bus8()
-        a_xor_b_bus = Bus8()
-        a_plus_b_bus = Bus8()
-        a_times_b_bus_16 = Bus16()
-        a_times_b_bus = Bus8(*a_times_b_bus_16[8:16])
+        a_and_b_bus = Bus16()
+        a_or_b_bus = Bus16()
+        a_xor_b_bus = Bus16()
+        a_plus_b_bus = Bus16()
+        zero_bus = Bus16()
 
-        true_bus = Bus8()
-        not_bus = Bus8()
+        true_bus = Bus16()
+        not_bus = Bus16()
 
-        _Multiplexer8To1_8(
+        _Multiplexer8To1_16(
             function_select_bus[0],
             function_select_bus[1],
             function_select_bus[2],
-            a_times_b_bus,
+            zero_bus,
             a_plus_b_bus,
             a_plus_b_bus,
             a_xor_b_bus,
@@ -128,20 +120,20 @@ class ArithmeticLogicUnit:
             true_bus
         )
 
-        _Multiplexer2To1_8(
+        _Multiplexer2To1_16(
             function_select_bus[3],
             not_bus,
             true_bus,
             output_bus
         )
 
-        logic.BitwiseNOT8(true_bus, not_bus)
+        logic.BitwiseNOT16(true_bus, not_bus)
 
-        logic.BitwiseAND8(a_bus, b_bus, a_and_b_bus)
-        logic.BitwiseOR8(a_bus, b_bus, a_or_b_bus)
-        logic.BitwiseXOR8(a_bus, b_bus, a_xor_b_bus)
+        logic.BitwiseAND16(a_bus, b_bus, a_and_b_bus)
+        logic.BitwiseOR16(a_bus, b_bus, a_or_b_bus)
+        logic.BitwiseXOR16(a_bus, b_bus, a_xor_b_bus)
 
-        arithmetic.AdderSubtractor8(
+        arithmetic.AdderSubtractor16(
             function_select_bus[1],
             a_bus,
             b_bus,
@@ -149,14 +141,12 @@ class ArithmeticLogicUnit:
             carry_out,
             a_plus_b_bus
         )
-        arithmetic.Multiplier8(a_bus, b_bus, a_times_b_bus_16)
-        logic.Comparator7(a_bus, b_bus, greater_than, equal_to, less_than)
 
 
-class _Multiplexer2To1_8:
+class _Multiplexer2To1_16:
     """
-    This is an internal module for the ALU. It multiplexes two 8-bit inputs to
-    a single 8-bit output.
+    This is an internal module for the ALU. It multiplexes two 16-bit inputs to
+    a single 16-bit output.
     """
     def __init__(
         self,
@@ -224,12 +214,68 @@ class _Multiplexer2To1_8:
             input_2_bus[7],
             output_bus[7]
         )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[8],
+            input_2_bus[8],
+            output_bus[8]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[9],
+            input_2_bus[9],
+            output_bus[9]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[10],
+            input_2_bus[10],
+            output_bus[10]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[11],
+            input_2_bus[11],
+            output_bus[11]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[12],
+            input_2_bus[12],
+            output_bus[12]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[13],
+            input_2_bus[13],
+            output_bus[13]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[14],
+            input_2_bus[14],
+            output_bus[14]
+        )
+        signal.Multiplexer2To1(
+            vcc,
+            select,
+            input_1_bus[15],
+            input_2_bus[15],
+            output_bus[15]
+        )
 
 
-class _Multiplexer8To1_8:
+class _Multiplexer8To1_16:
     """
-    This is an internal module for the ALU. It multiplexes eight 8-bit inputs
-    to a single 8-bit output.
+    This is an internal module for the ALU. It multiplexes eight 16-bit inputs
+    to a single 16-bit output.
     """
     def __init__(
         self,
@@ -336,6 +382,93 @@ class _Multiplexer8To1_8:
             input_7_bus[7],
             input_8_bus[7]
         )
+        bus_9 = Bus8(
+            input_1_bus[8],
+            input_2_bus[8],
+            input_3_bus[8],
+            input_4_bus[8],
+            input_5_bus[8],
+            input_6_bus[8],
+            input_7_bus[8],
+            input_8_bus[8]
+        )
+
+        bus_10 = Bus8(
+            input_1_bus[9],
+            input_2_bus[9],
+            input_3_bus[9],
+            input_4_bus[9],
+            input_5_bus[9],
+            input_6_bus[9],
+            input_7_bus[9],
+            input_8_bus[9]
+        )
+
+        bus_11 = Bus8(
+            input_1_bus[10],
+            input_2_bus[10],
+            input_3_bus[10],
+            input_4_bus[10],
+            input_5_bus[10],
+            input_6_bus[10],
+            input_7_bus[10],
+            input_8_bus[10]
+        )
+
+        bus_12 = Bus8(
+            input_1_bus[11],
+            input_2_bus[11],
+            input_3_bus[11],
+            input_4_bus[11],
+            input_5_bus[11],
+            input_6_bus[11],
+            input_7_bus[11],
+            input_8_bus[11]
+        )
+
+        bus_13 = Bus8(
+            input_1_bus[12],
+            input_2_bus[12],
+            input_3_bus[12],
+            input_4_bus[12],
+            input_5_bus[12],
+            input_6_bus[12],
+            input_7_bus[12],
+            input_8_bus[12]
+        )
+
+        bus_14 = Bus8(
+            input_1_bus[13],
+            input_2_bus[13],
+            input_3_bus[13],
+            input_4_bus[13],
+            input_5_bus[13],
+            input_6_bus[13],
+            input_7_bus[13],
+            input_8_bus[13]
+        )
+
+        bus_15 = Bus8(
+            input_1_bus[14],
+            input_2_bus[14],
+            input_3_bus[14],
+            input_4_bus[14],
+            input_5_bus[14],
+            input_6_bus[14],
+            input_7_bus[14],
+            input_8_bus[14]
+        )
+
+        bus_16 = Bus8(
+            input_1_bus[15],
+            input_2_bus[15],
+            input_3_bus[15],
+            input_4_bus[15],
+            input_5_bus[15],
+            input_6_bus[15],
+            input_7_bus[15],
+            input_8_bus[15]
+        )
 
         signal.Multiplexer8To1(
             vcc,
@@ -400,4 +533,68 @@ class _Multiplexer8To1_8:
             select_3,
             bus_8,
             output_bus[7]
+        )
+        signal.Multiplexer8To1(
+            vcc,
+            select_1,
+            select_2,
+            select_3,
+            bus_9,
+            output_bus[8]
+        )
+        signal.Multiplexer8To1(
+            vcc,
+            select_1,
+            select_2,
+            select_3,
+            bus_10,
+            output_bus[9]
+        )
+        signal.Multiplexer8To1(
+            vcc,
+            select_1,
+            select_2,
+            select_3,
+            bus_11,
+            output_bus[10]
+        )
+        signal.Multiplexer8To1(
+            vcc,
+            select_1,
+            select_2,
+            select_3,
+            bus_12,
+            output_bus[11]
+        )
+        signal.Multiplexer8To1(
+            vcc,
+            select_1,
+            select_2,
+            select_3,
+            bus_13,
+            output_bus[12]
+        )
+        signal.Multiplexer8To1(
+            vcc,
+            select_1,
+            select_2,
+            select_3,
+            bus_14,
+            output_bus[13]
+        )
+        signal.Multiplexer8To1(
+            vcc,
+            select_1,
+            select_2,
+            select_3,
+            bus_15,
+            output_bus[14]
+        )
+        signal.Multiplexer8To1(
+            vcc,
+            select_1,
+            select_2,
+            select_3,
+            bus_16,
+            output_bus[15]
         )
