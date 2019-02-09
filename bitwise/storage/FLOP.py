@@ -40,7 +40,7 @@ class GatedSRLatch:
     Args:
         set_: An object of type Wire. The set input to the latch.
         reset: An object of type Wire. The reset input to the latch.
-        clock: An object of type Wire. The clock input to the latch.
+        clock: An object of type Wire or Clock. The clock input to the latch.
         output: An object of type Wire. The output of the latch. When the value
             of clock is 1, takes on the value of 1 if the value of set is 1 and
             the value of 0 if the value of reset is 1.
@@ -60,7 +60,7 @@ class GatedDLatch:
 
     Args:
         data: An object of type Wire. The data input to the latch.
-        clock: An object of type Wire. The clock input to the latch.
+        clock: An object of type Wire or Clock. The clock input to the latch.
         output: An object of type Wire. The output of the latch. Takes on the
             value of data if the value of clock is 1.
         output_not: An object of type Wire. The complemented form of output.
@@ -77,7 +77,8 @@ class DFlipFlop:
 
     Args:
         data: An object of type Wire. The data input to the flip-flop.
-        clock: An object of type Wire. The clock input to the flip-flop.
+        clock: An object of type Wire or Clock. The clock input to the flip-
+            flop.
         output: An object of type Wire. The output of the flip-flop. Takes on
             the value of data on the positive edges of clock.
         output_not: An object of type Wire. The complemented form of output.
@@ -102,7 +103,8 @@ class DFlipFlopPresetClear:
             0 asynchronously if its value is 0.
         clear_n: An object of type Wire. Clears output to 0 and output_not to 1
             asynchronously if its value is 0.
-        clock: An object of type Wire. The clock input to the flip-flop.
+        clock: An object of type Wireor Clock. The clock input to the flip-
+            flop.
         output: An object of type Wire. The output of the flip-flop. Takes on
             the value of data on the positive edges of clock.
         output_not: An object of type Wire. The complemented form of output.
@@ -134,7 +136,8 @@ class TFlipFlop:
 
     Args:
         toggle: An object of type Wire. The toggle input to the flip-flop.
-        clock: An object of type Wire. The clock input to the flip-flop.
+        clock: An object of type Wire or Clock. The clock input to the flip-
+            flop.
         output: An object of type Wire. The output of the flip-flop. Toggles
             its value on the positive edges of clock if the value of toggle is
             1.
@@ -159,7 +162,8 @@ class TFlipFlopPresetClear:
             0 asynchronously if its value is 0.
         clear_n: An object of type Wire. Clears output to 0 and output_not to 1
             asynchronously if its value is 0.
-        clock: An object of type Wire. The clock input to the flip-flop.
+        clock: An object of type Wire or Clock. The clock input to the flip-
+            flop.
         output: An object of type Wire. The output of the flip-flop. Toggles
             its value on the positive edges of clock if the value of toggle is
             1.
@@ -187,7 +191,8 @@ class JKFlipFlop:
     Args:
         J: An object of type Wire. The J input to the flip-flop.
         K: An object of type Wire. The K input to the flip-flop.
-        clock: An object of type Wire. The clock input to the flip-flop.
+        clock: An object of type Wire or Clock. The clock input to the flip-
+            flop.
         output: An object of type Wire. The output of the flip-flop. On the
             positive edges of clock, takes on the value of 1 if the value of J
             is 1, takes on the value of 0 if the value of K is 1, and toggles
@@ -218,7 +223,8 @@ class JKFlipFlopPresetClear:
             0 asynchronously if its value is 0.
         clear_n: An object of type Wire. Clears output to 0 and output_not to 1
             asynchronously if its value is 0.
-        clock: An object of type Wire. The clock input to the flip-flop.
+        clock: An object of type Wire or Clock. The clock input to the flip-
+            flop.
         output: An object of type Wire. The output of the flip-flop. On the
             positive edges of clock, takes on the value of 1 if the value of J
             is 1, takes on the value of 0 if the value of K is 1, and toggles
