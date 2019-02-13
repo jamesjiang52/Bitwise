@@ -37,11 +37,11 @@ class Processor:
             store the result in register a.
         0100 a b c: Subtract the value of register c from the value of register
             b and store the result in register a.
-        0101 a b c: Multiply the value of register b and the value of register
-            c and store the result (mod 256) in register a.
-        0110 a b c: Bitwise AND the value of register b and the value of
+        0101 a b c: Bitwise AND the value of register b and the value of
             register c and store the result in register a.
-        0111 a b c: Bitwise OR the value of register b and the value of
+        0110 a b c: Bitwise OR the value of register b and the value of
+            register c and store the result in register a.
+        0111 a b c: Bitwise XOR the value of register b and the value of
             register c and store the result in register a.
         1000 a b: Bitwise NOT the value of register b and store the result in
             register a.
