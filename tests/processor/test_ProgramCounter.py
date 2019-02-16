@@ -1,70 +1,74 @@
 import bitwise as bw
 
 
-class TestStackPointer:
-    def test_StackPointer(self):
+class TestProgramCounter:
+    def test_ProgramCounter(self):
+        input_bus = bw.wire.Bus16()
         up = bw.wire.Wire()
-        down = bw.wire.Wire()
+        load = bw.wire.Wire()
         clock = bw.wire.Wire()
         output_bus = bw.wire.Bus16()
 
-        bw.processor.StackPointer(up, down, clock, output_bus)
+        bw.processor.ProgramCounter(input_bus, up, load, clock, output_bus)
 
         clock.value = 0
         clock.value = 1
         assert output_bus.wire_values == (
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-        down.value = 1
+        up.value = 1
         clock.value = 0
         clock.value = 1
         assert output_bus.wire_values == (
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-
-        clock.value = 0
-        clock.value = 1
-        assert output_bus.wire_values == (
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-        clock.value = 0
-        clock.value = 1
-        assert output_bus.wire_values == (
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1)
-
-        clock.value = 0
-        clock.value = 1
-        assert output_bus.wire_values == (
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0)
-
-        down.value = 0
-        clock.value = 0
-        clock.value = 1
-        assert output_bus.wire_values == (
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0)
-
-        clock.value = 0
-        clock.value = 1
-        assert output_bus.wire_values == (
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0)
-
-        clock.value = 0
-        clock.value = 1
-        assert output_bus.wire_values == (
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0)
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
 
         up.value = 1
         clock.value = 0
         clock.value = 1
         assert output_bus.wire_values == (
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1)
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0)
+
+        up.value = 1
+        clock.value = 0
+        clock.value = 1
+        assert output_bus.wire_values == (
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1)
+
+        up.value = 0
+        clock.value = 0
+        clock.value = 1
+        assert output_bus.wire_values == (
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1)
 
         clock.value = 0
         clock.value = 1
         assert output_bus.wire_values == (
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1)
 
-        down.value = 1
+        input_bus.wire_values = (
+            0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1)
+        load.value = 1
         clock.value = 0
         clock.value = 1
         assert output_bus.wire_values == (
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1)
+            0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1)
+
+        load.value = 0
+        up.value = 1
+        clock.value = 0
+        clock.value = 1
+        assert output_bus.wire_values == (
+            0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+
+        clock.value = 0
+        clock.value = 1
+        assert output_bus.wire_values == (
+            0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1)
+
+        input_bus.wire_values = (
+            0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+        load.value = 1
+        clock.value = 0
+        clock.value = 1
+        assert output_bus.wire_values == (
+            0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
