@@ -7,6 +7,7 @@
     gate
     install
     logic
+    processor
     signal
     state
     storage

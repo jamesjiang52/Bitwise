@@ -11,6 +11,7 @@ Unreleased
 Added
 -----
 * Condition code flag flip-flops module to processor subpackage
+* Stack pointer (SP) and program counter (PC) modules to processor subpackage
 
 Changed
 -------

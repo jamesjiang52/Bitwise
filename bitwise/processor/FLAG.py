@@ -30,6 +30,9 @@ class ConditionCodeFlags:
             negative.
         c: An object of type Wire. Indicates when an arithmetic operation
             produces a carry-out.
+
+    Raises:
+        TypeError: If data_bus is not a bus of width 16.
     """
     def __init__(self, data_bus, overflow, carry_out, clock, z, v, n, c):
         if len(data_bus) != 16:

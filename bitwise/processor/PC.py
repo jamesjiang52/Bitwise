@@ -19,15 +19,18 @@ class ProgramCounter:
     """Construct a new program counter with a 16-bit address space.
 
     Args:
-        load_bus: An object of type Bus16.
+        data_bus: An object of type Bus16.
         up: An object of type Wire. If its value is 1, increments the program
             counter on the positive clock edge.
         load: An object of type Wire. If its value is 1, loads the value of
-            load_bus into the program counter on the positive clock edge. If
+            data_bus into the program counter on the positive clock edge. If
             both up and load have value 1, load takes precedence.
         clock: An object of type Wire or Clock. The clock input.
         output_bus: An object of type Bus16. The address of the instruction to
             be executed.
+
+    Raises:
+        TypeError: If either data_bus or output_bus is not a bus of width 16.
     """
     def __init__(self, input_bus, up, load, clock, output_bus):
         if len(input_bus) != 16:

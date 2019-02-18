@@ -1,0 +1,225 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Processor &#8212; Bitwise 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Signal" href="signal.html" />
+    <link rel="prev" title="Logic" href="logic.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Python library for hardware design</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="index.html">Home</a></li>
+    
+    <li class="toctree-l1"><a href="install.html">Getting Started</a></li>
+    
+    <li class="toctree-l1"><a href="api.html">API Documentation</a></li>
+    
+    <li class="toctree-l1"><a href="changelog.html">Changelog</a></li>
+    
+    <li class="toctree-l1"><a href="https://github.com/jamesjiang52/Bitwise">View on Github</a></li>
+    
+</ul>
+
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Processor</a><ul>
+<li><a class="reference internal" href="#arithmeticlogicunit">ArithmeticLogicUnit</a></li>
+<li><a class="reference internal" href="#conditioncodeflags">ConditionCodeFlags</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="processor">
+<h1>Processor</h1>
+<div class="section" id="arithmeticlogicunit">
+<span id="id1"></span><h2>ArithmeticLogicUnit</h2>
+<div class="section" id="class-bw-processor-arithmeticlogicunit">
+<h3>Class <code class="docutils literal"><span class="pre">bw.processor.ArithmeticLogicUnit</span></code></h3>
+<img alt="_images/ArithmeticLogicUnit.svg" src="_images/ArithmeticLogicUnit.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/processor/ALU.py">bitwise/processor/ALU.py</a>.</p>
+<p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Arithmetic_logic_unit">arithmetic logic unit</a>, with functions defined below.</p>
+</div>
+<div class="section" id="init">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="p">,</span>
+    <span class="n">function_select_bus</span><span class="p">,</span>
+    <span class="n">overflow</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new 16-bit arithmetic-logic unit with the following functions:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="mi">0000</span><span class="p">:</span> <span class="n">a</span>
+<span class="mi">0001</span><span class="p">:</span> <span class="n">NOT</span> <span class="n">a</span>
+<span class="mi">0010</span><span class="p">:</span> <span class="n">b</span>
+<span class="mi">0011</span><span class="p">:</span> <span class="n">NOT</span> <span class="n">b</span>
+<span class="mi">0100</span><span class="p">:</span> <span class="n">a</span> <span class="n">AND</span> <span class="n">b</span>
+<span class="mi">0101</span><span class="p">:</span> <span class="n">a</span> <span class="n">NAND</span> <span class="n">b</span>
+<span class="mi">0110</span><span class="p">:</span> <span class="n">a</span> <span class="n">OR</span> <span class="n">b</span>
+<span class="mi">0111</span><span class="p">:</span> <span class="n">a</span> <span class="n">NOR</span> <span class="n">b</span>
+<span class="mi">1000</span><span class="p">:</span> <span class="n">a</span> <span class="n">XOR</span> <span class="n">b</span>
+<span class="mi">1001</span><span class="p">:</span> <span class="n">a</span> <span class="n">XNOR</span> <span class="n">b</span>
+<span class="mi">1010</span><span class="p">:</span> <span class="n">a</span> <span class="n">PLUS</span> <span class="n">b</span>
+<span class="mi">1011</span><span class="p">:</span> <span class="n">NOT</span> <span class="p">(</span><span class="n">a</span> <span class="n">PLUS</span> <span class="n">b</span><span class="p">)</span>
+<span class="mi">1100</span><span class="p">:</span> <span class="n">a</span> <span class="n">MINUS</span> <span class="n">b</span>
+<span class="mi">1101</span><span class="p">:</span> <span class="n">NOT</span> <span class="p">(</span><span class="n">a</span> <span class="n">MINUS</span> <span class="n">b</span><span class="p">)</span>
+<span class="mi">1110</span><span class="p">:</span> <span class="mi">0</span>
+<span class="mi">1111</span><span class="p">:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="section" id="args">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">a_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The first input to the ALU. The first addend in add operations and the minuend in subtract operations. Also the number to be compared. <code class="docutils literal"><span class="pre">a_bus[0]</span></code> and <code class="docutils literal"><span class="pre">a_bus[15]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">b_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The second input to the ALU. The second addend in add operations and the subtrahend in subtract operations. Also the number to be compared against. <code class="docutils literal"><span class="pre">b_bus[0]</span></code> and <code class="docutils literal"><span class="pre">b_bus[15]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">fn_select_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The function select input of the ALU, with functions defined above. <code class="docutils literal"><span class="pre">fn_select_bus[0]</span></code> and <code class="docutils literal"><span class="pre">fn_select_bus[3]</span></code> are the most and least significant bit, respectively.</li>
+<li><code class="docutils literal"><span class="pre">overflow</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The arithmetic overflow indicator. Only valid for functions <code class="docutils literal"><span class="pre">1100</span></code> and <code class="docutils literal"><span class="pre">1101</span></code> (subtract operations).</li>
+<li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out. Only valid for functions <code class="docutils literal"><span class="pre">1010</span></code> and <code class="docutils literal"><span class="pre">1011</span></code> (add operations).</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The output of the ALU. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> and <code class="docutils literal"><span class="pre">output_bus[15]</span></code> are the most and least significant bit, respectively.</li>
+</ul>
+</div>
+<div class="section" id="raises">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">a_bus</span></code>, <code class="docutils literal"><span class="pre">b_bus</span></code>, or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16, or if <code class="docutils literal"><span class="pre">fn_select_bus</span></code> is not a bus of width 4.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="conditioncodeflags">
+<span id="id2"></span><h2>ConditionCodeFlags</h2>
+<div class="section" id="class-bw-processor-conditioncodeflags">
+<h3>Class <code class="docutils literal"><span class="pre">bw.processor.ConditionCodeFlags</span></code></h3>
+<img alt="_images/ConditionCodeFlags.svg" src="_images/ConditionCodeFlags.svg" width="560px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/processor/FLAG.py">bitwise/processor/FLAG.py</a>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Status_register">Condition code flag flip-flops</a>.</p>
+</div>
+<div class="section" id="id3">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">data_bus</span><span class="p">,</span>
+    <span class="n">overflow</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">z</span><span class="p">,</span>
+    <span class="n">v</span><span class="p">,</span>
+    <span class="n">n</span><span class="p">,</span>
+    <span class="n">c</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new set of condition code flag flip-flops.</p>
+<div class="section" id="id4">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">data_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The data input to the flip-flops.</li>
+<li><code class="docutils literal"><span class="pre">overflow</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The overflow input.</li>
+<li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out input.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the flip-flops.</li>
+<li><code class="docutils literal"><span class="pre">z</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Indicates when the value on <code class="docutils literal"><span class="pre">data_bus</span></code> is equal to zero.</li>
+<li><code class="docutils literal"><span class="pre">v</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Indicates when an arithmetic operation produces an overflow.</li>
+<li><code class="docutils literal"><span class="pre">n</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Indicates when the value on <code class="docutils literal"><span class="pre">data_bus</span></code> is negative.</li>
+<li><code class="docutils literal"><span class="pre">c</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Indicates when an arithmetic operation produces a carry-out.</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">data_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2018, James Jiang.
+      
+      |
+      <a href="_sources/processor.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

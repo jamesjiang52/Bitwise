@@ -69,6 +69,13 @@ API Documentation
 * :ref:`ParityGenerator8`
 * :ref:`ParityGenerator16`
 
+:doc:`processor`
+================
+* :ref:`ArithmeticLogicUnit`
+* :ref:`ConditionCodeFlags`
+* :ref:`ProgramCounter`
+* :ref:`StackPointer`
+
 :doc:`signal`
 =============
 * :ref:`ControlledInverter4`

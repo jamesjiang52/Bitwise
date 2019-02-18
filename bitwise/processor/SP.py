@@ -25,6 +25,9 @@ class StackPointer:
             1, down takes precedence.
         clock: An object of type Wire or Clock. The clock input.
         output_bus: An object of type Bus16. The address on top of the stack.
+
+    Raises:
+        TypeError: If output_bus is not a bus of width 16.
     """
     def __init__(self, up, down, clock, output_bus):
         if len(output_bus) != 16:
