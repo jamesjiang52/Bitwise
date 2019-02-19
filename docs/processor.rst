@@ -116,3 +116,87 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``data_bus`` is not a bus of width 16.
+
+
+.. _ProgramCounter:
+
+ProgramCounter
+==============
+
+Class ``bw.processor.ProgramCounter``
+-------------------------------------
+
+.. image:: images/schematics/processor/ProgramCounter.svg
+    :width: 800px
+
+Defined in `bitwise/processor/PC.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/processor/PC.py>`_.
+
+16-bit `program counter <https://en.wikipedia.org/wiki/Program_counter>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        data_bus, 
+        up, 
+        load, 
+        clock, 
+        output_bus
+    )
+
+Construct a new program counter with a 16-bit address space.
+
+Args:
+~~~~~
+* ``data_bus``: An object of type ``Bus16``.
+* ``up``: An object of type ``Wire``. If its value is 1, increments the program counter on the positive clock edge.
+* ``load``: An object of type ``Wire``. If its value is 1, loads the value of ``data_bus`` into the program counter on the positive clock edge. If both up and load have value 1, ``load`` takes precedence.
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus16``. The address of the instruction to be executed.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 16.
+
+
+.. _StackPointer:
+
+StackPointer
+============
+
+Class ``bw.processor.StackPointer``
+-----------------------------------
+
+.. image:: images/schematics/processor/StackPointer.svg
+    :width: 600px
+
+Defined in `bitwise/processor/SP.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/processor/SP.py>`_.
+
+16-bit `stack pointer <https://en.wikipedia.org/wiki/Stack_register>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        up, 
+        down, 
+        clock, 
+        output_bus
+    )
+
+Construct a new stack pointer to a 16-bit address space.
+
+Args:
+~~~~~
+* ``up``: An object of type ``Wire``. If its value is 1, increments the stack pointer on the positive clock edge.
+* ``down``: An object of type ``Wire``. If its value is 1, decrements the stack pointer on the positive clock edge. If both ``up`` and ``down`` have value 1, ``down`` takes precedence.
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus16``. The address on top of the stack.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If ``output_bus`` is not a bus of width 16.

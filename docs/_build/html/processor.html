@@ -77,6 +77,8 @@
 <li><a class="reference internal" href="#">Processor</a><ul>
 <li><a class="reference internal" href="#arithmeticlogicunit">ArithmeticLogicUnit</a></li>
 <li><a class="reference internal" href="#conditioncodeflags">ConditionCodeFlags</a></li>
+<li><a class="reference internal" href="#programcounter">ProgramCounter</a></li>
+<li><a class="reference internal" href="#stackpointer">StackPointer</a></li>
 </ul>
 </li>
 </ul>
@@ -197,6 +199,78 @@
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">data_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="programcounter">
+<span id="id6"></span><h2>ProgramCounter</h2>
+<div class="section" id="class-bw-processor-programcounter">
+<h3>Class <code class="docutils literal"><span class="pre">bw.processor.ProgramCounter</span></code></h3>
+<img alt="_images/ProgramCounter.svg" src="_images/ProgramCounter.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/processor/PC.py">bitwise/processor/PC.py</a>.</p>
+<p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Program_counter">program counter</a>.</p>
+</div>
+<div class="section" id="id7">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">data_bus</span><span class="p">,</span>
+    <span class="n">up</span><span class="p">,</span>
+    <span class="n">load</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new program counter with a 16-bit address space.</p>
+<div class="section" id="id8">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">data_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">up</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. If its value is 1, increments the program counter on the positive clock edge.</li>
+<li><code class="docutils literal"><span class="pre">load</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. If its value is 1, loads the value of <code class="docutils literal"><span class="pre">data_bus</span></code> into the program counter on the positive clock edge. If both up and load have value 1, <code class="docutils literal"><span class="pre">load</span></code> takes precedence.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The address of the instruction to be executed.</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">data_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="stackpointer">
+<span id="id10"></span><h2>StackPointer</h2>
+<div class="section" id="class-bw-processor-stackpointer">
+<h3>Class <code class="docutils literal"><span class="pre">bw.processor.StackPointer</span></code></h3>
+<img alt="_images/StackPointer.svg" src="_images/StackPointer.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/processor/SP.py">bitwise/processor/SP.py</a>.</p>
+<p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Stack_register">stack pointer</a>.</p>
+</div>
+<div class="section" id="id11">
+<h3>__init__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">up</span><span class="p">,</span>
+    <span class="n">down</span><span class="p">,</span>
+    <span class="n">clock</span><span class="p">,</span>
+    <span class="n">output_bus</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Construct a new stack pointer to a 16-bit address space.</p>
+<div class="section" id="id12">
+<h4>Args:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">up</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. If its value is 1, increments the stack pointer on the positive clock edge.</li>
+<li><code class="docutils literal"><span class="pre">down</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. If its value is 1, decrements the stack pointer on the positive clock edge. If both <code class="docutils literal"><span class="pre">up</span></code> and <code class="docutils literal"><span class="pre">down</span></code> have value 1, <code class="docutils literal"><span class="pre">down</span></code> takes precedence.</li>
+<li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The address on top of the stack.</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h4>Raises:</h4>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
 </ul>
 </div>
 </div>
