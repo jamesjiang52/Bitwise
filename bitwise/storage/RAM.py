@@ -27,14 +27,19 @@ class RAM16x4:
     """Construct a new 16-word deep 4-bit wide random access memory array.
 
     Args:
-        data_bus: An object of type Bus4.
-        address_bus: An object of type Bus4.
-        write_enable: An object of type Wire.
-        clock: An object of type Wire or Clock.
-        output_bus: An object of type Bus4.
+        data_bus: An object of type Bus4. The data input in write operations.
+        address_bus: An object of type Bus4. The address from which data is
+            read from and written to.
+        write_enable: An object of type Wire. The write enable input. A value
+            of 1 indicates a write operation, while a value of 0 indicates a
+            read-only operation (the value on data_bus is ignored).
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus4. The currently stored data in the
+            at the address indicated by address_bus.
 
     Raises:
-        TypeError:
+        TypeError: If either data_bus, address_bus, or output_bus is not a bus
+            of width 4.
     """
     def __init__(self, data_bus, address_bus, write_enable, clock, output_bus):
         if len(data_bus) != 4:
@@ -136,6 +141,21 @@ class RAM16x4:
 
 class RAM256x4:
     """Construct a new 256-word deep 4-bit wide random access memory array.
+
+    Args:
+        data_bus: An object of type Bus4. The data input in write operations.
+        address_bus: An object of type Bus8. The address from which data is
+            read from and written to.
+        write_enable: An object of type Wire. The write enable input. A value
+            of 1 indicates a write operation, while a value of 0 indicates a
+            read-only operation (the value on data_bus is ignored).
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus4. The currently stored data in the
+            at the address indicated by address_bus.
+
+    Raises:
+        TypeError: If either data_bus or output_bus is not a bus of width 4, or
+            if address_bus is not a bus of width 8.
     """
     def __init__(self, data_bus, address_bus, write_enable, clock, output_bus):
         if len(data_bus) != 4:
@@ -239,6 +259,21 @@ class RAM256x4:
 
 class RAM65536x4:
     """Construct a new 65536-word deep 4-bit wide random access memory array.
+
+    Args:
+        data_bus: An object of type Bus4. The data input in write operations.
+        address_bus: An object of type Bus16. The address from which data is
+            read from and written to.
+        write_enable: An object of type Wire. The write enable input. A value
+            of 1 indicates a write operation, while a value of 0 indicates a
+            read-only operation (the value on data_bus is ignored).
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus4. The currently stored data in the
+            at the address indicated by address_bus.
+
+    Raises:
+        TypeError: If either data_bus or output_bus is not a bus of width 4, or
+            if address_bus is not a bus of width 16.
     """
     def __init__(self, data_bus, address_bus, write_enable, clock, output_bus):
         if len(data_bus) != 4:
@@ -2072,6 +2107,21 @@ class RAM65536x4:
 
 class RAM16x8:
     """Construct a new 16-word deep 8-bit wide random access memory array.
+
+    Args:
+        data_bus: An object of type Bus8. The data input in write operations.
+        address_bus: An object of type Bus4. The address from which data is
+            read from and written to.
+        write_enable: An object of type Wire. The write enable input. A value
+            of 1 indicates a write operation, while a value of 0 indicates a
+            read-only operation (the value on data_bus is ignored).
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus8. The currently stored data in the
+            at the address indicated by address_bus.
+
+    Raises:
+        TypeError: If either data_bus or output_bus is not a bus of width 8, or
+            if address_bus is not a bus of width 4.
     """
     def __init__(self, data_bus, address_bus, write_enable, clock, output_bus):
         if len(data_bus) != 8:
@@ -2173,6 +2223,21 @@ class RAM16x8:
 
 class RAM256x8:
     """Construct a new 256-word deep 8-bit wide random access memory array.
+
+    Args:
+        data_bus: An object of type Bus8. The data input in write operations.
+        address_bus: An object of type Bus8. The address from which data is
+            read from and written to.
+        write_enable: An object of type Wire. The write enable input. A value
+            of 1 indicates a write operation, while a value of 0 indicates a
+            read-only operation (the value on data_bus is ignored).
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus8. The currently stored data in the
+            at the address indicated by address_bus.
+
+    Raises:
+        TypeError: If either data_bus, address_bus, or output_bus is not a bus
+            of width 8.
     """
     def __init__(self, data_bus, address_bus, write_enable, clock, output_bus):
         if len(data_bus) != 8:
@@ -2276,6 +2341,21 @@ class RAM256x8:
 
 class RAM65536x8:
     """Construct a new 65536-word deep 8-bit wide random access memory array.
+
+    Args:
+        data_bus: An object of type Bus8. The data input in write operations.
+        address_bus: An object of type Bus16. The address from which data is
+            read from and written to.
+        write_enable: An object of type Wire. The write enable input. A value
+            of 1 indicates a write operation, while a value of 0 indicates a
+            read-only operation (the value on data_bus is ignored).
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus8. The currently stored data in the
+            at the address indicated by address_bus.
+
+    Raises:
+        TypeError: If either data_bus or output_bus is not a bus of width 8, or
+            if address_bus is not a bus of width 16.
     """
     def __init__(self, data_bus, address_bus, write_enable, clock, output_bus):
         if len(data_bus) != 8:
@@ -4109,6 +4189,21 @@ class RAM65536x8:
 
 class RAM16x16:
     """Construct a new 16-word deep 16-bit wide random access memory array.
+
+    Args:
+        data_bus: An object of type Bus16. The data input in write operations.
+        address_bus: An object of type Bus4. The address from which data is
+            read from and written to.
+        write_enable: An object of type Wire. The write enable input. A value
+            of 1 indicates a write operation, while a value of 0 indicates a
+            read-only operation (the value on data_bus is ignored).
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus16. The currently stored data in the
+            at the address indicated by address_bus.
+
+    Raises:
+        TypeError: If either data_bus or output_bus is not a bus of width 16,
+            or if address_bus is not a bus of width 4.
     """
     def __init__(self, data_bus, address_bus, write_enable, clock, output_bus):
         if len(data_bus) != 16:
@@ -4210,6 +4305,21 @@ class RAM16x16:
 
 class RAM256x16:
     """Construct a new 256-word deep 16-bit wide random access memory array.
+
+    Args:
+        data_bus: An object of type Bus16. The data input in write operations.
+        address_bus: An object of type Bus8. The address from which data is
+            read from and written to.
+        write_enable: An object of type Wire. The write enable input. A value
+            of 1 indicates a write operation, while a value of 0 indicates a
+            read-only operation (the value on data_bus is ignored).
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus16. The currently stored data in the
+            at the address indicated by address_bus.
+
+    Raises:
+        TypeError: If either data_bus or output_bus is not a bus of width 16,
+            or if address_bus is not a bus of width 8.
     """
     def __init__(self, data_bus, address_bus, write_enable, clock, output_bus):
         if len(data_bus) != 16:
@@ -4313,6 +4423,21 @@ class RAM256x16:
 
 class RAM65536x16:
     """Construct a new 65536-word deep 16-bit wide random access memory array.
+
+    Args:
+        data_bus: An object of type Bus16. The data input in write operations.
+        address_bus: An object of type Bus16. The address from which data is
+            read from and written to.
+        write_enable: An object of type Wire. The write enable input. A value
+            of 1 indicates a write operation, while a value of 0 indicates a
+            read-only operation (the value on data_bus is ignored).
+        clock: An object of type Wire or Clock. The clock input.
+        output_bus: An object of type Bus16. The currently stored data in the
+            at the address indicated by address_bus.
+
+    Raises:
+        TypeError: If either data_bus, address_bus, or output_bus is not a bus
+            of width 16.
     """
     def __init__(self, data_bus, address_bus, write_enable, clock, output_bus):
         if len(data_bus) != 16:
