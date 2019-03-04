@@ -300,7 +300,7 @@ class RAM65536x4:
         vcc = Wire(1)
         addr_1 = Bus4(*address_bus[0:4])
         addr_2 = Bus4(*address_bus[4:8])
-        addr_3 = Bus4(*address_bus[8:16])
+        addr_3 = Bus8(*address_bus[8:16])
         dec_1_out = Bus16()
         dec_2_out = Bus16()
         wren = write_enable
@@ -2382,7 +2382,7 @@ class RAM65536x8:
         vcc = Wire(1)
         addr_1 = Bus4(*address_bus[0:4])
         addr_2 = Bus4(*address_bus[4:8])
-        addr_3 = Bus4(*address_bus[8:16])
+        addr_3 = Bus8(*address_bus[8:16])
         dec_1_out = Bus16()
         dec_2_out = Bus16()
         wren = write_enable
@@ -4464,7 +4464,7 @@ class RAM65536x16:
         vcc = Wire(1)
         addr_1 = Bus4(*address_bus[0:4])
         addr_2 = Bus4(*address_bus[4:8])
-        addr_3 = Bus4(*address_bus[8:16])
+        addr_3 = Bus8(*address_bus[8:16])
         dec_1_out = Bus16()
         dec_2_out = Bus16()
         wren = write_enable
