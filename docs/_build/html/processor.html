@@ -173,6 +173,7 @@
     <span class="n">data_bus</span><span class="p">,</span>
     <span class="n">overflow</span><span class="p">,</span>
     <span class="n">carry_out</span><span class="p">,</span>
+    <span class="n">enable</span><span class="p">,</span>
     <span class="n">clock</span><span class="p">,</span>
     <span class="n">z</span><span class="p">,</span>
     <span class="n">v</span><span class="p">,</span>
@@ -188,6 +189,7 @@
 <li><code class="docutils literal"><span class="pre">data_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The data input to the flip-flops.</li>
 <li><code class="docutils literal"><span class="pre">overflow</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The overflow input.</li>
 <li><code class="docutils literal"><span class="pre">carry_out</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The carry-out input.</li>
+<li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The enable input.</li>
 <li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the flip-flops.</li>
 <li><code class="docutils literal"><span class="pre">z</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Indicates when the value on <code class="docutils literal"><span class="pre">data_bus</span></code> is equal to zero.</li>
 <li><code class="docutils literal"><span class="pre">v</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Indicates when an arithmetic operation produces an overflow.</li>

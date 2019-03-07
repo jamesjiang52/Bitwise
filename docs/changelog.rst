@@ -10,6 +10,16 @@ Unreleased
 
 Added
 -----
+* RAM modules to storage subpackage
+    * ``RAM16x4``
+    * ``RAM256x4``
+    * ``RAM65536x4``
+    * ``RAM16x8``
+    * ``RAM256x8``
+    * ``RAM65536x8``
+    * ``RAM16x16``
+    * ``RAM256x16``
+    * ``RAM65536x16``
 * Condition code flag flip-flops module to processor subpackage
 * Stack pointer (SP) and program counter (PC) modules to processor subpackage
 

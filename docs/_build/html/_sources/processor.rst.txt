@@ -92,7 +92,8 @@ __init__
     __init__(
         data_bus, 
         overflow, 
-        carry_out, 
+        carry_out,
+        enable,
         clock, 
         z, 
         v, 
@@ -107,6 +108,7 @@ Args:
 * ``data_bus``: An object of type ``Bus16``. The data input to the flip-flops.
 * ``overflow``: An object of type ``Wire``. The overflow input.
 * ``carry_out``: An object of type ``Wire``. The carry-out input.
+* ``enable``: An object of type ``Wire``. The enable input.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the flip-flops.
 * ``z``: An object of type ``Wire``. Indicates when the value on ``data_bus`` is equal to zero.
 * ``v``: An object of type ``Wire``. Indicates when an arithmetic operation produces an overflow.
