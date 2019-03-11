@@ -241,6 +241,393 @@ Args:
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
 
 
+.. _RAM16x4:
+
+RAM16x4
+=======
+
+Class ``bw.storage.RAM16x4``
+----------------------------
+
+.. image:: images/schematics/storage/RAM16x4.svg
+    :width: 800px
+
+Defined in `bitwise/storage/RAM.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/RAM.py>`_.
+
+16-word deep 4-bit wide `random access memory <https://en.wikipedia.org/wiki/Random-access_memory>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        data_bus, 
+        address_bus, 
+        write_enable, 
+        clock, 
+        output_bus
+    )
+
+Construct a new 16-word deep 4-bit wide random access memory array.
+
+Args:
+~~~~~
+* ``data_bus``: An object of type ``Bus4``. The data input in write operations.
+* ``address_bus``: An object of type ``Bus4``. The address from which data is read from and written to.
+* ``write_enable``: An object of type ``Wire``. The write enable input. A value of 1 indicates a write operation, while a value of 0 indicates a read-only operation (the value on data_bus is ignored).
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus4``. The currently stored data in the at the address indicated by ``address_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``data_bus``, ``address_bus``, or ``output_bus`` is not a bus of width 4.
+
+
+.. _RAM256x4:
+
+RAM256x4
+========
+
+Class ``bw.storage.RAM256x4``
+-----------------------------
+
+.. image:: images/schematics/storage/RAM256x4.svg
+    :width: 800px
+
+Defined in `bitwise/storage/RAM.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/RAM.py>`_.
+
+256-word deep 4-bit wide `random access memory <https://en.wikipedia.org/wiki/Random-access_memory>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        data_bus, 
+        address_bus, 
+        write_enable, 
+        clock, 
+        output_bus
+    )
+
+Construct a new 256-word deep 4-bit wide random access memory array.
+
+Args:
+~~~~~
+* ``data_bus``: An object of type ``Bus4``. The data input in write operations.
+* ``address_bus``: An object of type ``Bus8``. The address from which data is read from and written to.
+* ``write_enable``: An object of type ``Wire``. The write enable input. A value of 1 indicates a write operation, while a value of 0 indicates a read-only operation (the value on data_bus is ignored).
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus4``. The currently stored data in the at the address indicated by ``address_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 4, or if ``address_bus`` is not a bus of width 8.
+
+
+.. _RAM65536x4:
+
+RAM65536x4
+==========
+
+Class ``bw.storage.RAM65536x4``
+-------------------------------
+
+.. image:: images/schematics/storage/RAM65536x4.svg
+    :width: 800px
+
+Defined in `bitwise/storage/RAM.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/RAM.py>`_.
+
+65536-word deep 4-bit wide `random access memory <https://en.wikipedia.org/wiki/Random-access_memory>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        data_bus, 
+        address_bus, 
+        write_enable, 
+        clock, 
+        output_bus
+    )
+
+Construct a new 65536-word deep 4-bit wide random access memory array.
+
+Args:
+~~~~~
+* ``data_bus``: An object of type ``Bus4``. The data input in write operations.
+* ``address_bus``: An object of type ``Bus16``. The address from which data is read from and written to.
+* ``write_enable``: An object of type ``Wire``. The write enable input. A value of 1 indicates a write operation, while a value of 0 indicates a read-only operation (the value on data_bus is ignored).
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus4``. The currently stored data in the at the address indicated by ``address_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 4, or if ``address_bus`` is not a bus of width 16.
+
+
+.. _RAM16x8:
+
+RAM16x8
+=======
+
+Class ``bw.storage.RAM16x8``
+----------------------------
+
+.. image:: images/schematics/storage/RAM16x8.svg
+    :width: 800px
+
+Defined in `bitwise/storage/RAM.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/RAM.py>`_.
+
+16-word deep 8-bit wide `random access memory <https://en.wikipedia.org/wiki/Random-access_memory>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        data_bus, 
+        address_bus, 
+        write_enable, 
+        clock, 
+        output_bus
+    )
+
+Construct a new 16-word deep 8-bit wide random access memory array.
+
+Args:
+~~~~~
+* ``data_bus``: An object of type ``Bus8``. The data input in write operations.
+* ``address_bus``: An object of type ``Bus4``. The address from which data is read from and written to.
+* ``write_enable``: An object of type ``Wire``. The write enable input. A value of 1 indicates a write operation, while a value of 0 indicates a read-only operation (the value on data_bus is ignored).
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus8``. The currently stored data in the at the address indicated by ``address_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 8, or if ``address_bus`` is not a bus of width 4.
+
+
+.. _RAM256x8:
+
+RAM256x8
+========
+
+Class ``bw.storage.RAM256x8``
+-----------------------------
+
+.. image:: images/schematics/storage/RAM256x8.svg
+    :width: 800px
+
+Defined in `bitwise/storage/RAM.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/RAM.py>`_.
+
+256-word deep 8-bit wide `random access memory <https://en.wikipedia.org/wiki/Random-access_memory>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        data_bus, 
+        address_bus, 
+        write_enable, 
+        clock, 
+        output_bus
+    )
+
+Construct a new 256-word deep 8-bit wide random access memory array.
+
+Args:
+~~~~~
+* ``data_bus``: An object of type ``Bus8``. The data input in write operations.
+* ``address_bus``: An object of type ``Bus8``. The address from which data is read from and written to.
+* ``write_enable``: An object of type ``Wire``. The write enable input. A value of 1 indicates a write operation, while a value of 0 indicates a read-only operation (the value on data_bus is ignored).
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus8``. The currently stored data in the at the address indicated by ``address_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``data_bus``, ``address_bus``, or ``output_bus`` is not a bus of width 8.
+
+
+.. _RAM65536x8:
+
+RAM65536x8
+==========
+
+Class ``bw.storage.RAM65536x8``
+-------------------------------
+
+.. image:: images/schematics/storage/RAM65536x8.svg
+    :width: 800px
+
+Defined in `bitwise/storage/RAM.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/RAM.py>`_.
+
+65536-word deep 8-bit wide `random access memory <https://en.wikipedia.org/wiki/Random-access_memory>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        data_bus, 
+        address_bus, 
+        write_enable, 
+        clock, 
+        output_bus
+    )
+
+Construct a new 65536-word deep 8-bit wide random access memory array.
+
+Args:
+~~~~~
+* ``data_bus``: An object of type ``Bus8``. The data input in write operations.
+* ``address_bus``: An object of type ``Bus16``. The address from which data is read from and written to.
+* ``write_enable``: An object of type ``Wire``. The write enable input. A value of 1 indicates a write operation, while a value of 0 indicates a read-only operation (the value on data_bus is ignored).
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus8``. The currently stored data in the at the address indicated by ``address_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 8, or if ``address_bus`` is not a bus of width 16.
+
+
+.. _RAM16x16:
+
+RAM16x16
+========
+
+Class ``bw.storage.RAM16x16``
+-----------------------------
+
+.. image:: images/schematics/storage/RAM16x16.svg
+    :width: 800px
+
+Defined in `bitwise/storage/RAM.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/RAM.py>`_.
+
+16-word deep 16-bit wide `random access memory <https://en.wikipedia.org/wiki/Random-access_memory>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        data_bus, 
+        address_bus, 
+        write_enable, 
+        clock, 
+        output_bus
+    )
+
+Construct a new 16-word deep 16-bit wide random access memory array.
+
+Args:
+~~~~~
+* ``data_bus``: An object of type ``Bus16``. The data input in write operations.
+* ``address_bus``: An object of type ``Bus4``. The address from which data is read from and written to.
+* ``write_enable``: An object of type ``Wire``. The write enable input. A value of 1 indicates a write operation, while a value of 0 indicates a read-only operation (the value on data_bus is ignored).
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus16``. The currently stored data in the at the address indicated by ``address_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 16, or if ``address_bus`` is not a bus of width 4.
+
+
+.. _RAM256x16:
+
+RAM256x16
+=========
+
+Class ``bw.storage.RAM256x16``
+------------------------------
+
+.. image:: images/schematics/storage/RAM256x16.svg
+    :width: 800px
+
+Defined in `bitwise/storage/RAM.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/RAM.py>`_.
+
+256-word deep 16-bit wide `random access memory <https://en.wikipedia.org/wiki/Random-access_memory>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        data_bus, 
+        address_bus, 
+        write_enable, 
+        clock, 
+        output_bus
+    )
+
+Construct a new 256-word deep 16-bit wide random access memory array.
+
+Args:
+~~~~~
+* ``data_bus``: An object of type ``Bus16``. The data input in write operations.
+* ``address_bus``: An object of type ``Bus8``. The address from which data is read from and written to.
+* ``write_enable``: An object of type ``Wire``. The write enable input. A value of 1 indicates a write operation, while a value of 0 indicates a read-only operation (the value on data_bus is ignored).
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus16``. The currently stored data in the at the address indicated by ``address_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 16, or if ``address_bus`` is not a bus of width 8.
+
+
+.. _RAM65536x16:
+
+RAM65536x16
+===========
+
+Class ``bw.storage.RAM65536x16``
+--------------------------------
+
+.. image:: images/schematics/storage/RAM65536x16.svg
+    :width: 800px
+
+Defined in `bitwise/storage/RAM.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/storage/RAM.py>`_.
+
+65536-word deep 16-bit wide `random access memory <https://en.wikipedia.org/wiki/Random-access_memory>`_.
+
+__init__
+--------
+
+::
+
+    __init__(
+        data_bus, 
+        address_bus, 
+        write_enable, 
+        clock, 
+        output_bus
+    )
+
+Construct a new 65536-word deep 16-bit wide random access memory array.
+
+Args:
+~~~~~
+* ``data_bus``: An object of type ``Bus16``. The data input in write operations.
+* ``address_bus``: An object of type ``Bus16``. The address from which data is read from and written to.
+* ``write_enable``: An object of type ``Wire``. The write enable input. A value of 1 indicates a write operation, while a value of 0 indicates a read-only operation (the value on data_bus is ignored).
+* ``clock``: An object of type ``Wire`` or ``Clock``. The clock input.
+* ``output_bus``: An object of type ``Bus16``. The currently stored data in the at the address indicated by ``address_bus``.
+
+Raises:
+~~~~~~~
+* ``TypeError``: If either ``data_bus``, ``address_bus``, or ``output_bus`` is not a bus of width 16.
+
+
 .. _Register4:
 
 Register4

@@ -128,6 +128,15 @@ API Documentation
 * :ref:`GatedSRLatch`
 * :ref:`JKFlipFlop`
 * :ref:`JKFlipFlopPresetClear`
+* :ref:`RAM16x4`
+* :ref:`RAM256x4`
+* :ref:`RAM65536x4`
+* :ref:`RAM16x8`
+* :ref:`RAM256x8`
+* :ref:`RAM65536x8`
+* :ref:`RAM16x16`
+* :ref:`RAM256x16`
+* :ref:`RAM65536x16`
 * :ref:`Register4`
 * :ref:`Register8`
 * :ref:`Register16`
