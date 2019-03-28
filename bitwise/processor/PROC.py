@@ -71,7 +71,33 @@ class Processor:
 
 
 class _ProcessorDatapath:
-    """
+    """This is an internal module for the processor's datapath.
+
+    Args:
+        clock: An object of type Wire or Clock.
+        data_ext: An object of type Wire.
+        reg_in: An object of type Bus16.
+        reg_out: An object of type Bus16.
+        up_sp: An object of type Wire.
+        down_sp: An object of type Wire.
+        up_pc: An object of type Wire.
+        load_pc: An object of type Wire.
+        a_in: An object of type Wire.
+        flags_in: An object of type Wire.
+        g_in: An object of type Wire.
+        g_out: An object of type Wire.
+        data_in: An object of type Wire.
+        addr_in: An object of type Wire.
+        sel_bus: An object of type Bus4.
+        ext: An object of type Wire.
+        ir_in: An object of type Wire.
+        instruction: An object of type Bus16.
+        z_f: An object of type Wire.
+        v_f: An object of type Wire.
+        n_f: An object of type Wire.
+        c_f: An object of type Wire.
+        data: An object of type Bus16.
+        addr: An object of type Bus16.
     """
     def __init__(
         self,
@@ -174,11 +200,36 @@ class _ProcessorDatapath:
         storage.Register16(data_bus, ir_in, clock, instruction)
 
 
-class _ProcessorControlpath:
-    """
+class ProcessorControlpath:
+    """This is an internal module for the processor's controlpath.
+
+    Args:
+        clock: An object of type Wire or Clock.
+        instruction: An object of type Bus16.
+        z: An object of type Wire.
+        v: An object of type Wire.
+        n: An object of type Wire.
+        c: An object of type Wire.
+        reg_in: An object of type Bus16.
+        reg_out: An object of type Bus16.
+        up_sp: An object of type Wire.
+        down_sp: An object of type Wire.
+        up_pc: An object of type Wire.
+        load_pc: An object of type Wire.
+        a_in: An object of type Wire.
+        flags_in: An object of type Wire.
+        g_in: An object of type Wire.
+        g_out: An object of type Wire.
+        data_in: An object of type Wire.
+        addr_in: An object of type Wire.
+        sel_bus: An object of type Bus4.
+        ext: An object of type Wire.
+        ir_in: An object of type Wire.
+        write_enable: An object of type Wire.
     """
     def __init__(
         self,
+        clock,
         instruction,
         z,
         v,
@@ -207,12 +258,33 @@ class _ProcessorControlpath:
         b = Bus4(*instruction[8:12])
         c = Bus4(*instruction[12:16])
 
+        done = Wire()
+        done_n = Wire()
+
         op_dec = Bus16()
         a_dec = Bus16()
         b_dec = Bus16()
         c_dec = Bus16()
 
+        curr_state = Bus8()
+        curr_state_r = Bus8(*curr_state[::-1])
+
+        gate.NOTGate(done, done_n)
+
         signal.Decoder1Of16(vcc, op, op_dec)
         signal.Decoder1Of16(vcc, a, a_dec)
         signal.Decoder1Of16(vcc, b, b_dec)
         signal.Decoder1Of16(vcc, c, c_dec)
+
+        state.RingCounter8(vcc, done_n, clock, curr_state)
+
+        self.instruction = instruction
+        self.done_n = done_n
+        self.curr_state_r = curr_state_r
+
+    def print_wire_values(self):
+        print(self.instruction)
+        print(self.done)
+        print(self.done_n)
+        print(self.curr_state_r)
+        print("\n")
