@@ -137,7 +137,7 @@ __init__
 ::
 
     __init__(
-        input_1,
+        input,
         output
     )
 
@@ -145,7 +145,7 @@ Construct a new buffer.
 
 Args:
 ~~~~~
-* ``input_1``: An object of type ``Wire``. The input to the buffer.
+* ``input``: An object of type ``Wire``. The input to the buffer.
 * ``output``: An object of type ``Wire``. The output of the buffer.
 
 
@@ -427,7 +427,7 @@ __init__
 ::
 
     __init__(
-        input_1,
+        input,
         output
     )
 
@@ -435,7 +435,7 @@ Construct a new NOT gate.
 
 Args:
 ~~~~~
-* ``input_1``: An object of type ``Wire``. The input to the NOT gate.
+* ``input``: An object of type ``Wire``. The input to the NOT gate.
 * ``output``: An object of type ``Wire``. The output of the NOT gate.
 
 

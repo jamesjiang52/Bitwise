@@ -12,7 +12,7 @@ class NOTGate:
     """Construct a new NOT gate.
 
     Args:
-        input_1: An object of type Wire. The input to the NOT gate.
+        input: An object of type Wire. The input to the NOT gate.
         output: An object of type Wire. The output of the NOT gate.
     """
     def __init__(self, input_1, output):

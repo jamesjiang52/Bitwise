@@ -12,7 +12,7 @@ class Buffer:
     """Construct a new Buffer.
 
     Args:
-        input_1: An object of type Wire. The input to the buffer.
+        input: An object of type Wire. The input to the buffer.
         output: An object of type Wire. The output of the buffer.
     """
     def __init__(self, input_1, output):

@@ -44,3 +44,6 @@ class Clock:
 
     def start(self):
         _thread.start_new_thread(self._oscillate, ())
+
+    def __str__(self):
+        return str(self._value)

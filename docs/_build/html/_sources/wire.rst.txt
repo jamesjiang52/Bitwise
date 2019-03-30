@@ -295,7 +295,7 @@ __init__
 
     __init__(
         enable,
-        input_,
+        input,
         output
     )
 
@@ -304,8 +304,8 @@ Initialize a new tri-state buffer.
 Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``.
-* ``input_``: An object of type ``Wire``.
-* ``output``: An object of type ``Wire``. Takes on the value of ``input_`` if ``enable`` has value 1. Otherwise, value is independent of ``input_``.
+* ``input``: An object of type ``Wire``.
+* ``output``: An object of type ``Wire``. Takes on the value of ``input`` if ``enable`` has value 1. Otherwise, value is independent of ``input``.
 
 
 .. _Wire:

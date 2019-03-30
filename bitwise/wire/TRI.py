@@ -9,9 +9,9 @@ class TristateBuffer:
 
     Args:
         enable: An object of type Wire.
-        input_: An object of type Wire.
-        output: An object of type Wire. Takes on the value of input_ if enable
-            has value 1. Otherwise, value is independent of input_.
+        input: An object of type Wire.
+        output: An object of type Wire. Takes on the value of input if enable
+            has value 1. Otherwise, value is independent of input.
     """
     def __init__(self, enable, input_, output):
         self.input_ = input_
@@ -37,3 +37,10 @@ class TristateBuffer:
             self.output.value = self.input_.value
         else:
             pass
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input: " + str(self.input_.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_
