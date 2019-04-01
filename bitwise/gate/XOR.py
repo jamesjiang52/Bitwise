@@ -30,3 +30,14 @@ class XORGate2:
         AND.ANDGate2(input_1, wire_2, wire_3)
         AND.ANDGate2(input_2, wire_1, wire_4)
         OR.ORGate2(wire_3, wire_4, output)
+
+        self.input_1 = input_1
+        self.input_2 = input_2
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_1: " + str(self.input_1.value) + "\n"
+        str_ += "input_2: " + str(self.input_2.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_

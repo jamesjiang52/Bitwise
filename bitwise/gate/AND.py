@@ -32,6 +32,10 @@ class ANDGate2:
         else:
             self.output.value = 0
 
+        self.input_1 = input_1
+        self.input_2 = input_2
+        self.output = output
+
     def _update_input_1(self, value):
         if ((value == 1) and (self.input_2.value == 1)):
             self.output.value = 1
@@ -43,6 +47,13 @@ class ANDGate2:
             self.output.value = 1
         else:
             self.output.value = 0
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_1: " + str(self.input_1.value) + "\n"
+        str_ += "input_2: " + str(self.input_2.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_
 
 
 class ANDGate3:
@@ -58,6 +69,19 @@ class ANDGate3:
         wire_1 = Wire()
         ANDGate2(input_1, input_2, wire_1)
         ANDGate2(input_3, wire_1, output)
+
+        self.input_1 = input_1
+        self.input_2 = input_2
+        self.input_3 = input_3
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_1: " + str(self.input_1.value) + "\n"
+        str_ += "input_2: " + str(self.input_2.value) + "\n"
+        str_ += "input_3: " + str(self.input_3.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_
 
 
 class ANDGate4:
@@ -76,3 +100,18 @@ class ANDGate4:
         ANDGate2(input_1, input_2, wire_1)
         ANDGate2(input_3, input_4, wire_2)
         ANDGate2(wire_1, wire_2, output)
+
+        self.input_1 = input_1
+        self.input_2 = input_2
+        self.input_3 = input_3
+        self.input_4 = input_4
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_1: " + str(self.input_1.value) + "\n"
+        str_ += "input_2: " + str(self.input_2.value) + "\n"
+        str_ += "input_3: " + str(self.input_3.value) + "\n"
+        str_ += "input_4: " + str(self.input_4.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_

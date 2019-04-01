@@ -26,8 +26,17 @@ class Buffer:
         else:
             self.output.value = 0
 
+        self.input = input_1
+        self.output = output
+
     def _update_input_1(self, value):
         if value == 1:
             self.output.value = 1
         else:
             self.output.value = 0
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input: " + str(self.input.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_
