@@ -47,6 +47,17 @@ class BufferBus4:
         Tri(enable, input_bus[2], output_bus[2])
         Tri(enable, input_bus[3], output_bus[3])
 
+        self.enable = enable
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class BufferBus8:
     """Initialize a new tri-state buffer with buses of width 8 as input and
@@ -84,6 +95,17 @@ class BufferBus8:
         Tri(enable, input_bus[5], output_bus[5])
         Tri(enable, input_bus[6], output_bus[6])
         Tri(enable, input_bus[7], output_bus[7])
+
+        self.enable = enable
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class BufferBus16:
@@ -130,3 +152,14 @@ class BufferBus16:
         Tri(enable, input_bus[13], output_bus[13])
         Tri(enable, input_bus[14], output_bus[14])
         Tri(enable, input_bus[15], output_bus[15])
+
+        self.enable = enable
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

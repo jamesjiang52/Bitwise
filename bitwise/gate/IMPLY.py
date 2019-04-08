@@ -22,3 +22,14 @@ class IMPLYGate:
         wire_1 = Wire()
         NOT.NOTGate(input_1, wire_1)
         OR.ORGate2(wire_1, input_2, output)
+
+        self.input_1 = input_1
+        self.input_2 = input_2
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_1: " + str(self.input_1.value) + "\n"
+        str_ += "input_2: " + str(self.input_2.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_

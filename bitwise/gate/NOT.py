@@ -12,7 +12,7 @@ class NOTGate:
     """Construct a new NOT gate.
 
     Args:
-        input_1: An object of type Wire. The input to the NOT gate.
+        input: An object of type Wire. The input to the NOT gate.
         output: An object of type Wire. The output of the NOT gate.
     """
     def __init__(self, input_1, output):
@@ -26,8 +26,17 @@ class NOTGate:
         else:
             self.output.value = 1
 
+        self.input = input_1
+        self.output = output
+
     def _update_input_1(self, value):
         if value == 1:
             self.output.value = 0
         else:
             self.output.value = 1
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input: " + str(self.input.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_
