@@ -61,6 +61,21 @@ class SerialToParallelConverter1To4:
             b
         )
 
+        self.enable = enable
+        self.clear_n = reset_n
+        self.data = data
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "data: " + str(self.data.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class SerialToParallelConverter1To8:
     """Construct a new serial-to-8-bit-parallel converter.
@@ -112,6 +127,21 @@ class SerialToParallelConverter1To8:
             output_bus,
             b
         )
+
+        self.enable = enable
+        self.clear_n = reset_n
+        self.data = data
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "data: " + str(self.data.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class SerialToParallelConverter1To16:
@@ -175,3 +205,18 @@ class SerialToParallelConverter1To16:
             output_bus,
             b
         )
+
+        self.enable = enable
+        self.clear_n = reset_n
+        self.data = data
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "data: " + str(self.data.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

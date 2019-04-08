@@ -25,7 +25,7 @@ class TestRingCounter8:
             output_8
         )
 
-        bw.state.RingCounter8(enable, clear_n, clock, output_bus)
+        a = bw.state.RingCounter8(enable, clear_n, clock, output_bus)
 
         enable.value = 1
         clear_n.value = 0
@@ -80,3 +80,6 @@ class TestRingCounter8:
 
         clear_n.value = 0
         assert output_bus.wire_values == (0, 0, 0, 0, 0, 0, 0, 1)
+
+        print(a.__doc__)
+        print(a)

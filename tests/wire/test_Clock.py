@@ -7,3 +7,6 @@ class TestClock:
         assert clock.value == 0
 
         clock.start()
+
+        print(clock.__doc__)
+        print(clock)

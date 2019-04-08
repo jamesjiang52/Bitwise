@@ -10,7 +10,7 @@ class TestUpCounterMod8:
         output_2 = bw.wire.Wire()
         output_3 = bw.wire.Wire()
 
-        bw.state.UpCounterMod8(
+        a = bw.state.UpCounterMod8(
             enable,
             clear_n,
             clock,
@@ -75,3 +75,6 @@ class TestUpCounterMod8:
 
         clear_n.value = 0
         assert (output_1.value, output_2.value, output_3.value) == (0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

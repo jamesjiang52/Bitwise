@@ -123,6 +123,27 @@ class ShiftRegister4:
         )
         gate.Buffer(output_bus[3], output_s)
 
+        self.enable = enable
+        self.clear_n = reset_n
+        self.shift_load = shift_load
+        self.data_bus = data_bus
+        self.data_serial = data_s
+        self.clock = clock
+        self.output_bus = output_bus
+        self.output_serial = output_s
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "shift_load: " + str(self.shift_load.value) + "\n"
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "data_serial: " + str(self.data_serial.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__() + "\n"
+        str_ += "output_serial: " + str(self.output_serial.value)
+        return str_
+
 
 class ShiftRegister8:
     """Construct a new 8-bit shift register.
@@ -278,6 +299,27 @@ class ShiftRegister8:
             q_1_not
         )
         gate.Buffer(output_bus[7], output_s)
+
+        self.enable = enable
+        self.clear_n = reset_n
+        self.shift_load = shift_load
+        self.data_bus = data_bus
+        self.data_serial = data_s
+        self.clock = clock
+        self.output_bus = output_bus
+        self.output_serial = output_s
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "shift_load: " + str(self.shift_load.value) + "\n"
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "data_serial: " + str(self.data_serial.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__() + "\n"
+        str_ += "output_serial: " + str(self.output_serial.value)
+        return str_
 
 
 class ShiftRegister16:
@@ -532,3 +574,24 @@ class ShiftRegister16:
             q_1_not
         )
         gate.Buffer(output_bus[15], output_s)
+
+        self.enable = enable
+        self.clear_n = reset_n
+        self.shift_load = shift_load
+        self.data_bus = data_bus
+        self.data_serial = data_s
+        self.clock = clock
+        self.output_bus = output_bus
+        self.output_serial = output_s
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "shift_load: " + str(self.shift_load.value) + "\n"
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "data_serial: " + str(self.data_serial.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__() + "\n"
+        str_ += "output_serial: " + str(self.output_serial.value)
+        return str_

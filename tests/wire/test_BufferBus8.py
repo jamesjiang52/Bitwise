@@ -40,7 +40,8 @@ class TestBufferBus8:
             output_7,
             output_8
         )
-        bw.wire.BufferBus8(enable, input_bus, output_bus)
+
+        a = bw.wire.BufferBus8(enable, input_bus, output_bus)
 
         enable.value = 0
         input_1.value = 0
@@ -98,3 +99,6 @@ class TestBufferBus8:
         output_7.value = 0
         output_8.value = 1
         assert input_bus.wire_values == (0, 0, 0, 0, 1, 1, 1, 1)
+
+        print(a.__doc__)
+        print(a)

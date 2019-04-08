@@ -8,7 +8,7 @@ class TestANDGate3:
         input_3 = bw.wire.Wire()
         output = bw.wire.Wire()
 
-        bw.gate.ANDGate3(input_1, input_2, input_3, output)
+        a = bw.gate.ANDGate3(input_1, input_2, input_3, output)
 
         input_1.value = 0
         input_2.value = 0
@@ -49,3 +49,6 @@ class TestANDGate3:
         input_2.value = 1
         input_3.value = 1
         assert output.value == 1
+
+        print(a.__doc__)
+        print(a)

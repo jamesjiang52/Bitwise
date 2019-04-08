@@ -41,7 +41,7 @@ class TestRingCounter16:
             output_16
         )
 
-        bw.state.RingCounter16(enable, clear_n, clock, output_bus)
+        a = bw.state.RingCounter16(enable, clear_n, clock, output_bus)
 
         enable.value = 1
         clear_n.value = 0
@@ -149,3 +149,6 @@ class TestRingCounter16:
         clear_n.value = 0
         assert output_bus.wire_values == (
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+
+        print(a.__doc__)
+        print(a)

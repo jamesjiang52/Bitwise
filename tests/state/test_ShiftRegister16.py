@@ -78,7 +78,7 @@ class TestShiftRegister16:
             output_16
         )
 
-        bw.state.ShiftRegister16(
+        a = bw.state.ShiftRegister16(
             enable,
             reset_n,
             shift_load,
@@ -207,3 +207,6 @@ class TestShiftRegister16:
         assert output_bus.wire_values == (
             0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1)
         assert output_serial.value == 1
+
+        print(a.__doc__)
+        print(a)

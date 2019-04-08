@@ -72,7 +72,8 @@ class TestBufferBus16:
             output_15,
             output_16
         )
-        bw.wire.BufferBus16(enable, input_bus, output_bus)
+
+        a = bw.wire.BufferBus16(enable, input_bus, output_bus)
 
         enable.value = 0
         input_1.value = 0
@@ -177,3 +178,6 @@ class TestBufferBus16:
         output_16.value = 1
         assert input_bus.wire_values == (
             0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1)
+
+        print(a.__doc__)
+        print(a)

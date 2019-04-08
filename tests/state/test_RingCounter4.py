@@ -12,7 +12,7 @@ class TestRingCounter4:
         output_4 = bw.wire.Wire()
         output_bus = bw.wire.Bus4(output_1, output_2, output_3, output_4)
 
-        bw.state.RingCounter4(enable, clear_n, clock, output_bus)
+        a = bw.state.RingCounter4(enable, clear_n, clock, output_bus)
 
         enable.value = 1
         clear_n.value = 0
@@ -51,3 +51,6 @@ class TestRingCounter4:
 
         clear_n.value = 0
         assert output_bus.wire_values == (0, 0, 0, 1)
+
+        print(a.__doc__)
+        print(a)

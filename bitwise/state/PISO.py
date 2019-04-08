@@ -72,6 +72,23 @@ class ParallelToSerialConverter4To1:
             output
         )
 
+        self.enable = enable
+        self.clear_n = reset_n
+        self.load_n = parallel_load_n
+        self.data_bus = data_bus
+        self.clock = clock
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "load_n: " + str(self.load_n.value) + "\n"
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_
+
 
 class ParallelToSerialConverter8To1:
     """Construct a new 8-bit-parallel-to-serial converter.
@@ -134,6 +151,23 @@ class ParallelToSerialConverter8To1:
             b_bus,
             output
         )
+
+        self.enable = enable
+        self.clear_n = reset_n
+        self.load_n = parallel_load_n
+        self.data_bus = data_bus
+        self.clock = clock
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "load_n: " + str(self.load_n.value) + "\n"
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_
 
 
 class ParallelToSerialConverter16To1:
@@ -208,3 +242,20 @@ class ParallelToSerialConverter16To1:
             b_bus,
             output
         )
+
+        self.enable = enable
+        self.clear_n = reset_n
+        self.load_n = parallel_load_n
+        self.data_bus = data_bus
+        self.clock = clock
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "load_n: " + str(self.load_n.value) + "\n"
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_

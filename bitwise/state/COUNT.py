@@ -59,6 +59,21 @@ class UpCounterMod4:
             output_not_2
         )
 
+        self.enable = enable
+        self.clear_n = clear_n
+        self.clock = clock
+        self.output_1 = output_1
+        self.output_2 = output_2
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_1: " + str(self.output_1.value) + "\n"
+        str_ += "output_2: " + str(self.output_2.value)
+        return str_
+
 
 class UpCounterMod8:
     """Construct a new mod-8 up counter.
@@ -111,6 +126,23 @@ class UpCounterMod8:
             output_3,
             output_not_3
         )
+
+        self.enable = enable
+        self.clear_n = clear_n
+        self.clock = clock
+        self.output_1 = output_1
+        self.output_2 = output_2
+        self.output_3 = output_3
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_1: " + str(self.output_1.value) + "\n"
+        str_ += "output_2: " + str(self.output_2.value) + "\n"
+        str_ += "output_3: " + str(self.output_3.value)
+        return str_
 
 
 class UpCounterMod16:
@@ -184,6 +216,19 @@ class UpCounterMod16:
             output_not_4
         )
 
+        self.enable = enable
+        self.clear_n = clear_n
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class DownCounterMod4:
     """Construct a new mod-4 down counter.
@@ -243,6 +288,25 @@ class DownCounterMod4:
             output_2,
             output_not_2
         )
+
+        self.enable = enable
+        self.load_n = load_n
+        self.load_1 = load_1
+        self.load_2 = load_2
+        self.clock = clock
+        self.output_1 = output_1
+        self.output_2 = output_2
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "load_n: " + str(self.load_n.value) + "\n"
+        str_ += "load_1: " + str(self.load_1.value) + "\n"
+        str_ += "load_2: " + str(self.load_2.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_1: " + str(self.output_1.value) + "\n"
+        str_ += "output_2: " + str(self.output_2.value)
+        return str_
 
 
 class DownCounterMod8:
@@ -323,6 +387,29 @@ class DownCounterMod8:
             output_not_3
         )
 
+        self.enable = enable
+        self.load_n = load_n
+        self.load_1 = load_1
+        self.load_2 = load_2
+        self.load_3 = load_3
+        self.clock = clock
+        self.output_1 = output_1
+        self.output_2 = output_2
+        self.output_3 = output_3
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "load_n: " + str(self.load_n.value) + "\n"
+        str_ += "load_1: " + str(self.load_1.value) + "\n"
+        str_ += "load_2: " + str(self.load_2.value) + "\n"
+        str_ += "load_3: " + str(self.load_3.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_1: " + str(self.output_1.value) + "\n"
+        str_ += "output_2: " + str(self.output_2.value) + "\n"
+        str_ += "output_3: " + str(self.output_3.value)
+        return str_
+
 
 class DownCounterMod16:
     """Construct a new mod-16 down counter.
@@ -335,7 +422,7 @@ class DownCounterMod16:
             load_bus[0] and load_bus[3] are the most and least significant bit,
             respectively.
         clock: An object of type Wire or Clock. The clock input to the counter.
-        output_1: An object of type Bus4. The output of the counter.
+        output_bus: An object of type Bus4. The output of the counter.
             output_bus[0] and output_bus[3] are the most and least significant
             bit, respectively.
 
@@ -425,3 +512,18 @@ class DownCounterMod16:
             output_bus[3],
             output_not_4
         )
+
+        self.enable = enable
+        self.load_n = load_n
+        self.load_bus = load_bus
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "load_n: " + str(self.load_n.value) + "\n"
+        str_ += "load_bus: " + self.load_bus.__str__() + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

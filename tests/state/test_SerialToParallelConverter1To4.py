@@ -13,7 +13,7 @@ class TestSerialToParallelConverter1To4:
         output_4 = bw.wire.Wire()
         output_bus = bw.wire.Bus4(output_1, output_2, output_3, output_4)
 
-        bw.state.SerialToParallelConverter1To4(
+        a = bw.state.SerialToParallelConverter1To4(
             enable,
             reset_n,
             data,
@@ -108,3 +108,6 @@ class TestSerialToParallelConverter1To4:
 
         reset_n.value = 0
         assert output_bus.wire_values == (0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)
