@@ -27,7 +27,7 @@ class TestEncoder8To3:
             input_8
         )
 
-        bw.signal.Encoder8To3(
+        a = bw.signal.Encoder8To3(
             enable,
             input_bus,
             valid,
@@ -287,3 +287,6 @@ class TestEncoder8To3:
         assert output_1.value == 1
         assert output_2.value == 1
         assert output_3.value == 1
+
+        print(a.__doc__)
+        print(a)

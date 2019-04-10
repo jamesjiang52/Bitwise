@@ -335,7 +335,7 @@
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">enable</span><span class="p">,</span>
     <span class="n">select</span><span class="p">,</span>
-    <span class="n">input_</span><span class="p">,</span>
+    <span class="nb">input</span><span class="p">,</span>
     <span class="n">output_1</span><span class="p">,</span>
     <span class="n">output_2</span>
 <span class="p">)</span>
@@ -347,9 +347,9 @@
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the demultiplexer.</li>
 <li><code class="docutils literal"><span class="pre">select</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The select input.</li>
-<li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> if the value of <code class="docutils literal"><span class="pre">select</span></code> is 1.</li>
-<li><code class="docutils literal"><span class="pre">output_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> if the value of <code class="docutils literal"><span class="pre">select</span></code> is 0.</li>
+<li><code class="docutils literal"><span class="pre">input</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
+<li><code class="docutils literal"><span class="pre">output_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Takes on the value of <code class="docutils literal"><span class="pre">input</span></code> if the value of <code class="docutils literal"><span class="pre">select</span></code> is 1.</li>
+<li><code class="docutils literal"><span class="pre">output_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Takes on the value of <code class="docutils literal"><span class="pre">input</span></code> if the value of <code class="docutils literal"><span class="pre">select</span></code> is 0.</li>
 </ul>
 </div>
 </div>
@@ -367,7 +367,7 @@
     <span class="n">enable</span><span class="p">,</span>
     <span class="n">select_1</span><span class="p">,</span>
     <span class="n">select_2</span><span class="p">,</span>
-    <span class="n">input_</span><span class="p">,</span>
+    <span class="nb">input</span><span class="p">,</span>
     <span class="n">output_bus</span>
 <span class="p">)</span>
 </pre></div>
@@ -379,8 +379,8 @@
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the demultiplexer.</li>
 <li><code class="docutils literal"><span class="pre">select_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the select input.</li>
 <li><code class="docutils literal"><span class="pre">select_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the select input.</li>
-<li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[3]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0) select.</li>
+<li><code class="docutils literal"><span class="pre">input</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input</span></code> for a (1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[3]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input</span></code> for a (0, 0) select.</li>
 </ul>
 </div>
 <div class="section" id="id38">
@@ -405,7 +405,7 @@
     <span class="n">select_1</span><span class="p">,</span>
     <span class="n">select_2</span><span class="p">,</span>
     <span class="n">select_3</span><span class="p">,</span>
-    <span class="n">input_</span><span class="p">,</span>
+    <span class="nb">input</span><span class="p">,</span>
     <span class="n">output_bus</span>
 <span class="p">)</span>
 </pre></div>
@@ -418,8 +418,8 @@
 <li><code class="docutils literal"><span class="pre">select_1</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The most significant bit of the select input.</li>
 <li><code class="docutils literal"><span class="pre">select_2</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
 <li><code class="docutils literal"><span class="pre">select_3</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The least significant bit of the select input.</li>
-<li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[7]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0, 0) select.</li>
+<li><code class="docutils literal"><span class="pre">input</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus8</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input</span></code> for a (1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[7]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input</span></code> for a (0, 0, 0) select.</li>
 </ul>
 </div>
 <div class="section" id="id44">
@@ -442,7 +442,7 @@
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">enable</span><span class="p">,</span>
     <span class="n">select_bus</span><span class="p">,</span>
-    <span class="n">input_</span><span class="p">,</span>
+    <span class="nb">input</span><span class="p">,</span>
     <span class="n">output_bus</span>
 <span class="p">)</span>
 </pre></div>
@@ -453,8 +453,8 @@
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. Enables the demultiplexer.</li>
 <li><code class="docutils literal"><span class="pre">select_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus4</span></code>. The select input to the demultiplexer. <code class="docutils literal"><span class="pre">select_bus[0]</span></code> and <code class="docutils literal"><span class="pre">select_bus[3]</span></code> are the most and least significant bit, respectively.</li>
-<li><code class="docutils literal"><span class="pre">input_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
-<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (1, 1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[15]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input_</span></code> for a (0, 0, 0, 0) select.</li>
+<li><code class="docutils literal"><span class="pre">input</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The data input to the demultiplexer.</li>
+<li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. <code class="docutils literal"><span class="pre">output_bus[0]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input</span></code> for a (1, 1, 1, 1) select, and <code class="docutils literal"><span class="pre">output_bus[15]</span></code> takes on the value of <code class="docutils literal"><span class="pre">input</span></code> for a (0, 0, 0, 0) select.</li>
 </ul>
 </div>
 <div class="section" id="id50">

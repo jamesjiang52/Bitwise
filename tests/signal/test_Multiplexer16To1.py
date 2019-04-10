@@ -50,7 +50,7 @@ class TestMultiplexer16To1:
             select_4
         )
 
-        bw.signal.Multiplexer16To1(
+        a = bw.signal.Multiplexer16To1(
             enable,
             select_bus,
             input_bus,
@@ -1574,3 +1574,6 @@ class TestMultiplexer16To1:
         input_15.value = 1
         input_16.value = 1
         assert output.value == 1
+
+        print(a.__doc__)
+        print(a)

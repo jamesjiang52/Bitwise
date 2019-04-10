@@ -13,7 +13,7 @@ class TestDemultiplexer1To4:
         output_4 = bw.wire.Wire()
         output_bus = bw.wire.Bus4(output_1, output_2, output_3, output_4)
 
-        bw.signal.Demultiplexer1To4(
+        a = bw.signal.Demultiplexer1To4(
             enable,
             select_1,
             select_2,
@@ -80,3 +80,6 @@ class TestDemultiplexer1To4:
         select_2.value = 1
         input_.value = 1
         assert output_bus.wire_values == (1, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

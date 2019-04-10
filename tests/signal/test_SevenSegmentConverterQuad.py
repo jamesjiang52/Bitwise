@@ -103,7 +103,7 @@ class TestSevenSegmentConverterQuad():
             output_28
         )
 
-        bw.signal.SevenSegmentConverterQuad(
+        a = bw.signal.SevenSegmentConverterQuad(
             enable,
             input_bus,
             output_bus_1,
@@ -287,3 +287,6 @@ class TestSevenSegmentConverterQuad():
         assert output_bus_2.wire_values == (0, 0, 0, 1, 1, 1, 0)
         assert output_bus_3.wire_values == (0, 0, 0, 1, 1, 1, 0)
         assert output_bus_4.wire_values == (0, 0, 0, 1, 1, 1, 0)
+
+        print(a.__doc__)
+        print(a)

@@ -27,7 +27,7 @@ class TestDemultiplexer1To8:
             output_8
         )
 
-        bw.signal.Demultiplexer1To8(
+        a = bw.signal.Demultiplexer1To8(
             enable,
             select_1,
             select_2,
@@ -161,3 +161,6 @@ class TestDemultiplexer1To8:
         select_3.value = 1
         input_.value = 1
         assert output_bus.wire_values == (1, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

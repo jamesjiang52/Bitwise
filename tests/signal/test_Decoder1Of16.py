@@ -44,7 +44,7 @@ class TestDecoder1Of16:
             output_16
         )
 
-        bw.signal.Decoder1Of16(enable, input_bus, output_bus)
+        a = bw.signal.Decoder1Of16(enable, input_bus, output_bus)
 
         enable.value = 0
         input_1.value = 0
@@ -189,3 +189,6 @@ class TestDecoder1Of16:
         input_4.value = 1
         assert output_bus.wire_values == (
             1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

@@ -13,7 +13,7 @@ class TestMultiplexer4To1:
         output = bw.wire.Wire()
         bus_1 = bw.wire.Bus4(input_1, input_2, input_3, input_4)
 
-        bw.signal.Multiplexer4To1(
+        a = bw.signal.Multiplexer4To1(
             enable,
             select_1,
             select_2,
@@ -182,3 +182,6 @@ class TestMultiplexer4To1:
         input_3.value = 1
         input_4.value = 1
         assert output.value == 1
+
+        print(a.__doc__)
+        print(a)

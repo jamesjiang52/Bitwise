@@ -48,6 +48,17 @@ class ControlledInverter4:
         gate.XORGate2(enable, input_bus.wires[2], output_bus.wires[2])
         gate.XORGate2(enable, input_bus.wires[3], output_bus.wires[3])
 
+        self.enable = enable
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class ControlledInverter8:
     """Construct a new 8-bit controlled inverter.
@@ -86,6 +97,17 @@ class ControlledInverter8:
         ControlledInverter4(enable, bus_1, bus_3)
         ControlledInverter4(enable, bus_2, bus_4)
 
+        self.enable = enable
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class ControlledInverter16:
     """Construct a new 16-bit controlled inverter.
@@ -123,3 +145,14 @@ class ControlledInverter16:
 
         ControlledInverter8(enable, bus_1, bus_3)
         ControlledInverter8(enable, bus_2, bus_4)
+
+        self.enable = enable
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

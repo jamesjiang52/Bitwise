@@ -49,6 +49,19 @@ class Decoder1Of4:
         gate.ANDGate3(enable, wire_1, input_2, output_bus.wires[2])
         gate.ANDGate3(enable, wire_1, wire_2, output_bus.wires[3])
 
+        self.enable = enable
+        self.input_1 = input_1
+        self.input_2 = input_2
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_1: " + str(self.input_1.value) + "\n"
+        str_ += "input_2: " + str(self.input_2.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class Decoder1Of8:
     """Construct a new 1-of-8 decoder.
@@ -87,6 +100,21 @@ class Decoder1Of8:
         Decoder1Of4(wire_2, input_2, input_3, bus_1)
         Decoder1Of4(wire_3, input_2, input_3, bus_2)
 
+        self.enable = enable
+        self.input_1 = input_1
+        self.input_2 = input_2
+        self.input_3 = input_3
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_1: " + str(self.input_1.value) + "\n"
+        str_ += "input_2: " + str(self.input_2.value) + "\n"
+        str_ += "input_3: " + str(self.input_3.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class Decoder1Of16:
     """
@@ -95,7 +123,7 @@ class Decoder1Of16:
     Args:
         enable: An object of type Wire. Enables the decoder.
         input_bus: An object of type Bus4. The data input to the decoder.
-            input_1 and input_4 are the most and least significant bit,
+            input[0] and input[3] are the most and least significant bit,
             respectively.
         output_bus: An object of type Bus16. A one-hot encoded value of the
             input, with output[0] corresponding to a (1, 1, 1, 1) input and
@@ -135,3 +163,14 @@ class Decoder1Of16:
         Decoder1Of4(wire_2, input_bus.wires[2], input_bus.wires[3], bus_3)
         Decoder1Of4(wire_3, input_bus.wires[2], input_bus.wires[3], bus_4)
         Decoder1Of4(wire_4, input_bus.wires[2], input_bus.wires[3], bus_5)
+
+        self.enable = enable
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

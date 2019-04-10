@@ -40,6 +40,21 @@ class Multiplexer2To1:
         gate.ORGate2(wire_2, wire_3, wire_4)
         gate.ANDGate2(enable, wire_4, output)
 
+        self.enable = enable
+        self.select = select
+        self.input_1 = input_1
+        self.input_2 = input_2
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "select: " + str(self.select.value) + "\n"
+        str_ += "input_1: " + str(self.input_1.value) + "\n"
+        str_ += "input_2: " + str(self.input_2.value) + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_
+
 
 class Multiplexer4To1:
     """Construct a new 4-to-1 multiplexer.
@@ -72,6 +87,21 @@ class Multiplexer4To1:
         Multiplexer2To1(enable, select_2, *input_bus.wires[0:2], wire_1)
         Multiplexer2To1(enable, select_2, *input_bus.wires[2:4], wire_2)
         Multiplexer2To1(enable, select_1, wire_1, wire_2, output)
+
+        self.enable = enable
+        self.select_1 = select_1
+        self.select_2 = select_2
+        self.input_bus = input_bus
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "select_1: " + str(self.select_1.value) + "\n"
+        str_ += "select_2: " + str(self.select_2.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_
 
 
 class Multiplexer8To1:
@@ -109,6 +139,23 @@ class Multiplexer8To1:
         Multiplexer4To1(enable, select_2, select_3, bus_1, wire_1)
         Multiplexer4To1(enable, select_2, select_3, bus_2, wire_2)
         Multiplexer2To1(enable, select_1, wire_1, wire_2, output)
+
+        self.enable = enable
+        self.select_1 = select_1
+        self.select_2 = select_2
+        self.select_3 = select_3
+        self.input_bus = input_bus
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "select_1: " + str(self.select_1.value) + "\n"
+        str_ += "select_2: " + str(self.select_2.value) + "\n"
+        str_ += "select_3: " + str(self.select_3.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_
 
 
 class Multiplexer16To1:
@@ -157,3 +204,16 @@ class Multiplexer16To1:
         Multiplexer4To1(enable, *select_bus.wires[2:4], bus_3, wire_3)
         Multiplexer4To1(enable, *select_bus.wires[2:4], bus_4, wire_4)
         Multiplexer4To1(enable, *select_bus.wires[0:2], bus_5, output)
+
+        self.enable = enable
+        self.select_bus = select_bus
+        self.input_bus = input_bus
+        self.output = output
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "select_bus: " + self.select_bus.__str__() + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output: " + str(self.output.value)
+        return str_

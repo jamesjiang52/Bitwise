@@ -41,7 +41,7 @@ class TestControlledInverter8:
             output_8
         )
 
-        bw.signal.ControlledInverter8(enable, input_bus, output_bus)
+        a = bw.signal.ControlledInverter8(enable, input_bus, output_bus)
 
         enable.value = 0
         input_1.value = 0
@@ -240,3 +240,6 @@ class TestControlledInverter8:
         input_7.value = 1
         input_8.value = 1
         assert output_bus.wire_values == (0, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

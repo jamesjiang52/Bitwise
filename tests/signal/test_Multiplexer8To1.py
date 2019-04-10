@@ -27,7 +27,7 @@ class TestMultiplexer8To1:
             input_8
         )
 
-        bw.signal.Multiplexer8To1(
+        a = bw.signal.Multiplexer8To1(
             enable,
             select_1,
             select_2,
@@ -511,3 +511,6 @@ class TestMultiplexer8To1:
         input_7.value = 1
         input_8.value = 1
         assert output.value == 1
+
+        print(a.__doc__)
+        print(a)
