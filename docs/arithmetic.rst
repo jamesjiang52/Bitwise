@@ -294,7 +294,7 @@ __init__
         a,
         b,
         carry_out,
-        sum_
+        sum
     )
 
 Construct a new full adder.
@@ -305,7 +305,7 @@ Args:
 * ``a``: An object of type ``Wire``. The first addend.
 * ``b``: An object of type ``Wire``. The second addend.
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
-* ``sum_``: An object of type ``Wire``. The sum of the two addends.
+* ``sum``: An object of type ``Wire``. The sum of the two addends.
 
 
 .. _HalfAdder:
@@ -332,7 +332,7 @@ __init__
         a,
         b,
         carry_out,
-        sum_
+        sum
     )
 
 Construct a new half adder.
@@ -342,7 +342,7 @@ Args:
 * ``a``: An object of type ``Wire``. The first addend.
 * ``b``: An object of type ``Wire``. The second addend.
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
-* ``sum_``: An object of type ``Wire``. The sum of the two addends.
+* ``sum``: An object of type ``Wire``. The sum of the two addends.
 
 
 .. _Multiplier2:

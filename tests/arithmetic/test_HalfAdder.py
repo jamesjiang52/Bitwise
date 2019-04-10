@@ -8,7 +8,7 @@ class TestHalfAdder:
         carry_out = bw.wire.Wire()
         sum_ = bw.wire.Wire()
 
-        bw.arithmetic.HalfAdder(input_1, input_2, carry_out, sum_)
+        a = bw.arithmetic.HalfAdder(input_1, input_2, carry_out, sum_)
 
         input_1.value = 0
         input_2.value = 0
@@ -25,3 +25,6 @@ class TestHalfAdder:
         input_1.value = 1
         input_2.value = 1
         assert (carry_out.value, sum_.value) == (1, 0)
+
+        print(a.__doc__)
+        print(a)

@@ -57,6 +57,21 @@ class Multiplier2:
         ADD.FullAdder(gnd, and_1, and_4, cout_1, product_bus[2])
         ADD.FullAdder(cout_1, gnd, and_3, product_bus[0], product_bus[1])
 
+        self.a_1 = a_1
+        self.a_2 = a_2
+        self.b_1 = b_1
+        self.b_2 = b_2
+        self.product_bus = product_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "a_1: " + str(self.a_1.value) + "\n"
+        str_ += "a_2: " + str(self.a_2.value) + "\n"
+        str_ += "b_1: " + str(self.b_1.value) + "\n"
+        str_ += "b_2: " + str(self.b_2.value) + "\n"
+        str_ += "product_bus: " + self.product_bus.__str__()
+        return str_
+
 
 class Multiplier4:
     """Construct a new 4-bit unsigned multiplier.
@@ -155,6 +170,17 @@ class Multiplier4:
         ADD.Adder4(gnd, bus_1_1, bus_1_2, cout_1, bus_1_out)
         ADD.Adder4(gnd, bus_2_1, bus_2_2, cout_2, bus_2_out)
         ADD.Adder4(gnd, bus_3_1, bus_3_2, product_bus[0], bus_3_out)
+
+        self.a_bus = a_bus
+        self.b_bus = b_bus
+        self.product_bus = product_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "product_bus: " + self.product_bus.__str__()
+        return str_
 
 
 class Multiplier8:
@@ -437,3 +463,14 @@ class Multiplier8:
         ADD.Adder8(gnd, bus_5_1, bus_5_2, cout_5, bus_5_out)
         ADD.Adder8(gnd, bus_6_1, bus_6_2, cout_6, bus_6_out)
         ADD.Adder8(gnd, bus_7_1, bus_7_2, product_bus[0], bus_7_out)
+
+        self.a_bus = a_bus
+        self.b_bus = b_bus
+        self.product_bus = product_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "product_bus: " + self.product_bus.__str__()
+        return str_

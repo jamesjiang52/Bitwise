@@ -22,7 +22,7 @@ class TestAdderSubtractor4:
         input_bus_2 = bw.wire.Bus4(input_5, input_6, input_7, input_8)
         output_bus = bw.wire.Bus4(output_1, output_2, output_3, output_4)
 
-        bw.arithmetic.AdderSubtractor4(
+        a = bw.arithmetic.AdderSubtractor4(
             add_subtract,
             input_bus_1,
             input_bus_2,
@@ -272,3 +272,6 @@ class TestAdderSubtractor4:
         input_7.value = 1
         input_8.value = 1
         assert (overflow.value, *output_bus.wire_values) == (0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

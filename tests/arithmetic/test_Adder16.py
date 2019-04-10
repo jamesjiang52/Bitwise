@@ -108,7 +108,7 @@ class TestAdder16:
             output_16
         )
 
-        bw.arithmetic.Adder16(
+        a = bw.arithmetic.Adder16(
             carry_in,
             input_bus_1,
             input_bus_2,
@@ -2707,3 +2707,6 @@ class TestAdder16:
         input_32.value = 1
         assert (carry_out.value, *output_bus.wire_values) == (
             1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+        print(a.__doc__)
+        print(a)

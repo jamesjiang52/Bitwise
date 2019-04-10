@@ -93,6 +93,23 @@ class AdderSubtractor4:
         gate.ANDGate3(not_input_1, input_2[0], output[0], and_2_wire)
         gate.ORGate2(and_1_wire, and_2_wire, overflow)
 
+        self.add_subtract = add_subtract
+        self.a_bus = input_bus_1
+        self.b_bus = input_bus_2
+        self.overflow = overflow
+        self.carry_out = carry_out
+        self.sum_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "add_subtract: " + str(self.add_subtract.value) + "\n"
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "overflow: " + str(self.overflow.value) + "\n"
+        str_ += "carry_out: " + str(self.carry_out.value) + "\n"
+        str_ += "sum_bus: " + self.sum_bus.__str__()
+        return str_
+
 
 class AdderSubtractor8:
     """Construct a new 8-bit adder-subtractor.
@@ -183,6 +200,23 @@ class AdderSubtractor8:
         gate.ANDGate3(input_1[0], not_input_2, not_output, and_1_wire)
         gate.ANDGate3(not_input_1, input_2[0], output[0], and_2_wire)
         gate.ORGate2(and_1_wire, and_2_wire, overflow)
+
+        self.add_subtract = add_subtract
+        self.a_bus = input_bus_1
+        self.b_bus = input_bus_2
+        self.overflow = overflow
+        self.carry_out = carry_out
+        self.sum_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "add_subtract: " + str(self.add_subtract.value) + "\n"
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "overflow: " + str(self.overflow.value) + "\n"
+        str_ += "carry_out: " + str(self.carry_out.value) + "\n"
+        str_ += "sum_bus: " + self.sum_bus.__str__()
+        return str_
 
 
 class AdderSubtractor16:
@@ -290,3 +324,20 @@ class AdderSubtractor16:
         gate.ANDGate3(input_1[0], not_input_2, not_output, and_1_wire)
         gate.ANDGate3(not_input_1, input_2[0], output[0], and_2_wire)
         gate.ORGate2(and_1_wire, and_2_wire, overflow)
+
+        self.add_subtract = add_subtract
+        self.a_bus = input_bus_1
+        self.b_bus = input_bus_2
+        self.overflow = overflow
+        self.carry_out = carry_out
+        self.sum_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "add_subtract: " + str(self.add_subtract.value) + "\n"
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "overflow: " + str(self.overflow.value) + "\n"
+        str_ += "carry_out: " + str(self.carry_out.value) + "\n"
+        str_ += "sum_bus: " + self.sum_bus.__str__()
+        return str_

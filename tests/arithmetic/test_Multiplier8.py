@@ -56,7 +56,7 @@ class TestMultiplier8:
             product_16
         )
 
-        bw.arithmetic.Multiplier8(a_bus, b_bus, product_bus)
+        a = bw.arithmetic.Multiplier8(a_bus, b_bus, product_bus)
 
         a_1.value = 0
         a_2.value = 0
@@ -741,3 +741,6 @@ class TestMultiplier8:
         b_8.value = 1
         assert product_bus.wire_values == (
             1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1)
+
+        print(a.__doc__)
+        print(a)
