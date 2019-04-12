@@ -40,7 +40,7 @@ class TestParityChecker16:
             input_16
         )
 
-        bw.logic.ParityChecker16(input_bus, parity_bit, error)
+        a = bw.logic.ParityChecker16(input_bus, parity_bit, error)
 
         input_1.value = 0
         input_2.value = 0
@@ -668,3 +668,6 @@ class TestParityChecker16:
         input_16.value = 1
         parity_bit.value = 1
         assert error.value == 1
+
+        print(a.__doc__)
+        print(a)

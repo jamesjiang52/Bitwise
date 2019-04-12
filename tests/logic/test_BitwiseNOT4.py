@@ -15,7 +15,7 @@ class TestBitwiseNOT4:
         o_bus_4 = bw.wire.Wire()
         o_bus = bw.wire.Bus4(o_bus_1, o_bus_2, o_bus_3, o_bus_4)
 
-        bw.logic.BitwiseNOT4(a_bus, o_bus)
+        a = bw.logic.BitwiseNOT4(a_bus, o_bus)
 
         assert o_bus.wire_values == (1, 1, 1, 1)
 
@@ -39,3 +39,6 @@ class TestBitwiseNOT4:
         a_bus[3].value = 1
 
         assert o_bus.wire_values == (0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

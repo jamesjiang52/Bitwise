@@ -11,7 +11,7 @@ class TestParityChecker4:
         error = bw.wire.Wire()
         input_bus = bw.wire.Bus4(input_1, input_2, input_3, input_4)
 
-        bw.logic.ParityChecker4(input_bus, parity_bit, error)
+        a = bw.logic.ParityChecker4(input_bus, parity_bit, error)
 
         input_1.value = 0
         input_2.value = 0
@@ -82,3 +82,6 @@ class TestParityChecker4:
         input_4.value = 1
         parity_bit.value = 1
         assert error.value == 1
+
+        print(a.__doc__)
+        print(a)

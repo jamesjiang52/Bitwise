@@ -23,7 +23,7 @@ class TestParityGenerator8:
             input_8
         )
 
-        bw.logic.ParityGenerator8(input_bus, parity_bit)
+        a = bw.logic.ParityGenerator8(input_bus, parity_bit)
 
         input_1.value = 0
         input_2.value = 0
@@ -394,3 +394,6 @@ class TestParityGenerator8:
         input_7.value = 1
         input_8.value = 1
         assert parity_bit.value == 0
+
+        print(a.__doc__)
+        print(a)

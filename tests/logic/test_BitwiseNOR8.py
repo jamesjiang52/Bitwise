@@ -60,7 +60,7 @@ class TestBitwiseNOR8:
             o_bus_8
         )
 
-        bw.logic.BitwiseNOR8(a_bus, b_bus, o_bus)
+        a = bw.logic.BitwiseNOR8(a_bus, b_bus, o_bus)
 
         assert o_bus.wire_values == (1, 1, 1, 1, 1, 1, 1, 1)
 
@@ -105,3 +105,6 @@ class TestBitwiseNOR8:
         b_bus[7].value = 1
 
         assert o_bus.wire_values == (0, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

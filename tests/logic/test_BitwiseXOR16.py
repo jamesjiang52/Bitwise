@@ -108,7 +108,7 @@ class TestBitwiseXOR16:
             o_bus_16
         )
 
-        bw.logic.BitwiseXOR16(a_bus, b_bus, o_bus)
+        a = bw.logic.BitwiseXOR16(a_bus, b_bus, o_bus)
 
         assert o_bus.wire_values == (
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -189,3 +189,6 @@ class TestBitwiseXOR16:
 
         assert o_bus.wire_values == (
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)
