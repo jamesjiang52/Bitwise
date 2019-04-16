@@ -12,7 +12,7 @@ class TestRegister4:
         input_bus = bw.wire.Bus4(input_1, input_2, input_3, input_4)
         output_bus = bw.wire.Bus4()
 
-        bw.storage.Register4(input_bus, enable, clock, output_bus)
+        a = bw.storage.Register4(input_bus, enable, clock, output_bus)
 
         enable.value = 1
 
@@ -59,3 +59,6 @@ class TestRegister4:
         input_4.value = 0
         clock.value = 1
         assert output_bus.wire_values == (0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

@@ -59,6 +59,19 @@ class Register4:
         FLOP.DFlipFlop(mux_bus[2], clock, output_bus[2], not_3)
         FLOP.DFlipFlop(mux_bus[3], clock, output_bus[3], not_4)
 
+        self.data_bus = input_bus
+        self.enable = enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class Register8:
     """Construct a new 8-bit storage register.
@@ -111,6 +124,19 @@ class Register8:
         FLOP.DFlipFlop(mux_bus[5], clock, output_bus[5], not_6)
         FLOP.DFlipFlop(mux_bus[6], clock, output_bus[6], not_7)
         FLOP.DFlipFlop(mux_bus[7], clock, output_bus[7], not_8)
+
+        self.data_bus = input_bus
+        self.enable = enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class Register16:
@@ -180,6 +206,19 @@ class Register16:
         FLOP.DFlipFlop(mux_bus[13], clock, output_bus[13], not_14)
         FLOP.DFlipFlop(mux_bus[14], clock, output_bus[14], not_15)
         FLOP.DFlipFlop(mux_bus[15], clock, output_bus[15], not_16)
+
+        self.data_bus = input_bus
+        self.enable = enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class _Multiplexer2To1_4:

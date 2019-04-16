@@ -25,7 +25,7 @@ class TestRegister8:
         )
         output_bus = bw.wire.Bus8()
 
-        bw.storage.Register8(input_bus, enable, clock, output_bus)
+        a = bw.storage.Register8(input_bus, enable, clock, output_bus)
 
         enable.value = 1
 
@@ -100,3 +100,6 @@ class TestRegister8:
         input_8.value = 0
         clock.value = 1
         assert output_bus.wire_values == (0, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

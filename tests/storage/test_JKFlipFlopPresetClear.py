@@ -11,7 +11,7 @@ class TestJKFlipFlopPresetClear:
         output = bw.wire.Wire()
         output_not = bw.wire.Wire()
 
-        bw.storage.JKFlipFlopPresetClear(
+        a = bw.storage.JKFlipFlopPresetClear(
             j,
             k,
             preset_n,
@@ -68,3 +68,6 @@ class TestJKFlipFlopPresetClear:
         preset_n.value = 1
         assert output.value == 1
         assert output_not.value == 0
+
+        print(a.__doc__)
+        print(a)

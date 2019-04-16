@@ -9,7 +9,7 @@ class TestGatedSRLatch:
         output = bw.wire.Wire()
         output_not = bw.wire.Wire()
 
-        bw.storage.GatedSRLatch(set_, reset, clock, output, output_not)
+        a = bw.storage.GatedSRLatch(set_, reset, clock, output, output_not)
 
         clock.value = 1
         set_.value = 0
@@ -118,3 +118,6 @@ class TestGatedSRLatch:
         reset.value = 0
         assert output.value == 0
         assert output_not.value == 1
+
+        print(a.__doc__)
+        print(a)

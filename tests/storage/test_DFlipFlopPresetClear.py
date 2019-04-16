@@ -10,7 +10,7 @@ class TestDFlipFlopPresetClear:
         output = bw.wire.Wire()
         output_not = bw.wire.Wire()
 
-        bw.storage.DFlipFlopPresetClear(
+        a = bw.storage.DFlipFlopPresetClear(
             data,
             preset_n,
             clear_n,
@@ -83,3 +83,6 @@ class TestDFlipFlopPresetClear:
         clear_n.value = 1
         assert output.value == 0
         assert output_not.value == 1
+
+        print(a.__doc__)
+        print(a)
