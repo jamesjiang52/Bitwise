@@ -12,7 +12,7 @@ class TestDecoder1Of4:
         output_4 = bw.wire.Wire()
         output_bus = bw.wire.Bus4(output_1, output_2, output_3, output_4)
 
-        bw.signal.Decoder1Of4(enable, input_1, input_2, output_bus)
+        a = bw.signal.Decoder1Of4(enable, input_1, input_2, output_bus)
 
         enable.value = 0
         input_1.value = 0
@@ -53,3 +53,6 @@ class TestDecoder1Of4:
         input_1.value = 1
         input_2.value = 1
         assert output_bus.wire_values == (1, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

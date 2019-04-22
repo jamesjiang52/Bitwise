@@ -8,7 +8,7 @@ class TestDFlipFlop:
         output = bw.wire.Wire()
         output_not = bw.wire.Wire()
 
-        bw.storage.DFlipFlop(data, clock, output, output_not)
+        a = bw.storage.DFlipFlop(data, clock, output, output_not)
 
         clock.value = 0
         data.value = 1
@@ -61,3 +61,6 @@ class TestDFlipFlop:
         data.value = 0
         assert output.value == 0
         assert output_not.value == 1
+
+        print(a.__doc__)
+        print(a)

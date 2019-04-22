@@ -46,7 +46,7 @@ class TestShiftRegister8:
             output_8
         )
 
-        bw.state.ShiftRegister8(
+        a = bw.state.ShiftRegister8(
             enable,
             reset_n,
             shift_load,
@@ -146,3 +146,6 @@ class TestShiftRegister8:
         clock.value = 1
         assert output_bus.wire_values == (0, 0, 0, 0, 1, 0, 0, 1)
         assert output_serial.value == 1
+
+        print(a.__doc__)
+        print(a)

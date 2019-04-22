@@ -32,7 +32,7 @@ class TestMultiplier4:
             product_8
         )
 
-        bw.arithmetic.Multiplier4(a_bus, b_bus, product_bus)
+        a = bw.arithmetic.Multiplier4(a_bus, b_bus, product_bus)
 
         a_1.value = 0
         a_2.value = 0
@@ -233,3 +233,6 @@ class TestMultiplier4:
         b_3.value = 1
         b_4.value = 1
         assert product_bus.wire_values == (1, 1, 1, 0, 0, 0, 0, 1)
+
+        print(a.__doc__)
+        print(a)

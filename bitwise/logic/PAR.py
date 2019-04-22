@@ -42,6 +42,15 @@ class ParityGenerator4:
         gate.XORGate2(input_bus.wires[2], input_bus.wires[3], wire_2)
         gate.XORGate2(wire_1, wire_2, parity_bit)
 
+        self.input_bus = input_bus
+        self.parity_bit = parity_bit
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "parity_bit: " + str(self.parity_bit.value)
+        return str_
+
 
 class ParityChecker4:
     """Construct a new 4-bit even parity checker.
@@ -65,6 +74,17 @@ class ParityChecker4:
         wire_1 = Wire()
         ParityGenerator4(input_bus, wire_1)
         gate.XORGate2(wire_1, parity_bit, error)
+
+        self.input_bus = input_bus
+        self.parity_bit = parity_bit
+        self.error = error
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "parity_bit: " + str(self.parity_bit.value) + "\n"
+        str_ += "error: " + str(self.error.value)
+        return str_
 
 
 class ParityGenerator8:
@@ -94,6 +114,15 @@ class ParityGenerator8:
         ParityGenerator4(bus_2, wire_2)
         gate.XORGate2(wire_1, wire_2, parity_bit)
 
+        self.input_bus = input_bus
+        self.parity_bit = parity_bit
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "parity_bit: " + str(self.parity_bit.value)
+        return str_
+
 
 class ParityChecker8:
     """Construct a new 8-bit even parity checker.
@@ -117,6 +146,17 @@ class ParityChecker8:
         wire_1 = Wire()
         ParityGenerator8(input_bus, wire_1)
         gate.XORGate2(wire_1, parity_bit, error)
+
+        self.input_bus = input_bus
+        self.parity_bit = parity_bit
+        self.error = error
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "parity_bit: " + str(self.parity_bit.value) + "\n"
+        str_ += "error: " + str(self.error.value)
+        return str_
 
 
 class ParityGenerator16:
@@ -146,6 +186,15 @@ class ParityGenerator16:
         ParityGenerator8(bus_2, wire_2)
         gate.XORGate2(wire_1, wire_2, parity_bit)
 
+        self.input_bus = input_bus
+        self.parity_bit = parity_bit
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "parity_bit: " + str(self.parity_bit.value)
+        return str_
+
 
 class ParityChecker16:
     """Construct a new 16-bit even parity checker.
@@ -169,3 +218,14 @@ class ParityChecker16:
         wire_1 = Wire()
         ParityGenerator16(input_bus, wire_1)
         gate.XORGate2(wire_1, parity_bit, error)
+
+        self.input_bus = input_bus
+        self.parity_bit = parity_bit
+        self.error = error
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "parity_bit: " + str(self.parity_bit.value) + "\n"
+        str_ += "error: " + str(self.error.value)
+        return str_

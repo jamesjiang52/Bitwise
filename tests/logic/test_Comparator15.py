@@ -75,7 +75,7 @@ class TestComparator15:
             input_32
         )
 
-        bw.logic.Comparator15(input_bus_1, input_bus_2, gt, z, lt)
+        a = bw.logic.Comparator15(input_bus_1, input_bus_2, gt, z, lt)
 
         input_1.value = 0
         input_2.value = 0
@@ -484,3 +484,6 @@ class TestComparator15:
         input_31.value = 1
         input_32.value = 1
         assert (gt.value, z.value, lt.value) == (0, 0, 1)
+
+        print(a.__doc__)
+        print(a)

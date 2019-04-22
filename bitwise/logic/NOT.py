@@ -46,6 +46,15 @@ class BitwiseNOT4:
         gate.NOTGate(input_bus[2], output_bus[2])
         gate.NOTGate(input_bus[3], output_bus[3])
 
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class BitwiseNOT8:
     """Construct a new 8-bit bitwise NOT circuit.
@@ -82,6 +91,15 @@ class BitwiseNOT8:
         gate.NOTGate(input_bus[5], output_bus[5])
         gate.NOTGate(input_bus[6], output_bus[6])
         gate.NOTGate(input_bus[7], output_bus[7])
+
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class BitwiseNOT16:
@@ -127,3 +145,12 @@ class BitwiseNOT16:
         gate.NOTGate(input_bus[13], output_bus[13])
         gate.NOTGate(input_bus[14], output_bus[14])
         gate.NOTGate(input_bus[15], output_bus[15])
+
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

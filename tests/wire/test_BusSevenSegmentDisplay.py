@@ -65,3 +65,6 @@ class TestBusSevenSegmentDisplay:
         assert bus_1.wire_values == (0, 0, 0, 0, 0, 0, 0)
 
         assert len(bus_1) == 7
+
+        print(bus_1.__doc__)
+        print(bus_1)

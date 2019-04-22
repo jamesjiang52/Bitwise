@@ -87,3 +87,6 @@ class TestBus8:
 
         bus_2.wire_values = (1, 0, 0, 1, 1, 0, 0, 1)
         assert bus_2.wire_values == (1, 0, 0, 1, 1, 0, 0, 1)
+
+        print(bus_1.__doc__)
+        print(bus_1)

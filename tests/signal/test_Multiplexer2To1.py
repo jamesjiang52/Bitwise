@@ -9,7 +9,7 @@ class TestMultiplexer2To1:
         input_2 = bw.wire.Wire()
         output = bw.wire.Wire()
 
-        bw.signal.Multiplexer2To1(enable, select, input_1, input_2, output)
+        a = bw.signal.Multiplexer2To1(enable, select, input_1, input_2, output)
 
         enable.value = 0
         select.value = 0
@@ -70,3 +70,6 @@ class TestMultiplexer2To1:
         input_1.value = 1
         input_2.value = 1
         assert output.value == 1
+
+        print(a.__doc__)
+        print(a)

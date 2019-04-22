@@ -27,7 +27,7 @@ class TestParallelToSerialConverter8To1:
             data_8
         )
 
-        bw.state.ParallelToSerialConverter8To1(
+        a = bw.state.ParallelToSerialConverter8To1(
             enable,
             reset_n,
             parallel_load_n,
@@ -117,3 +117,6 @@ class TestParallelToSerialConverter8To1:
 
         reset_n.value = 0
         assert output.value == 0
+
+        print(a.__doc__)
+        print(a)

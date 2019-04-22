@@ -22,23 +22,36 @@ class SRLatch:
     """Construct a new SR latch.
 
     Args:
-        set_: An object of type Wire. The set input to the latch.
+        set: An object of type Wire. The set input to the latch.
         reset: An object of type Wire. The reset input to the latch.
         output: An object of type Wire. The output of the latch. Takes on the
             value of 1 if the value of set is 1 and the value of 0 if the value
             of reset is 1.
         output_not: An object of type Wire. The complemented form of output.
     """
-    def __init__(self, set_, reset, output, output_not):
-        gate.NORGate2(set_, output, output_not)
+    def __init__(self, set, reset, output, output_not):
+        gate.NORGate2(set, output, output_not)
         gate.NORGate2(reset, output_not, output)
+
+        self.set = set
+        self.reset = reset
+        self.output = output
+        self.output_not = output_not
+
+    def __str__(self):
+        str_ = ""
+        str_ += "set: " + str(self.set.value) + "\n"
+        str_ += "reset: " + str(self.reset.value) + "\n"
+        str_ += "output: " + str(self.output.value) + "\n"
+        str_ += "output_not: " + str(self.output_not.value)
+        return str_
 
 
 class GatedSRLatch:
     """Construct a new gated SR latch.
 
     Args:
-        set_: An object of type Wire. The set input to the latch.
+        set: An object of type Wire. The set input to the latch.
         reset: An object of type Wire. The reset input to the latch.
         clock: An object of type Wire or Clock. The clock input to the latch.
         output: An object of type Wire. The output of the latch. When the value
@@ -46,13 +59,28 @@ class GatedSRLatch:
             the value of 0 if the value of reset is 1.
         output_not: An object of type Wire. The complemented form of output.
     """
-    def __init__(self, set_, reset, clock, output, output_not):
+    def __init__(self, set, reset, clock, output, output_not):
         wire_1 = Wire()
         wire_2 = Wire()
 
-        gate.ANDGate2(clock, set_, wire_1)
+        gate.ANDGate2(clock, set, wire_1)
         gate.ANDGate2(clock, reset, wire_2)
         SRLatch(wire_1, wire_2, output, output_not)
+
+        self.set = set
+        self.reset = reset
+        self.clock = clock
+        self.output = output
+        self.output_not = output_not
+
+    def __str__(self):
+        str_ = ""
+        str_ += "set: " + str(self.set.value) + "\n"
+        str_ += "reset: " + str(self.reset.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value) + "\n"
+        str_ += "output_not: " + str(self.output_not.value)
+        return str_
 
 
 class GatedDLatch:
@@ -70,6 +98,19 @@ class GatedDLatch:
 
         gate.NOTGate(data, wire_1)
         GatedSRLatch(data, wire_1, clock, output, output_not)
+
+        self.data = data
+        self.clock = clock
+        self.output = output
+        self.output_not = output_not
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data: " + str(self.data.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value) + "\n"
+        str_ += "output_not: " + str(self.output_not.value)
+        return str_
 
 
 class DFlipFlop:
@@ -91,6 +132,19 @@ class DFlipFlop:
         gate.NOTGate(clock, not_clock)
         GatedDLatch(data, not_clock, q_1, q_not_1)
         GatedDLatch(q_1, clock, output, output_not)
+
+        self.data = data
+        self.clock = clock
+        self.output = output
+        self.output_not = output_not
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data: " + str(self.data.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value) + "\n"
+        str_ += "output_not: " + str(self.output_not.value)
+        return str_
 
 
 class DFlipFlopPresetClear:
@@ -130,6 +184,23 @@ class DFlipFlopPresetClear:
         gate.NANDGate3(preset_n, wire_5, output_not, output)
         gate.NANDGate3(output, wire_6, clear_n, output_not)
 
+        self.data = data
+        self.preset_n = preset_n
+        self.clear_n = clear_n
+        self.clock = clock
+        self.output = output
+        self.output_not = output_not
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data: " + str(self.data.value) + "\n"
+        str_ += "preset_n: " + str(self.preset_n.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value) + "\n"
+        str_ += "output_not: " + str(self.output_not.value)
+        return str_
+
 
 class TFlipFlop:
     """Construct a new positive edge-triggered T flip-flop.
@@ -150,6 +221,19 @@ class TFlipFlop:
 
         signal.Multiplexer2To1(enable, toggle, output_not, output, mux_output)
         DFlipFlop(mux_output, clock, output, output_not)
+
+        self.toggle = toggle
+        self.clock = clock
+        self.output = output
+        self.output_not = output_not
+
+    def __str__(self):
+        str_ = ""
+        str_ += "toggle: " + str(self.toggle.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value) + "\n"
+        str_ += "output_not: " + str(self.output_not.value)
+        return str_
 
 
 class TFlipFlopPresetClear:
@@ -184,6 +268,23 @@ class TFlipFlopPresetClear:
             output_not
         )
 
+        self.toggle = toggle
+        self.preset_n = preset_n
+        self.clear_n = clear_n
+        self.clock = clock
+        self.output = output
+        self.output_not = output_not
+
+    def __str__(self):
+        str_ = ""
+        str_ += "toggle: " + str(self.toggle.value) + "\n"
+        str_ += "preset_n: " + str(self.preset_n.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value) + "\n"
+        str_ += "output_not: " + str(self.output_not.value)
+        return str_
+
 
 class JKFlipFlop:
     """Construct a new positive edge-triggered JK flip-flop.
@@ -210,6 +311,21 @@ class JKFlipFlop:
         gate.ANDGate2(not_1, output, and_2)
         gate.ORGate2(and_1, and_2, or_1)
         DFlipFlop(or_1, clock, output, output_not)
+
+        self.J = j
+        self.K = k
+        self.clock = clock
+        self.output = output
+        self.output_not = output_not
+
+    def __str__(self):
+        str_ = ""
+        str_ += "J: " + str(self.J.value) + "\n"
+        str_ += "K: " + str(self.K.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value) + "\n"
+        str_ += "output_not: " + str(self.output_not.value)
+        return str_
 
 
 class JKFlipFlopPresetClear:
@@ -249,3 +365,22 @@ class JKFlipFlopPresetClear:
             output,
             output_not
         )
+
+        self.J = j
+        self.K = k
+        self.preset_n = preset_n
+        self.clear_n = clear_n
+        self.clock = clock
+        self.output = output
+        self.output_not = output_not
+
+    def __str__(self):
+        str_ = ""
+        str_ += "J: " + str(self.J.value) + "\n"
+        str_ += "K: " + str(self.K.value) + "\n"
+        str_ += "preset_n: " + str(self.preset_n.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output: " + str(self.output.value) + "\n"
+        str_ += "output_not: " + str(self.output_not.value)
+        return str_

@@ -13,7 +13,7 @@ class TestEncoder4To2:
         output_2 = bw.wire.Wire()
         input_bus = bw.wire.Bus4(input_1, input_2, input_3, input_4)
 
-        bw.signal.Encoder4To2(enable, input_bus, valid, output_1, output_2)
+        a = bw.signal.Encoder4To2(enable, input_bus, valid, output_1, output_2)
 
         enable.value = 0
         input_1.value = 0
@@ -104,3 +104,6 @@ class TestEncoder4To2:
         assert valid.value == 1
         assert output_1.value == 1
         assert output_2.value == 1
+
+        print(a.__doc__)
+        print(a)

@@ -55,7 +55,7 @@ class TestSevenSegmentConverterDual():
             output_14
         )
 
-        bw.signal.SevenSegmentConverterDual(
+        a = bw.signal.SevenSegmentConverterDual(
             enable,
             input_bus,
             output_bus_1,
@@ -133,3 +133,6 @@ class TestSevenSegmentConverterDual():
         input_8.value = 1
         assert output_bus_1.wire_values == (0, 0, 0, 1, 1, 1, 0)
         assert output_bus_2.wire_values == (0, 0, 0, 1, 1, 1, 0)
+
+        print(a.__doc__)
+        print(a)

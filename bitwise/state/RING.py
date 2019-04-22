@@ -45,6 +45,19 @@ class RingCounter4:
         COUNT.UpCounterMod4(enable, clear_n, clock, output_1, output_2)
         signal.Decoder1Of4(vcc, output_1, output_2, output_bus)
 
+        self.enable = enable
+        self.clear_n = clear_n
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class RingCounter8:
     """Construct a new 8-bit ring counter.
@@ -86,6 +99,19 @@ class RingCounter8:
         )
         signal.Decoder1Of8(vcc, output_1, output_2, output_3, output_bus)
 
+        self.enable = enable
+        self.clear_n = clear_n
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class RingCounter16:
     """Construct a new 16-bit ring counter.
@@ -126,3 +152,16 @@ class RingCounter16:
             output_bus_int
         )
         signal.Decoder1Of16(vcc, output_bus_int, output_bus)
+
+        self.enable = enable
+        self.clear_n = clear_n
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clear_n: " + str(self.clear_n.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

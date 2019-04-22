@@ -9,7 +9,7 @@ class TestORGate4:
         input_4 = bw.wire.Wire()
         output = bw.wire.Wire()
 
-        bw.gate.ORGate4(input_1, input_2, input_3, input_4, output)
+        a = bw.gate.ORGate4(input_1, input_2, input_3, input_4, output)
 
         input_1.value = 0
         input_2.value = 0
@@ -106,3 +106,6 @@ class TestORGate4:
         input_3.value = 1
         input_4.value = 1
         assert output.value == 1
+
+        print(a.__doc__)
+        print(a)

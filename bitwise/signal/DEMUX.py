@@ -22,10 +22,10 @@ class Demultiplexer1To2:
     Args:
         enable: An object of type Wire. Enables the demultiplexer.
         select: An object of type Wire. The select input.
-        input_: An object of type Wire. The data input to the demultiplexer.
-        output_1: An object of type Wire. Transmits the value of input_ if the
+        input: An object of type Wire. The data input to the demultiplexer.
+        output_1: An object of type Wire. Transmits the value of input if the
             value of select is 1.
-        output_2: An object of type Wire. Transmits the value of input_ if the
+        output_2: An object of type Wire. Transmits the value of input if the
             value of select is 0.
     """
     def __init__(self, enable, select, input_1, output_1, output_2):
@@ -34,6 +34,21 @@ class Demultiplexer1To2:
         gate.NOTGate(select, wire_1)
         gate.ANDGate3(enable, select, input_1, output_1)
         gate.ANDGate3(enable, wire_1, input_1, output_2)
+
+        self.enable = enable
+        self.select = select
+        self.input = input_1
+        self.output_1 = output_1
+        self.output_2 = output_2
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "select: " + str(self.select.value) + "\n"
+        str_ += "input: " + str(self.input.value) + "\n"
+        str_ += "output_1: " + str(self.output_1.value) + "\n"
+        str_ += "output_2: " + str(self.output_2.value)
+        return str_
 
 
 class Demultiplexer1To4:
@@ -45,10 +60,10 @@ class Demultiplexer1To4:
             select input.
         select_2: An object of type Wire. The least significant bit of the
             select input.
-        input_: An object of type Wire. The data input to the demultiplexer.
+        input: An object of type Wire. The data input to the demultiplexer.
         output_bus: An object of type Bus4. output[0] transmits the value of
-            input_ for a (1, 1) select, and output[3] transmits the value of
-            input_ for a (0, 0) select.
+            input for a (1, 1) select, and output[3] transmits the value of
+            input for a (0, 0) select.
 
     Raises:
         TypeError: If output_bus is not a bus of width 4.
@@ -73,6 +88,21 @@ class Demultiplexer1To4:
         gate.ANDGate2(enable, wire_3, output_bus.wires[2])
         gate.ANDGate2(enable, wire_4, output_bus.wires[3])
 
+        self.enable = enable
+        self.select_1 = select_1
+        self.select_2 = select_2
+        self.input = input_1
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "select_1: " + str(self.select_1.value) + "\n"
+        str_ += "select_2: " + str(self.select_2.value) + "\n"
+        str_ += "input: " + str(self.input.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class Demultiplexer1To8:
     """
@@ -85,10 +115,10 @@ class Demultiplexer1To8:
         select_2: An object of type Wire.
         select_3: An object of type Wire. The least significant bit of the
             select input.
-        input_: An object of type Wire. The data input to the demultiplexer.
+        input: An object of type Wire. The data input to the demultiplexer.
         output_bus: An object of type Bus8. output[0] transmits the value of
-            input_ for a (1, 1, 1) select, and output[7] transmits the value of
-            input_ for a (0, 0, 0) select.
+            input for a (1, 1, 1) select, and output[7] transmits the value of
+            input for a (0, 0, 0) select.
 
     Raises:
         TypeError: If output_bus is not a bus of width 8.
@@ -138,6 +168,23 @@ class Demultiplexer1To8:
         gate.ANDGate2(enable, wire_7, output_bus.wires[6])
         gate.ANDGate2(enable, wire_8, output_bus.wires[7])
 
+        self.enable = enable
+        self.select_1 = select_1
+        self.select_2 = select_2
+        self.select_3 = select_3
+        self.input = input_1
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "select_1: " + str(self.select_1.value) + "\n"
+        str_ += "select_2: " + str(self.select_2.value) + "\n"
+        str_ += "select_3: " + str(self.select_3.value) + "\n"
+        str_ += "input: " + str(self.input.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class Demultiplexer1To16:
     """Construct a new 1-to-16 demultiplexer.
@@ -147,10 +194,10 @@ class Demultiplexer1To16:
         select_bus: An object of type Bus4. The select input to the
             demultiplexer. select[0] and select[3] are the most and least
             significant bit, respectively.
-        input_: An object of type Wire. The data input to the demultiplexer.
+        input: An object of type Wire. The data input to the demultiplexer.
         output_bus: An object of type Bus16. output[0] transmits the value of
-            input_ for a (1, 1, 1, 1) select, and output[15] transmits the
-            value of input_ for a (0, 0, 0, 0) select.
+            input for a (1, 1, 1, 1) select, and output[15] transmits the
+            value of input for a (0, 0, 0, 0) select.
 
     Raises:
         TypeError: If select_bus is not a bus of width 4, or if output_bus is
@@ -223,3 +270,16 @@ class Demultiplexer1To16:
         gate.ANDGate2(enable, wire_14, output_bus.wires[13])
         gate.ANDGate2(enable, wire_15, output_bus.wires[14])
         gate.ANDGate2(enable, wire_16, output_bus.wires[15])
+
+        self.enable = enable
+        self.select_bus = select_bus
+        self.input = input_1
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "select_bus: " + self.select_bus.__str__() + "\n"
+        str_ += "input: " + str(self.input.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

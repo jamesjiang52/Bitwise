@@ -8,7 +8,7 @@ class TestSRLatch:
         output = bw.wire.Wire()
         output_not = bw.wire.Wire()
 
-        bw.storage.SRLatch(set_, reset, output, output_not)
+        a = bw.storage.SRLatch(set_, reset, output, output_not)
 
         set_.value = 0
         reset.value = 1
@@ -39,3 +39,6 @@ class TestSRLatch:
         reset.value = 0
         assert output.value == 0
         assert output_not.value == 1
+
+        print(a.__doc__)
+        print(a)

@@ -7,7 +7,7 @@ class TestNORGate2:
         input_2 = bw.wire.Wire()
         output = bw.wire.Wire()
 
-        bw.gate.NORGate2(input_1, input_2, output)
+        a = bw.gate.NORGate2(input_1, input_2, output)
 
         input_1.value = 0
         input_2.value = 0
@@ -24,3 +24,6 @@ class TestNORGate2:
         input_1.value = 1
         input_2.value = 1
         assert output.value == 0
+
+        print(a.__doc__)
+        print(a)

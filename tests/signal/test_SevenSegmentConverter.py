@@ -26,7 +26,7 @@ class TestSevenSegmentConverter():
             output_7
         )
 
-        bw.signal.SevenSegmentConverter(enable, input_bus, output_bus)
+        a = bw.signal.SevenSegmentConverter(enable, input_bus, output_bus)
 
         enable.value = 0
         input_1.value = 0
@@ -153,3 +153,6 @@ class TestSevenSegmentConverter():
         input_3.value = 1
         input_4.value = 1
         assert output_bus.wire_values == (0, 0, 0, 1, 1, 1, 0)
+
+        print(a.__doc__)
+        print(a)

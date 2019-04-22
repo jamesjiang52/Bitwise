@@ -13,7 +13,7 @@ class TestDownCounterMod8:
         output_2 = bw.wire.Wire()
         output_3 = bw.wire.Wire()
 
-        bw.state.DownCounterMod8(
+        a = bw.state.DownCounterMod8(
             enable,
             load_n,
             load_1,
@@ -92,3 +92,6 @@ class TestDownCounterMod8:
         clock.value = 1
         load_n.value = 1
         assert (output_1.value, output_2.value, output_3.value) == (0, 0, 1)
+
+        print(a.__doc__)
+        print(a)

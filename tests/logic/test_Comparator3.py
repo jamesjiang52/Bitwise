@@ -17,7 +17,7 @@ class TestComparator3:
         input_bus_1 = bw.wire.Bus4(input_1, input_2, input_3, input_4)
         input_bus_2 = bw.wire.Bus4(input_5, input_6, input_7, input_8)
 
-        bw.logic.Comparator3(input_bus_1, input_bus_2, gt, z, lt)
+        a = bw.logic.Comparator3(input_bus_1, input_bus_2, gt, z, lt)
 
         input_1.value = 0
         input_2.value = 0
@@ -138,3 +138,6 @@ class TestComparator3:
         input_7.value = 1
         input_8.value = 1
         assert (gt.value, z.value, lt.value) == (0, 0, 1)
+
+        print(a.__doc__)
+        print(a)

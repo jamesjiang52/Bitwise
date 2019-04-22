@@ -9,7 +9,9 @@ class TestDemultiplexer1To2:
         output_1 = bw.wire.Wire()
         output_2 = bw.wire.Wire()
 
-        bw.signal.Demultiplexer1To2(enable, select, input_, output_1, output_2)
+        a = bw.signal.Demultiplexer1To2(
+            enable, select, input_, output_1, output_2
+        )
 
         enable.value = 0
         select.value = 0
@@ -40,3 +42,6 @@ class TestDemultiplexer1To2:
         select.value = 1
         input_.value = 1
         assert (output_1.value, output_2.value) == (1, 0)
+
+        print(a.__doc__)
+        print(a)

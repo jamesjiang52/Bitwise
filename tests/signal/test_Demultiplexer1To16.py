@@ -45,7 +45,9 @@ class TestDemultiplexer1To16:
             output_16
         )
 
-        bw.signal.Demultiplexer1To16(enable, select_bus, input_, output_bus)
+        a = bw.signal.Demultiplexer1To16(
+            enable, select_bus, input_, output_bus
+        )
 
         enable.value = 0
         select_1.value = 0
@@ -352,3 +354,6 @@ class TestDemultiplexer1To16:
         input_.value = 1
         assert output_bus.wire_values == (
             1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

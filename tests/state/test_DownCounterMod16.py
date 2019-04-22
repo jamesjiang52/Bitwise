@@ -17,7 +17,7 @@ class TestDownCounterMod16:
         load_bus = bw.wire.Bus4(load_1, load_2, load_3, load_4)
         output_bus = bw.wire.Bus4(output_1, output_2, output_3, output_4)
 
-        bw.state.DownCounterMod16(
+        a = bw.state.DownCounterMod16(
             enable,
             load_n,
             load_bus,
@@ -126,3 +126,6 @@ class TestDownCounterMod16:
         clock.value = 1
         load_n.value = 1
         assert output_bus.wire_values == (0, 0, 1, 0)
+
+        print(a.__doc__)
+        print(a)

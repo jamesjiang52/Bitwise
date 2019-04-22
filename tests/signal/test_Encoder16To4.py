@@ -45,7 +45,7 @@ class TestEncoder16To4:
         )
         output_bus = bw.wire.Bus4(output_1, output_2, output_3, output_4)
 
-        bw.signal.Encoder16To4(enable, input_bus, valid, output_bus)
+        a = bw.signal.Encoder16To4(enable, input_bus, valid, output_bus)
 
         enable.value = 0
         input_1.value = 0
@@ -692,3 +692,6 @@ class TestEncoder16To4:
         input_15.value = 1
         input_16.value = 1
         assert valid, output_bus.wire_values == (1, 1, 1, 1, 1)
+
+        print(a.__doc__)
+        print(a)

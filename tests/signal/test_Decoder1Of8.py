@@ -26,7 +26,9 @@ class TestDecoder1Of8:
             output_8
         )
 
-        bw.signal.Decoder1Of8(enable, input_1, input_2, input_3, output_bus)
+        a = bw.signal.Decoder1Of8(
+            enable, input_1, input_2, input_3, output_bus
+        )
 
         enable.value = 0
         input_1.value = 0
@@ -87,3 +89,6 @@ class TestDecoder1Of8:
         input_2.value = 1
         input_3.value = 1
         assert output_bus.wire_values == (1, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

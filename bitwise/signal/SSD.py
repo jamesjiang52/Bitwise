@@ -126,6 +126,17 @@ class SevenSegmentConverter:
         gate.NOTGate(output_6, output_bus.wires[1])
         gate.NOTGate(output_7, output_bus.wires[0])
 
+        self.enable = enable
+        self.input_bus = input_bus
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class SevenSegmentConverterDual:
     """Construct a new dual seven-segment converter.
@@ -177,6 +188,19 @@ class SevenSegmentConverterDual:
 
         SevenSegmentConverter(enable, bus_1, output_bus_1)
         SevenSegmentConverter(enable, bus_2, output_bus_2)
+
+        self.enable = enable
+        self.input_bus = input_bus
+        self.output_bus_1 = output_bus_1
+        self.output_bus_2 = output_bus_2
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus_1: " + self.output_bus_1.__str__() + "\n"
+        str_ += "output_bus_2: " + self.output_bus_2.__str__()
+        return str_
 
 
 class SevenSegmentConverterQuad:
@@ -266,3 +290,20 @@ class SevenSegmentConverterQuad:
         SevenSegmentConverter(enable, bus_2, output_bus_2)
         SevenSegmentConverter(enable, bus_3, output_bus_3)
         SevenSegmentConverter(enable, bus_4, output_bus_4)
+
+        self.enable = enable
+        self.input_bus = input_bus
+        self.output_bus_1 = output_bus_1
+        self.output_bus_2 = output_bus_2
+        self.output_bus_3 = output_bus_3
+        self.output_bus_4 = output_bus_4
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "output_bus_1: " + self.output_bus_1.__str__() + "\n"
+        str_ += "output_bus_2: " + self.output_bus_2.__str__() + "\n"
+        str_ += "output_bus_3: " + self.output_bus_3.__str__() + "\n"
+        str_ += "output_bus_4: " + self.output_bus_4.__str__()
+        return str_

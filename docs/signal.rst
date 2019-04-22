@@ -268,7 +268,7 @@ __init__
     __init__(
         enable,
         select,
-        input_,
+        input,
         output_1,
         output_2
     )
@@ -279,9 +279,9 @@ Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the demultiplexer.
 * ``select``: An object of type ``Wire``. The select input.
-* ``input_``: An object of type ``Wire``. The data input to the demultiplexer.
-* ``output_1``: An object of type ``Wire``. Takes on the value of ``input_`` if the value of ``select`` is 1.
-* ``output_2``: An object of type ``Wire``. Takes on the value of ``input_`` if the value of ``select`` is 0.
+* ``input``: An object of type ``Wire``. The data input to the demultiplexer.
+* ``output_1``: An object of type ``Wire``. Takes on the value of ``input`` if the value of ``select`` is 1.
+* ``output_2``: An object of type ``Wire``. Takes on the value of ``input`` if the value of ``select`` is 0.
 
 
 .. _Demultiplexer1To4:
@@ -308,7 +308,7 @@ __init__
         enable,
         select_1,
         select_2,
-        input_,
+        input,
         output_bus
     )
 
@@ -319,8 +319,8 @@ Args:
 * ``enable``: An object of type ``Wire``. Enables the demultiplexer.
 * ``select_1``: An object of type ``Wire``. The most significant bit of the select input.
 * ``select_2``: An object of type ``Wire``. The least significant bit of the select input.
-* ``input_``: An object of type ``Wire``. The data input to the demultiplexer.
-* ``output_bus``: An object of type ``Bus4``. ``output_bus[0]`` takes on the value of ``input_`` for a (1, 1) select, and ``output_bus[3]`` takes on the value of ``input_`` for a (0, 0) select.
+* ``input``: An object of type ``Wire``. The data input to the demultiplexer.
+* ``output_bus``: An object of type ``Bus4``. ``output_bus[0]`` takes on the value of ``input`` for a (1, 1) select, and ``output_bus[3]`` takes on the value of ``input`` for a (0, 0) select.
 
 Raises:
 ~~~~~~~
@@ -352,7 +352,7 @@ __init__
         select_1,
         select_2,
         select_3,
-        input_,
+        input,
         output_bus
     )
 
@@ -364,8 +364,8 @@ Args:
 * ``select_1``: An object of type ``Wire``. The most significant bit of the select input.
 * ``select_2``: An object of type ``Wire``.
 * ``select_3``: An object of type ``Wire``. The least significant bit of the select input.
-* ``input_``: An object of type ``Wire``. The data input to the demultiplexer.
-* ``output_bus``: An object of type ``Bus8``. ``output_bus[0]`` takes on the value of ``input_`` for a (1, 1, 1) select, and ``output_bus[7]`` takes on the value of ``input_`` for a (0, 0, 0) select.
+* ``input``: An object of type ``Wire``. The data input to the demultiplexer.
+* ``output_bus``: An object of type ``Bus8``. ``output_bus[0]`` takes on the value of ``input`` for a (1, 1, 1) select, and ``output_bus[7]`` takes on the value of ``input`` for a (0, 0, 0) select.
 
 Raises:
 ~~~~~~~
@@ -395,7 +395,7 @@ __init__
     __init__(
         enable,
         select_bus,
-        input_,
+        input,
         output_bus
     )
 
@@ -405,8 +405,8 @@ Args:
 ~~~~~
 * ``enable``: An object of type ``Wire``. Enables the demultiplexer.
 * ``select_bus``: An object of type ``Bus4``. The select input to the demultiplexer. ``select_bus[0]`` and ``select_bus[3]`` are the most and least significant bit, respectively.
-* ``input_``: An object of type ``Wire``. The data input to the demultiplexer.
-* ``output_bus``: An object of type ``Bus16``. ``output_bus[0]`` takes on the value of ``input_`` for a (1, 1, 1, 1) select, and ``output_bus[15]`` takes on the value of ``input_`` for a (0, 0, 0, 0) select.
+* ``input``: An object of type ``Wire``. The data input to the demultiplexer.
+* ``output_bus``: An object of type ``Bus16``. ``output_bus[0]`` takes on the value of ``input`` for a (1, 1, 1, 1) select, and ``output_bus[15]`` takes on the value of ``input`` for a (0, 0, 0, 0) select.
 
 Raises:
 ~~~~~~~

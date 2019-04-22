@@ -141,7 +141,7 @@ __init__
 ::
 
     __init__(
-        set_,
+        set,
         reset,
         clock,
         output,
@@ -152,7 +152,7 @@ Construct a new gated SR latch.
 
 Args:
 ~~~~~
-* ``set_``: An object of type ``Wire``. The set input to the latch.
+* ``set``: An object of type ``Wire``. The set input to the latch.
 * ``reset``: An object of type ``Wire``. The reset input to the latch.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the latch.
 * ``output``: An object of type ``Wire``. The output of the latch. When the value of ``clock`` is 1, takes on the value of 1 if the value of ``set`` is 1 and the value of 0 if the value of ``reset`` is 1.
@@ -772,7 +772,7 @@ __init__
 ::
 
     __init__(
-        set_,
+        set,
         reset,
         output,
         output_not
@@ -782,7 +782,7 @@ Construct a new SR latch.
 
 Args:
 ~~~~~
-* ``set_``: An object of type ``Wire``. The set input to the latch.
+* ``set``: An object of type ``Wire``. The set input to the latch.
 * ``reset``: An object of type ``Wire``. The reset input to the latch.
 * ``output``: An object of type ``Wire``. The output of the latch. Takes on the value of 1 if the value of ``set`` is 1 and the value of 0 if the value of ``reset`` is 1.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.

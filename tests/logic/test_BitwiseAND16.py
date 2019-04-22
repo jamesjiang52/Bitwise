@@ -108,7 +108,7 @@ class TestBitwiseAND16:
             o_bus_16
         )
 
-        bw.logic.BitwiseAND16(a_bus, b_bus, o_bus)
+        a = bw.logic.BitwiseAND16(a_bus, b_bus, o_bus)
 
         assert o_bus.wire_values == (
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -189,3 +189,6 @@ class TestBitwiseAND16:
 
         assert o_bus.wire_values == (
             1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+        print(a.__doc__)
+        print(a)

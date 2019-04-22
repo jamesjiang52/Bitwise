@@ -60,7 +60,7 @@ class TestAdder8:
             output_8
         )
 
-        bw.arithmetic.Adder8(
+        a = bw.arithmetic.Adder8(
             carry_in,
             input_bus_1,
             input_bus_2,
@@ -867,3 +867,6 @@ class TestAdder8:
         input_16.value = 1
         assert (carry_out.value, *output_bus.wire_values) == (
             1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+        print(a.__doc__)
+        print(a)

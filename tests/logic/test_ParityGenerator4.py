@@ -10,7 +10,7 @@ class TestParityGenerator4:
         parity_bit = bw.wire.Wire()
         input_bus = bw.wire.Bus4(input_1, input_2, input_3, input_4)
 
-        bw.logic.ParityGenerator4(input_bus, parity_bit)
+        a = bw.logic.ParityGenerator4(input_bus, parity_bit)
 
         input_1.value = 0
         input_2.value = 0
@@ -77,3 +77,6 @@ class TestParityGenerator4:
         input_3.value = 1
         input_4.value = 1
         assert parity_bit.value == 0
+
+        print(a.__doc__)
+        print(a)

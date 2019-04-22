@@ -221,7 +221,7 @@
 <div class="section" id="id13">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
-    <span class="n">set_</span><span class="p">,</span>
+    <span class="nb">set</span><span class="p">,</span>
     <span class="n">reset</span><span class="p">,</span>
     <span class="n">clock</span><span class="p">,</span>
     <span class="n">output</span><span class="p">,</span>
@@ -233,7 +233,7 @@
 <div class="section" id="id14">
 <h4>Args:</h4>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">set_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The set input to the latch.</li>
+<li><code class="docutils literal"><span class="pre">set</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The set input to the latch.</li>
 <li><code class="docutils literal"><span class="pre">reset</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The reset input to the latch.</li>
 <li><code class="docutils literal"><span class="pre">clock</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code> or <code class="docutils literal"><span class="pre">Clock</span></code>. The clock input to the latch.</li>
 <li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The output of the latch. When the value of <code class="docutils literal"><span class="pre">clock</span></code> is 1, takes on the value of 1 if the value of <code class="docutils literal"><span class="pre">set</span></code> is 1 and the value of 0 if the value of <code class="docutils literal"><span class="pre">reset</span></code> is 1.</li>
@@ -756,7 +756,7 @@
 <div class="section" id="id93">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
-    <span class="n">set_</span><span class="p">,</span>
+    <span class="nb">set</span><span class="p">,</span>
     <span class="n">reset</span><span class="p">,</span>
     <span class="n">output</span><span class="p">,</span>
     <span class="n">output_not</span>
@@ -767,7 +767,7 @@
 <div class="section" id="id94">
 <h4>Args:</h4>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">set_</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The set input to the latch.</li>
+<li><code class="docutils literal"><span class="pre">set</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The set input to the latch.</li>
 <li><code class="docutils literal"><span class="pre">reset</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The reset input to the latch.</li>
 <li><code class="docutils literal"><span class="pre">output</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The output of the latch. Takes on the value of 1 if the value of <code class="docutils literal"><span class="pre">set</span></code> is 1 and the value of 0 if the value of <code class="docutils literal"><span class="pre">reset</span></code> is 1.</li>
 <li><code class="docutils literal"><span class="pre">output_not</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. The complemented form of <code class="docutils literal"><span class="pre">output</span></code>.</li>

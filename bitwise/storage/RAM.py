@@ -138,6 +138,21 @@ class RAM16x4:
         wire.BufferBus4(dec_out[14], r14, output_bus)
         wire.BufferBus4(dec_out[15], r15, output_bus)
 
+        self.data_bus = data_bus
+        self.address_bus = address_bus
+        self.write_enable = write_enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "address_bus: " + self.address_bus.__str__() + "\n"
+        str_ += "write_enable: " + str(self.write_enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class RAM256x4:
     """Construct a new 256-word deep 4-bit wide random access memory array.
@@ -255,6 +270,21 @@ class RAM256x4:
         wire.BufferBus4(dec_out[13], r13, output_bus)
         wire.BufferBus4(dec_out[14], r14, output_bus)
         wire.BufferBus4(dec_out[15], r15, output_bus)
+
+        self.data_bus = data_bus
+        self.address_bus = address_bus
+        self.write_enable = write_enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "address_bus: " + self.address_bus.__str__() + "\n"
+        str_ += "write_enable: " + str(self.write_enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class RAM65536x4:
@@ -2104,6 +2134,21 @@ class RAM65536x4:
         wire.BufferBus4(out_15_16, r254, output_bus)
         wire.BufferBus4(out_16_16, r255, output_bus)
 
+        self.data_bus = data_bus
+        self.address_bus = address_bus
+        self.write_enable = write_enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "address_bus: " + self.address_bus.__str__() + "\n"
+        str_ += "write_enable: " + str(self.write_enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class RAM16x8:
     """Construct a new 16-word deep 8-bit wide random access memory array.
@@ -2219,6 +2264,21 @@ class RAM16x8:
         wire.BufferBus8(dec_out[13], r13, output_bus)
         wire.BufferBus8(dec_out[14], r14, output_bus)
         wire.BufferBus8(dec_out[15], r15, output_bus)
+
+        self.data_bus = data_bus
+        self.address_bus = address_bus
+        self.write_enable = write_enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "address_bus: " + self.address_bus.__str__() + "\n"
+        str_ += "write_enable: " + str(self.write_enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class RAM256x8:
@@ -2337,6 +2397,21 @@ class RAM256x8:
         wire.BufferBus8(dec_out[13], r13, output_bus)
         wire.BufferBus8(dec_out[14], r14, output_bus)
         wire.BufferBus8(dec_out[15], r15, output_bus)
+
+        self.data_bus = data_bus
+        self.address_bus = address_bus
+        self.write_enable = write_enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "address_bus: " + self.address_bus.__str__() + "\n"
+        str_ += "write_enable: " + str(self.write_enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class RAM65536x8:
@@ -4186,6 +4261,21 @@ class RAM65536x8:
         wire.BufferBus8(out_15_16, r254, output_bus)
         wire.BufferBus8(out_16_16, r255, output_bus)
 
+        self.data_bus = data_bus
+        self.address_bus = address_bus
+        self.write_enable = write_enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "address_bus: " + self.address_bus.__str__() + "\n"
+        str_ += "write_enable: " + str(self.write_enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class RAM16x16:
     """Construct a new 16-word deep 16-bit wide random access memory array.
@@ -4301,6 +4391,21 @@ class RAM16x16:
         wire.BufferBus16(dec_out[13], r13, output_bus)
         wire.BufferBus16(dec_out[14], r14, output_bus)
         wire.BufferBus16(dec_out[15], r15, output_bus)
+
+        self.data_bus = data_bus
+        self.address_bus = address_bus
+        self.write_enable = write_enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "address_bus: " + self.address_bus.__str__() + "\n"
+        str_ += "write_enable: " + str(self.write_enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class RAM256x16:
@@ -4419,6 +4524,21 @@ class RAM256x16:
         wire.BufferBus16(dec_out[13], r13, output_bus)
         wire.BufferBus16(dec_out[14], r14, output_bus)
         wire.BufferBus16(dec_out[15], r15, output_bus)
+
+        self.data_bus = data_bus
+        self.address_bus = address_bus
+        self.write_enable = write_enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "address_bus: " + self.address_bus.__str__() + "\n"
+        str_ += "write_enable: " + str(self.write_enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class RAM65536x16:
@@ -6267,3 +6387,18 @@ class RAM65536x16:
         wire.BufferBus16(out_14_16, r253, output_bus)
         wire.BufferBus16(out_15_16, r254, output_bus)
         wire.BufferBus16(out_16_16, r255, output_bus)
+
+        self.data_bus = data_bus
+        self.address_bus = address_bus
+        self.write_enable = write_enable
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "address_bus: " + self.address_bus.__str__() + "\n"
+        str_ += "write_enable: " + str(self.write_enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

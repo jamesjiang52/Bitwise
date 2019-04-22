@@ -8,7 +8,7 @@ class TestGatedDLatch:
         output = bw.wire.Wire()
         output_not = bw.wire.Wire()
 
-        bw.storage.GatedDLatch(data, clock, output, output_not)
+        a = bw.storage.GatedDLatch(data, clock, output, output_not)
 
         clock.value = 1
         data.value = 0
@@ -49,3 +49,6 @@ class TestGatedDLatch:
         data.value = 1
         assert output.value == 1
         assert output_not.value == 0
+
+        print(a.__doc__)
+        print(a)

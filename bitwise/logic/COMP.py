@@ -72,6 +72,21 @@ class Comparator3:
         gate.ORGate2(z, lt, lt_or_z)
         gate.NOTGate(lt_or_z, gt)
 
+        self.a_bus = input_bus_1
+        self.b_bus = input_bus_2
+        self.greater_than = gt
+        self.equal_to = z
+        self.less_than = lt
+
+    def __str__(self):
+        str_ = ""
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "greater_than: " + str(self.greater_than.value) + "\n"
+        str_ += "equal_to: " + str(self.equal_to.value) + "\n"
+        str_ += "less_than: " + str(self.less_than.value)
+        return str_
+
 
 class Comparator7:
     """Construct a new 7-bit logical comparator.
@@ -146,6 +161,21 @@ class Comparator7:
         gate.XORGate2(N, overflow, lt)
         gate.ORGate2(z, lt, lt_or_z)
         gate.NOTGate(lt_or_z, gt)
+
+        self.a_bus = input_bus_1
+        self.b_bus = input_bus_2
+        self.greater_than = gt
+        self.equal_to = z
+        self.less_than = lt
+
+    def __str__(self):
+        str_ = ""
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "greater_than: " + str(self.greater_than.value) + "\n"
+        str_ += "equal_to: " + str(self.equal_to.value) + "\n"
+        str_ += "less_than: " + str(self.less_than.value)
+        return str_
 
 
 class Comparator15:
@@ -241,3 +271,18 @@ class Comparator15:
         gate.XORGate2(N, overflow, lt)
         gate.ORGate2(z, lt, lt_or_z)
         gate.NOTGate(lt_or_z, gt)
+
+        self.a_bus = input_bus_1
+        self.b_bus = input_bus_2
+        self.greater_than = gt
+        self.equal_to = z
+        self.less_than = lt
+
+    def __str__(self):
+        str_ = ""
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "greater_than: " + str(self.greater_than.value) + "\n"
+        str_ += "equal_to: " + str(self.equal_to.value) + "\n"
+        str_ += "less_than: " + str(self.less_than.value)
+        return str_

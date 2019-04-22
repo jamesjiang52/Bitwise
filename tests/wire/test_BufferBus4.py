@@ -24,7 +24,8 @@ class TestBufferBus4:
             output_3,
             output_4
         )
-        bw.wire.BufferBus4(enable, input_bus, output_bus)
+
+        a = bw.wire.BufferBus4(enable, input_bus, output_bus)
 
         enable.value = 0
         input_1.value = 0
@@ -62,3 +63,6 @@ class TestBufferBus4:
         output_3.value = 0
         output_4.value = 1
         assert input_bus.wire_values == (0, 0, 1, 1)
+
+        print(a.__doc__)
+        print(a)

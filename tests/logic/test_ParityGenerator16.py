@@ -39,7 +39,7 @@ class TestParityGenerator16:
             input_16
         )
 
-        bw.logic.ParityGenerator16(input_bus, parity_bit)
+        a = bw.logic.ParityGenerator16(input_bus, parity_bit)
 
         input_1.value = 0
         input_2.value = 0
@@ -2506,3 +2506,6 @@ class TestParityGenerator16:
         input_15.value = 1
         input_16.value = 1
         assert parity_bit.value == 0
+
+        print(a.__doc__)
+        print(a)

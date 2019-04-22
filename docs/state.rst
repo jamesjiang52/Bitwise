@@ -131,7 +131,7 @@ Args:
 * ``load_n``: An object of type ``Wire``. Loads ``load_bus`` into ``output_bus`` if its value is 0.
 * ``load_bus``: An object of type ``Bus4``. The load input to the counter. ``load_bus[0]`` and ``load_bus[3]`` are the most and least significant bit, respectively.
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the counter.
-* ``output_1``: An object of type ``Bus4``. The output of the counter. ``output_bus[0]`` and ``output_bus[3]`` are the most and least significant bit, respectively.
+* ``output_bus``: An object of type ``Bus4``. The output of the counter. ``output_bus[0]`` and ``output_bus[3]`` are the most and least significant bit, respectively.
 
 Raises:
 ~~~~~~~

@@ -26,7 +26,7 @@ class TestSerialToParallelConverter1To8:
             output_8
         )
 
-        bw.state.SerialToParallelConverter1To8(
+        a = bw.state.SerialToParallelConverter1To8(
             enable,
             reset_n,
             data,
@@ -181,3 +181,6 @@ class TestSerialToParallelConverter1To8:
 
         reset_n.value = 0
         assert output_bus.wire_values == (0, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

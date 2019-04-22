@@ -9,7 +9,7 @@ class TestRAM256x16:
         clock = bw.wire.Wire()
         output_bus = bw.wire.Bus16()
 
-        bw.storage.RAM256x16(
+        a = bw.storage.RAM256x16(
             data_bus,
             address_bus,
             write_enable,
@@ -55,3 +55,6 @@ class TestRAM256x16:
         address_bus.wire_values = (1, 1, 1, 1, 1, 1, 1, 1)
         assert output_bus.wire_values == (
             1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+        print(a.__doc__)
+        print(a)

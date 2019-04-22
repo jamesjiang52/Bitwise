@@ -23,11 +23,24 @@ class HalfAdder:
         a: An object of type Wire. The first addend.
         b: An object of type Wire. The second addend.
         carry_out: An object of type Wire. The carry-out of the adder.
-        sum_: An object of type Wire. The sum of the two addends.
+        sum: An object of type Wire. The sum of the two addends.
     """
     def __init__(self, input_1, input_2, carry_out, sum_):
         gate.ANDGate2(input_1, input_2, carry_out)
         gate.XORGate2(input_1, input_2, sum_)
+
+        self.a = input_1
+        self.b = input_2
+        self.carry_out = carry_out
+        self.sum = sum_
+
+    def __str__(self):
+        str_ = ""
+        str_ += "a: " + str(self.a.value) + "\n"
+        str_ += "b: " + str(self.b.value) + "\n"
+        str_ += "carry_out: " + str(self.carry_out.value) + "\n"
+        str_ += "sum: " + str(self.sum.value)
+        return str_
 
 
 class FullAdder:
@@ -38,7 +51,7 @@ class FullAdder:
         a: An object of type Wire. The first addend.
         b: An object of type Wire. The second addend.
         carry_out: An object of type Wire. The carry-out of the adder.
-        sum_: An object of type Wire. The sum of the two addends.
+        sum: An object of type Wire. The sum of the two addends.
     """
     def __init__(self, carry_in, input_1, input_2, carry_out, sum_):
         wire_1 = Wire()
@@ -50,6 +63,21 @@ class FullAdder:
         gate.ANDGate2(input_1, input_2, wire_2)
         gate.ANDGate2(carry_in, wire_1, wire_3)
         gate.ORGate2(wire_2, wire_3, carry_out)
+
+        self.carry_in = carry_in
+        self.a = input_1
+        self.b = input_2
+        self.carry_out = carry_out
+        self.sum = sum_
+
+    def __str__(self):
+        str_ = ""
+        str_ += "carry_in: " + str(self.carry_in.value) + "\n"
+        str_ += "a: " + str(self.a.value) + "\n"
+        str_ += "b: " + str(self.b.value) + "\n"
+        str_ += "carry_out: " + str(self.carry_out.value) + "\n"
+        str_ += "sum: " + str(self.sum.value)
+        return str_
 
 
 class _LookaheadCarryUnit4:
@@ -288,6 +316,21 @@ class Adder4:
         FullAdder(carry_out_2, input_1[1], input_2[1], carry_out_3, output[1])
         FullAdder(carry_out_3, input_1[0], input_2[0], carry_out, output[0])
 
+        self.carry_in = carry_in
+        self.a_bus = input_bus_1
+        self.b_bus = input_bus_2
+        self.carry_out = carry_out
+        self.sum_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "carry_in: " + str(self.carry_in.value) + "\n"
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "carry_out: " + str(self.carry_out.value) + "\n"
+        str_ += "sum_bus: " + self.sum_bus.__str__()
+        return str_
+
 
 class Adder8:
     """Construct a new 8-bit adder.
@@ -359,6 +402,21 @@ class Adder8:
         )
         Adder4(lcu_c, input_1_1, input_2_1, carry_out, output_1)
         Adder4(carry_in, input_1_2, input_2_2, lcu_c, output_2)
+
+        self.carry_in = carry_in
+        self.a_bus = input_bus_1
+        self.b_bus = input_bus_2
+        self.carry_out = carry_out
+        self.sum_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "carry_in: " + str(self.carry_in.value) + "\n"
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "carry_out: " + str(self.carry_out.value) + "\n"
+        str_ += "sum_bus: " + self.sum_bus.__str__()
+        return str_
 
 
 class Adder16:
@@ -445,3 +503,18 @@ class Adder16:
         Adder4(ic_2, input_1_2, input_2_2, ic_3, output_2)
         Adder4(ic_1, input_1_3, input_2_3, ic_2, output_3)
         Adder4(carry_in, input_1_4, input_2_4, ic_1, output_4)
+
+        self.carry_in = carry_in
+        self.a_bus = input_bus_1
+        self.b_bus = input_bus_2
+        self.carry_out = carry_out
+        self.sum_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "carry_in: " + str(self.carry_in.value) + "\n"
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "carry_out: " + str(self.carry_out.value) + "\n"
+        str_ += "sum_bus: " + self.sum_bus.__str__()
+        return str_

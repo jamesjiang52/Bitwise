@@ -9,7 +9,7 @@ class TestRAM65536x8:
         clock = bw.wire.Wire()
         output_bus = bw.wire.Bus8()
 
-        bw.storage.RAM65536x8(
+        a = bw.storage.RAM65536x8(
             data_bus,
             address_bus,
             write_enable,
@@ -54,3 +54,6 @@ class TestRAM65536x8:
         address_bus.wire_values = (
             1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
         assert output_bus.wire_values == (1, 1, 1, 1, 1, 1, 1, 0)
+
+        print(a.__doc__)
+        print(a)

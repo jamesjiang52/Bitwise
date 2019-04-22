@@ -56,6 +56,21 @@ class Encoder4To2:
         gate.ANDGate2(enable, wire_3, output_1)
         gate.ANDGate2(enable, wire_4, output_2)
 
+        self.enable = enable
+        self.input_bus = input_bus
+        self.valid = valid
+        self.output_1 = output_1
+        self.output_2 = output_2
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "valid: " + str(self.valid.value) + "\n"
+        str_ += "output_1: " + str(self.output_1.value) + "\n"
+        str_ += "output_2: " + str(self.output_2.value)
+        return str_
+
 
 class Encoder8To3:
     """Construct a new 8-to-3 priority encoder.
@@ -109,6 +124,23 @@ class Encoder8To3:
             output_3
         )
         gate.ORGate2(output_1, enc_2_valid, valid)
+
+        self.enable = enable
+        self.input_bus = input_bus
+        self.valid = valid
+        self.output_1 = output_1
+        self.output_2 = output_2
+        self.output_3 = output_3
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "valid: " + str(self.valid.value) + "\n"
+        str_ += "output_1: " + str(self.output_1.value) + "\n"
+        str_ += "output_2: " + str(self.output_2.value) + "\n"
+        str_ += "output_3: " + str(self.output_3.value)
+        return str_
 
 
 class Encoder16To4:
@@ -193,3 +225,16 @@ class Encoder16To4:
             output[3]
         )
         gate.ORGate2(output[0], enc_2_valid, valid)
+
+        self.enable = enable
+        self.input_bus = input_bus
+        self.valid = valid
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "input_bus: " + self.input_bus.__str__() + "\n"
+        str_ += "valid: " + str(self.valid.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

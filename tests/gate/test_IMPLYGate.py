@@ -7,7 +7,7 @@ class TestIMPLYGate:
         input_2 = bw.wire.Wire()
         output = bw.wire.Wire()
 
-        bw.gate.IMPLYGate(input_1, input_2, output)
+        a = bw.gate.IMPLYGate(input_1, input_2, output)
 
         input_1.value = 0
         input_2.value = 0
@@ -24,3 +24,6 @@ class TestIMPLYGate:
         input_1.value = 1
         input_2.value = 1
         assert output.value == 1
+
+        print(a.__doc__)
+        print(a)

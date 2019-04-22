@@ -109,7 +109,7 @@ class TestAddeSubtractorr16:
             output_16
         )
 
-        bw.arithmetic.AdderSubtractor16(
+        a = bw.arithmetic.AdderSubtractor16(
             add_subtract,
             input_bus_1,
             input_bus_2,
@@ -2605,3 +2605,6 @@ class TestAddeSubtractorr16:
         input_32.value = 1
         assert (overflow.value, *output_bus.wire_values) == (
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)
