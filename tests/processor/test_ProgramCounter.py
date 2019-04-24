@@ -9,7 +9,7 @@ class TestProgramCounter:
         clock = bw.wire.Wire()
         output_bus = bw.wire.Bus16()
 
-        bw.processor.ProgramCounter(input_bus, up, load, clock, output_bus)
+        a = bw.processor.ProgramCounter(input_bus, up, load, clock, output_bus)
 
         clock.value = 0
         clock.value = 1
@@ -72,3 +72,6 @@ class TestProgramCounter:
         clock.value = 1
         assert output_bus.wire_values == (
             0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+        print(a.__doc__)
+        print(a)

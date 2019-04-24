@@ -79,3 +79,26 @@ class ConditionCodeFlags:
         storage.DFlipFlop(v_mux_out, clock, v, v_not)
         storage.DFlipFlop(n_mux_out, clock, n, n_not)
         storage.DFlipFlop(c_mux_out, clock, c, c_not)
+
+        self.data_bus = d_bus
+        self.overflow = overflow
+        self.carry_out = carry_out
+        self.enable = enable
+        self.clock = clock
+        self.z = z
+        self.v = v
+        self.n = n
+        self.c = c
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "overflow: " + str(self.overflow.value) + "\n"
+        str_ += "carry_out: " + str(self.carry_out.value) + "\n"
+        str_ += "enable: " + str(self.enable.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "z: " + str(self.z.value) + "\n"
+        str_ += "v: " + str(self.v.value) + "\n"
+        str_ += "n: " + str(self.n.value) + "\n"
+        str_ += "c: " + str(self.c.value)
+        return str_

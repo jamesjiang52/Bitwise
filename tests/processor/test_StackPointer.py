@@ -8,7 +8,7 @@ class TestStackPointer:
         clock = bw.wire.Wire()
         output_bus = bw.wire.Bus16()
 
-        bw.processor.StackPointer(up, down, clock, output_bus)
+        a = bw.processor.StackPointer(up, down, clock, output_bus)
 
         clock.value = 0
         clock.value = 1
@@ -68,3 +68,6 @@ class TestStackPointer:
         clock.value = 1
         assert output_bus.wire_values == (
             1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1)
+
+        print(a.__doc__)
+        print(a)

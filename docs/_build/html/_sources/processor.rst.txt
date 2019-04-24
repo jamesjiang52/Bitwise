@@ -59,7 +59,7 @@ Args:
 ~~~~~
 * ``a_bus``: An object of type ``Bus16``. The first input to the ALU. The first addend in add operations and the minuend in subtract operations. Also the number to be compared. ``a_bus[0]`` and ``a_bus[15]`` are the most and least significant bit, respectively.
 * ``b_bus``: An object of type ``Bus16``. The second input to the ALU. The second addend in add operations and the subtrahend in subtract operations. Also the number to be compared against. ``b_bus[0]`` and ``b_bus[15]`` are the most and least significant bit, respectively.
-* ``fn_select_bus``: An object of type ``Bus4``. The function select input of the ALU, with functions defined above. ``fn_select_bus[0]`` and ``fn_select_bus[3]`` are the most and least significant bit, respectively.
+* ``function_select_bus``: An object of type ``Bus4``. The function select input of the ALU, with functions defined above. ``function_select_bus[0]`` and ``function_select_bus[3]`` are the most and least significant bit, respectively.
 * ``overflow``: An object of type ``Wire``. The arithmetic overflow indicator. Only valid for functions ``1100`` and ``1101`` (subtract operations).
 * ``carry_out``: An object of type ``Wire``. The carry-out. Only valid for functions ``1010`` and ``1011`` (add operations).
 * ``output_bus``: An object of type ``Bus16``. The output of the ALU. ``output_bus[0]`` and ``output_bus[15]`` are the most and least significant bit, respectively.

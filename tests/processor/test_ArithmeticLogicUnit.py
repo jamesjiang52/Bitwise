@@ -11,7 +11,7 @@ class TestArithmeticLogicUnit:
         carry_out = bw.wire.Wire()
         output_bus = bw.wire.Bus16()
 
-        bw.processor.ArithmeticLogicUnit(
+        a = bw.processor.ArithmeticLogicUnit(
             a_bus,
             b_bus,
             function_select_bus,
@@ -88,3 +88,6 @@ class TestArithmeticLogicUnit:
         function_select_bus.wire_values = (1, 1, 1, 1)
         assert output_bus.wire_values == (
             1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+        print(a.__doc__)
+        print(a)

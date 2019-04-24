@@ -63,6 +63,21 @@ class ProgramCounter:
         arithmetic.AdderSubtractor16(gnd, output_bus, b_bus, v, c, sum_)
         storage.Register16(mux_out, enable, clock, output_bus)
 
+        self.data_bus = input_bus
+        self.up = up
+        self.load = load
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "data_bus: " + self.data_bus.__str__() + "\n"
+        str_ += "up: " + str(self.up.value) + "\n"
+        str_ += "load: " + str(self.load.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
+
 
 class _Multiplexer2To1_16:
     """

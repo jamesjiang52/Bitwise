@@ -14,7 +14,7 @@ class TestConditionCodeFlags:
         c = bw.wire.Wire()
         flags = bw.wire.Bus4(z, v, n, c)
 
-        bw.processor.ConditionCodeFlags(
+        a = bw.processor.ConditionCodeFlags(
             data_bus,
             overflow,
             carry_out,
@@ -89,3 +89,6 @@ class TestConditionCodeFlags:
         clock.value = 0
         clock.value = 1
         assert flags.wire_values == (1, 1, 0, 1)
+
+        print(a.__doc__)
+        print(a)

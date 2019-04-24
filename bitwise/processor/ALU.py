@@ -43,9 +43,9 @@ class ArithmeticLogicUnit:
             addend in add operations and the subtrahend in subtract operations.
             Also the number to be compared against. b_bus[0] and b_bus[15] are
             the most and least significant bit, respectively.
-        fn_select_bus: An object of type Bus4. The function select input of the
-            ALU, with functions defined above. fn_select_bus[0] and
-            fn_select_bus[3] are the most and least significant bit,
+        function_select_bus: An object of type Bus4. The function select input
+            of the ALU, with functions defined above. function_select_bus[0]
+            and function_select_bus[3] are the most and least significant bit,
             respectively.
         overflow: An object of type Wire. The arithmetic overflow indicator.
             Only valid for functions 1100 and 1101 (subtract operations).
@@ -57,7 +57,7 @@ class ArithmeticLogicUnit:
 
     Raises:
         TypeError: If either a_bus, b_bus, or output_bus is not a bus of width
-            16, or if fn_select_bus is not a bus of width 4.
+            16, or if function_select_bus is not a bus of width 4.
     """
     def __init__(
         self,
@@ -141,6 +141,24 @@ class ArithmeticLogicUnit:
             carry_out,
             a_plus_b_bus
         )
+
+        self.a_bus = a_bus
+        self.b_bus = b_bus
+        self.function_select_bus = function_select_bus
+        self.overflow = overflow
+        self.carry_out = carry_out
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "a_bus: " + self.a_bus.__str__() + "\n"
+        str_ += "b_bus: " + self.b_bus.__str__() + "\n"
+        str_ += "function_select_bus: " + self.function_select_bus.__str__() \
+                + "\n"
+        str_ += "overflow: " + str(self.overflow.value) + "\n"
+        str_ += "carry_out: " + str(self.carry_out.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_
 
 
 class _Multiplexer2To1_16:
