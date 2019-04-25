@@ -48,3 +48,16 @@ class StackPointer:
         gate.ORGate2(up, down, enable)
         arithmetic.AdderSubtractor16(down, output_bus, b_bus, v, c, sum_)
         storage.Register16(sum_, enable, clock, output_bus)
+
+        self.up = up
+        self.down = down
+        self.clock = clock
+        self.output_bus = output_bus
+
+    def __str__(self):
+        str_ = ""
+        str_ += "up: " + str(self.up.value) + "\n"
+        str_ += "down: " + str(self.down.value) + "\n"
+        str_ += "clock: " + str(self.clock.value) + "\n"
+        str_ += "output_bus: " + self.output_bus.__str__()
+        return str_

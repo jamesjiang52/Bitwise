@@ -92,6 +92,3 @@ class TestProcessorControlpath:
         clock.value = 0
         clock.value = 1
         control.print_wire_values()
-
-
-control = TestProcessorControlpath()
