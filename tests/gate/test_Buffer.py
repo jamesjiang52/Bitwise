@@ -16,3 +16,6 @@ class TestBuffer:
 
         print(a.__doc__)
         print(a)
+
+        a(input=0, output=None)
+        assert output.value == 0

@@ -76,6 +76,22 @@ class Bus4:
     def __str__(self):
         return str(self.wire_values)
 
+    def __call__(
+        self, *,
+        wire_1=None,
+        wire_2=None,
+        wire_3=None,
+        wire_4=None
+    ):
+        if wire_1 is not None:
+            self._wires[0].value = wire_1
+        if wire_2 is not None:
+            self._wires[1].value = wire_2
+        if wire_3 is not None:
+            self._wires[2].value = wire_3
+        if wire_4 is not None:
+            self._wires[3].value = wire_4
+
 
 class Bus8:
     """Initialize a new 8-bit bus.
