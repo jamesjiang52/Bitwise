@@ -173,3 +173,24 @@ class TestBus16:
 
         print(bus_1.__doc__)
         print(bus_1)
+
+        bus_1(
+            wire_1=0,
+            wire_2=0,
+            wire_3=0,
+            wire_4=0,
+            wire_5=0,
+            wire_6=0,
+            wire_7=0,
+            wire_8=0,
+            wire_9=0,
+            wire_10=0,
+            wire_11=0,
+            wire_12=0,
+            wire_13=0,
+            wire_14=0,
+            wire_15=0,
+            wire_16=0
+        )
+        assert bus_1.wire_values == (
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

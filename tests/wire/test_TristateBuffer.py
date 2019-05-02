@@ -37,3 +37,6 @@ class TestTristateBuffer:
 
         print(a.__doc__)
         print(a)
+
+        a(enable=1, input=0, output=None)
+        assert output.value == 0

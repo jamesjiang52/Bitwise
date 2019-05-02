@@ -183,6 +183,34 @@ class Bus8:
     def __str__(self):
         return str(self.wire_values)
 
+    def __call__(
+        self, *,
+        wire_1=None,
+        wire_2=None,
+        wire_3=None,
+        wire_4=None,
+        wire_5=None,
+        wire_6=None,
+        wire_7=None,
+        wire_8=None
+    ):
+        if wire_1 is not None:
+            self._wires[0].value = wire_1
+        if wire_2 is not None:
+            self._wires[1].value = wire_2
+        if wire_3 is not None:
+            self._wires[2].value = wire_3
+        if wire_4 is not None:
+            self._wires[3].value = wire_4
+        if wire_5 is not None:
+            self._wires[4].value = wire_5
+        if wire_6 is not None:
+            self._wires[5].value = wire_6
+        if wire_7 is not None:
+            self._wires[6].value = wire_7
+        if wire_8 is not None:
+            self._wires[7].value = wire_8
+
 
 class Bus16:
     """Initialize a new 16-bit bus.
@@ -314,6 +342,58 @@ class Bus16:
     def __str__(self):
         return str(self.wire_values)
 
+    def __call__(
+        self, *,
+        wire_1=None,
+        wire_2=None,
+        wire_3=None,
+        wire_4=None,
+        wire_5=None,
+        wire_6=None,
+        wire_7=None,
+        wire_8=None,
+        wire_9=None,
+        wire_10=None,
+        wire_11=None,
+        wire_12=None,
+        wire_13=None,
+        wire_14=None,
+        wire_15=None,
+        wire_16=None
+    ):
+        if wire_1 is not None:
+            self._wires[0].value = wire_1
+        if wire_2 is not None:
+            self._wires[1].value = wire_2
+        if wire_3 is not None:
+            self._wires[2].value = wire_3
+        if wire_4 is not None:
+            self._wires[3].value = wire_4
+        if wire_5 is not None:
+            self._wires[4].value = wire_5
+        if wire_6 is not None:
+            self._wires[5].value = wire_6
+        if wire_7 is not None:
+            self._wires[6].value = wire_7
+        if wire_8 is not None:
+            self._wires[7].value = wire_8
+        if wire_9 is not None:
+            self._wires[8].value = wire_9
+        if wire_10 is not None:
+            self._wires[9].value = wire_10
+        if wire_11 is not None:
+            self._wires[10].value = wire_11
+        if wire_12 is not None:
+            self._wires[11].value = wire_12
+        if wire_13 is not None:
+            self._wires[12].value = wire_13
+        if wire_14 is not None:
+            self._wires[13].value = wire_14
+        if wire_15 is not None:
+            self._wires[14].value = wire_15
+        if wire_16 is not None:
+            self._wires[15].value = wire_16
+
 
 class BusSevenSegmentDisplay:
     """Initialize a new seven-segment display bus.
@@ -398,3 +478,28 @@ class BusSevenSegmentDisplay:
 
     def __str__(self):
         return str(self.wire_values)
+
+    def __call__(
+        self, *,
+        wire_1=None,
+        wire_2=None,
+        wire_3=None,
+        wire_4=None,
+        wire_5=None,
+        wire_6=None,
+        wire_7=None
+    ):
+        if wire_1 is not None:
+            self._wires[0].value = wire_1
+        if wire_2 is not None:
+            self._wires[1].value = wire_2
+        if wire_3 is not None:
+            self._wires[2].value = wire_3
+        if wire_4 is not None:
+            self._wires[3].value = wire_4
+        if wire_5 is not None:
+            self._wires[4].value = wire_5
+        if wire_6 is not None:
+            self._wires[5].value = wire_6
+        if wire_7 is not None:
+            self._wires[6].value = wire_7

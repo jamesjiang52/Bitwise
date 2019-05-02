@@ -12,4 +12,8 @@ class TestWire:
         wire.value = 0
         assert wire.value == 0
 
+        print(wire.__doc__)
         print(wire)
+
+        wire(value=1)
+        assert wire.value == 1

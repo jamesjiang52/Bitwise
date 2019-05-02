@@ -68,3 +68,14 @@ class TestBusSevenSegmentDisplay:
 
         print(bus_1.__doc__)
         print(bus_1)
+
+        bus_1(
+            wire_1=0,
+            wire_2=0,
+            wire_3=0,
+            wire_4=0,
+            wire_5=0,
+            wire_6=0,
+            wire_7=0
+        )
+        assert bus_1.wire_values == (0, 0, 0, 0, 0, 0, 0)
