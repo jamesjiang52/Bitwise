@@ -744,3 +744,11 @@ class TestMultiplier8:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            a_bus=(0, 0, 0, 0, 0, 0, 0, 0),
+            b_bus=(0, 0, 0, 0, 0, 0, 0, 0),
+            product_bus=None
+        )
+        assert product_bus.wire_values == (
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

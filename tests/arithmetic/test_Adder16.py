@@ -2710,3 +2710,13 @@ class TestAdder16:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            carry_in=0,
+            a_bus=(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            b_bus=(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            carry_out=None,
+            sum_bus=None
+        )
+        assert (carry_out.value, *output_bus.wire_values) == (
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

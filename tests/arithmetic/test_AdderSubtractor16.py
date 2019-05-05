@@ -2608,3 +2608,14 @@ class TestAddeSubtractorr16:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            add_subtract=0,
+            a_bus=(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            b_bus=(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            overflow=None,
+            carry_out=None,
+            sum_bus=None
+        )
+        assert (overflow.value, *output_bus.wire_values) == (
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

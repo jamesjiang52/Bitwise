@@ -72,6 +72,25 @@ class Multiplier2:
         str_ += "product_bus: " + self.product_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        a_1=None,
+        a_2=None,
+        b_1=None,
+        b_2=None,
+        product_bus=None
+    ):
+        if a_1 is not None:
+            self.a_1.value = a_1
+        if a_2 is not None:
+            self.a_2.value = a_2
+        if b_1 is not None:
+            self.b_1.value = b_1
+        if b_2 is not None:
+            self.b_2.value = b_2
+        if product_bus is not None:
+            self.product_bus.wire_values = product_bus
+
 
 class Multiplier4:
     """Construct a new 4-bit unsigned multiplier.
@@ -181,6 +200,19 @@ class Multiplier4:
         str_ += "b_bus: " + self.b_bus.__str__() + "\n"
         str_ += "product_bus: " + self.product_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        a_bus=None,
+        b_bus=None,
+        product_bus=None
+    ):
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if product_bus is not None:
+            self.product_bus.wire_values = product_bus
 
 
 class Multiplier8:
@@ -474,3 +506,16 @@ class Multiplier8:
         str_ += "b_bus: " + self.b_bus.__str__() + "\n"
         str_ += "product_bus: " + self.product_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        a_bus=None,
+        b_bus=None,
+        product_bus=None
+    ):
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if product_bus is not None:
+            self.product_bus.wire_values = product_bus

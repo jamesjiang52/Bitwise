@@ -25,12 +25,12 @@ class HalfAdder:
         carry_out: An object of type Wire. The carry-out of the adder.
         sum: An object of type Wire. The sum of the two addends.
     """
-    def __init__(self, input_1, input_2, carry_out, sum_):
-        gate.ANDGate2(input_1, input_2, carry_out)
-        gate.XORGate2(input_1, input_2, sum_)
+    def __init__(self, a, b, carry_out, sum_):
+        gate.ANDGate2(a, b, carry_out)
+        gate.XORGate2(a, b, sum_)
 
-        self.a = input_1
-        self.b = input_2
+        self.a = a
+        self.b = b
         self.carry_out = carry_out
         self.sum = sum_
 
@@ -41,6 +41,22 @@ class HalfAdder:
         str_ += "carry_out: " + str(self.carry_out.value) + "\n"
         str_ += "sum: " + str(self.sum.value)
         return str_
+
+    def __call__(
+        self, *,
+        a=None,
+        b=None,
+        carry_out=None,
+        sum=None
+    ):
+        if a is not None:
+            self.a.value = a
+        if b is not None:
+            self.b.value = b
+        if carry_out is not None:
+            self.carry_out.value = carry_out
+        if sum is not None:
+            self.sum.value = sum
 
 
 class FullAdder:
@@ -53,22 +69,22 @@ class FullAdder:
         carry_out: An object of type Wire. The carry-out of the adder.
         sum: An object of type Wire. The sum of the two addends.
     """
-    def __init__(self, carry_in, input_1, input_2, carry_out, sum_):
+    def __init__(self, carry_in, a, b, carry_out, sum):
         wire_1 = Wire()
         wire_2 = Wire()
         wire_3 = Wire()
 
-        gate.XORGate2(input_1, input_2, wire_1)
-        gate.XORGate2(carry_in, wire_1, sum_)
-        gate.ANDGate2(input_1, input_2, wire_2)
+        gate.XORGate2(a, b, wire_1)
+        gate.XORGate2(carry_in, wire_1, sum)
+        gate.ANDGate2(a, b, wire_2)
         gate.ANDGate2(carry_in, wire_1, wire_3)
         gate.ORGate2(wire_2, wire_3, carry_out)
 
         self.carry_in = carry_in
-        self.a = input_1
-        self.b = input_2
+        self.a = a
+        self.b = a
         self.carry_out = carry_out
-        self.sum = sum_
+        self.sum = sum
 
     def __str__(self):
         str_ = ""
@@ -78,6 +94,25 @@ class FullAdder:
         str_ += "carry_out: " + str(self.carry_out.value) + "\n"
         str_ += "sum: " + str(self.sum.value)
         return str_
+
+    def __call__(
+        self, *,
+        carry_in=None,
+        a=None,
+        b=None,
+        carry_out=None,
+        sum=None
+    ):
+        if carry_in is not None:
+            self.carry_in.value = carry_in
+        if a is not None:
+            self.a.value = a
+        if b is not None:
+            self.b.value = b
+        if carry_out is not None:
+            self.carry_out.value = carry_out
+        if sum is not None:
+            self.sum.value = sum
 
 
 class _LookaheadCarryUnit4:
@@ -331,6 +366,25 @@ class Adder4:
         str_ += "sum_bus: " + self.sum_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        carry_in=None,
+        a_bus=None,
+        b_bus=None,
+        carry_out=None,
+        sum_bus=None
+    ):
+        if carry_in is not None:
+            self.carry_in.value = carry_in
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if carry_out is not None:
+            self.carry_out.value = carry_out
+        if sum_bus is not None:
+            self.sum_bus.wire_values = sum_bus
+
 
 class Adder8:
     """Construct a new 8-bit adder.
@@ -417,6 +471,25 @@ class Adder8:
         str_ += "carry_out: " + str(self.carry_out.value) + "\n"
         str_ += "sum_bus: " + self.sum_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        carry_in=None,
+        a_bus=None,
+        b_bus=None,
+        carry_out=None,
+        sum_bus=None
+    ):
+        if carry_in is not None:
+            self.carry_in.value = carry_in
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if carry_out is not None:
+            self.carry_out.value = carry_out
+        if sum_bus is not None:
+            self.sum_bus.wire_values = sum_bus
 
 
 class Adder16:
@@ -518,3 +591,22 @@ class Adder16:
         str_ += "carry_out: " + str(self.carry_out.value) + "\n"
         str_ += "sum_bus: " + self.sum_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        carry_in=None,
+        a_bus=None,
+        b_bus=None,
+        carry_out=None,
+        sum_bus=None
+    ):
+        if carry_in is not None:
+            self.carry_in.value = carry_in
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if carry_out is not None:
+            self.carry_out.value = carry_out
+        if sum_bus is not None:
+            self.sum_bus.wire_values = sum_bus

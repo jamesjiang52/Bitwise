@@ -1,8 +1,8 @@
 import bitwise as bw
 
 
-class TestHalfAdder:
-    def test_HalfAdder(self):
+class TestFullAdder:
+    def test_FullAdder(self):
         carry_in = bw.wire.Wire()
         input_1 = bw.wire.Wire()
         input_2 = bw.wire.Wire()
@@ -55,3 +55,13 @@ class TestHalfAdder:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            carry_in=0,
+            a=0,
+            b=0,
+            carry_out=None,
+            sum=None
+        )
+        print(a)
+        assert (carry_out.value, sum_.value) == (0, 0)
