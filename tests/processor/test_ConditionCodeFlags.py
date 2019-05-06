@@ -92,3 +92,17 @@ class TestConditionCodeFlags:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            data_bus=(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            overflow=0,
+            carry_out=1,
+            enable=1,
+            clock=0,
+            z=None,
+            v=None,
+            n=None,
+            c=None
+        )
+        a(clock=1)
+        assert flags.wire_values == (0, 0, 1, 1)

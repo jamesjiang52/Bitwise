@@ -82,7 +82,7 @@ class FullAdder:
 
         self.carry_in = carry_in
         self.a = a
-        self.b = a
+        self.b = b
         self.carry_out = carry_out
         self.sum = sum
 

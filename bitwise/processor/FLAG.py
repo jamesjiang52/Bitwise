@@ -102,3 +102,34 @@ class ConditionCodeFlags:
         str_ += "n: " + str(self.n.value) + "\n"
         str_ += "c: " + str(self.c.value)
         return str_
+
+    def __call__(
+        self, *,
+        data_bus=None,
+        overflow=None,
+        carry_out=None,
+        enable=None,
+        clock=None,
+        z=None,
+        v=None,
+        n=None,
+        c=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if overflow is not None:
+            self.overflow.value = overflow
+        if carry_out is not None:
+            self.carry_out.value = carry_out
+        if enable is not None:
+            self.enable.value = enable
+        if clock is not None:
+            self.clock.value = clock
+        if z is not None:
+            self.z.value = z
+        if v is not None:
+            self.v.value = v
+        if n is not None:
+            self.n.value = n
+        if c is not None:
+            self.c.value = c
