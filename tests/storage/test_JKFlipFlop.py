@@ -48,3 +48,8 @@ class TestJKFlipFlop:
 
         print(a.__doc__)
         print(a)
+
+        a(J=1, K=1, clock=0, output=None, output_not=None)
+        a(clock=1)
+        assert output.value == 0
+        assert output_not.value == 1

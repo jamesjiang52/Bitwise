@@ -71,3 +71,15 @@ class TestJKFlipFlopPresetClear:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            J=0,
+            K=0,
+            preset_n=1,
+            clear_n=0,
+            clock=0,
+            output=None,
+            output_not=None
+        )
+        assert output.value == 0
+        assert output_not.value == 1

@@ -72,6 +72,22 @@ class Register4:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        data_bus=None,
+        enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if enable is not None:
+            self.enable.value = enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class Register8:
     """Construct a new 8-bit storage register.
@@ -137,6 +153,22 @@ class Register8:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        data_bus=None,
+        enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if enable is not None:
+            self.enable.value = enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class Register16:
@@ -219,6 +251,22 @@ class Register16:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        data_bus=None,
+        enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if enable is not None:
+            self.enable.value = enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class _Multiplexer2To1_4:

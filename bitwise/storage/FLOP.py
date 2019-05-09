@@ -46,6 +46,22 @@ class SRLatch:
         str_ += "output_not: " + str(self.output_not.value)
         return str_
 
+    def __call__(
+        self, *,
+        set=None,
+        reset=None,
+        output=None,
+        output_not=None
+    ):
+        if set is not None:
+            self.set.value = set
+        if reset is not None:
+            self.reset.value = reset
+        if output is not None:
+            self.output.value = output
+        if output_not is not None:
+            self.output_not.value = output_not
+
 
 class GatedSRLatch:
     """Construct a new gated SR latch.
@@ -82,6 +98,25 @@ class GatedSRLatch:
         str_ += "output_not: " + str(self.output_not.value)
         return str_
 
+    def __call__(
+        self, *,
+        set=None,
+        reset=None,
+        clock=None,
+        output=None,
+        output_not=None
+    ):
+        if set is not None:
+            self.set.value = set
+        if reset is not None:
+            self.reset.value = reset
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output
+        if output_not is not None:
+            self.output_not.value = output_not
+
 
 class GatedDLatch:
     """Construct a new gated D latch.
@@ -111,6 +146,22 @@ class GatedDLatch:
         str_ += "output: " + str(self.output.value) + "\n"
         str_ += "output_not: " + str(self.output_not.value)
         return str_
+
+    def __call__(
+        self, *,
+        data=None,
+        clock=None,
+        output=None,
+        output_not=None
+    ):
+        if data is not None:
+            self.data.value = data
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output
+        if output_not is not None:
+            self.output_not.value = output_not
 
 
 class DFlipFlop:
@@ -145,6 +196,22 @@ class DFlipFlop:
         str_ += "output: " + str(self.output.value) + "\n"
         str_ += "output_not: " + str(self.output_not.value)
         return str_
+
+    def __call__(
+        self, *,
+        data=None,
+        clock=None,
+        output=None,
+        output_not=None
+    ):
+        if data is not None:
+            self.data.value = data
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output
+        if output_not is not None:
+            self.output_not.value = output_not
 
 
 class DFlipFlopPresetClear:
@@ -201,6 +268,28 @@ class DFlipFlopPresetClear:
         str_ += "output_not: " + str(self.output_not.value)
         return str_
 
+    def __call__(
+        self, *,
+        data=None,
+        preset_n=None,
+        clear_n=None,
+        clock=None,
+        output=None,
+        output_not=None
+    ):
+        if data is not None:
+            self.data.value = data
+        if preset_n is not None:
+            self.preset_n.value = preset_n
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output
+        if output_not is not None:
+            self.output_not.value = output_not
+
 
 class TFlipFlop:
     """Construct a new positive edge-triggered T flip-flop.
@@ -234,6 +323,22 @@ class TFlipFlop:
         str_ += "output: " + str(self.output.value) + "\n"
         str_ += "output_not: " + str(self.output_not.value)
         return str_
+
+    def __call__(
+        self, *,
+        toggle=None,
+        clock=None,
+        output=None,
+        output_not=None
+    ):
+        if toggle is not None:
+            self.toggle.value = toggle
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output
+        if output_not is not None:
+            self.output_not.value = output_not
 
 
 class TFlipFlopPresetClear:
@@ -285,6 +390,28 @@ class TFlipFlopPresetClear:
         str_ += "output_not: " + str(self.output_not.value)
         return str_
 
+    def __call__(
+        self, *,
+        toggle=None,
+        preset_n=None,
+        clear_n=None,
+        clock=None,
+        output=None,
+        output_not=None
+    ):
+        if toggle is not None:
+            self.toggle.value = toggle
+        if preset_n is not None:
+            self.preset_n.value = preset_n
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output
+        if output_not is not None:
+            self.output_not.value = output_not
+
 
 class JKFlipFlop:
     """Construct a new positive edge-triggered JK flip-flop.
@@ -326,6 +453,25 @@ class JKFlipFlop:
         str_ += "output: " + str(self.output.value) + "\n"
         str_ += "output_not: " + str(self.output_not.value)
         return str_
+
+    def __call__(
+        self, *,
+        J=None,
+        K=None,
+        clock=None,
+        output=None,
+        output_not=None
+    ):
+        if J is not None:
+            self.J.value = J
+        if K is not None:
+            self.K.value = K
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output
+        if output_not is not None:
+            self.output_not.value = output_not
 
 
 class JKFlipFlopPresetClear:
@@ -384,3 +530,28 @@ class JKFlipFlopPresetClear:
         str_ += "output: " + str(self.output.value) + "\n"
         str_ += "output_not: " + str(self.output_not.value)
         return str_
+
+    def __call__(
+        self, *,
+        J=None,
+        K=None,
+        preset_n=None,
+        clear_n=None,
+        clock=None,
+        output=None,
+        output_not=None
+    ):
+        if J is not None:
+            self.J.value = J
+        if K is not None:
+            self.K.value = K
+        if preset_n is not None:
+            self.preset_n.value = preset_n
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output
+        if output_not is not None:
+            self.output_not.value = output_not

@@ -58,3 +58,13 @@ class TestRAM256x16:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            data_bus=(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            address_bus=(0, 0, 0, 0, 0, 0, 0, 0),
+            write_enable=0,
+            clock=0,
+            output_bus=None
+        )
+        assert output_bus.wire_values == (
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)

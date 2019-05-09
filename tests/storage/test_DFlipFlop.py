@@ -64,3 +64,8 @@ class TestDFlipFlop:
 
         print(a.__doc__)
         print(a)
+
+        a(data=1, clock=0, output=None, output_not=None)
+        a(clock=1)
+        assert output.value == 1
+        assert output_not.value == 0
