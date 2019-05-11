@@ -91,3 +91,15 @@ class TestArithmeticLogicUnit:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            a_bus=(0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1),
+            b_bus=(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
+            function_select_bus=(1, 0, 1, 0),
+            overflow=None,
+            carry_out=None,
+            output_bus=None
+        )
+        assert output_bus.wire_values == (
+            0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0)
+        assert carry_out.value == 0

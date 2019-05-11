@@ -153,6 +153,25 @@ class RAM16x4:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        data_bus=None,
+        address_bus=None,
+        write_enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if address_bus is not None:
+            self.address_bus.wire_values = address_bus
+        if write_enable is not None:
+            self.write_enable.value = write_enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class RAM256x4:
     """Construct a new 256-word deep 4-bit wide random access memory array.
@@ -285,6 +304,25 @@ class RAM256x4:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        data_bus=None,
+        address_bus=None,
+        write_enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if address_bus is not None:
+            self.address_bus.wire_values = address_bus
+        if write_enable is not None:
+            self.write_enable.value = write_enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class RAM65536x4:
@@ -2149,6 +2187,25 @@ class RAM65536x4:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        data_bus=None,
+        address_bus=None,
+        write_enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if address_bus is not None:
+            self.address_bus.wire_values = address_bus
+        if write_enable is not None:
+            self.write_enable.value = write_enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class RAM16x8:
     """Construct a new 16-word deep 8-bit wide random access memory array.
@@ -2279,6 +2336,25 @@ class RAM16x8:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        data_bus=None,
+        address_bus=None,
+        write_enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if address_bus is not None:
+            self.address_bus.wire_values = address_bus
+        if write_enable is not None:
+            self.write_enable.value = write_enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class RAM256x8:
@@ -2412,6 +2488,25 @@ class RAM256x8:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        data_bus=None,
+        address_bus=None,
+        write_enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if address_bus is not None:
+            self.address_bus.wire_values = address_bus
+        if write_enable is not None:
+            self.write_enable.value = write_enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class RAM65536x8:
@@ -4276,6 +4371,25 @@ class RAM65536x8:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        data_bus=None,
+        address_bus=None,
+        write_enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if address_bus is not None:
+            self.address_bus.wire_values = address_bus
+        if write_enable is not None:
+            self.write_enable.value = write_enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class RAM16x16:
     """Construct a new 16-word deep 16-bit wide random access memory array.
@@ -4406,6 +4520,25 @@ class RAM16x16:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        data_bus=None,
+        address_bus=None,
+        write_enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if address_bus is not None:
+            self.address_bus.wire_values = address_bus
+        if write_enable is not None:
+            self.write_enable.value = write_enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class RAM256x16:
@@ -4539,6 +4672,25 @@ class RAM256x16:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        data_bus=None,
+        address_bus=None,
+        write_enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if address_bus is not None:
+            self.address_bus.wire_values = address_bus
+        if write_enable is not None:
+            self.write_enable.value = write_enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class RAM65536x16:
@@ -6402,3 +6554,22 @@ class RAM65536x16:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        data_bus=None,
+        address_bus=None,
+        write_enable=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if address_bus is not None:
+            self.address_bus.wire_values = address_bus
+        if write_enable is not None:
+            self.write_enable.value = write_enable
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus

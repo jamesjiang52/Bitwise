@@ -52,3 +52,7 @@ class TestGatedDLatch:
 
         print(a.__doc__)
         print(a)
+
+        a(data=0, clock=1, output=None, output_not=None)
+        assert output.value == 0
+        assert output_not.value == 1

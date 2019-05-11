@@ -28,3 +28,11 @@ class TestHalfAdder:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            a=0,
+            b=0,
+            carry_out=None,
+            sum=None
+        )
+        assert (carry_out.value, sum_.value) == (0, 0)

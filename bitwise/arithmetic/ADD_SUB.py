@@ -110,6 +110,28 @@ class AdderSubtractor4:
         str_ += "sum_bus: " + self.sum_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        add_subtract=None,
+        a_bus=None,
+        b_bus=None,
+        overflow=None,
+        carry_out=None,
+        sum_bus=None
+    ):
+        if add_subtract is not None:
+            self.add_subtract.value = add_subtract
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if overflow is not None:
+            self.overflow.value = overflow
+        if carry_out is not None:
+            self.carry_out.value = carry_out
+        if sum_bus is not None:
+            self.sum_bus.wire_values = sum_bus
+
 
 class AdderSubtractor8:
     """Construct a new 8-bit adder-subtractor.
@@ -217,6 +239,28 @@ class AdderSubtractor8:
         str_ += "carry_out: " + str(self.carry_out.value) + "\n"
         str_ += "sum_bus: " + self.sum_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        add_subtract=None,
+        a_bus=None,
+        b_bus=None,
+        overflow=None,
+        carry_out=None,
+        sum_bus=None
+    ):
+        if add_subtract is not None:
+            self.add_subtract.value = add_subtract
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if overflow is not None:
+            self.overflow.value = overflow
+        if carry_out is not None:
+            self.carry_out.value = carry_out
+        if sum_bus is not None:
+            self.sum_bus.wire_values = sum_bus
 
 
 class AdderSubtractor16:
@@ -341,3 +385,25 @@ class AdderSubtractor16:
         str_ += "carry_out: " + str(self.carry_out.value) + "\n"
         str_ += "sum_bus: " + self.sum_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        add_subtract=None,
+        a_bus=None,
+        b_bus=None,
+        overflow=None,
+        carry_out=None,
+        sum_bus=None
+    ):
+        if add_subtract is not None:
+            self.add_subtract.value = add_subtract
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if overflow is not None:
+            self.overflow.value = overflow
+        if carry_out is not None:
+            self.carry_out.value = carry_out
+        if sum_bus is not None:
+            self.sum_bus.wire_values = sum_bus

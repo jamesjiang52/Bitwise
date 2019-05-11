@@ -113,3 +113,6 @@ class TestMultiplier2:
 
         print(a.__doc__)
         print(a)
+
+        a(a_1=0, a_2=0, b_1=0, b_2=0, product_bus=None)
+        assert product_bus.wire_values == (0, 0, 0, 0)

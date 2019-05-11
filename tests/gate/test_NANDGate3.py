@@ -52,3 +52,6 @@ class TestNANDGate3:
 
         print(a.__doc__)
         print(a)
+
+        a(input_1=0, input_2=0, input_3=0, output=None)
+        assert output.value == 1

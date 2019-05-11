@@ -78,6 +78,25 @@ class ProgramCounter:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        data_bus=None,
+        up=None,
+        load=None,
+        clock=None,
+        output_bus=None
+    ):
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if up is not None:
+            self.up.value = up
+        if load is not None:
+            self.load.value = load
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class _Multiplexer2To1_16:
     """

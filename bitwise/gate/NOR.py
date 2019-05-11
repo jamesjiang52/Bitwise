@@ -36,6 +36,19 @@ class NORGate2:
         str_ += "output: " + str(self.output.value)
         return str_
 
+    def __call__(
+        self, *,
+        input_1=None,
+        input_2=None,
+        output=None
+    ):
+        if input_1 is not None:
+            self.input_1.value = input_1
+        if input_2 is not None:
+            self.input_2.value = input_2
+        if output is not None:
+            self.output.value = output
+
 
 class NORGate3:
     """Construct a new three-input NOR gate.
@@ -63,6 +76,22 @@ class NORGate3:
         str_ += "input_3: " + str(self.input_3.value) + "\n"
         str_ += "output: " + str(self.output.value)
         return str_
+
+    def __call__(
+        self, *,
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        output=None
+    ):
+        if input_1 is not None:
+            self.input_1.value = input_1
+        if input_2 is not None:
+            self.input_2.value = input_2
+        if input_3 is not None:
+            self.input_3.value = input_3
+        if output is not None:
+            self.output.value = output
 
 
 class NORGate4:
@@ -94,3 +123,22 @@ class NORGate4:
         str_ += "input_4: " + str(self.input_4.value) + "\n"
         str_ += "output: " + str(self.output.value)
         return str_
+
+    def __call__(
+        self, *,
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        input_4=None,
+        output=None
+    ):
+        if input_1 is not None:
+            self.input_1.value = input_1
+        if input_2 is not None:
+            self.input_2.value = input_2
+        if input_3 is not None:
+            self.input_3.value = input_3
+        if input_4 is not None:
+            self.input_4.value = input_4
+        if output is not None:
+            self.output.value = output

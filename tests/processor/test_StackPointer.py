@@ -71,3 +71,13 @@ class TestStackPointer:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            up=0,
+            down=1,
+            clock=0,
+            output_bus=None
+        )
+        a(clock=1)
+        assert output_bus.wire_values == (
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0)

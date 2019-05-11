@@ -42,3 +42,7 @@ class TestSRLatch:
 
         print(a.__doc__)
         print(a)
+
+        a(set=1, reset=0, output=None, output_not=None)
+        assert output.value == 1
+        assert output_not.value == 0

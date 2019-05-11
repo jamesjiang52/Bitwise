@@ -160,6 +160,28 @@ class ArithmeticLogicUnit:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        a_bus=None,
+        b_bus=None,
+        function_select_bus=None,
+        overflow=None,
+        carry_out=None,
+        output_bus=None
+    ):
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if function_select_bus is not None:
+            self.function_select_bus.wire_values = function_select_bus
+        if overflow is not None:
+            self.overflow.value = overflow
+        if carry_out is not None:
+            self.carry_out.value = carry_out
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class _Multiplexer2To1_16:
     """

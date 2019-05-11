@@ -41,3 +41,16 @@ class XORGate2:
         str_ += "input_2: " + str(self.input_2.value) + "\n"
         str_ += "output: " + str(self.output.value)
         return str_
+
+    def __call__(
+        self, *,
+        input_1=None,
+        input_2=None,
+        output=None
+    ):
+        if input_1 is not None:
+            self.input_1.value = input_1
+        if input_2 is not None:
+            self.input_2.value = input_2
+        if output is not None:
+            self.output.value = output
