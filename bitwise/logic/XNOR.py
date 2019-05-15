@@ -65,6 +65,14 @@ class BitwiseXNOR4:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(self, *, a_bus=None, b_bus=None, output_bus=None):
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class BitwiseXNOR8:
     """Construct a new 8-bit bitwise XNOR circuit.
@@ -120,6 +128,14 @@ class BitwiseXNOR8:
         str_ += "b_bus: " + self.b_bus.__str__() + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(self, *, a_bus=None, b_bus=None, output_bus=None):
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class BitwiseXNOR16:
@@ -184,3 +200,11 @@ class BitwiseXNOR16:
         str_ += "b_bus: " + self.b_bus.__str__() + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(self, *, a_bus=None, b_bus=None, output_bus=None):
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus

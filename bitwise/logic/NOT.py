@@ -55,6 +55,12 @@ class BitwiseNOT4:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(self, *, input_bus=None, output_bus=None):
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class BitwiseNOT8:
     """Construct a new 8-bit bitwise NOT circuit.
@@ -100,6 +106,12 @@ class BitwiseNOT8:
         str_ += "input_bus: " + self.input_bus.__str__() + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(self, *, input_bus=None, output_bus=None):
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class BitwiseNOT16:
@@ -154,3 +166,9 @@ class BitwiseNOT16:
         str_ += "input_bus: " + self.input_bus.__str__() + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(self, *, input_bus=None, output_bus=None):
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus

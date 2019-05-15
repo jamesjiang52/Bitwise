@@ -192,3 +192,11 @@ class TestBitwiseXOR16:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            a_bus=(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1),
+            b_bus=(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
+            output_bus=None
+        )
+        assert o_bus.wire_values == (
+            0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0)
