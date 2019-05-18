@@ -54,3 +54,13 @@ class TestRingCounter4:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            clear_n=1,
+            clock=0,
+            output_bus=None
+        )
+        assert output_bus.wire_values == (0, 0, 0, 1)
+        a(clock=1)
+        assert output_bus.wire_values == (0, 0, 1, 0)

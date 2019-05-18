@@ -671,3 +671,10 @@ class TestParityChecker16:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            input_bus=(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+            parity_bit=0,
+            error=None
+        )
+        assert error.value == 1

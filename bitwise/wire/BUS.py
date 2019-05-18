@@ -77,7 +77,7 @@ class Bus4:
         return str(self.wire_values)
 
     def __call__(
-        self, *,
+        self,
         wire_1=None,
         wire_2=None,
         wire_3=None,
@@ -184,7 +184,7 @@ class Bus8:
         return str(self.wire_values)
 
     def __call__(
-        self, *,
+        self,
         wire_1=None,
         wire_2=None,
         wire_3=None,
@@ -343,7 +343,7 @@ class Bus16:
         return str(self.wire_values)
 
     def __call__(
-        self, *,
+        self,
         wire_1=None,
         wire_2=None,
         wire_3=None,
@@ -480,7 +480,7 @@ class BusSevenSegmentDisplay:
         return str(self.wire_values)
 
     def __call__(
-        self, *,
+        self,
         wire_1=None,
         wire_2=None,
         wire_3=None,

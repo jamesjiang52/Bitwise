@@ -2509,3 +2509,9 @@ class TestParityGenerator16:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            input_bus=(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+            parity_bit=None
+        )
+        assert parity_bit.value == 1

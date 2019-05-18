@@ -54,3 +54,14 @@ class TestUpCounterMod4:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            clear_n=1,
+            clock=0,
+            output_1=None,
+            output_2=None
+        )
+        assert (output_1.value, output_2.value) == (0, 0)
+        a(clock=1)
+        assert (output_1.value, output_2.value) == (0, 1)

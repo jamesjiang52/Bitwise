@@ -115,3 +115,19 @@ class TestShiftRegister4:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            clear_n=1,
+            shift_load=0,
+            data_bus=(0, 1, 0, 1),
+            data_serial=0,
+            clock=0,
+            output_bus=None,
+            output_serial=None
+        )
+        assert output_bus.wire_values == (0, 0, 0, 0)
+        assert output_serial.value == 0
+        a(clock=1)
+        assert output_bus.wire_values == (0, 1, 0, 1)
+        assert output_serial.value == 1

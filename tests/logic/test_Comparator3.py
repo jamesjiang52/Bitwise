@@ -141,3 +141,12 @@ class TestComparator3:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            a_bus=(0, 1, 1, 1),
+            b_bus=(0, 1, 1, 0),
+            greater_than=None,
+            equal_to=None,
+            less_than=None
+        )
+        assert (gt.value, z.value, lt.value) == (1, 0, 0)

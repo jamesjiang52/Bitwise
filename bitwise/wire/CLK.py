@@ -48,6 +48,6 @@ class Clock:
     def __str__(self):
         return str(self._value)
 
-    def __call__(self, *, value=None):
+    def __call__(self, value=None):
         if value is not None:
             self._value = value

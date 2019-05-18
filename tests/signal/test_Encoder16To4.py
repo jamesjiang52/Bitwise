@@ -695,3 +695,11 @@ class TestEncoder16To4:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            input_bus=(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+            valid=None,
+            output_bus=None
+        )
+        assert valid, output_bus.wire_values == (1, 0, 0, 0, 0)

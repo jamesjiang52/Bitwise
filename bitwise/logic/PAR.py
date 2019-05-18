@@ -51,6 +51,16 @@ class ParityGenerator4:
         str_ += "parity_bit: " + str(self.parity_bit.value)
         return str_
 
+    def __call__(
+        self, *,
+        input_bus=None,
+        parity_bit=None
+    ):
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if parity_bit is not None:
+            self.parity_bit.value = parity_bit
+
 
 class ParityChecker4:
     """Construct a new 4-bit even parity checker.
@@ -85,6 +95,19 @@ class ParityChecker4:
         str_ += "parity_bit: " + str(self.parity_bit.value) + "\n"
         str_ += "error: " + str(self.error.value)
         return str_
+
+    def __call__(
+        self, *,
+        input_bus=None,
+        parity_bit=None,
+        error=None
+    ):
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if parity_bit is not None:
+            self.parity_bit.value = parity_bit
+        if error is not None:
+            self.error.value = error
 
 
 class ParityGenerator8:
@@ -123,6 +146,16 @@ class ParityGenerator8:
         str_ += "parity_bit: " + str(self.parity_bit.value)
         return str_
 
+    def __call__(
+        self, *,
+        input_bus=None,
+        parity_bit=None
+    ):
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if parity_bit is not None:
+            self.parity_bit.value = parity_bit
+
 
 class ParityChecker8:
     """Construct a new 8-bit even parity checker.
@@ -157,6 +190,19 @@ class ParityChecker8:
         str_ += "parity_bit: " + str(self.parity_bit.value) + "\n"
         str_ += "error: " + str(self.error.value)
         return str_
+
+    def __call__(
+        self, *,
+        input_bus=None,
+        parity_bit=None,
+        error=None
+    ):
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if parity_bit is not None:
+            self.parity_bit.value = parity_bit
+        if error is not None:
+            self.error.value = error
 
 
 class ParityGenerator16:
@@ -195,6 +241,16 @@ class ParityGenerator16:
         str_ += "parity_bit: " + str(self.parity_bit.value)
         return str_
 
+    def __call__(
+        self, *,
+        input_bus=None,
+        parity_bit=None
+    ):
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if parity_bit is not None:
+            self.parity_bit.value = parity_bit
+
 
 class ParityChecker16:
     """Construct a new 16-bit even parity checker.
@@ -229,3 +285,16 @@ class ParityChecker16:
         str_ += "parity_bit: " + str(self.parity_bit.value) + "\n"
         str_ += "error: " + str(self.error.value)
         return str_
+
+    def __call__(
+        self, *,
+        input_bus=None,
+        parity_bit=None,
+        error=None
+    ):
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if parity_bit is not None:
+            self.parity_bit.value = parity_bit
+        if error is not None:
+            self.error.value = error

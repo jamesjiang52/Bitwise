@@ -87,6 +87,25 @@ class Comparator3:
         str_ += "less_than: " + str(self.less_than.value)
         return str_
 
+    def __call__(
+        self, *,
+        a_bus=None,
+        b_bus=None,
+        greater_than=None,
+        equal_to=None,
+        less_than=None
+    ):
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if greater_than is not None:
+            self.greater_than.value = greater_than
+        if equal_to is not None:
+            self.equal_to.value = equal_to
+        if less_than is not None:
+            self.less_than.value = less_than
+
 
 class Comparator7:
     """Construct a new 7-bit logical comparator.
@@ -176,6 +195,25 @@ class Comparator7:
         str_ += "equal_to: " + str(self.equal_to.value) + "\n"
         str_ += "less_than: " + str(self.less_than.value)
         return str_
+
+    def __call__(
+        self, *,
+        a_bus=None,
+        b_bus=None,
+        greater_than=None,
+        equal_to=None,
+        less_than=None
+    ):
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if greater_than is not None:
+            self.greater_than.value = greater_than
+        if equal_to is not None:
+            self.equal_to.value = equal_to
+        if less_than is not None:
+            self.less_than.value = less_than
 
 
 class Comparator15:
@@ -286,3 +324,22 @@ class Comparator15:
         str_ += "equal_to: " + str(self.equal_to.value) + "\n"
         str_ += "less_than: " + str(self.less_than.value)
         return str_
+
+    def __call__(
+        self, *,
+        a_bus=None,
+        b_bus=None,
+        greater_than=None,
+        equal_to=None,
+        less_than=None
+    ):
+        if a_bus is not None:
+            self.a_bus.wire_values = a_bus
+        if b_bus is not None:
+            self.b_bus.wire_values = b_bus
+        if greater_than is not None:
+            self.greater_than.value = greater_than
+        if equal_to is not None:
+            self.equal_to.value = equal_to
+        if less_than is not None:
+            self.less_than.value = less_than

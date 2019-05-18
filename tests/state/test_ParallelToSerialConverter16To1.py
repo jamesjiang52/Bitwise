@@ -184,3 +184,15 @@ class TestParallelToSerialConverter16To1:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            clear_n=1,
+            load_n=0,
+            data_bus=(0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
+            clock=0,
+            output=None
+        )
+        assert output.value == 0
+        a(clock=1)
+        assert output.value == 1

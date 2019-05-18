@@ -80,3 +80,9 @@ class TestBitwiseNOT8:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            input_bus=(0, 0, 0, 0, 1, 1, 1, 1),
+            output_bus=None
+        )
+        assert o_bus.wire_values == (1, 1, 1, 1, 0, 0, 0, 0)

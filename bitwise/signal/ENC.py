@@ -71,6 +71,25 @@ class Encoder4To2:
         str_ += "output_2: " + str(self.output_2.value)
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        input_bus=None,
+        valid=None,
+        output_1=None,
+        output_2=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if valid is not None:
+            self.valid.value = valid
+        if output_1 is not None:
+            self.output_1.value = output_1
+        if output_2 is not None:
+            self.output_2.value = output_2
+
 
 class Encoder8To3:
     """Construct a new 8-to-3 priority encoder.
@@ -141,6 +160,28 @@ class Encoder8To3:
         str_ += "output_2: " + str(self.output_2.value) + "\n"
         str_ += "output_3: " + str(self.output_3.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        input_bus=None,
+        valid=None,
+        output_1=None,
+        output_2=None,
+        output_3=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if valid is not None:
+            self.valid.value = valid
+        if output_1 is not None:
+            self.output_1.value = output_1
+        if output_2 is not None:
+            self.output_2.value = output_2
+        if output_3 is not None:
+            self.output_3.value = output_3
 
 
 class Encoder16To4:
@@ -238,3 +279,19 @@ class Encoder16To4:
         str_ += "valid: " + str(self.valid.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        input_bus=None,
+        valid=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if valid is not None:
+            self.valid.value = valid
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus

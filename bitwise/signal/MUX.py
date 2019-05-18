@@ -55,6 +55,25 @@ class Multiplexer2To1:
         str_ += "output: " + str(self.output.value)
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        select=None,
+        input_1=None,
+        input_2=None,
+        output=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if select is not None:
+            self.select.value = select
+        if input_1 is not None:
+            self.input_1.value = input_1
+        if input_2 is not None:
+            self.input_2.value = input_2
+        if output is not None:
+            self.output.value = output
+
 
 class Multiplexer4To1:
     """Construct a new 4-to-1 multiplexer.
@@ -102,6 +121,25 @@ class Multiplexer4To1:
         str_ += "input_bus: " + self.input_bus.__str__() + "\n"
         str_ += "output: " + str(self.output.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        select_1=None,
+        select_2=None,
+        input_bus=None,
+        output=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if select_1 is not None:
+            self.select_1.value = select_1
+        if select_2 is not None:
+            self.select_2.value = select_2
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output is not None:
+            self.output.value = output
 
 
 class Multiplexer8To1:
@@ -156,6 +194,28 @@ class Multiplexer8To1:
         str_ += "input_bus: " + self.input_bus.__str__() + "\n"
         str_ += "output: " + str(self.output.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        select_1=None,
+        select_2=None,
+        select_3=None,
+        input_bus=None,
+        output=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if select_1 is not None:
+            self.select_1.value = select_1
+        if select_2 is not None:
+            self.select_2.value = select_2
+        if select_3 is not None:
+            self.select_3.value = select_3
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output is not None:
+            self.output.value = output
 
 
 class Multiplexer16To1:
@@ -217,3 +277,19 @@ class Multiplexer16To1:
         str_ += "input_bus: " + self.input_bus.__str__() + "\n"
         str_ += "output: " + str(self.output.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        select_bus=None,
+        input_bus=None,
+        output=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if select_bus is not None:
+            self.select_bus.wire_values = select_bus
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output is not None:
+            self.output.value = output

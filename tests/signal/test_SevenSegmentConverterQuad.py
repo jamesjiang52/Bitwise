@@ -290,3 +290,16 @@ class TestSevenSegmentConverterQuad():
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            input_bus=(0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+            output_bus_1=None,
+            output_bus_2=None,
+            output_bus_3=None,
+            output_bus_4=None
+        )
+        assert output_bus_1.wire_values == (1, 0, 0, 0, 0, 0, 0)
+        assert output_bus_2.wire_values == (0, 0, 0, 1, 1, 1, 0)
+        assert output_bus_3.wire_values == (1, 0, 0, 0, 0, 0, 0)
+        assert output_bus_4.wire_values == (1, 0, 0, 0, 0, 0, 0)

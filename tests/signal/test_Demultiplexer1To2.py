@@ -45,3 +45,12 @@ class TestDemultiplexer1To2:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            select=0,
+            input=1,
+            output_1=None,
+            output_2=None
+        )
+        assert (output_1.value, output_2.value) == (0, 1)

@@ -58,6 +58,22 @@ class RingCounter4:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class RingCounter8:
     """Construct a new 8-bit ring counter.
@@ -112,6 +128,22 @@ class RingCounter8:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class RingCounter16:
     """Construct a new 16-bit ring counter.
@@ -165,3 +197,19 @@ class RingCounter16:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus

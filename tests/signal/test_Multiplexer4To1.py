@@ -185,3 +185,12 @@ class TestMultiplexer4To1:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            select_1=0,
+            select_2=0,
+            input_bus=(0, 0, 0, 1),
+            output=None
+        )
+        assert output.value == 1

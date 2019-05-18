@@ -164,3 +164,13 @@ class TestDemultiplexer1To8:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            select_1=0,
+            select_2=0,
+            select_3=0,
+            input=1,
+            output_bus=None
+        )
+        assert output_bus.wire_values == (0, 0, 0, 0, 0, 0, 0, 1)

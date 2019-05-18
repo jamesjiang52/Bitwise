@@ -62,6 +62,22 @@ class Decoder1Of4:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        input_1=None,
+        input_2=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_1 is not None:
+            self.input_1.value = input_1
+        if input_2 is not None:
+            self.input_2.value = input_2
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class Decoder1Of8:
     """Construct a new 1-of-8 decoder.
@@ -114,6 +130,25 @@ class Decoder1Of8:
         str_ += "input_3: " + str(self.input_3.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_1 is not None:
+            self.input_1.value = input_1
+        if input_2 is not None:
+            self.input_2.value = input_2
+        if input_3 is not None:
+            self.input_3.value = input_3
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class Decoder1Of16:
@@ -174,3 +209,16 @@ class Decoder1Of16:
         str_ += "input_bus: " + self.input_bus.__str__() + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
