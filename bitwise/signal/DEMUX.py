@@ -50,6 +50,25 @@ class Demultiplexer1To2:
         str_ += "output_2: " + str(self.output_2.value)
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        select=None,
+        input=None,
+        output_1=None,
+        output_2=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if select is not None:
+            self.select.value = select
+        if input is not None:
+            self.input.value = input
+        if output_1 is not None:
+            self.output_1.value = output_1
+        if output_2 is not None:
+            self.output_2.value = output_2
+
 
 class Demultiplexer1To4:
     """Construct a new 1-to-4 demultiplexer.
@@ -102,6 +121,25 @@ class Demultiplexer1To4:
         str_ += "input: " + str(self.input.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        select_1=None,
+        select_2=None,
+        input=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if select_1 is not None:
+            self.select_1.value = select_1
+        if select_2 is not None:
+            self.select_2.value = select_2
+        if input is not None:
+            self.input.value = input
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class Demultiplexer1To8:
@@ -184,6 +222,28 @@ class Demultiplexer1To8:
         str_ += "input: " + str(self.input.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        select_1=None,
+        select_2=None,
+        select_3=None,
+        input=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if select_1 is not None:
+            self.select_1.value = select_1
+        if select_2 is not None:
+            self.select_2.value = select_2
+        if select_3 is not None:
+            self.select_3.value = select_3
+        if input is not None:
+            self.input.value = input
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class Demultiplexer1To16:
@@ -283,3 +343,19 @@ class Demultiplexer1To16:
         str_ += "input: " + str(self.input.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        select_bus=None,
+        input=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if select_bus is not None:
+            self.select_bus.wire_values = select_bus
+        if input is not None:
+            self.input.value = input
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus

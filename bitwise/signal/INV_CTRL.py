@@ -59,6 +59,19 @@ class ControlledInverter4:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class ControlledInverter8:
     """Construct a new 8-bit controlled inverter.
@@ -108,6 +121,19 @@ class ControlledInverter8:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class ControlledInverter16:
     """Construct a new 16-bit controlled inverter.
@@ -156,3 +182,16 @@ class ControlledInverter16:
         str_ += "input_bus: " + self.input_bus.__str__() + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus

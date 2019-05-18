@@ -137,6 +137,19 @@ class SevenSegmentConverter:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class SevenSegmentConverterDual:
     """Construct a new dual seven-segment converter.
@@ -201,6 +214,22 @@ class SevenSegmentConverterDual:
         str_ += "output_bus_1: " + self.output_bus_1.__str__() + "\n"
         str_ += "output_bus_2: " + self.output_bus_2.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        input_bus=None,
+        output_bus_1=None,
+        output_bus_2=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output_bus_1 is not None:
+            self.output_bus_1.wire_values = output_bus_1
+        if output_bus_2 is not None:
+            self.output_bus_2.wire_values = output_bus_2
 
 
 class SevenSegmentConverterQuad:
@@ -307,3 +336,25 @@ class SevenSegmentConverterQuad:
         str_ += "output_bus_3: " + self.output_bus_3.__str__() + "\n"
         str_ += "output_bus_4: " + self.output_bus_4.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        input_bus=None,
+        output_bus_1=None,
+        output_bus_2=None,
+        output_bus_3=None,
+        output_bus_4=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if input_bus is not None:
+            self.input_bus.wire_values = input_bus
+        if output_bus_1 is not None:
+            self.output_bus_1.wire_values = output_bus_1
+        if output_bus_2 is not None:
+            self.output_bus_2.wire_values = output_bus_2
+        if output_bus_3 is not None:
+            self.output_bus_3.wire_values = output_bus_3
+        if output_bus_4 is not None:
+            self.output_bus_4.wire_values = output_bus_4

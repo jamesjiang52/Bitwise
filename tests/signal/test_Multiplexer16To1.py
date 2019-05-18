@@ -1577,3 +1577,11 @@ class TestMultiplexer16To1:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            select_bus=(0, 0, 0, 0),
+            input_bus=(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1),
+            output=None
+        )
+        assert output.value == 1

@@ -56,3 +56,11 @@ class TestDecoder1Of4:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            input_1=1,
+            input_2=0,
+            output_bus=None
+        )
+        assert output_bus.wire_values == (0, 1, 0, 0)

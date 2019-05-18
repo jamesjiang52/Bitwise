@@ -107,3 +107,14 @@ class TestEncoder4To2:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            input_bus=(0, 0, 0, 1),
+            valid=None,
+            output_1=None,
+            output_2=None
+        )
+        assert valid.value == 1
+        assert output_1.value == 0
+        assert output_2.value == 0
