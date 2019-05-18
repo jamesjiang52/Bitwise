@@ -74,6 +74,25 @@ class UpCounterMod4:
         str_ += "output_2: " + str(self.output_2.value)
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_1=None,
+        output_2=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if clock is not None:
+            self.clock.value = clock
+        if output_1 is not None:
+            self.output_1.value = output_1
+        if output_2 is not None:
+            self.output_2.value = output_2
+
 
 class UpCounterMod8:
     """Construct a new mod-8 up counter.
@@ -143,6 +162,28 @@ class UpCounterMod8:
         str_ += "output_2: " + str(self.output_2.value) + "\n"
         str_ += "output_3: " + str(self.output_3.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_1=None,
+        output_2=None,
+        output_3=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if clock is not None:
+            self.clock.value = clock
+        if output_1 is not None:
+            self.output_1.value = output_1
+        if output_2 is not None:
+            self.output_2.value = output_2
+        if output_3 is not None:
+            self.output_3.value = output_3
 
 
 class UpCounterMod16:
@@ -229,6 +270,22 @@ class UpCounterMod16:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class DownCounterMod4:
     """Construct a new mod-4 down counter.
@@ -307,6 +364,31 @@ class DownCounterMod4:
         str_ += "output_1: " + str(self.output_1.value) + "\n"
         str_ += "output_2: " + str(self.output_2.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        load_n=None,
+        load_1=None,
+        load_2=None,
+        clock=None,
+        output_1=None,
+        output_2=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if load_n is not None:
+            self.load_n.value = load_n
+        if load_1 is not None:
+            self.load_1.value = load_1
+        if load_2 is not None:
+            self.load_2.value = load_2
+        if clock is not None:
+            self.clock.value = clock
+        if output_1 is not None:
+            self.output_1.value = output_1
+        if output_2 is not None:
+            self.output_2.value = output_2
 
 
 class DownCounterMod8:
@@ -409,6 +491,37 @@ class DownCounterMod8:
         str_ += "output_2: " + str(self.output_2.value) + "\n"
         str_ += "output_3: " + str(self.output_3.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        load_n=None,
+        load_1=None,
+        load_2=None,
+        load_3=None,
+        clock=None,
+        output_1=None,
+        output_2=None,
+        output_3=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if load_n is not None:
+            self.load_n.value = load_n
+        if load_1 is not None:
+            self.load_1.value = load_1
+        if load_2 is not None:
+            self.load_2.value = load_2
+        if load_3 is not None:
+            self.load_3.value = load_3
+        if clock is not None:
+            self.clock.value = clock
+        if output_1 is not None:
+            self.output_1.value = output_1
+        if output_2 is not None:
+            self.output_2.value = output_2
+        if output_3 is not None:
+            self.output_3.value = output_3
 
 
 class DownCounterMod16:
@@ -527,3 +640,22 @@ class DownCounterMod16:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        load_n=None,
+        load_bus=None,
+        clock=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if load_n is not None:
+            self.load_n.value = load_n
+        if load_bus is not None:
+            self.load_bus.wire_values = load_bus
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus

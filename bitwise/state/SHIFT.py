@@ -144,6 +144,34 @@ class ShiftRegister4:
         str_ += "output_serial: " + str(self.output_serial.value)
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        shift_load=None,
+        data_bus=None,
+        data_serial=None,
+        clock=None,
+        output_bus=None,
+        output_serial=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if shift_load is not None:
+            self.shift_load.value = shift_load
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if data_serial is not None:
+            self.data_serial.value = data_serial
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+        if output_serial is not None:
+            self.output_serial.value = output_serial
+
 
 class ShiftRegister8:
     """Construct a new 8-bit shift register.
@@ -320,6 +348,34 @@ class ShiftRegister8:
         str_ += "output_bus: " + self.output_bus.__str__() + "\n"
         str_ += "output_serial: " + str(self.output_serial.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        shift_load=None,
+        data_bus=None,
+        data_serial=None,
+        clock=None,
+        output_bus=None,
+        output_serial=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if shift_load is not None:
+            self.shift_load.value = shift_load
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if data_serial is not None:
+            self.data_serial.value = data_serial
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+        if output_serial is not None:
+            self.output_serial.value = output_serial
 
 
 class ShiftRegister16:
@@ -595,3 +651,31 @@ class ShiftRegister16:
         str_ += "output_bus: " + self.output_bus.__str__() + "\n"
         str_ += "output_serial: " + str(self.output_serial.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        shift_load=None,
+        data_bus=None,
+        data_serial=None,
+        clock=None,
+        output_bus=None,
+        output_serial=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if shift_load is not None:
+            self.shift_load.value = shift_load
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if data_serial is not None:
+            self.data_serial.value = data_serial
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+        if output_serial is not None:
+            self.output_serial.value = output_serial

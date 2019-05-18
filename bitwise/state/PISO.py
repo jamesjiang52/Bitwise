@@ -89,6 +89,28 @@ class ParallelToSerialConverter4To1:
         str_ += "output: " + str(self.output.value)
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        load_n=None,
+        data_bus=None,
+        clock=None,
+        output=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if load_n is not None:
+            self.load_n.value = load_n
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output
+
 
 class ParallelToSerialConverter8To1:
     """Construct a new 8-bit-parallel-to-serial converter.
@@ -168,6 +190,28 @@ class ParallelToSerialConverter8To1:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output: " + str(self.output.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        load_n=None,
+        data_bus=None,
+        clock=None,
+        output=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if load_n is not None:
+            self.load_n.value = load_n
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output
 
 
 class ParallelToSerialConverter16To1:
@@ -259,3 +303,25 @@ class ParallelToSerialConverter16To1:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output: " + str(self.output.value)
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        load_n=None,
+        data_bus=None,
+        clock=None,
+        output=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if load_n is not None:
+            self.load_n.value = load_n
+        if data_bus is not None:
+            self.data_bus.wire_values = data_bus
+        if clock is not None:
+            self.clock.value = clock
+        if output is not None:
+            self.output.value = output

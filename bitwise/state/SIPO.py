@@ -76,6 +76,25 @@ class SerialToParallelConverter1To4:
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
 
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        data=None,
+        clock=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if data is not None:
+            self.data.value = data
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
+
 
 class SerialToParallelConverter1To8:
     """Construct a new serial-to-8-bit-parallel converter.
@@ -142,6 +161,25 @@ class SerialToParallelConverter1To8:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        data=None,
+        clock=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if data is not None:
+            self.data.value = data
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus
 
 
 class SerialToParallelConverter1To16:
@@ -220,3 +258,22 @@ class SerialToParallelConverter1To16:
         str_ += "clock: " + str(self.clock.value) + "\n"
         str_ += "output_bus: " + self.output_bus.__str__()
         return str_
+
+    def __call__(
+        self, *,
+        enable=None,
+        clear_n=None,
+        data=None,
+        clock=None,
+        output_bus=None
+    ):
+        if enable is not None:
+            self.enable.value = enable
+        if clear_n is not None:
+            self.clear_n.value = clear_n
+        if data is not None:
+            self.data.value = data
+        if clock is not None:
+            self.clock.value = clock
+        if output_bus is not None:
+            self.output_bus.wire_values = output_bus

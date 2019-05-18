@@ -95,3 +95,18 @@ class TestDownCounterMod8:
 
         print(a.__doc__)
         print(a)
+
+        a(
+            enable=1,
+            load_n=1,
+            load_1=0,
+            load_2=0,
+            load_3=0,
+            clock=0,
+            output_1=None,
+            output_2=None,
+            output_3=None
+        )
+        assert (output_1.value, output_2.value, output_3.value) == (0, 0, 1)
+        a(clock=1)
+        assert (output_1.value, output_2.value, output_3.value) == (0, 0, 0)
