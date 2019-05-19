@@ -36,8 +36,8 @@ class ParallelToSerialConverter4To1:
     def __init__(
         self,
         enable,
-        reset_n,
-        parallel_load_n,
+        clear_n,
+        load_n,
         data_bus,
         clock,
         output
@@ -63,8 +63,8 @@ class ParallelToSerialConverter4To1:
 
         SHIFT.ShiftRegister4(
             enable,
-            reset_n,
-            parallel_load_n,
+            clear_n,
+            load_n,
             data_bus,
             d,
             clock,
@@ -73,8 +73,8 @@ class ParallelToSerialConverter4To1:
         )
 
         self.enable = enable
-        self.clear_n = reset_n
-        self.load_n = parallel_load_n
+        self.clear_n = clear_n
+        self.load_n = load_n
         self.data_bus = data_bus
         self.clock = clock
         self.output = output
@@ -134,8 +134,8 @@ class ParallelToSerialConverter8To1:
     def __init__(
         self,
         enable,
-        reset_n,
-        parallel_load_n,
+        clear_n,
+        load_n,
         data_bus,
         clock,
         output
@@ -165,8 +165,8 @@ class ParallelToSerialConverter8To1:
 
         SHIFT.ShiftRegister8(
             enable,
-            reset_n,
-            parallel_load_n,
+            clear_n,
+            load_n,
             data_bus,
             d,
             clock,
@@ -175,8 +175,8 @@ class ParallelToSerialConverter8To1:
         )
 
         self.enable = enable
-        self.clear_n = reset_n
-        self.load_n = parallel_load_n
+        self.clear_n = clear_n
+        self.load_n = load_n
         self.data_bus = data_bus
         self.clock = clock
         self.output = output
@@ -236,8 +236,8 @@ class ParallelToSerialConverter16To1:
     def __init__(
         self,
         enable,
-        reset_n,
-        parallel_load_n,
+        clear_n,
+        load_n,
         data_bus,
         clock,
         output
@@ -278,8 +278,8 @@ class ParallelToSerialConverter16To1:
 
         SHIFT.ShiftRegister16(
             enable,
-            reset_n,
-            parallel_load_n,
+            clear_n,
+            load_n,
             data_bus,
             d,
             clock,
@@ -288,8 +288,8 @@ class ParallelToSerialConverter16To1:
         )
 
         self.enable = enable
-        self.clear_n = reset_n
-        self.load_n = parallel_load_n
+        self.clear_n = clear_n
+        self.load_n = load_n
         self.data_bus = data_bus
         self.clock = clock
         self.output = output

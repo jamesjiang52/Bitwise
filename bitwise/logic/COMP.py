@@ -32,18 +32,18 @@ class Comparator3:
     Raises:
         TypeError: If either a_bus or b_bus is not a bus of width 4.
     """
-    def __init__(self, input_bus_1, input_bus_2, gt, z, lt):
-        if len(input_bus_1.wires) != 4:
+    def __init__(self, a_bus, b_bus, greater_than, equal_to, less_than):
+        if len(a_bus.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(input_bus_1.wires)
+                    len(a_bus.wires)
                 )
             )
 
-        if len(input_bus_2.wires) != 4:
+        if len(b_bus.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(input_bus_2.wires)
+                    len(b_bus.wires)
                 )
             )
 
@@ -54,29 +54,29 @@ class Comparator3:
         wire_1 = Wire()
         wire_2 = Wire()
         wire_3 = Wire()
-        lt_or_z = Wire()
+        less_than_or_equal_to = Wire()
         N = Wire()
         adder_out = Bus4(N, wire_1, wire_2, wire_3)
 
         arithmetic.AdderSubtractor4(
             add_subtract,
-            input_bus_1,
-            input_bus_2,
+            a_bus,
+            b_bus,
             overflow,
             carry_out,
             adder_out
         )
 
-        gate.NORGate4(*adder_out.wires, z)
-        gate.XORGate2(N, overflow, lt)
-        gate.ORGate2(z, lt, lt_or_z)
-        gate.NOTGate(lt_or_z, gt)
+        gate.NORGate4(*adder_out.wires, equal_to)
+        gate.XORGate2(N, overflow, less_than)
+        gate.ORGate2(equal_to, less_than, less_than_or_equal_to)
+        gate.NOTGate(less_than_or_equal_to, greater_than)
 
-        self.a_bus = input_bus_1
-        self.b_bus = input_bus_2
-        self.greater_than = gt
-        self.equal_to = z
-        self.less_than = lt
+        self.a_bus = a_bus
+        self.b_bus = b_bus
+        self.greater_than = greater_than
+        self.equal_to = equal_to
+        self.less_than = less_than
 
     def __str__(self):
         str_ = ""
@@ -124,18 +124,18 @@ class Comparator7:
     Raises:
         TypeError: If either a_bus or b_bus is not a bus of width 8.
     """
-    def __init__(self, input_bus_1, input_bus_2, gt, z, lt):
-        if len(input_bus_1.wires) != 8:
+    def __init__(self, a_bus, b_bus, greater_than, equal_to, less_than):
+        if len(a_bus.wires) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_bus_1.wires)
+                    len(a_bus.wires)
                 )
             )
 
-        if len(input_bus_2.wires) != 8:
+        if len(b_bus.wires) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_bus_2.wires)
+                    len(b_bus.wires)
                 )
             )
 
@@ -150,7 +150,7 @@ class Comparator7:
         wire_5 = Wire()
         wire_6 = Wire()
         wire_7 = Wire()
-        lt_or_z = Wire()
+        less_than_or_equal_to = Wire()
         N = Wire()
         or_1 = Wire()
         or_2 = Wire()
@@ -167,8 +167,8 @@ class Comparator7:
 
         arithmetic.AdderSubtractor8(
             add_subtract,
-            input_bus_1,
-            input_bus_2,
+            a_bus,
+            b_bus,
             overflow,
             carry_out,
             adder_out
@@ -176,16 +176,16 @@ class Comparator7:
 
         gate.ORGate4(*adder_out.wires[0:4], or_1)
         gate.ORGate4(*adder_out.wires[4:8], or_2)
-        gate.NORGate2(or_1, or_2, z)
-        gate.XORGate2(N, overflow, lt)
-        gate.ORGate2(z, lt, lt_or_z)
-        gate.NOTGate(lt_or_z, gt)
+        gate.NORGate2(or_1, or_2, equal_to)
+        gate.XORGate2(N, overflow, less_than)
+        gate.ORGate2(equal_to, less_than, less_than_or_equal_to)
+        gate.NOTGate(less_than_or_equal_to, greater_than)
 
-        self.a_bus = input_bus_1
-        self.b_bus = input_bus_2
-        self.greater_than = gt
-        self.equal_to = z
-        self.less_than = lt
+        self.a_bus = a_bus
+        self.b_bus = b_bus
+        self.greater_than = greater_than
+        self.equal_to = equal_to
+        self.less_than = less_than
 
     def __str__(self):
         str_ = ""
@@ -233,18 +233,18 @@ class Comparator15:
     Raises:
         TypeError: If either a_bus or b_bus is not a bus of width 16.
     """
-    def __init__(self, input_bus_1, input_bus_2, gt, z, lt):
-        if len(input_bus_1.wires) != 16:
+    def __init__(self, a_bus, b_bus, greater_than, equal_to, less_than):
+        if len(a_bus.wires) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(input_bus_1.wires)
+                    len(a_bus.wires)
                 )
             )
 
-        if len(input_bus_2.wires) != 16:
+        if len(b_bus.wires) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(input_bus_2.wires)
+                    len(b_bus.wires)
                 )
             )
 
@@ -267,7 +267,7 @@ class Comparator15:
         wire_13 = Wire()
         wire_14 = Wire()
         wire_15 = Wire()
-        lt_or_z = Wire()
+        less_than_or_equal_to = Wire()
         N = Wire()
         or_1 = Wire()
         or_2 = Wire()
@@ -294,8 +294,8 @@ class Comparator15:
 
         arithmetic.AdderSubtractor16(
             add_subtract,
-            input_bus_1,
-            input_bus_2,
+            a_bus,
+            b_bus,
             overflow,
             carry_out,
             adder_out
@@ -305,16 +305,16 @@ class Comparator15:
         gate.ORGate4(*adder_out.wires[4:8], or_2)
         gate.ORGate4(*adder_out.wires[8:12], or_3)
         gate.ORGate4(*adder_out.wires[12:16], or_4)
-        gate.NORGate4(or_1, or_2, or_3, or_4, z)
-        gate.XORGate2(N, overflow, lt)
-        gate.ORGate2(z, lt, lt_or_z)
-        gate.NOTGate(lt_or_z, gt)
+        gate.NORGate4(or_1, or_2, or_3, or_4, equal_to)
+        gate.XORGate2(N, overflow, less_than)
+        gate.ORGate2(equal_to, less_than, less_than_or_equal_to)
+        gate.NOTGate(less_than_or_equal_to, greater_than)
 
-        self.a_bus = input_bus_1
-        self.b_bus = input_bus_2
-        self.greater_than = gt
-        self.equal_to = z
-        self.less_than = lt
+        self.a_bus = a_bus
+        self.b_bus = b_bus
+        self.greater_than = greater_than
+        self.equal_to = equal_to
+        self.less_than = less_than
 
     def __str__(self):
         str_ = ""

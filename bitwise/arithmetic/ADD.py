@@ -25,14 +25,14 @@ class HalfAdder:
         carry_out: An object of type Wire. The carry-out of the adder.
         sum: An object of type Wire. The sum of the two addends.
     """
-    def __init__(self, a, b, carry_out, sum_):
+    def __init__(self, a, b, carry_out, sum):
         gate.ANDGate2(a, b, carry_out)
-        gate.XORGate2(a, b, sum_)
+        gate.XORGate2(a, b, sum)
 
         self.a = a
         self.b = b
         self.carry_out = carry_out
-        self.sum = sum_
+        self.sum = sum
 
     def __str__(self):
         str_ = ""
@@ -312,35 +312,35 @@ class Adder4:
     def __init__(
         self,
         carry_in,
-        input_bus_1,
-        input_bus_2,
+        a_bus,
+        b_bus,
         carry_out,
-        output_bus
+        sum_bus
     ):
-        if len(input_bus_1.wires) != 4:
+        if len(a_bus.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(input_bus_1.wires)
+                    len(a_bus.wires)
                 )
             )
 
-        if len(input_bus_2.wires) != 4:
+        if len(b_bus.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(input_bus_2.wires)
+                    len(b_bus.wires)
                 )
             )
 
-        if len(output_bus.wires) != 4:
+        if len(sum_bus.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(sum_bus.wires)
                 )
             )
 
-        input_1 = input_bus_1.wires
-        input_2 = input_bus_2.wires
-        output = output_bus.wires
+        input_1 = a_bus.wires
+        input_2 = b_bus.wires
+        output = sum_bus.wires
 
         carry_out_1 = Wire()
         carry_out_2 = Wire()
@@ -352,10 +352,10 @@ class Adder4:
         FullAdder(carry_out_3, input_1[0], input_2[0], carry_out, output[0])
 
         self.carry_in = carry_in
-        self.a_bus = input_bus_1
-        self.b_bus = input_bus_2
+        self.a_bus = a_bus
+        self.b_bus = b_bus
         self.carry_out = carry_out
-        self.sum_bus = output_bus
+        self.sum_bus = sum_bus
 
     def __str__(self):
         str_ = ""
@@ -406,35 +406,35 @@ class Adder8:
     def __init__(
         self,
         carry_in,
-        input_bus_1,
-        input_bus_2,
+        a_bus,
+        b_bus,
         carry_out,
-        output_bus
+        sum_bus
     ):
-        if len(input_bus_1.wires) != 8:
+        if len(a_bus.wires) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_bus_1.wires)
+                    len(a_bus.wires)
                 )
             )
 
-        if len(input_bus_2.wires) != 8:
+        if len(b_bus.wires) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_bus_2.wires)
+                    len(b_bus.wires)
                 )
             )
 
-        if len(output_bus.wires) != 8:
+        if len(sum_bus.wires) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(sum_bus.wires)
                 )
             )
 
-        input_1 = input_bus_1.wires
-        input_2 = input_bus_2.wires
-        output = output_bus.wires
+        input_1 = a_bus.wires
+        input_2 = b_bus.wires
+        output = sum_bus.wires
         input_1_1 = Bus4(*input_1[0:4])
         input_1_2 = Bus4(*input_1[4:8])
         input_2_1 = Bus4(*input_2[0:4])
@@ -458,10 +458,10 @@ class Adder8:
         Adder4(carry_in, input_1_2, input_2_2, lcu_c, output_2)
 
         self.carry_in = carry_in
-        self.a_bus = input_bus_1
-        self.b_bus = input_bus_2
+        self.a_bus = a_bus
+        self.b_bus = b_bus
         self.carry_out = carry_out
-        self.sum_bus = output_bus
+        self.sum_bus = sum_bus
 
     def __str__(self):
         str_ = ""
@@ -512,35 +512,35 @@ class Adder16:
     def __init__(
         self,
         carry_in,
-        input_bus_1,
-        input_bus_2,
+        a_bus,
+        b_bus,
         carry_out,
-        output_bus
+        sum_bus
     ):
-        if len(input_bus_1.wires) != 16:
+        if len(a_bus.wires) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(input_bus_1.wires)
+                    len(a_bus.wires)
                 )
             )
 
-        if len(input_bus_2.wires) != 16:
+        if len(b_bus.wires) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(input_bus_2.wires)
+                    len(b_bus.wires)
                 )
             )
 
-        if len(output_bus.wires) != 16:
+        if len(sum_bus.wires) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(sum_bus.wires)
                 )
             )
 
-        input_1 = input_bus_1.wires
-        input_2 = input_bus_2.wires
-        output = output_bus.wires
+        input_1 = a_bus.wires
+        input_2 = b_bus.wires
+        output = sum_bus.wires
         input_1_1 = Bus4(*input_1[0:4])
         input_1_2 = Bus4(*input_1[4:8])
         input_1_3 = Bus4(*input_1[8:12])
@@ -562,8 +562,8 @@ class Adder16:
 
         _LookaheadCarryUnit16(
             carry_in,
-            input_bus_1,
-            input_bus_2,
+            a_bus,
+            b_bus,
             ic_1,
             ic_2,
             ic_3,
@@ -578,10 +578,10 @@ class Adder16:
         Adder4(carry_in, input_1_4, input_2_4, ic_1, output_4)
 
         self.carry_in = carry_in
-        self.a_bus = input_bus_1
-        self.b_bus = input_bus_2
+        self.a_bus = a_bus
+        self.b_bus = b_bus
         self.carry_out = carry_out
-        self.sum_bus = output_bus
+        self.sum_bus = sum_bus
 
     def __str__(self):
         str_ = ""

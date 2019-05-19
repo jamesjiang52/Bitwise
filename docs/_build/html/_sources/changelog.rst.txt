@@ -22,9 +22,12 @@ Added
     * ``RAM65536x16``
 * Condition code flag flip-flops module to processor subpackage
 * Stack pointer (SP) and program counter (PC) modules to processor subpackage
+* Overloaded ``__str__()`` methods to all modules
+* Overloaded ``__call__()`` methods to all modules
 
 Changed
 -------
+* Modified ``__init__()`` methods to allow all modules to be initialized with keyword arguments
 
 Removed
 -------

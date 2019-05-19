@@ -115,7 +115,6 @@ __init__
 ::
 
     __init__(
-        self,
         enable,
         load_n,
         load_bus,

@@ -36,11 +36,19 @@ class ConditionCodeFlags:
     Raises:
         TypeError: If data_bus is not a bus of width 16.
     """
-    def __init__(self, d_bus, overflow, carry_out, enable, clock, z, v, n, c):
-        if len(d_bus) != 16:
+    def __init__(
+        self,
+        data_bus,
+        overflow,
+        carry_out,
+        enable,
+        clock,
+        z, v, n, c
+    ):
+        if len(data_bus) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(d_bus)
+                    len(data_bus)
                 )
             )
 
@@ -63,16 +71,16 @@ class ConditionCodeFlags:
         or_5 = Wire()
         not_or = Wire()
 
-        gate.ORGate4(*d_bus[0:4], or_1)
-        gate.ORGate4(*d_bus[4:8], or_2)
-        gate.ORGate4(*d_bus[8:12], or_3)
-        gate.ORGate4(*d_bus[12:16], or_4)
+        gate.ORGate4(*data_bus[0:4], or_1)
+        gate.ORGate4(*data_bus[4:8], or_2)
+        gate.ORGate4(*data_bus[8:12], or_3)
+        gate.ORGate4(*data_bus[12:16], or_4)
         gate.ORGate4(or_1, or_2, or_3, or_4, or_5)
         gate.NOTGate(or_5, not_or)
 
         signal.Multiplexer2To1(vcc, enable, not_or, z, z_mux_out)
         signal.Multiplexer2To1(vcc, enable, overflow, v, v_mux_out)
-        signal.Multiplexer2To1(vcc, enable, d_bus[0], n, n_mux_out)
+        signal.Multiplexer2To1(vcc, enable, data_bus[0], n, n_mux_out)
         signal.Multiplexer2To1(vcc, enable, carry_out, c, c_mux_out)
 
         storage.DFlipFlop(z_mux_out, clock, z, z_not)
@@ -80,7 +88,7 @@ class ConditionCodeFlags:
         storage.DFlipFlop(n_mux_out, clock, n, n_not)
         storage.DFlipFlop(c_mux_out, clock, c, c_not)
 
-        self.data_bus = d_bus
+        self.data_bus = data_bus
         self.overflow = overflow
         self.carry_out = carry_out
         self.enable = enable

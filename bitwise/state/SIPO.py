@@ -30,7 +30,7 @@ class SerialToParallelConverter1To4:
     Raises:
         TypeError: If output_bus is not a bus of width 4.
     """
-    def __init__(self, enable, reset_n, data, clock, output_bus):
+    def __init__(self, enable, clear_n, data, clock, output_bus):
         if len(output_bus) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
@@ -52,7 +52,7 @@ class SerialToParallelConverter1To4:
 
         SHIFT.ShiftRegister4(
             enable,
-            reset_n,
+            clear_n,
             vcc,
             d_bus,
             data,
@@ -62,7 +62,7 @@ class SerialToParallelConverter1To4:
         )
 
         self.enable = enable
-        self.clear_n = reset_n
+        self.clear_n = clear_n
         self.data = data
         self.clock = clock
         self.output_bus = output_bus
@@ -112,7 +112,7 @@ class SerialToParallelConverter1To8:
     Raises:
         TypeError: If output_bus is not a bus of width 8.
     """
-    def __init__(self, enable, reset_n, data, clock, output_bus):
+    def __init__(self, enable, clear_n, data, clock, output_bus):
         if len(output_bus) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
@@ -138,7 +138,7 @@ class SerialToParallelConverter1To8:
 
         SHIFT.ShiftRegister8(
             enable,
-            reset_n,
+            clear_n,
             vcc,
             d_bus,
             data,
@@ -148,7 +148,7 @@ class SerialToParallelConverter1To8:
         )
 
         self.enable = enable
-        self.clear_n = reset_n
+        self.clear_n = clear_n
         self.data = data
         self.clock = clock
         self.output_bus = output_bus
@@ -198,7 +198,7 @@ class SerialToParallelConverter1To16:
     Raises:
         TypeError: If output_bus is not a bus of width 16.
     """
-    def __init__(self, enable, reset_n, data, clock, output_bus):
+    def __init__(self, enable, clear_n, data, clock, output_bus):
         if len(output_bus) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
@@ -235,7 +235,7 @@ class SerialToParallelConverter1To16:
 
         SHIFT.ShiftRegister16(
             enable,
-            reset_n,
+            clear_n,
             vcc,
             d_bus,
             data,
@@ -245,7 +245,7 @@ class SerialToParallelConverter1To16:
         )
 
         self.enable = enable
-        self.clear_n = reset_n
+        self.clear_n = clear_n
         self.data = data
         self.clock = clock
         self.output_bus = output_bus
