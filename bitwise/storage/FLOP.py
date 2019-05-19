@@ -427,20 +427,20 @@ class JKFlipFlop:
             its value if both J and K have value 1.
         output_not: An object of type Wire. The complemented form of output.
     """
-    def __init__(self, j, k, clock, output, output_not):
+    def __init__(self, J, K, clock, output, output_not):
         and_1 = Wire()
         and_2 = Wire()
         or_1 = Wire()
         not_1 = Wire()
 
-        gate.NOTGate(k, not_1)
-        gate.ANDGate2(j, output_not, and_1)
+        gate.NOTGate(K, not_1)
+        gate.ANDGate2(J, output_not, and_1)
         gate.ANDGate2(not_1, output, and_2)
         gate.ORGate2(and_1, and_2, or_1)
         DFlipFlop(or_1, clock, output, output_not)
 
-        self.J = j
-        self.K = k
+        self.J = J
+        self.K = K
         self.clock = clock
         self.output = output
         self.output_not = output_not
@@ -493,14 +493,14 @@ class JKFlipFlopPresetClear:
             its value if both J and K have value 1.
         output_not: An object of type Wire. The complemented form of output.
     """
-    def __init__(self, j, k, preset_n, clear_n, clock, output, output_not):
+    def __init__(self, J, K, preset_n, clear_n, clock, output, output_not):
         and_1 = Wire()
         and_2 = Wire()
         or_1 = Wire()
         not_1 = Wire()
 
-        gate.NOTGate(k, not_1)
-        gate.ANDGate2(j, output_not, and_1)
+        gate.NOTGate(K, not_1)
+        gate.ANDGate2(J, output_not, and_1)
         gate.ANDGate2(not_1, output, and_2)
         gate.ORGate2(and_1, and_2, or_1)
         DFlipFlopPresetClear(
@@ -512,8 +512,8 @@ class JKFlipFlopPresetClear:
             output_not
         )
 
-        self.J = j
-        self.K = k
+        self.J = J
+        self.K = K
         self.preset_n = preset_n
         self.clear_n = clear_n
         self.clock = clock

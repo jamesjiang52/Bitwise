@@ -42,30 +42,30 @@ class AdderSubtractor4:
     def __init__(
         self,
         add_subtract,
-        input_bus_1,
-        input_bus_2,
+        a_bus,
+        b_bus,
         overflow,
         carry_out,
-        output_bus
+        sum_bus
     ):
-        if len(input_bus_1.wires) != 4:
+        if len(a_bus.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(input_bus_1.wires)
+                    len(a_bus.wires)
                 )
             )
 
-        if len(input_bus_2.wires) != 4:
+        if len(b_bus.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(input_bus_2.wires)
+                    len(b_bus.wires)
                 )
             )
 
-        if len(output_bus.wires) != 4:
+        if len(sum_bus.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(sum_bus.wires)
                 )
             )
 
@@ -79,12 +79,12 @@ class AdderSubtractor4:
         and_1_wire = Wire()
         and_2_wire = Wire()
         bus_1 = Bus4(wire_1, wire_2, wire_3, wire_4)
-        input_1 = input_bus_1.wires
-        input_2 = input_bus_2.wires
-        output = output_bus.wires
+        input_1 = a_bus.wires
+        input_2 = b_bus.wires
+        output = sum_bus.wires
 
-        signal.ControlledInverter4(add_subtract, input_bus_2, bus_1)
-        ADD.Adder4(add_subtract, input_bus_1, bus_1, carry_out, output_bus)
+        signal.ControlledInverter4(add_subtract, b_bus, bus_1)
+        ADD.Adder4(add_subtract, a_bus, bus_1, carry_out, sum_bus)
 
         gate.NOTGate(input_1[0], not_input_1)
         gate.NOTGate(input_2[0], not_input_2)
@@ -94,11 +94,11 @@ class AdderSubtractor4:
         gate.ORGate2(and_1_wire, and_2_wire, overflow)
 
         self.add_subtract = add_subtract
-        self.a_bus = input_bus_1
-        self.b_bus = input_bus_2
+        self.a_bus = a_bus
+        self.b_bus = b_bus
         self.overflow = overflow
         self.carry_out = carry_out
-        self.sum_bus = output_bus
+        self.sum_bus = sum_bus
 
     def __str__(self):
         str_ = ""
@@ -159,30 +159,30 @@ class AdderSubtractor8:
     def __init__(
         self,
         add_subtract,
-        input_bus_1,
-        input_bus_2,
+        a_bus,
+        b_bus,
         overflow,
         carry_out,
-        output_bus
+        sum_bus
     ):
-        if len(input_bus_1.wires) != 8:
+        if len(a_bus.wires) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_bus_1.wires)
+                    len(a_bus.wires)
                 )
             )
 
-        if len(input_bus_2.wires) != 8:
+        if len(b_bus.wires) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_bus_2.wires)
+                    len(b_bus.wires)
                 )
             )
 
-        if len(output_bus.wires) != 8:
+        if len(sum_bus.wires) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(sum_bus.wires)
                 )
             )
 
@@ -209,12 +209,12 @@ class AdderSubtractor8:
             wire_7,
             wire_8
         )
-        input_1 = input_bus_1.wires
-        input_2 = input_bus_2.wires
-        output = output_bus.wires
+        input_1 = a_bus.wires
+        input_2 = b_bus.wires
+        output = sum_bus.wires
 
-        signal.ControlledInverter8(add_subtract, input_bus_2, bus_1)
-        ADD.Adder8(add_subtract, input_bus_1, bus_1, carry_out, output_bus)
+        signal.ControlledInverter8(add_subtract, b_bus, bus_1)
+        ADD.Adder8(add_subtract, a_bus, bus_1, carry_out, sum_bus)
 
         gate.NOTGate(input_1[0], not_input_1)
         gate.NOTGate(input_2[0], not_input_2)
@@ -224,11 +224,11 @@ class AdderSubtractor8:
         gate.ORGate2(and_1_wire, and_2_wire, overflow)
 
         self.add_subtract = add_subtract
-        self.a_bus = input_bus_1
-        self.b_bus = input_bus_2
+        self.a_bus = a_bus
+        self.b_bus = b_bus
         self.overflow = overflow
         self.carry_out = carry_out
-        self.sum_bus = output_bus
+        self.sum_bus = sum_bus
 
     def __str__(self):
         str_ = ""
@@ -289,30 +289,30 @@ class AdderSubtractor16:
     def __init__(
         self,
         add_subtract,
-        input_bus_1,
-        input_bus_2,
+        a_bus,
+        b_bus,
         overflow,
         carry_out,
-        output_bus
+        sum_bus
     ):
-        if len(input_bus_1.wires) != 16:
+        if len(a_bus.wires) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(input_bus_1.wires)
+                    len(a_bus.wires)
                 )
             )
 
-        if len(input_bus_2.wires) != 16:
+        if len(b_bus.wires) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(input_bus_2.wires)
+                    len(b_bus.wires)
                 )
             )
 
-        if len(output_bus.wires) != 16:
+        if len(sum_bus.wires) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(output_bus.wires)
+                    len(sum_bus.wires)
                 )
             )
 
@@ -355,12 +355,12 @@ class AdderSubtractor16:
             wire_15,
             wire_16
         )
-        input_1 = input_bus_1.wires
-        input_2 = input_bus_2.wires
-        output = output_bus.wires
+        input_1 = a_bus.wires
+        input_2 = b_bus.wires
+        output = sum_bus.wires
 
-        signal.ControlledInverter16(add_subtract, input_bus_2, bus_1)
-        ADD.Adder16(add_subtract, input_bus_1, bus_1, carry_out, output_bus)
+        signal.ControlledInverter16(add_subtract, b_bus, bus_1)
+        ADD.Adder16(add_subtract, a_bus, bus_1, carry_out, sum_bus)
 
         gate.NOTGate(input_1[0], not_input_1)
         gate.NOTGate(input_2[0], not_input_2)
@@ -370,11 +370,11 @@ class AdderSubtractor16:
         gate.ORGate2(and_1_wire, and_2_wire, overflow)
 
         self.add_subtract = add_subtract
-        self.a_bus = input_bus_1
-        self.b_bus = input_bus_2
+        self.a_bus = a_bus
+        self.b_bus = b_bus
         self.overflow = overflow
         self.carry_out = carry_out
-        self.sum_bus = output_bus
+        self.sum_bus = sum_bus
 
     def __str__(self):
         str_ = ""

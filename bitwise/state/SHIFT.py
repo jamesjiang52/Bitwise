@@ -43,13 +43,13 @@ class ShiftRegister4:
     def __init__(
         self,
         enable,
-        reset_n,
+        clear_n,
         shift_load,
         data_bus,
-        data_s,
+        data_serial,
         clock,
         output_bus,
-        output_s
+        output_serial
     ):
         if len(data_bus) != 4:
             raise TypeError(
@@ -79,7 +79,7 @@ class ShiftRegister4:
         q_3_not = Wire()
         q_4_not = Wire()
 
-        mux_1 = Bus4(data_s, data_bus[0], output_bus[0], output_bus[0])
+        mux_1 = Bus4(data_serial, data_bus[0], output_bus[0], output_bus[0])
         mux_2 = Bus4(output_bus[0], data_bus[1], output_bus[1], output_bus[1])
         mux_3 = Bus4(output_bus[1], data_bus[2], output_bus[2], output_bus[2])
         mux_4 = Bus4(output_bus[2], data_bus[3], output_bus[3], output_bus[3])
@@ -92,7 +92,7 @@ class ShiftRegister4:
         storage.DFlipFlopPresetClear(
             mux_4_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[3],
             q_4_not
@@ -100,7 +100,7 @@ class ShiftRegister4:
         storage.DFlipFlopPresetClear(
             mux_3_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[2],
             q_3_not
@@ -108,7 +108,7 @@ class ShiftRegister4:
         storage.DFlipFlopPresetClear(
             mux_2_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[1],
             q_2_not
@@ -116,21 +116,21 @@ class ShiftRegister4:
         storage.DFlipFlopPresetClear(
             mux_1_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[0],
             q_1_not
         )
-        gate.Buffer(output_bus[3], output_s)
+        gate.Buffer(output_bus[3], output_serial)
 
         self.enable = enable
-        self.clear_n = reset_n
+        self.clear_n = clear_n
         self.shift_load = shift_load
         self.data_bus = data_bus
-        self.data_serial = data_s
+        self.data_serial = data_serial
         self.clock = clock
         self.output_bus = output_bus
-        self.output_serial = output_s
+        self.output_serial = output_serial
 
     def __str__(self):
         str_ = ""
@@ -200,13 +200,13 @@ class ShiftRegister8:
     def __init__(
         self,
         enable,
-        reset_n,
+        clear_n,
         shift_load,
         data_bus,
-        data_s,
+        data_serial,
         clock,
         output_bus,
-        output_s
+        output_serial
     ):
         if len(data_bus) != 8:
             raise TypeError(
@@ -244,7 +244,7 @@ class ShiftRegister8:
         q_7_not = Wire()
         q_8_not = Wire()
 
-        mux_1 = Bus4(data_s, data_bus[0], output_bus[0], output_bus[0])
+        mux_1 = Bus4(data_serial, data_bus[0], output_bus[0], output_bus[0])
         mux_2 = Bus4(output_bus[0], data_bus[1], output_bus[1], output_bus[1])
         mux_3 = Bus4(output_bus[1], data_bus[2], output_bus[2], output_bus[2])
         mux_4 = Bus4(output_bus[2], data_bus[3], output_bus[3], output_bus[3])
@@ -265,7 +265,7 @@ class ShiftRegister8:
         storage.DFlipFlopPresetClear(
             mux_8_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[7],
             q_8_not
@@ -273,7 +273,7 @@ class ShiftRegister8:
         storage.DFlipFlopPresetClear(
             mux_7_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[6],
             q_7_not
@@ -281,7 +281,7 @@ class ShiftRegister8:
         storage.DFlipFlopPresetClear(
             mux_6_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[5],
             q_6_not
@@ -289,7 +289,7 @@ class ShiftRegister8:
         storage.DFlipFlopPresetClear(
             mux_5_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[4],
             q_5_not
@@ -297,7 +297,7 @@ class ShiftRegister8:
         storage.DFlipFlopPresetClear(
             mux_4_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[3],
             q_4_not
@@ -305,7 +305,7 @@ class ShiftRegister8:
         storage.DFlipFlopPresetClear(
             mux_3_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[2],
             q_3_not
@@ -313,7 +313,7 @@ class ShiftRegister8:
         storage.DFlipFlopPresetClear(
             mux_2_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[1],
             q_2_not
@@ -321,21 +321,21 @@ class ShiftRegister8:
         storage.DFlipFlopPresetClear(
             mux_1_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[0],
             q_1_not
         )
-        gate.Buffer(output_bus[7], output_s)
+        gate.Buffer(output_bus[7], output_serial)
 
         self.enable = enable
-        self.clear_n = reset_n
+        self.clear_n = clear_n
         self.shift_load = shift_load
         self.data_bus = data_bus
-        self.data_serial = data_s
+        self.data_serial = data_serial
         self.clock = clock
         self.output_bus = output_bus
-        self.output_serial = output_s
+        self.output_serial = output_serial
 
     def __str__(self):
         str_ = ""
@@ -405,13 +405,13 @@ class ShiftRegister16:
     def __init__(
         self,
         enable,
-        reset_n,
+        clear_n,
         shift_load,
         data_bus,
-        data_s,
+        data_serial,
         clock,
         output_bus,
-        output_s
+        output_serial
     ):
         if len(data_bus) != 16:
             raise TypeError(
@@ -467,7 +467,7 @@ class ShiftRegister16:
 
         o_bus = output_bus
 
-        mux_1 = Bus4(data_s, data_bus[0], o_bus[0], o_bus[0])
+        mux_1 = Bus4(data_serial, data_bus[0], o_bus[0], o_bus[0])
         mux_2 = Bus4(o_bus[0], data_bus[1], o_bus[1], o_bus[1])
         mux_3 = Bus4(o_bus[1], data_bus[2], o_bus[2], o_bus[2])
         mux_4 = Bus4(o_bus[2], data_bus[3], o_bus[3], o_bus[3])
@@ -504,7 +504,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_16_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[15],
             q_16_not
@@ -512,7 +512,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_15_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[14],
             q_15_not
@@ -520,7 +520,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_14_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[13],
             q_14_not
@@ -528,7 +528,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_13_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[12],
             q_13_not
@@ -536,7 +536,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_12_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[11],
             q_12_not
@@ -544,7 +544,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_11_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[10],
             q_11_not
@@ -552,7 +552,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_10_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[9],
             q_10_not
@@ -560,7 +560,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_9_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[8],
             q_9_not
@@ -568,7 +568,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_8_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[7],
             q_8_not
@@ -576,7 +576,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_7_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[6],
             q_7_not
@@ -584,7 +584,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_6_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[5],
             q_6_not
@@ -592,7 +592,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_5_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[4],
             q_5_not
@@ -600,7 +600,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_4_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[3],
             q_4_not
@@ -608,7 +608,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_3_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[2],
             q_3_not
@@ -616,7 +616,7 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_2_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[1],
             q_2_not
@@ -624,21 +624,21 @@ class ShiftRegister16:
         storage.DFlipFlopPresetClear(
             mux_1_out,
             vcc,
-            reset_n,
+            clear_n,
             clock,
             output_bus[0],
             q_1_not
         )
-        gate.Buffer(output_bus[15], output_s)
+        gate.Buffer(output_bus[15], output_serial)
 
         self.enable = enable
-        self.clear_n = reset_n
+        self.clear_n = clear_n
         self.shift_load = shift_load
         self.data_bus = data_bus
-        self.data_serial = data_s
+        self.data_serial = data_serial
         self.clock = clock
         self.output_bus = output_bus
-        self.output_serial = output_s
+        self.output_serial = output_serial
 
     def __str__(self):
         str_ = ""

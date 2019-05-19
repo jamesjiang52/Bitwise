@@ -30,11 +30,11 @@ class Register4:
     Raises:
         TypeError: If either data_bus or output_bus is not a bus of width 4.
     """
-    def __init__(self, input_bus, enable, clock, output_bus):
-        if len(input_bus) != 4:
+    def __init__(self, data_bus, enable, clock, output_bus):
+        if len(data_bus) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
-                    len(input_bus)
+                    len(data_bus)
                 )
             )
 
@@ -52,14 +52,14 @@ class Register4:
 
         mux_bus = Bus4()
 
-        _Multiplexer2To1_4(enable, input_bus, output_bus, mux_bus)
+        _Multiplexer2To1_4(enable, data_bus, output_bus, mux_bus)
 
         FLOP.DFlipFlop(mux_bus[0], clock, output_bus[0], not_1)
         FLOP.DFlipFlop(mux_bus[1], clock, output_bus[1], not_2)
         FLOP.DFlipFlop(mux_bus[2], clock, output_bus[2], not_3)
         FLOP.DFlipFlop(mux_bus[3], clock, output_bus[3], not_4)
 
-        self.data_bus = input_bus
+        self.data_bus = data_bus
         self.enable = enable
         self.clock = clock
         self.output_bus = output_bus
@@ -104,11 +104,11 @@ class Register8:
     Raises:
         TypeError: If either data_bus or output_bus is not a bus of width 8.
     """
-    def __init__(self, input_bus, enable, clock, output_bus):
-        if len(input_bus) != 8:
+    def __init__(self, data_bus, enable, clock, output_bus):
+        if len(data_bus) != 8:
             raise TypeError(
                 "Expected bus of width 8, received bus of width {0}.".format(
-                    len(input_bus)
+                    len(data_bus)
                 )
             )
 
@@ -130,7 +130,7 @@ class Register8:
 
         mux_bus = Bus8()
 
-        _Multiplexer2To1_8(enable, input_bus, output_bus, mux_bus)
+        _Multiplexer2To1_8(enable, data_bus, output_bus, mux_bus)
 
         FLOP.DFlipFlop(mux_bus[0], clock, output_bus[0], not_1)
         FLOP.DFlipFlop(mux_bus[1], clock, output_bus[1], not_2)
@@ -141,7 +141,7 @@ class Register8:
         FLOP.DFlipFlop(mux_bus[6], clock, output_bus[6], not_7)
         FLOP.DFlipFlop(mux_bus[7], clock, output_bus[7], not_8)
 
-        self.data_bus = input_bus
+        self.data_bus = data_bus
         self.enable = enable
         self.clock = clock
         self.output_bus = output_bus
@@ -186,11 +186,11 @@ class Register16:
     Raises:
         TypeError: If either data_bus or output_bus is not a bus of width 16.
     """
-    def __init__(self, input_bus, enable, clock, output_bus):
-        if len(input_bus) != 16:
+    def __init__(self, data_bus, enable, clock, output_bus):
+        if len(data_bus) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(input_bus)
+                    len(data_bus)
                 )
             )
 
@@ -220,7 +220,7 @@ class Register16:
 
         mux_bus = Bus16()
 
-        _Multiplexer2To1_16(enable, input_bus, output_bus, mux_bus)
+        _Multiplexer2To1_16(enable, data_bus, output_bus, mux_bus)
 
         FLOP.DFlipFlop(mux_bus[0], clock, output_bus[0], not_1)
         FLOP.DFlipFlop(mux_bus[1], clock, output_bus[1], not_2)
@@ -239,7 +239,7 @@ class Register16:
         FLOP.DFlipFlop(mux_bus[14], clock, output_bus[14], not_15)
         FLOP.DFlipFlop(mux_bus[15], clock, output_bus[15], not_16)
 
-        self.data_bus = input_bus
+        self.data_bus = data_bus
         self.enable = enable
         self.clock = clock
         self.output_bus = output_bus

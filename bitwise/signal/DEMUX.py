@@ -28,16 +28,16 @@ class Demultiplexer1To2:
         output_2: An object of type Wire. Transmits the value of input if the
             value of select is 0.
     """
-    def __init__(self, enable, select, input_1, output_1, output_2):
+    def __init__(self, enable, select, input, output_1, output_2):
         wire_1 = Wire()
 
         gate.NOTGate(select, wire_1)
-        gate.ANDGate3(enable, select, input_1, output_1)
-        gate.ANDGate3(enable, wire_1, input_1, output_2)
+        gate.ANDGate3(enable, select, input, output_1)
+        gate.ANDGate3(enable, wire_1, input, output_2)
 
         self.enable = enable
         self.select = select
-        self.input = input_1
+        self.input = input
         self.output_1 = output_1
         self.output_2 = output_2
 
@@ -87,7 +87,7 @@ class Demultiplexer1To4:
     Raises:
         TypeError: If output_bus is not a bus of width 4.
     """
-    def __init__(self, enable, select_1, select_2, input_1, output_bus):
+    def __init__(self, enable, select_1, select_2, input, output_bus):
         if len(output_bus.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
@@ -101,7 +101,7 @@ class Demultiplexer1To4:
         wire_4 = Wire()
         bus_1 = Bus4(wire_1, wire_2, wire_3, wire_4)
 
-        DEC.Decoder1Of4(input_1, select_1, select_2, bus_1)
+        DEC.Decoder1Of4(input, select_1, select_2, bus_1)
         gate.ANDGate2(enable, wire_1, output_bus.wires[0])
         gate.ANDGate2(enable, wire_2, output_bus.wires[1])
         gate.ANDGate2(enable, wire_3, output_bus.wires[2])
@@ -110,7 +110,7 @@ class Demultiplexer1To4:
         self.enable = enable
         self.select_1 = select_1
         self.select_2 = select_2
-        self.input = input_1
+        self.input = input
         self.output_bus = output_bus
 
     def __str__(self):
@@ -167,7 +167,7 @@ class Demultiplexer1To8:
             select_1,
             select_2,
             select_3,
-            input_1,
+            input,
             output_bus
             ):
         if len(output_bus.wires) != 8:
@@ -196,7 +196,7 @@ class Demultiplexer1To8:
             wire_8
         )
 
-        DEC.Decoder1Of8(input_1, select_1, select_2, select_3, bus_1)
+        DEC.Decoder1Of8(input, select_1, select_2, select_3, bus_1)
         gate.ANDGate2(enable, wire_1, output_bus.wires[0])
         gate.ANDGate2(enable, wire_2, output_bus.wires[1])
         gate.ANDGate2(enable, wire_3, output_bus.wires[2])
@@ -210,7 +210,7 @@ class Demultiplexer1To8:
         self.select_1 = select_1
         self.select_2 = select_2
         self.select_3 = select_3
-        self.input = input_1
+        self.input = input
         self.output_bus = output_bus
 
     def __str__(self):
@@ -263,7 +263,7 @@ class Demultiplexer1To16:
         TypeError: If select_bus is not a bus of width 4, or if output_bus is
         not a bus of width 16.
     """
-    def __init__(self, enable, select_bus, input_1, output_bus):
+    def __init__(self, enable, select_bus, input, output_bus):
         if len(select_bus.wires) != 4:
             raise TypeError(
                 "Expected bus of width 4, received bus of width {0}.".format(
@@ -313,7 +313,7 @@ class Demultiplexer1To16:
             wire_16
         )
 
-        DEC.Decoder1Of16(input_1, select_bus, bus_1)
+        DEC.Decoder1Of16(input, select_bus, bus_1)
         gate.ANDGate2(enable, wire_1, output_bus.wires[0])
         gate.ANDGate2(enable, wire_2, output_bus.wires[1])
         gate.ANDGate2(enable, wire_3, output_bus.wires[2])
@@ -333,7 +333,7 @@ class Demultiplexer1To16:
 
         self.enable = enable
         self.select_bus = select_bus
-        self.input = input_1
+        self.input = input
         self.output_bus = output_bus
 
     def __str__(self):

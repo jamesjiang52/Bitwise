@@ -32,11 +32,11 @@ class ProgramCounter:
     Raises:
         TypeError: If either data_bus or output_bus is not a bus of width 16.
     """
-    def __init__(self, input_bus, up, load, clock, output_bus):
-        if len(input_bus) != 16:
+    def __init__(self, data_bus, up, load, clock, output_bus):
+        if len(data_bus) != 16:
             raise TypeError(
                 "Expected bus of width 16, received bus of width {0}.".format(
-                    len(input_bus)
+                    len(data_bus)
                 )
             )
 
@@ -59,11 +59,11 @@ class ProgramCounter:
         gnd.value = 0
 
         gate.ORGate2(up, load, enable)
-        _Multiplexer2To1_16(load, input_bus, sum_, mux_out)
+        _Multiplexer2To1_16(load, data_bus, sum_, mux_out)
         arithmetic.AdderSubtractor16(gnd, output_bus, b_bus, v, c, sum_)
         storage.Register16(mux_out, enable, clock, output_bus)
 
-        self.data_bus = input_bus
+        self.data_bus = data_bus
         self.up = up
         self.load = load
         self.clock = clock
