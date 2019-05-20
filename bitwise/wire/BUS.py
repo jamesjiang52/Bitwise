@@ -20,8 +20,11 @@ class Bus4:
             by indexing the bus.
 
     Accessors:
-        bus.wires: A tuple of the wires in the bus.
-        bus.wire_values: A tuple of values of the wires in the bus.
+        wires: A tuple of the wires in the bus.
+        wire_values: A tuple of values of the wires in the bus.
+        
+    Mutators:
+        wire_values: A tuple of values of the wires in the bus.
     """
     def __init__(
         self,
@@ -104,6 +107,9 @@ class Bus8:
     Accessors:
         bus.wires: A tuple of the wires in the bus.
         bus.wire_values: A tuple of values of the wires in the bus.
+        
+    Mutators:
+        wire_values: A tuple of values of the wires in the bus.
     """
     def __init__(
         self,
@@ -223,6 +229,9 @@ class Bus16:
     Accessors:
         bus.wires: A tuple of the wires in the bus.
         bus.wire_values: A tuple of values of the wires in the bus.
+        
+    Mutators:
+        wire_values: A tuple of values of the wires in the bus.
     """
     def __init__(
         self,
@@ -399,11 +408,16 @@ class BusSevenSegmentDisplay:
     """Initialize a new seven-segment display bus.
 
     Args:
-        wire_1, wire_2, ... , wire_7: Objects of type Wire.
+        wire_1, wire_2, ... , wire_7 (optional): Objects of type Wire. If not 
+            given, new wires will be created, which can then only be accessed 
+            by indexing the bus.
 
     Accessors:
         bus.wires: A tuple of the wires in the bus.
         bus.wire_values: A tuple of values of the wires in the bus.
+        
+    Mutators:
+        wire_values: A tuple of values of the wires in the bus.
     """
     def __init__(
         self,

@@ -82,7 +82,7 @@
 <li><a class="reference internal" href="#bus16">Bus16</a></li>
 <li><a class="reference internal" href="#bussevensegmentdisplay">BusSevenSegmentDisplay</a></li>
 <li><a class="reference internal" href="#tristatebuffer">TristateBuffer</a></li>
-<li><a class="reference internal" href="#id35">Wire</a></li>
+<li><a class="reference internal" href="#id38">Wire</a></li>
 </ul>
 </li>
 </ul>
@@ -234,8 +234,14 @@
 <div class="section" id="accessors">
 <h3>Accessors:</h3>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">bus.wires</span></code>: A tuple of the wires in the bus.</li>
-<li><code class="docutils literal"><span class="pre">bus.wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">wires</span></code>: A tuple of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+</ul>
+</div>
+<div class="section" id="mutators">
+<h3>Mutators:</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">wire_values</span></code>: A tuple of values of the wires in the bus.</li>
 </ul>
 </div>
 </div>
@@ -271,19 +277,25 @@
 <div class="section" id="id21">
 <h3>Accessors:</h3>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">bus.wires</span></code>: A tuple of the wires in the bus.</li>
-<li><code class="docutils literal"><span class="pre">bus.wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">wires</span></code>: A tuple of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h3>Mutators:</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">wire_values</span></code>: A tuple of values of the wires in the bus.</li>
 </ul>
 </div>
 </div>
 <div class="section" id="bus16">
-<span id="id22"></span><h2>Bus16</h2>
+<span id="id23"></span><h2>Bus16</h2>
 <div class="section" id="class-bw-wire-bus16">
 <h3>Class <code class="docutils literal"><span class="pre">bw.wire.Bus16</span></code></h3>
 <p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/BUS.py">bitwise/wire/BUS.py</a>.</p>
 <p>16-bit bus.</p>
 </div>
-<div class="section" id="id24">
+<div class="section" id="id25">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">wire_1</span><span class="p">,</span>
@@ -306,29 +318,35 @@
 </pre></div>
 </div>
 <p>Initialize a new 16-bit bus.</p>
-<div class="section" id="id25">
+<div class="section" id="id26">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">wire_1</span></code>, <code class="docutils literal"><span class="pre">wire_2</span></code>, … , <code class="docutils literal"><span class="pre">wire_16</span></code> (optional): Objects of type <code class="docutils literal"><span class="pre">Wire</span></code>. If not given, new wires will be created, which can then only be accessed by indexing the bus.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id26">
+<div class="section" id="id27">
 <h3>Accessors:</h3>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">bus.wires</span></code>: A tuple of the wires in the bus.</li>
-<li><code class="docutils literal"><span class="pre">bus.wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">wires</span></code>: A tuple of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+</ul>
+</div>
+<div class="section" id="id28">
+<h3>Mutators:</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">wire_values</span></code>: A tuple of values of the wires in the bus.</li>
 </ul>
 </div>
 </div>
 <div class="section" id="bussevensegmentdisplay">
-<span id="id27"></span><h2>BusSevenSegmentDisplay</h2>
+<span id="id29"></span><h2>BusSevenSegmentDisplay</h2>
 <div class="section" id="class-bw-wire-bussevensegmentdisplay">
 <h3>Class <code class="docutils literal"><span class="pre">bw.wire.BusSevenSegmentDisplay</span></code></h3>
 <p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/BUS.py">bitwise/wire/BUS.py</a>.</p>
 <p>Bus for output to a seven-segment display.</p>
 </div>
-<div class="section" id="id29">
+<div class="section" id="id31">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">wire_1</span><span class="p">,</span>
@@ -342,29 +360,35 @@
 </pre></div>
 </div>
 <p>Initialize a new seven-segment display bus.</p>
-<div class="section" id="id30">
+<div class="section" id="id32">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">wire_1</span></code>, <code class="docutils literal"><span class="pre">wire_2</span></code>, … , <code class="docutils literal"><span class="pre">wire_7</span></code> (optional): Objects of type <code class="docutils literal"><span class="pre">Wire</span></code>. If not given, new wires will be created, which can then only be accessed by indexing the bus.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id31">
+<div class="section" id="id33">
 <h3>Accessors:</h3>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">bus.wires</span></code>: A tuple of the wires in the bus.</li>
-<li><code class="docutils literal"><span class="pre">bus.wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">wires</span></code>: A tuple of the wires in the bus.</li>
+<li><code class="docutils literal"><span class="pre">wire_values</span></code>: A tuple of values of the wires in the bus.</li>
+</ul>
+</div>
+<div class="section" id="id34">
+<h3>Mutators:</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">wire_values</span></code>: A tuple of values of the wires in the bus.</li>
 </ul>
 </div>
 </div>
 <div class="section" id="tristatebuffer">
-<span id="id32"></span><h2>TristateBuffer</h2>
+<span id="id35"></span><h2>TristateBuffer</h2>
 <div class="section" id="class-bw-wire-tristatebuffer">
 <h3>Class <code class="docutils literal"><span class="pre">bw.wire.TristateBuffer</span></code></h3>
 <p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/TRI.py">bitwise/wire/TRI.py</a>.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Three-state_logic">Tri-state buffer</a>.</p>
 </div>
-<div class="section" id="id33">
+<div class="section" id="id36">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">enable</span><span class="p">,</span>
@@ -374,7 +398,7 @@
 </pre></div>
 </div>
 <p>Initialize a new tri-state buffer.</p>
-<div class="section" id="id34">
+<div class="section" id="id37">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">enable</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>.</li>
@@ -384,20 +408,22 @@
 </div>
 </div>
 </div>
-<div class="section" id="id35">
-<span id="id36"></span><h2>Wire</h2>
+<div class="section" id="id38">
+<span id="id39"></span><h2>Wire</h2>
 <div class="section" id="class-bw-wire-wire">
 <h3>Class <code class="docutils literal"><span class="pre">bw.wire.Wire</span></code></h3>
 <p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/WIRE.py">bitwise/wire/WIRE.py</a>.</p>
 <p>A wire, with either a 0 or 1 integer value.</p>
 </div>
-<div class="section" id="id37">
+<div class="section" id="id40">
 <h3>__init__</h3>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">()</span>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
+    <span class="n">value</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<p>Initialize a new wire with value 0.</p>
-<p>After initialization, the value of the wire can be both accessed and mutated using <code class="docutils literal"><span class="pre">wire.value</span></code>. For example:</p>
+<p>Initialize a new wire with default value 0.</p>
+<p>After instantiation, the value of the wire can be both accessed and mutated using <code class="docutils literal"><span class="pre">wire.value</span></code>. For example:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">import</span> <span class="nn">bitwise</span> <span class="k">as</span> <span class="nn">bw</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">bw</span><span class="o">.</span><span class="n">wire</span><span class="o">.</span><span class="n">Wire</span><span class="p">()</span>
@@ -411,12 +437,24 @@
 <span class="n">Out</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<div class="section" id="id38">
+<div class="section" id="id41">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">ValueError</span></code>: If value assigned to wire is not 0 or 1.</li>
 </ul>
 </div>
+</div>
+<div class="section" id="id42">
+<h3>Accessors:</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">value</span></code>: The value of the wire.</li>
+</ul>
+</div>
+<div class="section" id="id43">
+<h3>Mutators:</h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">value</span></code>: The value of the wire.</li>
+</ul>
 </div>
 </div>
 </div>

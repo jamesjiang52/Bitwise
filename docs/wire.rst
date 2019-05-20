@@ -145,8 +145,12 @@ Args:
 
 Accessors:
 ----------
-* ``bus.wires``: A tuple of the wires in the bus.
-* ``bus.wire_values``: A tuple of values of the wires in the bus.
+* ``wires``: A tuple of the wires in the bus.
+* ``wire_values``: A tuple of values of the wires in the bus.
+
+Mutators:
+---------
+* ``wire_values``: A tuple of values of the wires in the bus.
 
 
 .. _Bus8:
@@ -185,8 +189,12 @@ Args:
 
 Accessors:
 ----------
-* ``bus.wires``: A tuple of the wires in the bus.
-* ``bus.wire_values``: A tuple of values of the wires in the bus.
+* ``wires``: A tuple of the wires in the bus.
+* ``wire_values``: A tuple of values of the wires in the bus.
+
+Mutators:
+---------
+* ``wire_values``: A tuple of values of the wires in the bus.
 
 
 .. _Bus16:
@@ -233,8 +241,12 @@ Args:
 
 Accessors:
 ----------
-* ``bus.wires``: A tuple of the wires in the bus.
-* ``bus.wire_values``: A tuple of values of the wires in the bus.
+* ``wires``: A tuple of the wires in the bus.
+* ``wire_values``: A tuple of values of the wires in the bus.
+
+Mutators:
+---------
+* ``wire_values``: A tuple of values of the wires in the bus.
 
 
 .. _BusSevenSegmentDisplay:
@@ -272,8 +284,12 @@ Args:
 
 Accessors:
 ----------
-* ``bus.wires``: A tuple of the wires in the bus.
-* ``bus.wire_values``: A tuple of values of the wires in the bus.
+* ``wires``: A tuple of the wires in the bus.
+* ``wire_values``: A tuple of values of the wires in the bus.
+
+Mutators:
+---------
+* ``wire_values``: A tuple of values of the wires in the bus.
 
 
 .. _TristateBuffer:
@@ -325,11 +341,13 @@ __init__
 
 ::
 
-    __init__()
+    __init__(
+        value=0
+    )
 
-Initialize a new wire with value 0.
+Initialize a new wire with default value 0.
 
-After initialization, the value of the wire can be both accessed and mutated using ``wire.value``. For example::
+After instantiation, the value of the wire can be both accessed and mutated using ``wire.value``. For example::
 
     In [1]: import bitwise as bw
     
@@ -346,3 +364,11 @@ After initialization, the value of the wire can be both accessed and mutated usi
 Raises:
 ~~~~~~~
 * ``ValueError``: If value assigned to wire is not 0 or 1.
+
+Accessors:
+----------
+* ``value``: The value of the wire.
+
+Mutators:
+---------
+* ``value``: The value of the wire.
