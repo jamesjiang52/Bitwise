@@ -12,7 +12,7 @@ setup(
     description="Bitwise is a library for utilizing Python as a hardware description language",
     long_description=readme(),
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
         "Operating System :: OS Independent",
