@@ -47,6 +47,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``sum_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit adder. 
+
+::
+
+    carry_in: 0
+    a_bus: (0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0)
+    carry_out: 0
+    sum_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        carry_in=None,
+        a_bus=None,
+        b_bus=None,
+        carry_out=None,
+        sum_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit adder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Adder8:
 
@@ -90,6 +124,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``sum_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit adder. 
+
+::
+
+    carry_in: 0
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    carry_out: 0
+    sum_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        carry_in=None,
+        a_bus=None,
+        b_bus=None,
+        carry_out=None,
+        sum_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit adder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Adder16:
 
@@ -132,6 +200,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``sum_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit adder. 
+
+::
+
+    carry_in: 0
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    carry_out: 0
+    sum_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        carry_in=None,
+        a_bus=None,
+        b_bus=None,
+        carry_out=None,
+        sum_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit adder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _AdderSubtractor4:
@@ -178,6 +280,42 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``sum_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit adder-subtractor. 
+
+::
+
+    add_subtract: 0
+    a_bus: (0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0)
+    overflow: 0
+    carry_out: 0
+    sum_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        add_subtract=None,
+        a_bus=None,
+        b_bus=None,
+        overflow=None,
+        carry_out=None,
+        sum_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit adder-subtractor.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _AdderSubtractor8:
 
@@ -222,6 +360,42 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``sum_bus`` is not a bus of width 8.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit adder-subtractor. 
+
+::
+
+    add_subtract: 0
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    overflow: 0
+    carry_out: 0
+    sum_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        add_subtract=None,
+        a_bus=None,
+        b_bus=None,
+        overflow=None,
+        carry_out=None,
+        sum_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit adder-subtractor.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _AdderSubtractor16:
@@ -268,6 +442,42 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``sum_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit adder-subtractor. 
+
+::
+
+    add_subtract: 0
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    overflow: 0
+    carry_out: 0
+    sum_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        add_subtract=None,
+        a_bus=None,
+        b_bus=None,
+        overflow=None,
+        carry_out=None,
+        sum_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit adder-subtractor.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _FullAdder:
 
@@ -307,6 +517,40 @@ Args:
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
 * ``sum``: An object of type ``Wire``. The sum of the two addends.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the full adder. 
+
+::
+
+    carry_in: 0
+    a: 0
+    b: 0
+    carry_out: 0
+    sum: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        carry_in=None,
+        a=None,
+        b=None,
+        carry_out=None,
+        sum=None
+    )
+    
+Force specific values on the wires of the full adder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _HalfAdder:
 
@@ -343,6 +587,38 @@ Args:
 * ``b``: An object of type ``Wire``. The second addend.
 * ``carry_out``: An object of type ``Wire``. The carry-out of the adder.
 * ``sum``: An object of type ``Wire``. The sum of the two addends.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the half adder. 
+
+::
+
+    a: 0
+    b: 0
+    carry_out: 0
+    sum: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a=None,
+        b=None,
+        carry_out=None,
+        sum=None
+    )
+    
+Force specific values on the wires of the half adder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Multiplier2:
@@ -387,6 +663,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``product_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 2-bit unsigned multiplier. 
+
+::
+
+    a_1: 0
+    a_2: 0
+    b_1: 0
+    b_2: 0
+    product_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_1=None,
+        a_2=None,
+        b_1=None,
+        b_2=None,
+        product_bus=None
+    )
+    
+Force specific values on the wires of the 2-bit unsigned multiplier.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Multiplier4:
 
@@ -426,6 +736,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus`` or ``b_bus`` is not a bus of width 4, or if ``product_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit unsigned multiplier. 
+
+::
+
+    a_bus: (0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0)
+    product_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        product_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit unsigned multiplier.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Multiplier8:
 
@@ -464,3 +804,33 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus`` or ``b_bus`` is not a bus of width 8, or if ``product_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit unsigned multiplier. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    product_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        product_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit unsigned multiplier.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.

@@ -68,6 +68,42 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 16, or if ``fn_select_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the ALU. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    function_select_bus: (0, 0, 0, 0)
+    overflow: 0
+    carry_out: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        function_select_bus=None,
+        overflow=None,
+        carry_out=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the ALU.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ConditionCodeFlags:
 
@@ -119,6 +155,48 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``data_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the condition code flag flip-flops. 
+
+::
+
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    overflow: 0
+    carry_out: 0
+    enable: 0
+    clock: 0
+    z: 0
+    v: 0
+    n: 0
+    c: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        overflow=None, 
+        carry_out=None,
+        enable=None,
+        clock=None, 
+        z=None, 
+        v=None, 
+        n=None, 
+        c=None
+    )
+    
+Force specific values on the wires of the condition code flag flip-flops.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ProgramCounter:
 
@@ -162,6 +240,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the program counter. 
+
+::
+
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    up: 0
+    load: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        up=None, 
+        load=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the program counter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _StackPointer:
 
@@ -202,3 +314,35 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the stack pointer. 
+
+::
+
+    up: 0
+    down: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        up=None, 
+        down=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the stack pointer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.

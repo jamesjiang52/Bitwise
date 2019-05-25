@@ -159,6 +159,33 @@
 </ul>
 </div>
 </div>
+<div class="section" id="str">
+<h3>__str__</h3>
+<p>Print out the wire values of the ALU.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+function_select_bus: (0, 0, 0, 0)
+overflow: 0
+carry_out: 0
+output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+</pre></div>
+</div>
+</div>
+<div class="section" id="call">
+<h3>__call__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__call__</span><span class="p">(</span>
+    <span class="n">a_bus</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">b_bus</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">function_select_bus</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">overflow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">output_bus</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Force specific values on the wires of the ALU.</p>
+<p>Note that this method takes <cite>zero</cite> positional arguments; all values must be given as keyword arguments.</p>
+</div>
 </div>
 <div class="section" id="conditioncodeflags">
 <span id="id2"></span><h2>ConditionCodeFlags</h2>
@@ -204,15 +231,48 @@
 </ul>
 </div>
 </div>
+<div class="section" id="id6">
+<h3>__str__</h3>
+<p>Print out the wire values of the condition code flag flip-flops.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>data_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+overflow: 0
+carry_out: 0
+enable: 0
+clock: 0
+z: 0
+v: 0
+n: 0
+c: 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>__call__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__call__</span><span class="p">(</span>
+    <span class="n">data_bus</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">overflow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">carry_out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">enable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">clock</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">v</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">c</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Force specific values on the wires of the condition code flag flip-flops.</p>
+<p>Note that this method takes <cite>zero</cite> positional arguments; all values must be given as keyword arguments.</p>
+</div>
 </div>
 <div class="section" id="programcounter">
-<span id="id6"></span><h2>ProgramCounter</h2>
+<span id="id8"></span><h2>ProgramCounter</h2>
 <div class="section" id="class-bw-processor-programcounter">
 <h3>Class <code class="docutils literal"><span class="pre">bw.processor.ProgramCounter</span></code></h3>
 <img alt="_images/ProgramCounter.svg" src="_images/ProgramCounter.svg" width="800px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/processor/PC.py">bitwise/processor/PC.py</a>.</p>
 <p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Program_counter">program counter</a>.</p>
 </div>
-<div class="section" id="id7">
+<div class="section" id="id9">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">data_bus</span><span class="p">,</span>
@@ -224,7 +284,7 @@
 </pre></div>
 </div>
 <p>Construct a new program counter with a 16-bit address space.</p>
-<div class="section" id="id8">
+<div class="section" id="id10">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">data_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>.</li>
@@ -234,22 +294,47 @@
 <li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The address of the instruction to be executed.</li>
 </ul>
 </div>
-<div class="section" id="id9">
+<div class="section" id="id11">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If either <code class="docutils literal"><span class="pre">data_bus</span></code> or <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
 </ul>
 </div>
 </div>
+<div class="section" id="id12">
+<h3>__str__</h3>
+<p>Print out the wire values of the program counter.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>data_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+up: 0
+load: 0
+clock: 0
+output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>__call__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__call__</span><span class="p">(</span>
+    <span class="n">data_bus</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">up</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">load</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">clock</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">output_bus</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Force specific values on the wires of the program counter.</p>
+<p>Note that this method takes <cite>zero</cite> positional arguments; all values must be given as keyword arguments.</p>
+</div>
 </div>
 <div class="section" id="stackpointer">
-<span id="id10"></span><h2>StackPointer</h2>
+<span id="id14"></span><h2>StackPointer</h2>
 <div class="section" id="class-bw-processor-stackpointer">
 <h3>Class <code class="docutils literal"><span class="pre">bw.processor.StackPointer</span></code></h3>
 <img alt="_images/StackPointer.svg" src="_images/StackPointer.svg" width="600px" /><p>Defined in <a class="reference external" href="https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/processor/SP.py">bitwise/processor/SP.py</a>.</p>
 <p>16-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Stack_register">stack pointer</a>.</p>
 </div>
-<div class="section" id="id11">
+<div class="section" id="id15">
 <h3>__init__</h3>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__init__</span><span class="p">(</span>
     <span class="n">up</span><span class="p">,</span>
@@ -260,7 +345,7 @@
 </pre></div>
 </div>
 <p>Construct a new stack pointer to a 16-bit address space.</p>
-<div class="section" id="id12">
+<div class="section" id="id16">
 <h4>Args:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">up</span></code>: An object of type <code class="docutils literal"><span class="pre">Wire</span></code>. If its value is 1, increments the stack pointer on the positive clock edge.</li>
@@ -269,12 +354,35 @@
 <li><code class="docutils literal"><span class="pre">output_bus</span></code>: An object of type <code class="docutils literal"><span class="pre">Bus16</span></code>. The address on top of the stack.</li>
 </ul>
 </div>
-<div class="section" id="id13">
+<div class="section" id="id17">
 <h4>Raises:</h4>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">TypeError</span></code>: If <code class="docutils literal"><span class="pre">output_bus</span></code> is not a bus of width 16.</li>
 </ul>
 </div>
+</div>
+<div class="section" id="id18">
+<h3>__str__</h3>
+<p>Print out the wire values of the stack pointer.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>up: 0
+down: 0
+clock: 0
+output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id19">
+<h3>__call__</h3>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="fm">__call__</span><span class="p">(</span>
+    <span class="n">up</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">down</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">clock</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">output_bus</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Force specific values on the wires of the stack pointer.</p>
+<p>Note that this method takes <cite>zero</cite> positional arguments; all values must be given as keyword arguments.</p>
 </div>
 </div>
 </div>

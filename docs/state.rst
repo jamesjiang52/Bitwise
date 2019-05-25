@@ -46,6 +46,44 @@ Args:
 * ``output_1``: An object of type ``Wire``. The most significant bit of the output.
 * ``output_2``: An object of type ``Wire``. The least significant bit of the output.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the mod-4 down counter. 
+
+::
+
+    enable: 0
+    load_n: 0
+    load_1: 0
+    load_2: 0
+    clock: 0
+    output_1: 0
+    output_2: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        load_n=None,
+        load_1=None,
+        load_2=None,
+        clock=None,
+        output_1=None,
+        output_2=None
+    )
+    
+Force specific values on the wires of the mod-4 down counter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _DownCounterMod8:
 
@@ -93,6 +131,48 @@ Args:
 * ``output_2``: An object of type ``Wire``.
 * ``output_3``: An object of type ``Wire``. The least significant bit of the output.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the mod-8 down counter. 
+
+::
+
+    enable: 0
+    load_n: 0
+    load_1: 0
+    load_2: 0
+    load_3: 0
+    clock: 0
+    output_1: 0
+    output_2: 0
+    output_3: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        load_n=None,
+        load_1=None,
+        load_2=None,
+        load_3=None,
+        clock=None,
+        output_1=None,
+        output_2=None,
+        output_3=None
+    )
+    
+Force specific values on the wires of the mod-8 down counter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _DownCounterMod16:
 
@@ -135,6 +215,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``load_bus`` or ``output_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the mod-16 down counter. 
+
+::
+
+    enable: 0
+    load_n: 0
+    load_bus: (0, 0, 0, 0)
+    clock: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        load_n=None,
+        load_bus=None,
+        clock=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the mod-16 down counter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _ParallelToSerialConverter4To1:
@@ -181,6 +295,42 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``data_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit-parallel-to-serial converter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    load_n: 0
+    data_bus: (0, 0, 0, 0)
+    clock: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        load_n=None,
+        data_bus=None,
+        clock=None,
+        output=None
+    )
+    
+Force specific values on the wires of the 4-bit-parallel-to-serial converter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ParallelToSerialConverter8To1:
 
@@ -225,6 +375,42 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``data_bus`` is not a bus of width 8.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit-parallel-to-serial converter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    load_n: 0
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    clock: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        load_n=None,
+        data_bus=None,
+        clock=None,
+        output=None
+    )
+    
+Force specific values on the wires of the 8-bit-parallel-to-serial converter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _ParallelToSerialConverter16To1:
@@ -271,6 +457,42 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``data_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit-parallel-to-serial converter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    load_n: 0
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    clock: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        load_n=None,
+        data_bus=None,
+        clock=None,
+        output=None
+    )
+    
+Force specific values on the wires of the 16-bit-parallel-to-serial converter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _RingCounter4:
 
@@ -311,6 +533,38 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit ring counter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit ring counter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _RingCounter8:
@@ -353,6 +607,38 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit ring counter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit ring counter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _RingCounter16:
 
@@ -393,6 +679,38 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit ring counter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit ring counter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _SerialToParallelConverter1To4:
@@ -437,6 +755,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the serial-to-4-bit-parallel converter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    data: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        data=None,
+        clock=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the serial-to-4-bit-parallel converter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _SerialToParallelConverter1To8:
 
@@ -480,6 +832,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the serial-to-8-bit-parallel converter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    data: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        data=None,
+        clock=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the serial-to-8-bit-parallel converter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _SerialToParallelConverter1To16:
 
@@ -522,6 +908,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the serial-to-16-bit-parallel converter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    data: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        data=None,
+        clock=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the serial-to-16-bit-parallel converter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _ShiftRegister4:
@@ -572,6 +992,46 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit shift register. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    shift_load: 0
+    data_bus: (0, 0, 0, 0)
+    data_serial: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0)
+    output_serial: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        shift_load=None,
+        data_bus=None,
+        data_serial=None,
+        clock=None,
+        output_bus=None,
+        output_serial=None
+    )
+    
+Force specific values on the wires of the 4-bit shift register.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ShiftRegister8:
 
@@ -620,6 +1080,46 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 8.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit shift register. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    shift_load: 0
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    data_serial: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_serial: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        shift_load=None,
+        data_bus=None,
+        data_serial=None,
+        clock=None,
+        output_bus=None,
+        output_serial=None
+    )
+    
+Force specific values on the wires of the 8-bit shift register.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _ShiftRegister16:
@@ -670,6 +1170,46 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit shift register. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    shift_load: 0
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    data_serial: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_serial: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        shift_load=None,
+        data_bus=None,
+        data_serial=None,
+        clock=None,
+        output_bus=None,
+        output_serial=None
+    )
+    
+Force specific values on the wires of the 16-bit shift register.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _UpCounterMod4:
 
@@ -708,6 +1248,40 @@ Args:
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the counter.
 * ``output_1``: An object of type ``Wire``. The most significant bit of the output.
 * ``output_2``: An object of type ``Wire``. The least significant bit of the output.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the mod-4 up counter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    clock: 0
+    output_1: 0
+    output_2: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_1=None,
+        output_2=None
+    )
+    
+Force specific values on the wires of the mod-4 up counter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _UpCounterMod8:
@@ -750,6 +1324,42 @@ Args:
 * ``output_2``: An object of type ``Wire``.
 * ``output_3``: An object of type ``Wire``. The least significant bit of the output.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the mod-8 up counter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    clock: 0
+    output_1: 0
+    output_2: 0
+    output_3: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_1=None,
+        output_2=None,
+        output_3=None
+    )
+    
+Force specific values on the wires of the mod-8 up counter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _UpCounterMod16:
 
@@ -790,3 +1400,35 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the mod-16 up counter. 
+
+::
+
+    enable: 0
+    clear_n: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        clear_n=None,
+        clock=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the mod-16 up counter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.

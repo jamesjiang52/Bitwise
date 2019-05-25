@@ -43,6 +43,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit controlled inverter. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit controlled inverter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ControlledInverter8:
 
@@ -82,6 +112,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit controlled inverter. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit controlled inverter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ControlledInverter16:
 
@@ -120,6 +180,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit controlled inverter. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit controlled inverter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Decoder1Of4:
@@ -161,6 +251,38 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 1-of-4 decoder. 
+
+::
+
+    enable: 0
+    input_1: 0
+    input_2: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_1=None,
+        input_2=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 1-of-4 decoder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Decoder1Of8:
@@ -205,6 +327,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 1-of-8 decoder. 
+
+::
+
+    enable: 0
+    input_1: 0
+    input_2: 0
+    input_3: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 1-of-8 decoder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Decoder1Of16:
 
@@ -244,6 +400,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 4, or if ``output_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 1-of-16 decoder. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 1-of-16 decoder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Demultiplexer1To2:
 
@@ -282,6 +468,40 @@ Args:
 * ``input``: An object of type ``Wire``. The data input to the demultiplexer.
 * ``output_1``: An object of type ``Wire``. Takes on the value of ``input`` if the value of ``select`` is 1.
 * ``output_2``: An object of type ``Wire``. Takes on the value of ``input`` if the value of ``select`` is 0.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 1-to-2 demultiplexer. 
+
+::
+
+    enable: 0
+    select: 0
+    input: 0
+    output_1: 0
+    output_2: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        select=None,
+        input=None,
+        output_1=None,
+        output_2=None
+    )
+    
+Force specific values on the wires of the 1-to-2 demultiplexer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Demultiplexer1To4:
@@ -325,6 +545,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 1-to-4 demultiplexer. 
+
+::
+
+    enable: 0
+    select_1: 0
+    select_2: 0
+    input: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        select_1=None,
+        select_2=None,
+        input=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 1-to-4 demultiplexer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Demultiplexer1To8:
@@ -371,6 +625,42 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``output_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 1-to-8 demultiplexer. 
+
+::
+
+    enable: 0
+    select_1: 0
+    select_2: 0
+    select_3: 0
+    input: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        select_1=None,
+        select_2=None,
+        select_3=None,
+        input=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 1-to-8 demultiplexer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Demultiplexer1To16:
 
@@ -411,6 +701,38 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``select_bus`` is not a bus of width 4, or if ``output_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 1-to-16 demultiplexer. 
+
+::
+
+    enable: 0
+    select_bus: (0, 0, 0, 0)
+    input: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        select_bus=None,
+        input=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 1-to-16 demultiplexer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Encoder4To2:
@@ -454,6 +776,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-to-2 priority encoder. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0)
+    valid: 0
+    output_1: 0
+    output_2: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        valid=None,
+        output_1=None,
+        output_2=None
+    )
+    
+Force specific values on the wires of the 4-to-2 priority encoder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Encoder8To3:
@@ -500,6 +856,42 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-to-3 priority encoder. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    valid: 0
+    output_1: 0
+    output_2: 0
+    output_3: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        valid=None,
+        output_1=None,
+        output_2=None,
+        output_3=None
+    )
+    
+Force specific values on the wires of the 8-to-3 priority encoder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Encoder16To4:
 
@@ -541,6 +933,38 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 16, or if ``output_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-to-4 priority encoder. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    valid: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        valid=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-to-4 priority encoder.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Multiplexer2To1:
 
@@ -579,6 +1003,40 @@ Args:
 * ``input_1``: An object of type ``Wire``. The first data input to the multiplexer.
 * ``input_2``: An object of type ``Wire``. The second data input to the multiplexer.
 * ``output``: An object of type ``Wire``. The output of the multiplexer. Takes on the value of ``input_1`` for a 1 select and ``input_2`` for a 0 select.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 2-to-1 multiplexer. 
+
+::
+
+    enable: 0
+    select: 0
+    input_1: 0
+    input_2: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        select=None,
+        input_1=None,
+        input_2=None,
+        output=None
+    )
+    
+Force specific values on the wires of the 2-to-1 multiplexer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Multiplexer4To1:
@@ -622,6 +1080,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-to-1 multiplexer. 
+
+::
+
+    enable: 0
+    select_1: 0
+    select_2: 0
+    input_bus: (0, 0, 0, 0)
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        select_1=None,
+        select_2=None,
+        input_bus=None,
+        output=None
+    )
+    
+Force specific values on the wires of the 4-to-1 multiplexer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Multiplexer8To1:
@@ -668,6 +1160,42 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-to-1 multiplexer. 
+
+::
+
+    enable: 0
+    select_1: 0
+    select_2: 0
+    select_3: 0
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        select_1=None,
+        select_2=None,
+        select_3=None,
+        input_bus=None,
+        output=None
+    )
+    
+Force specific values on the wires of the 8-to-1 multiplexer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Multiplexer16To1:
 
@@ -709,6 +1237,38 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``select_bus`` is not a bus of width 4, or if ``input_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-to-1 multiplexer. 
+
+::
+
+    enable: 0
+    select_bus: (0, 0, 0, 0)
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        select_bus=None,
+        input_bus=None,
+        output=None
+    )
+    
+Force specific values on the wires of the 16-to-1 multiplexer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _SevenSegmentConverter:
 
@@ -747,6 +1307,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 4, or if ``output_bus`` is not a bus of width 7.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the seven-segment converter. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the seven-segment converter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _SevenSegmentConverterDual:
@@ -788,6 +1378,38 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 8, or if either ``output_bus_1`` or ``output_bus_2`` is not a bus of width 7.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the dual seven-segment converter. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus_1: (0, 0, 0, 0, 0, 0, 0)
+    output_bus_2: (0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus_1=None,
+        output_bus_2=None
+    )
+    
+Force specific values on the wires of the dual seven-segment converter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _SevenSegmentConverterQuad:
@@ -833,3 +1455,39 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 16, or if either ``output_bus_1``, ``output_bus_2``, ``output_bus_3``, or ``output_bus_4`` is not a bus of width 7.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the quad seven-segment converter. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus_1: (0, 0, 0, 0, 0, 0, 0)
+    output_bus_2: (0, 0, 0, 0, 0, 0, 0)
+    output_bus_3: (0, 0, 0, 0, 0, 0, 0)
+    output_bus_4: (0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus_1=None,
+        output_bus_2=None,
+        output_bus_3=None,
+        output_bus_4=None
+    )
+    
+Force specific values on the wires of the quad seven-segment converter.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.

@@ -3,20 +3,20 @@ The following classes are defined:
     Clock
 """
 
-import _thread
-
 
 class Clock:
-    """
-    This class simulates a clock, which allows for synchronous operations in
-    logic circuits. It has a 50% duty cycle, oscillating between the values 0
-    and 1.
+    """Initialize a new clock with value 0. After initialization, the value of
+    the clock can be both accessed and mutated using clock.value.
 
-    (As of now, this clock has no timer, and simply oscillates between 0 and 1
-    as fast as Python and the OS allows.)
+    Raises:
+        ValueError: If value assigned to clock is not 0 or 1.
     """
-    def __init__(self):
-        self._value = 0
+    def __init__(self, value=0):
+        if ((value != 0) and (value != 1)):
+            raise ValueError(
+                "Clock value must be 0 or 1, received \"{0}\".".format(value))
+
+        self._value = value
         self.connections = []
 
     @property
@@ -27,23 +27,16 @@ class Clock:
     def value(self, value):
         if ((value != 0) and (value != 1)):
             raise ValueError(
-                "Wire value must be 0 or 1, received \"{0}\".".format(value))
+                "Clock value must be 0 or 1, received \"{0}\".".format(value))
 
-        self._value = value
-        for callback in self.connections:
-            callback(self._value)
+        if value != self._value:
+            self._value = value
+            for callback in self.connections:
+                callback(self._value)
 
     def _bind_to(self, callback):
-        self.connections.append(callback)
-
-    def _oscillate(self):
-        # no actual timer right now, will find out how to implement later
-        while True:
-            self.value = 0
-            self.value = 1
-
-    def start(self):
-        _thread.start_new_thread(self._oscillate, ())
+        if callback not in self.connections:
+            self.connections.append(callback)
 
     def __str__(self):
         return str(self._value)

@@ -6,8 +6,6 @@ class TestClock:
         clock = bw.wire.Clock()
         assert clock.value == 0
 
-        # clock.start()
-
         clock.value = 1
         assert clock.value == 1
 

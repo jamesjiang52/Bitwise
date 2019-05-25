@@ -40,6 +40,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit-wide tri-state buffer. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit-wide tri-state buffer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BufferBus8:
 
@@ -75,6 +105,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 8.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit-wide tri-state buffer. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit-wide tri-state buffer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _BufferBus16:
@@ -112,6 +172,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit-wide tri-state buffer. 
+
+::
+
+    enable: 0
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit-wide tri-state buffer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Bus4:
 
@@ -142,6 +232,33 @@ Initialize a new 4-bit bus.
 Args:
 ~~~~~
 * ``wire_1``, ``wire_2``, ... , ``wire_4`` (optional): Objects of type ``Wire``. If not given, new wires will be created, which can then only be accessed by indexing the bus.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the bus. 
+
+::
+
+    (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        wire_1=None,
+        wire_2=None,
+        wire_3=None,
+        wire_4=None
+    )
+    
+Force specific values on the wires of the bus.
 
 Accessors:
 ----------
@@ -186,6 +303,37 @@ Initialize a new 8-bit bus.
 Args:
 ~~~~~
 * ``wire_1``, ``wire_2``, ... , ``wire_8`` (optional): Objects of type ``Wire``. If not given, new wires will be created, which can then only be accessed by indexing the bus.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the bus. 
+
+::
+
+    (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        wire_1=None,
+        wire_2=None,
+        wire_3=None,
+        wire_4=None,
+        wire_5=None,
+        wire_6=None,
+        wire_7=None,
+        wire_8=None
+    )
+    
+Force specific values on the wires of the bus.
 
 Accessors:
 ----------
@@ -239,6 +387,45 @@ Args:
 ~~~~~
 * ``wire_1``, ``wire_2``, ... , ``wire_16`` (optional): Objects of type ``Wire``. If not given, new wires will be created, which can then only be accessed by indexing the bus.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the bus. 
+
+::
+
+    (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        wire_1=None,
+        wire_2=None,
+        wire_3=None,
+        wire_4=None,
+        wire_5=None,
+        wire_6=None,
+        wire_7=None,
+        wire_8=None,
+        wire_9=None,
+        wire_10=None,
+        wire_11=None,
+        wire_12=None,
+        wire_13=None,
+        wire_14=None,
+        wire_15=None,
+        wire_16=None
+    )
+    
+Force specific values on the wires of the bus.
+
 Accessors:
 ----------
 * ``wires``: A tuple of the wires in the bus.
@@ -282,6 +469,36 @@ Args:
 ~~~~~
 * ``wire_1``, ``wire_2``, ... , ``wire_7`` (optional): Objects of type ``Wire``. If not given, new wires will be created, which can then only be accessed by indexing the bus.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the bus. 
+
+::
+
+    (0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        wire_1=None,
+        wire_2=None,
+        wire_3=None,
+        wire_4=None,
+        wire_5=None,
+        wire_6=None,
+        wire_7=None
+    )
+    
+Force specific values on the wires of the bus.
+
 Accessors:
 ----------
 * ``wires``: A tuple of the wires in the bus.
@@ -290,6 +507,82 @@ Accessors:
 Mutators:
 ---------
 * ``wire_values``: A tuple of values of the wires in the bus.
+
+
+.. _Clock:
+
+Clock
+=====
+
+Class ``bw.wire.Clock``
+-----------------------
+
+Defined in `bitwise/wire/CLK.py <https://github.com/jamesjiang52/Bitwise/blob/master/bitwise/wire/CLK.py>`_.
+
+A clock, with either a 0 or 1 integer value.
+
+This class is identical to the ``Wire`` class, only differing in semantic purposes.
+
+__init__
+--------
+
+::
+
+    __init__(
+        value=0
+    )
+
+Initialize a new clock with default value 0.
+
+After instantiation, the value of the clock can be both accessed and mutated using ``clock.value``. For example::
+
+    In [1]: import bitwise as bw
+    
+    In [2]: a = bw.wire.Clock()
+    
+    In [3]: a.value
+    Out[3]: 0
+    
+    In [4]: a.value = 1
+    
+    In [5]: a.value
+    Out[5]: 1
+
+Raises:
+~~~~~~~
+* ``ValueError``: If value assigned to clock is not 0 or 1.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the value of the clock. 
+
+::
+
+    0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        value=None
+    )
+    
+Force a specific value on the clock.
+
+Accessors:
+----------
+* ``value``: The value of the clock.
+
+Mutators:
+---------
+* ``value``: The value of the clock.
 
 
 .. _TristateBuffer:
@@ -322,6 +615,36 @@ Args:
 * ``enable``: An object of type ``Wire``.
 * ``input``: An object of type ``Wire``.
 * ``output``: An object of type ``Wire``. Takes on the value of ``input`` if ``enable`` has value 1. Otherwise, value is independent of ``input``.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the tri-state buffer. 
+
+::
+
+    enable: 0
+    input: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        enable=None,
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the tri-state buffer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Wire:
@@ -364,6 +687,30 @@ After instantiation, the value of the wire can be both accessed and mutated usin
 Raises:
 ~~~~~~~
 * ``ValueError``: If value assigned to wire is not 0 or 1.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the value of the wire. 
+
+::
+
+    0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        value=None
+    )
+    
+Force a specific value on the wire.
 
 Accessors:
 ----------

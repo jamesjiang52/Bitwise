@@ -43,6 +43,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit bitwise AND circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit bitwise AND circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseAND8:
 
@@ -81,6 +111,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 8.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit bitwise AND circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit bitwise AND circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _BitwiseAND16:
@@ -121,6 +181,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit bitwise AND circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit bitwise AND circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseNAND4:
 
@@ -159,6 +249,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit bitwise NAND circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit bitwise NAND circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _BitwiseNAND8:
@@ -199,6 +319,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit bitwise NAND circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit bitwise NAND circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseNAND16:
 
@@ -237,6 +387,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit bitwise NAND circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit bitwise NAND circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _BitwiseNOR4:
@@ -277,6 +457,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit bitwise NOR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit bitwise NOR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseNOR8:
 
@@ -315,6 +525,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 8.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit bitwise NOR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit bitwise NOR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _BitwiseNOR16:
@@ -355,6 +595,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit bitwise NOR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit bitwise NOR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseNOT4:
 
@@ -391,6 +661,34 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit bitwise NOT circuit. 
+
+::
+
+    input_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit bitwise NOT circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _BitwiseNOT8:
@@ -429,6 +727,34 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit bitwise NOT circuit. 
+
+::
+
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit bitwise NOT circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseNOT16:
 
@@ -465,6 +791,34 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``input_bus`` or ``output_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit bitwise NOT circuit. 
+
+::
+
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit bitwise NOT circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _BitwiseOR4:
@@ -505,6 +859,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit bitwise OR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit bitwise OR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseOR8:
 
@@ -543,6 +927,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 8.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit bitwise OR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit bitwise OR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _BitwiseOR16:
@@ -583,6 +997,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit bitwise OR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit bitwise OR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseXNOR4:
 
@@ -621,6 +1065,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit bitwise XNOR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit bitwise XNOR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _BitwiseXNOR8:
@@ -661,6 +1135,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit bitwise XNOR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit bitwise XNOR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseXNOR16:
 
@@ -699,6 +1203,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit bitwise XNOR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit bitwise XNOR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _BitwiseXOR4:
@@ -739,6 +1273,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit bitwise XOR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit bitwise XOR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseXOR8:
 
@@ -778,6 +1342,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit bitwise XOR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit bitwise XOR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _BitwiseXOR16:
 
@@ -816,6 +1410,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus``, ``b_bus``, or ``output_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit bitwise XOR circuit. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit bitwise XOR circuit.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Comparator3:
@@ -860,6 +1484,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus`` or ``b_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 3-bit logical comparator. 
+
+::
+
+    a_bus: (0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0)
+    greater_than: 0
+    equal_to: 0
+    less_than: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        greater_than=None,
+        equal_to=None,
+        less_than=None
+    )
+    
+Force specific values on the wires of the 3-bit logical comparator.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Comparator7:
 
@@ -902,6 +1560,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus`` or ``b_bus`` is not a bus of width 8.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 7-bit logical comparator. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    greater_than: 0
+    equal_to: 0
+    less_than: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        greater_than=None,
+        equal_to=None,
+        less_than=None
+    )
+    
+Force specific values on the wires of the 7-bit logical comparator.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Comparator15:
@@ -946,6 +1638,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``a_bus`` or ``b_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 15-bit logical comparator. 
+
+::
+
+    a_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    b_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    greater_than: 0
+    equal_to: 0
+    less_than: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        a_bus=None,
+        b_bus=None,
+        greater_than=None,
+        equal_to=None,
+        less_than=None
+    )
+    
+Force specific values on the wires of the 15-bit logical comparator.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ParityChecker4:
 
@@ -984,6 +1710,36 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit even parity checker. 
+
+::
+
+    input_bus: (0, 0, 0, 0)
+    parity_bit: 0
+    error: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_bus=None,
+        parity_bit=None,
+        error=None
+    )
+    
+Force specific values on the wires of the 4-bit even parity checker.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _ParityChecker8:
@@ -1024,6 +1780,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit even parity checker. 
+
+::
+
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    parity_bit: 0
+    error: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_bus=None,
+        parity_bit=None,
+        error=None
+    )
+    
+Force specific values on the wires of the 8-bit even parity checker.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ParityChecker16:
 
@@ -1063,6 +1849,36 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit even parity checker. 
+
+::
+
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    parity_bit: 0
+    error: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_bus=None,
+        parity_bit=None,
+        error=None
+    )
+    
+Force specific values on the wires of the 16-bit even parity checker.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ParityGenerator4:
 
@@ -1099,6 +1915,34 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit even parity generator. 
+
+::
+
+    input_bus: (0, 0, 0, 0)
+    parity_bit: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_bus=None,
+        parity_bit=None
+    )
+    
+Force specific values on the wires of the 4-bit even parity generator.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _ParityGenerator8:
@@ -1137,6 +1981,34 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit even parity generator. 
+
+::
+
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    parity_bit: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_bus=None,
+        parity_bit=None
+    )
+    
+Force specific values on the wires of the 8-bit even parity generator.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ParityGenerator16:
 
@@ -1173,3 +2045,31 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If ``input_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit even parity generator. 
+
+::
+
+    input_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    parity_bit: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_bus=None,
+        parity_bit=None
+    )
+    
+Force specific values on the wires of the 16-bit even parity generator.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.

@@ -39,6 +39,36 @@ Args:
 * ``input_2``: An object of type ``Wire``. The second input to the AND gate.
 * ``output``: An object of type ``Wire``. The output of the AND gate.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the AND gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        output=None
+    )
+    
+Force specific values on the wires of the AND gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _ANDGate3:
 
@@ -75,6 +105,38 @@ Args:
 * ``input_2``: An object of type ``Wire``. The second input to the AND gate.
 * ``input_3``: An object of type ``Wire``. The third input to the AND gate.
 * ``output``: An object of type ``Wire``. The output of the AND gate.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the AND gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    input_3: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        output=None
+    )
+    
+Force specific values on the wires of the AND gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _ANDGate4:
@@ -115,6 +177,40 @@ Args:
 * ``input_4``: An object of type ``Wire``. The fourth input to the AND gate.
 * ``output``: An object of type ``Wire``. The output of the AND gate.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the AND gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    input_3: 0
+    input_4: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        input_4=None,
+        output=None
+    )
+    
+Force specific values on the wires of the AND gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Buffer:
 
@@ -147,6 +243,34 @@ Args:
 ~~~~~
 * ``input``: An object of type ``Wire``. The input to the buffer.
 * ``output``: An object of type ``Wire``. The output of the buffer.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the buffer. 
+
+::
+
+    input: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input=None,
+        output=None
+    )
+    
+Force specific values on the wires of the buffer.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _IMPLYGate:
@@ -183,6 +307,36 @@ Args:
 * ``input_2``: An object of type ``Wire``. The second input to the IMPLY gate.
 * ``output``: An object of type ``Wire``. The output of the IMPLY gate.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the IMPLY gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        output=None
+    )
+    
+Force specific values on the wires of the IMPLY gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _NANDGate2:
 
@@ -217,6 +371,36 @@ Args:
 * ``input_1``: An object of type ``Wire``. The first input to the NAND gate.
 * ``input_2``: An object of type ``Wire``. The second input to the NAND gate.
 * ``output``: An object of type ``Wire``. The output of the NAND gate.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the NAND gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        output=None
+    )
+    
+Force specific values on the wires of the NAND gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _NANDGate3:
@@ -254,6 +438,38 @@ Args:
 * ``input_2``: An object of type ``Wire``. The second input to the NAND gate.
 * ``input_3``: An object of type ``Wire``. The third input to the NAND gate.
 * ``output``: An object of type ``Wire``. The output of the NAND gate.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the NAND gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    input_3: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        output=None
+    )
+    
+Force specific values on the wires of the NAND gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _NANDGate4:
@@ -294,6 +510,40 @@ Args:
 * ``input_4``: An object of type ``Wire``. The fourth input to the NAND gate.
 * ``output``: An object of type ``Wire``. The output of the NAND gate.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the NAND gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    input_3: 0
+    input_4: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        input_4=None,
+        output=None
+    )
+    
+Force specific values on the wires of the NAND gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _NORGate2:
 
@@ -328,6 +578,36 @@ Args:
 * ``input_1``: An object of type ``Wire``. The first input to the NOR gate.
 * ``input_2``: An object of type ``Wire``. The second input to the NOR gate.
 * ``output``: An object of type ``Wire``. The output of the NOR gate.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the NOR gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        output=None
+    )
+    
+Force specific values on the wires of the NOR gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _NORGate3:
@@ -365,6 +645,38 @@ Args:
 * ``input_2``: An object of type ``Wire``. The second input to the NOR gate.
 * ``input_3``: An object of type ``Wire``. The third input to the NOR gate.
 * ``output``: An object of type ``Wire``. The output of the NOR gate.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the NOR gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    input_3: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        output=None
+    )
+    
+Force specific values on the wires of the NOR gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _NORGate4:
@@ -405,6 +717,40 @@ Args:
 * ``input_4``: An object of type ``Wire``. The fourth input to the NOR gate.
 * ``output``: An object of type ``Wire``. The output of the NOR gate.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the NOR gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    input_3: 0
+    input_4: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        input_4=None,
+        output=None
+    )
+    
+Force specific values on the wires of the NOR gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _NOTGate:
 
@@ -437,6 +783,34 @@ Args:
 ~~~~~
 * ``input``: An object of type ``Wire``. The input to the NOT gate.
 * ``output``: An object of type ``Wire``. The output of the NOT gate.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the NOT gate. 
+
+::
+
+    input: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input=None,
+        output=None
+    )
+    
+Force specific values on the wires of the NOT gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _ORGate2:
@@ -472,6 +846,36 @@ Args:
 * ``input_1``: An object of type ``Wire``. The first input to the OR gate.
 * ``input_2``: An object of type ``Wire``. The second input to the OR gate.
 * ``output``: An object of type ``Wire``. The output of the OR gate.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the OR gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        output=None
+    )
+    
+Force specific values on the wires of the OR gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _ORGate3:
@@ -509,6 +913,38 @@ Args:
 * ``input_2``: An object of type ``Wire``. The second input to the OR gate.
 * ``input_3``: An object of type ``Wire``. The third input to the OR gate.
 * ``output``: An object of type ``Wire``. The output of the OR gate.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the OR gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    input_3: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        output=None
+    )
+    
+Force specific values on the wires of the OR gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _ORGate4:
@@ -549,6 +985,40 @@ Args:
 * ``input_4``: An object of type ``Wire``. The fourth input to the OR gate.
 * ``output``: An object of type ``Wire``. The output of the OR gate.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the OR gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    input_3: 0
+    input_4: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        input_3=None,
+        input_4=None,
+        output=None
+    )
+    
+Force specific values on the wires of the OR gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _XNORGate2:
 
@@ -584,6 +1054,36 @@ Args:
 * ``input_2``: An object of type ``Wire``. The second input to the XNOR gate.
 * ``output``: An object of type ``Wire``. The output of the XNOR gate.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the XNOR gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        output=None
+    )
+    
+Force specific values on the wires of the XNOR gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _XORGate2:
 
@@ -618,3 +1118,33 @@ Args:
 * ``input_1``: An object of type ``Wire``. The first input to the XOR gate.
 * ``input_2``: An object of type ``Wire``. The second input to the XOR gate.
 * ``output``: An object of type ``Wire``. The output of the XOR gate.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the XOR gate. 
+
+::
+
+    input_1: 0
+    input_2: 0
+    output: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        input_1=None,
+        input_2=None,
+        output=None
+    )
+    
+Force specific values on the wires of the XOR gate.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.

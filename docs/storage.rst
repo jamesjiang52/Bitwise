@@ -41,6 +41,38 @@ Args:
 * ``output``: An object of type ``Wire``. The output of the flip-flop. Takes on the value of ``data`` on the positive edges of ``clock``.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the D flip-flop. 
+
+::
+
+    data: 0
+    clock: 0
+    output: 0
+    output_not: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data=None,
+        clock=None,
+        output=None,
+        output_not=None
+    )
+    
+Force specific values on the wires of the D flip-flop.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _DFlipFlopPresetClear:
 
@@ -82,6 +114,42 @@ Args:
 * ``output``: An object of type ``Wire``. The output of the flip-flop. Takes on the value of ``data`` on the positive edges of ``clock``.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the D flip-flop with preset/clear capabilities. 
+
+::
+
+    data: 0
+    preset_n: 0
+    clear_n: 0
+    clock: 0
+    output: 0
+    output_not: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data=None,
+        preset_n=None,
+        clear_n=None,
+        clock=None,
+        output=None,
+        output_not=None
+    )
+    
+Force specific values on the wires of the D flip-flop with preset/clear capabilities.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _GatedDLatch:
 
@@ -118,6 +186,38 @@ Args:
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the latch.
 * ``output``: An object of type ``Wire``. The output of the latch. Takes on the value of ``data`` if the value of ``clock`` is 1.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the gated D latch. 
+
+::
+
+    data: 0
+    clock: 0
+    output: 0
+    output_not: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data=None,
+        clock=None,
+        output=None,
+        output_not=None
+    )
+    
+Force specific values on the wires of the gated D latch.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _GatedSRLatch:
@@ -158,6 +258,40 @@ Args:
 * ``output``: An object of type ``Wire``. The output of the latch. When the value of ``clock`` is 1, takes on the value of 1 if the value of ``set`` is 1 and the value of 0 if the value of ``reset`` is 1.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the gated SR latch. 
+
+::
+
+    set: 0
+    reset: 0
+    clock: 0
+    output: 0
+    output_not: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        set=None,
+        reset=None,
+        clock=None,
+        output=None,
+        output_not=None
+    )
+    
+Force specific values on the wires of the gated SR latch.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _JKFlipFlop:
 
@@ -196,6 +330,40 @@ Args:
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the flip-flop.
 * ``output``: An object of type ``Wire``. The output of the flip-flop. On the positive edges of ``clock``, takes on the value of 1 if the value of ``J`` is 1, takes on the value of 0 if the value of ``K`` is 1, and toggles its value if both ``J`` and ``K`` have value 1.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the JK flip-flop. 
+
+::
+
+    J: 0
+    K: 0
+    clock: 0
+    output: 0
+    output_not: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        J=None,
+        K=None,
+        clock=None,
+        output=None,
+        output_not=None
+    )
+    
+Force specific values on the wires of the JK flip-flop.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _JKFlipFlopPresetClear:
@@ -240,6 +408,44 @@ Args:
 * ``output``: An object of type ``Wire``. The output of the flip-flop. On the positive edges of ``clock``, takes on the value of 1 if the value of ``J`` is 1, takes on the value of 0 if the value of ``K`` is 1, and toggles its value if both ``J`` and ``K`` have value 1.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the JK flip-flop with preset/clear capabilities. 
+
+::
+
+    J: 0
+    K: 0
+    preset_n: 0
+    clear_n: 0
+    clock: 0
+    output: 0
+    output_not: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        J=None,
+        K=None,
+        preset_n=None,
+        clear_n=None,
+        clock=None,
+        output=None,
+        output_not=None
+    )
+    
+Force specific values on the wires of the JK flip-flop with preset/clear capabilities.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _RAM16x4:
 
@@ -282,6 +488,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus``, ``address_bus``, or ``output_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the random access memory array. 
+
+::
+
+    data_bus: (0, 0, 0, 0)
+    address_bus: (0, 0, 0, 0)
+    write_enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        address_bus=None, 
+        write_enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the random access memory array.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _RAM256x4:
@@ -326,6 +566,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 4, or if ``address_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the random access memory array. 
+
+::
+
+    data_bus: (0, 0, 0, 0)
+    address_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    write_enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        address_bus=None, 
+        write_enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the random access memory array.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _RAM65536x4:
 
@@ -368,6 +642,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 4, or if ``address_bus`` is not a bus of width 16.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the random access memory array. 
+
+::
+
+    data_bus: (0, 0, 0, 0)
+    address_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    write_enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        address_bus=None, 
+        write_enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the random access memory array.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _RAM16x8:
@@ -412,6 +720,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 8, or if ``address_bus`` is not a bus of width 4.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the random access memory array. 
+
+::
+
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    address_bus: (0, 0, 0, 0)
+    write_enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        address_bus=None, 
+        write_enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the random access memory array.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _RAM256x8:
 
@@ -454,6 +796,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus``, ``address_bus``, or ``output_bus`` is not a bus of width 8.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the random access memory array. 
+
+::
+
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    address_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    write_enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        address_bus=None, 
+        write_enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the random access memory array.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _RAM65536x8:
@@ -498,6 +874,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 8, or if ``address_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the random access memory array. 
+
+::
+
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    address_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    write_enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        address_bus=None, 
+        write_enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the random access memory array.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _RAM16x16:
 
@@ -540,6 +950,40 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 16, or if ``address_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the random access memory array. 
+
+::
+
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    address_bus: (0, 0, 0, 0)
+    write_enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        address_bus=None, 
+        write_enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the random access memory array.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _RAM256x16:
@@ -584,6 +1028,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 16, or if ``address_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the random access memory array. 
+
+::
+
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    address_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    write_enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        address_bus=None, 
+        write_enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the random access memory array.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _RAM65536x16:
 
@@ -627,6 +1105,40 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus``, ``address_bus``, or ``output_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the random access memory array. 
+
+::
+
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    address_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    write_enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None, 
+        address_bus=None, 
+        write_enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the random access memory array.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Register4:
 
@@ -667,6 +1179,38 @@ Args:
 Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 4.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 4-bit storage register. 
+
+::
+
+    data_bus: (0, 0, 0, 0)
+    enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None,
+        enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 4-bit storage register.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _Register8:
@@ -709,6 +1253,38 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 8.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 8-bit storage register. 
+
+::
+
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+    enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None,
+        enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 8-bit storage register.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _Register16:
 
@@ -750,6 +1326,38 @@ Raises:
 ~~~~~~~
 * ``TypeError``: If either ``data_bus`` or ``output_bus`` is not a bus of width 16.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the 16-bit storage register. 
+
+::
+
+    data_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    enable: 0
+    clock: 0
+    output_bus: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        data_bus=None,
+        enable=None, 
+        clock=None, 
+        output_bus=None
+    )
+    
+Force specific values on the wires of the 16-bit storage register.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _SRLatch:
 
@@ -787,6 +1395,38 @@ Args:
 * ``output``: An object of type ``Wire``. The output of the latch. Takes on the value of 1 if the value of ``set`` is 1 and the value of 0 if the value of ``reset`` is 1.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
 
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the SR latch. 
+
+::
+
+    set: 0
+    reset: 0
+    output: 0
+    output_not: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        set=None,
+        reset=None,
+        output=None,
+        output_not=None
+    )
+    
+Force specific values on the wires of the SR latch.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
+
 
 .. _TFlipFlop:
 
@@ -823,6 +1463,38 @@ Args:
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the flip-flop.
 * ``output``: An object of type ``Wire``. The output of the flip-flop. Toggles its value on the positive edges of ``clock`` if the value of ``toggle`` is 1.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the T flip-flop. 
+
+::
+
+    toggle: 0
+    clock: 0
+    output: 0
+    output_not: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        toggle=None,
+        clock=None,
+        output=None,
+        output_not=None
+    )
+    
+Force specific values on the wires of the T flip-flop.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
 
 
 .. _TFlipFlopPresetClear:
@@ -864,3 +1536,39 @@ Args:
 * ``clock``: An object of type ``Wire`` or ``Clock``. The clock input to the flip-flop.
 * ``output``: An object of type ``Wire``. The output of the flip-flop. Toggles its value on the positive edges of ``clock`` if the value of ``toggle`` is 1.
 * ``output_not``: An object of type ``Wire``. The complemented form of ``output``.
+
+.. highlight:: none
+
+__str__
+-------
+
+Print out the wire values of the T flip-flop with preset/clear capabilities. 
+
+::
+
+    toggle: 0
+    preset_n: 0
+    clear_n: 0
+    clock: 0
+    output: 0
+    output_not: 0
+
+.. highlight:: python3
+    
+__call__
+--------
+
+::
+
+    __call__(
+        toggle=None,
+        preset_n=None,
+        clear_n=None,
+        clock=None,
+        output=None,
+        output_not=None
+    )
+    
+Force specific values on the wires of the T flip-flop with preset/clear capabilities.
+
+Note that this method takes `zero` positional arguments; all values must be given as keyword arguments.
